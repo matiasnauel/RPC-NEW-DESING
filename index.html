@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Main.Style.css">
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <!--estilos de boopstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--Link mapa-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="header" id="HeaderFloat">
+        <div class="main-header contenedor-header" id="mainHeader">
+            <div class="logo-main">
+               <a href="index.html"><img id="logomain" src="/img/logoajjaja-removebg-preview.ico" alt=""></a> 
+            </div>
+            <div class="Search-main contenedor">
+                <form class="paddLeft-50px" id="form">
+                    <input class="search" type="text" id="Search-main" placeholder="Buscar..">
+                    <span class="glyphicon glyphicon-search"></span>
+                </form>
+            </div>
+            <div class="Icons-main">
+                <div class="icons-user">
+                    <!-- <img src="/img/usuario (1).png" alt=""> -->
+                    <a href="#">Iniciar sesion</a>
+                    <a href="#">Registrarse</a>
+                    <a href="#" class="ocultar-usuario">MI cuenta </a>
+                </div>
+                <div class="icons-shopping-card" id="icons-shooping-card">
+                    <img src="/img/carrito-de-compras.png" alt="">
+                    <span id="cantidadCarrito">(0) <span id="precioTotal"></span>$0,00</span>
+                </div>
+            </div>
+          
+        </div>
+      
+    </header>
+    <div id="redline" >
+
+    </div><!--Linea roja-->
+    <!--Header-->
+    <div class="Barra"  >
+        <div class="contenedor">
+            <div class="contenedor-barra">
+                <div class="Menu-desplegable">
+                    <li id="categorias-desplegable" class="categoriasDesplegables"> 
+                        <img src="/img/menu.png" alt="" style="width: 60px; cursor: pointer;" >
+                        <ul id="desplegable" class="desplegable">
+                            <li><a href="">Notebook<span style="margin-left: 100px;" class="glyphicon glyphicon-chevron-right"></span></a></li>
+                            <li><a href="">Procesadores<span style="margin-left: 60px;" class="glyphicon glyphicon-chevron-right"></span></a></li>
+                            <li><a href="">Auriculares<span style="margin-left: 80px;" class="glyphicon glyphicon-chevron-right"></span></a></li>
+                            <li><a href="">Monitores<span style="margin-left: 93px;" class="glyphicon glyphicon-chevron-right"></span></a></li>
+                            <li><a href="">Tablets<span style="margin-left: 120px;" class="glyphicon glyphicon-chevron-right"></span></a></li>
+                            <li><a href="">Gabinetes<span style="margin-left: 100px;" class="glyphicon glyphicon-chevron-right"></span></a></li>
+                            <li><a href="">Celulares<span style="margin-left: 95px;" class="glyphicon glyphicon-chevron-right"></span></a></li>
+                            <li><a href="">Teclados<span style="margin-left: 103px;" class="glyphicon glyphicon-chevron-right"></span></a></li>
+                        </ul>  
+                    </li>
+                </div>
+                <div class="vr">&nbsp;</div>
+                <div class="barra-categoria">
+                    <div class="item1  " id="item1" onmouseover="call_mouseover_expand(this.id);" onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;" >
+                        <img src="/img/upc.png" alt="" style="width: 80px;">
+                        <label>Microprocesadores</label>
+                    </div>  
+                    <div class="item3 " id="item3" onmouseover="call_mouseover_expand(this.id);" onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;" >
+                        <img src="/img/placa-madre.png" alt="" style="width: 80px;">
+                        <label>Motherboard</label>
+                    </div>
+                    <div class="item4 " id="item4" onmouseover="call_mouseover_expand(this.id);" onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;">
+                        <img src="/img//memoria-ram.png" alt="" style="width: 80px;">
+                        <label>Memorias ram</label>
+                    </div>
+                    <div class="item5 " id="item5" onmouseover="call_mouseover_expand(this.id);" onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1);  cursor: pointer;">
+                        <img src="/img/tarjeta-de-video.png" alt="" style="width: 80px;">
+                        <label>Placa de video</label>
+                    </div>
+                    <div class="item6 " id="item6" onmouseover="call_mouseover_expand(this.id);" onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1);  cursor: pointer;">
+                        <img src="/img/hdd.png" alt="" style="width: 80px;">
+                        <label>Almacenamiento</label>
+                    </div>
+                   
+                    <div class="item8 " id="item8" onmouseover="call_mouseover_expand(this.id);" onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1);  cursor: pointer;">
+                        <img src="/img/cpu-tower.png" alt="" style="width: 80px;">
+                        <label>Gabinete</label>
+                    </div>
+                    <div class="item9 " id="item9" onmouseover="call_mouseover_expand(this.id);" onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor:pointer;">
+                        <img src="img/pantalla-de-la-computadora.png" alt="" style="width: 80px;">
+                        <label>Monitor</label>
+                    </div>
+                    <div class="item7 " id="item7" onmouseover="call_mouseover_expand(this.id);" onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;">
+                        <img src="/img/fuente-de-alimentacion.png" alt="" style="width: 80px;">
+                        <label>Fuente</label>
+                    </div>
+                 
+                </div>
+    
+            </div>
+        </div>
+    </div>  <!--Barra.-de.-Categorias-->
+    <div class="barra-after" id="barra-after">
+        <!--Color rojo barrita-->
+    </div>
+    <div class="Slider">
+        <div class="contenedor-slider  ">
+            
+        </div>
+    </div> <!--Slider-->
+    <div class="seccion-services contenedor">
+         <div class="contenedor-servicios">
+             <div class="servicio1">
+                 <div class="icono-servicio">
+                    <img src="/img/camion-de-reparto.png" alt="">
+                 </div>
+           
+                <h3>ENVÍOS A TODO EL PAÍS</h3>
+             </div>
+             <div class="servicio1" style="cursor: pointer;" id="ubicacion"  >
+                 <div class="icono-servicio">
+                   <a href="#mapita"><img src="/img/mapas-de-google.png" alt="" ></a> 
+                 </div>
+                  <h3>!RETIRALO EN EL LOCAL!</h3> 
+            </div>
+            <div class="servicio1">
+                <div class="icono-servicio">
+                    <img src="/img/protegido.png" alt="">
+                </div>
+                  <h3> SITIO SEGURO </h3> 
+            </div>
+         </div>
+    </div> <!--Services-->
+    <main>
+        <div class="main-container container">
+            <div class="container-main contenedor">
+                <div class="wrapper">
+                    <div id="publicacion1" class="style-Column "   id="publicacion1">
+                        <div class="titulo">
+                            <p class="titulo-parrafo">ARMA TU PC</p>
+                        </div>
+                    </div>
+                    <div id="publicacion2" class="publicacion2" >
+                        <img src="/img/comboActulizacion2.jfif" alt="">
+                        <div class="titulo-global-publicacion">
+                            <p>ACTUALIZACIONES</p>
+                        </div>
+                    </div>
+                    <div id="publicacion3" class="publicacion3"   >
+                        <img src="/img/GProXBlueAuricular.jpg" alt="">
+                         <div class="titulo-global-publicacion">
+                        <p>AURICULARES</p>
+                       </div>
+                    </div>
+                    <div id="publicacion4" class="publicacion4" >
+                        <img src="/img/rog-strix-flare teclado.jpg" alt="">
+                        <div class="titulo-global-publicacion">
+                            <p>TECLADOS</p>
+                        </div>
+                    </div>
+                    <div id="publicacion5" class="publicacion5">
+                        <img src="/img/mousegamer.jpg" alt="">
+                        <div class="titulo-global-publicacion">
+                            <p>MOUSE</p>
+                        </div>
+                    </div>
+                    <div id="publicacion6" class="publicacion6"  >
+                        <img src="/img/micrfonogamer.jpg" alt="">
+                        <div class="titulo-global-publicacion">
+                            <p>MICRÓFONO</p>
+                        </div>
+                    </div>  
+                    <div id="publicacion7" class="publicacion7" >
+                        <img src="/img/webcamn.jpg" alt="">
+                        <div class="titulo-global-publicacion">
+                            <p>WEBCAMS</p>
+                        </div>
+                    </div>
+                  
+                </div>
+                <div class="contenido-publicidad">
+                    <div class="publicidad">
+                        <img src="/img/Aerocool.jpg" alt="">
+                    </div>  
+                    <div class="publicidad">
+                        <img src="/img/amd.png" alt="">
+                    </div>
+                    <div class="publicidad">
+                        <img src="/img/Asus-Logo.png" alt="">
+                    </div>
+                    <div class="publicidad">
+                        <img src="/img/gygabyte.jpg" alt="">
+                    </div>
+                    <div class="publicidad">
+                        <img src="/img/nividia.png" alt="">
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    
+    </main>
+    <!--Main-->
+    <footer class="contenedor-footer">
+        <div class="before-footer">
+            <div class="information contenedor">
+                <a href="#">NOSOTROS</a>
+                <a href="#">CONTACTO</a>
+                <a href="#">¿COMO COMPRAR?</a>
+                <a href="https://www.facebook.com/RPC.HardwareConectividad/about/?ref=page_internal">FACEBOOK</a>
+                <a href="#">INSTAGRAM</a>
+            </div>
+            
+            <div class="Maps" id="mapita" >
+            </div>
+        </div>
+        <div class="after-footer" >
+            <p><span ></span> <span style="margin-left: 10px;">Todos los derechos reservados &copy;2020</span> </p>
+        </div>
+    </footer> <!--Footer-->
+ 
+    <!--Jquery script-->
+    <script type="text/javascript" src="JS/Jquery.js"></script>
+       <!--Script-->
+    <script type="text/javascript" src="JS/Script.index.js"></script>
+    <!--Scrips de boopstrap-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--Maps-->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+    var map = L.map('mapita').setView([-34.601528, -58.375111], 20);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+L.marker([-34.601528, -58.375111], 20).addTo(map)
+    .bindPopup('Galeria Jardin,Local 429'   )
+    .openPopup();
+    </script>
+</body>
+
+</html>
