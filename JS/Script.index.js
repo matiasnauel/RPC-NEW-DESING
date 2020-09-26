@@ -5,7 +5,7 @@ window.onscroll = function () {
     var LineaRoja = document.getElementById('readline');
 
     // Realizamos alguna accion cuando el scroll este entre la posicion 300 y 400
-    if (scroll > 1000) {
+    if (scroll > 20) {
         $('#HeaderFloat').addClass('Header-Float');
         $('#HeaderFloat').addClass('scroolLogo-Main');
         $('#redline').addClass('barra-afterr');
