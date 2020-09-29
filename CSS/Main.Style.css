@@ -75,11 +75,12 @@ html {
   
 
   .logo-main img{
-      width: 60%;
+      width: 40%;
       background-color: red; 
       margin-left: auto;
 
   }
+
   @media (min-width: 768px) {
     .logo-main img{
         width: auto;
@@ -95,10 +96,12 @@ html {
   }
 
   /*Class para modificar la barra cuando se hace scroll*/
-  .scroolLogo-Main img{
-      width: 60%;
-      height: auto;
-      margin-top: 0px;
+  
+  @media (min-width: 360px) {
+    .scroolLogo-Main img{
+        height: auto;
+        margin-top: 0px;
+    }
   }
   @media (min-width: 768px) {
     .scroolLogo-Main img{
@@ -310,13 +313,14 @@ html {
  }
  .sub-menu img{
     display: block;
-    margin-top: 20px; 
+    margin-top: 2px; 
     margin-right: 10px;   
+  
  }
  @media (min-width: 768px) {
     .sub-menu img{
         display: none;
-        margin-top: 20px;    
+        margin-top: 30px;    
      }
  }
  /*Barra*/
@@ -414,7 +418,7 @@ html {
 }
 .barra-after{
     background-color: red;
-    height: 20px;
+    height: 10px;
 }
 
 @media (min-width: 768px ) {
@@ -425,13 +429,16 @@ html {
     }
 }
 
-.barra-afterr{
-    background-color: red;
-    position: fixed;
-    height: 20px;
-    width: 100%;
-    margin-top: 100px;
-    z-index: 1;
+
+@media (min-width: 360px) {
+    .barra-afterr{
+        background-color: red;
+        position: fixed;
+        height: 10px;
+        width: 100%;
+        margin-top: 65px;
+        z-index: 1;
+    }
 }
 @media (min-width: 768px) {
     .barra-afterr{
@@ -515,16 +522,21 @@ html {
 }
 /*Contenido principal ... main*/
 
+
 .wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 1em;
     margin-bottom: 100px;
-
-   
  }
 
+ @media (min-width: 360px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+     }
+ }
  @media (min-width: 768px) {
     .wrapper {
         display: grid;
@@ -538,11 +550,19 @@ html {
  }
  .wrapper > div {
     height:300px;
-    
     border-radius: 5px;
     background-color: #fff;
     padding: 1em;
     color: #fff;
+  }
+  @media (min-width: 360px) {
+    .wrapper > div {
+        height:300px; 
+        border-radius: 5px;
+        background-color: #fff;
+        padding: 1em;
+        color: #fff;
+      }
   }
   @media (min-width: 768px) {
     .wrapper > div {
@@ -588,13 +608,16 @@ html {
      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     
  }
-.contenido-publicidad{
-    margin-bottom: 20px;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    justify-items: center;
-    grid-row-gap: 11px;
-   
+
+@media (min-width: 360px) {
+    .contenido-publicidad{
+        margin-bottom: 20px;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        justify-items: center;
+        grid-row-gap: 11px;
+       
+    }
 }
 @media (min-width: 768px) {
     .contenido-publicidad{
@@ -799,6 +822,7 @@ html {
 }
 
 .main-container{
+  
     background: rgb(201,197,196);
     background: linear-gradient(90deg, rgba(201,197,196,1) 0%, rgba(163,159,158,1) 100%, rgba(255,255,255,1) 100%);
     padding: 40px;
@@ -824,14 +848,17 @@ html {
         grid-template-columns: repeat(2,1fr);
     }
 }
-.information{
-    display: grid;
-    padding-top: 20px;
-    line-height: 40px;
-    grid-template-columns: repeat(4,1fr);
-    text-align: center;
-    margin-bottom: 10px;
-   
+
+@media (min-width: 360px) {
+    .information{
+        display: grid;
+        padding-top: 20px;
+        line-height: 40px;
+        grid-template-columns: repeat(1,1fr);
+        text-align: center;
+        margin-bottom: 10px;
+       
+    }
 }
 @media (min-width: 768px) {
     .information{
