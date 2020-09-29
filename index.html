@@ -14,98 +14,123 @@
 </head>
 
 <body>
-    <header class="header" id="HeaderFloat">
-        <div class="main-header contenedor-header" id="mainHeader">
-            <div class="logo-main">
-               <a href="index.html"><img id="logomain" src="/img/logoajjaja-removebg-preview.ico" alt=""></a> 
-            </div>
-            <div class="Search-main contenedor">
-                <form class="paddLeft-50px" id="form">
-                    <input class="search" type="text" id="Search-main" placeholder="Buscar..">
-                    <span class="glyphicon glyphicon-search"></span>
-                </form>
-            </div>
-            <div class="Icons-main">
-                <div class="icons-user">
-                    <!-- <img src="/img/usuario (1).png" alt=""> -->
-                    <a href="#">Iniciar sesion</a>
-                    <a href="#">Registrarse</a>
-                    <a href="#" class="ocultar-usuario">MI cuenta </a>
+    <div class="site-header">
+    
+    
+        <header class="header" id="HeaderFloat">
+            <div class="main-header contenedor-header" id="mainHeader">
+                <div class="logo-main">
+                    <a href="index.html"><img id="logomain" src="/img/logoajjaja-removebg-preview.ico" alt=""></a>
                 </div>
-                <div class="icons-shopping-card" id="icons-shooping-card">
-                    <img src="/img/carrito-de-compras.png" alt="">
-                    <span id="cantidadCarrito">(0) <span id="precioTotal"></span>$0,00</span>
+                <div class="Search-main contenedor">
+                    <form class="paddLeft-50px" id="form">
+                        <input class="search" type="text" id="Search-main" placeholder="Buscar..">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </form>
                 </div>
-            </div>
-          
-        </div>
-      
-    </header>
-    <div id="redline" >
-
-    </div><!--Linea roja-->
-    <!--Header-->
-    <div class="Barra"  >
-        <div class="contenedor">
-            <div class="contenedor-barra">
-                <div class="Menu-desplegable">
-                    <li id="categorias-desplegable" class="categoriasDesplegables"> 
-                        <img src="/img/menu.png" alt="" style="width: 60px; cursor: pointer;" >
-                        <ul id="desplegable" class="desplegable">
-                            <li><a href="">Notebook<span style="margin-left: 100px;" class="glyphicon glyphicon-chevron-right"></span></a></li>
-                            <li><a href="">Procesadores<span style="margin-left: 60px;" class="glyphicon glyphicon-chevron-right"></span></a></li>
-                            <li><a href="">Auriculares<span style="margin-left: 80px;" class="glyphicon glyphicon-chevron-right"></span></a></li>
-                            <li><a href="">Monitores<span style="margin-left: 93px;" class="glyphicon glyphicon-chevron-right"></span></a></li>
-                            <li><a href="">Tablets<span style="margin-left: 120px;" class="glyphicon glyphicon-chevron-right"></span></a></li>
-                            <li><a href="">Gabinetes<span style="margin-left: 100px;" class="glyphicon glyphicon-chevron-right"></span></a></li>
-                            <li><a href="">Celulares<span style="margin-left: 95px;" class="glyphicon glyphicon-chevron-right"></span></a></li>
-                            <li><a href="">Teclados<span style="margin-left: 103px;" class="glyphicon glyphicon-chevron-right"></span></a></li>
-                        </ul>  
-                    </li>
+                <div class="Icons-main">
+                    <div class="icons-user">
+                        <!-- <img src="/img/usuario (1).png" alt=""> -->
+                        <a href="#">Iniciar sesion</a>
+                        <a href="#">Registrarse</a>
+                        <a href="#" class="ocultar-usuario">MI cuenta </a>
+                    </div>
+                    <div class="icons-shopping-card" id="icons-shooping-card">
+                        <img src="/img/carrito-de-compras.png" alt="">
+                        <span id="cantidadCarrito">(0) <span id="precioTotal"></span>$0,00</span>
+                    </div>
                 </div>
-                <div class="vr">&nbsp;</div>
-                <div class="barra-categoria">
-                    <div class="item1  " id="item1" onmouseover="call_mouseover_expand(this.id);" onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;" >
-                        <img src="/img/upc.png" alt="" style="width: 80px;">
-                        <label>Microprocesadores</label>
-                    </div>  
-                    <div class="item3 " id="item3" onmouseover="call_mouseover_expand(this.id);" onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;" >
-                        <img src="/img/placa-madre.png" alt="" style="width: 80px;">
-                        <label>Motherboard</label>
-                    </div>
-                    <div class="item4 " id="item4" onmouseover="call_mouseover_expand(this.id);" onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;">
-                        <img src="/img//memoria-ram.png" alt="" style="width: 80px;">
-                        <label>Memorias ram</label>
-                    </div>
-                    <div class="item5 " id="item5" onmouseover="call_mouseover_expand(this.id);" onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1);  cursor: pointer;">
-                        <img src="/img/tarjeta-de-video.png" alt="" style="width: 80px;">
-                        <label>Placa de video</label>
-                    </div>
-                    <div class="item6 " id="item6" onmouseover="call_mouseover_expand(this.id);" onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1);  cursor: pointer;">
-                        <img src="/img/hdd.png" alt="" style="width: 80px;">
-                        <label>Almacenamiento</label>
-                    </div>
-                   
-                    <div class="item8 " id="item8" onmouseover="call_mouseover_expand(this.id);" onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1);  cursor: pointer;">
-                        <img src="/img/cpu-tower.png" alt="" style="width: 80px;">
-                        <label>Gabinete</label>
-                    </div>
-                    <div class="item9 " id="item9" onmouseover="call_mouseover_expand(this.id);" onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor:pointer;">
-                        <img src="img/pantalla-de-la-computadora.png" alt="" style="width: 80px;">
-                        <label>Monitor</label>
-                    </div>
-                    <div class="item7 " id="item7" onmouseover="call_mouseover_expand(this.id);" onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;">
-                        <img src="/img/fuente-de-alimentacion.png" alt="" style="width: 80px;">
-                        <label>Fuente</label>
-                    </div>
-                 
+                <div class="sub-menu">
+                    <img src="/img/menu180°.png" alt="" style="width: 60px; cursor: pointer;">
                 </div>
     
             </div>
+    
+        </header>
+        <div id="redline">
+    
         </div>
-    </div>  <!--Barra.-de.-Categorias-->
-    <div class="barra-after" id="barra-after">
-        <!--Color rojo barrita-->
+        <!--Linea roja-->
+        <!--Header-->
+        <div class="Barra">
+            <div class="contenedor">
+                <div class="contenedor-barra">
+                    <div class="Menu-desplegable">
+                        <li id="categorias-desplegable" class="categoriasDesplegables">
+                            <img src="/img/menu.png" alt="" style="width: 60px; cursor: pointer;">
+                            <ul id="desplegable" class="desplegable">
+                                <li><a href="">Notebook<span style="margin-left: 100px;"
+                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
+                                <li><a href="">Procesadores<span style="margin-left: 60px;"
+                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
+                                <li><a href="">Auriculares<span style="margin-left: 80px;"
+                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
+                                <li><a href="">Monitores<span style="margin-left: 93px;"
+                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
+                                <li><a href="">Tablets<span style="margin-left: 120px;"
+                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
+                                <li><a href="">Gabinetes<span style="margin-left: 100px;"
+                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
+                                <li><a href="">Celulares<span style="margin-left: 95px;"
+                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
+                                <li><a href="">Teclados<span style="margin-left: 103px;"
+                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
+                            </ul>
+                        </li>
+                    </div>
+                    <div class="vr">&nbsp;</div>
+                    <div class="barra-categoria">
+                        <div class="item1  " id="item1" onmouseover="call_mouseover_expand(this.id);"
+                            onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;">
+                            <img src="/img/upc.png" alt="" style="width: 80px;">
+                            <label>Microprocesadores</label>
+                        </div>
+                        <div class="item3 " id="item3" onmouseover="call_mouseover_expand(this.id);"
+                            onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;">
+                            <img src="/img/placa-madre.png" alt="" style="width: 80px;">
+                            <label>Motherboard</label>
+                        </div>
+                        <div class="item4 " id="item4" onmouseover="call_mouseover_expand(this.id);"
+                            onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;">
+                            <img src="/img//memoria-ram.png" alt="" style="width: 80px;">
+                            <label>Memorias ram</label>
+                        </div>
+                        <div class="item5 " id="item5" onmouseover="call_mouseover_expand(this.id);"
+                            onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1);  cursor: pointer;">
+                            <img src="/img/tarjeta-de-video.png" alt="" style="width: 80px;">
+                            <label>Placa de video</label>
+                        </div>
+                        <div class="item6 " id="item6" onmouseover="call_mouseover_expand(this.id);"
+                            onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1);  cursor: pointer;">
+                            <img src="/img/hdd.png" alt="" style="width: 80px;">
+                            <label>Almacenamiento</label>
+                        </div>
+    
+                        <div class="item8 " id="item8" onmouseover="call_mouseover_expand(this.id);"
+                            onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1);  cursor: pointer;">
+                            <img src="/img/cpu-tower.png" alt="" style="width: 80px;">
+                            <label>Gabinete</label>
+                        </div>
+                        <div class="item9 " id="item9" onmouseover="call_mouseover_expand(this.id);"
+                            onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor:pointer;">
+                            <img src="img/pantalla-de-la-computadora.png" alt="" style="width: 80px;">
+                            <label>Monitor</label>
+                        </div>
+                        <div class="item7 " id="item7" onmouseover="call_mouseover_expand(this.id);"
+                            onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;">
+                            <img src="/img/fuente-de-alimentacion.png" alt="" style="width: 80px;">
+                            <label>Fuente</label>
+                        </div>
+    
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+        <!--Barra.-de.-Categorias-->
+        <div class="barra-after" id="barra-after">
+            <!--Color rojo barrita-->
+        </div>
     </div>
     <div class="Slider">
         <div class="contenedor-slider  ">
@@ -212,7 +237,7 @@
                 <a href="#">CONTACTO</a>
                 <a href="#">¿COMO COMPRAR?</a>
                 <a href="https://www.facebook.com/RPC.HardwareConectividad/about/?ref=page_internal">FACEBOOK</a>
-                <a href="#">INSTAGRAM</a>
+               
             </div>
             
             <div class="Maps" id="mapita" >

@@ -3,13 +3,13 @@ window.onscroll = function () {
     // Obtenemos la posicion del scroll en pantall
     var scroll = document.documentElement.scrollTop || document.body.scrollTop;
     var LineaRoja = document.getElementById('readline');
-
+    console.log(scroll);
     // Realizamos alguna accion cuando el scroll este entre la posicion 300 y 400
     if (scroll > 20) {
         $('#HeaderFloat').addClass('Header-Float');
         $('#HeaderFloat').addClass('scroolLogo-Main');
         $('#redline').addClass('barra-afterr');
-        
+      
 
     }
     else {
@@ -20,6 +20,8 @@ window.onscroll = function () {
 
     }
 }
+
+
 // expandir imagen
 function call_mouseover_expand(id) {
   
