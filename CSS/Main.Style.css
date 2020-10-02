@@ -129,6 +129,13 @@ html {
       
       }
   }
+  @media (min-width: 1366px) {
+    .Search-main{
+        padding-top: 30px;
+        position: relative;
+      
+      }
+  }
  @media (min-width: 1707px) {
     .Search-main{
         padding-top: 60px;
@@ -143,7 +150,11 @@ html {
      height: 20px;
      outline: none;
      padding: 20px;
+     
  
+ }
+ .search:focus{
+   border: 2px solid red;
  }
  @media (min-width: 768px ) {
     .search{
@@ -179,6 +190,17 @@ html {
     .Search-main span {
         position: absolute;
         margin-top: 50px;
+        font-size: 35px;
+        margin-left: 0px;
+        background-color:red;
+        padding: 8px;
+        color: #fff;
+    }
+ }
+ @media (min-width: 1366px) {
+    .Search-main span {
+        position: absolute;
+        margin-top: 30px;
         font-size: 35px;
         margin-left: 0px;
         background-color:red;
@@ -258,6 +280,18 @@ html {
       text-align: center;
     }
 }
+@media (min-width: 1366px) {
+    .icons-user a{
+        display: block;
+     
+       margin-top: 15px;
+      text-decoration:none!important;
+      color: #fff;
+      font-size: 15px;
+      width: 100px;
+      text-align: center;
+    }
+}
  @media (min-width: 1920px) {
     .icons-user a{
         display: block;
@@ -268,6 +302,7 @@ html {
       font-size:  16px; 
     }
  }
+
  .icons-user a:hover{
      display: block;
      color: red;
@@ -284,6 +319,14 @@ html {
         margin-top: 30px;
         width: 25px;
         height: 25px;
+       
+     }
+ }
+ @media (min-width: 1366px) {
+    .icons-shopping-card  {
+        margin-top: 10px;
+        width: 30px;
+        height: 30px;
        
      }
  }
@@ -307,9 +350,15 @@ html {
     position: absolute;
     margin-top: 20px;
  }
+ .sub-menu{
+     display: grid;
+     grid-template-columns: repeat(2,1fr);
+     grid-column-gap: 20px;
+
+ }
  .sub-menu img{
     display: block;
-    margin-top: 2px; 
+    margin-top: 15px; 
     margin-right: 10px;   
   
  }
@@ -319,6 +368,54 @@ html {
         margin-top: 30px;    
      }
  }
+ .carrito-sub-menu{
+     display: grid;
+ }
+ .carrito-sub-menu span{
+  color: white;
+  display: grid;
+  padding-top: 32px;
+  padding-left: 25px;
+  margin: 0;
+  position: absolute;
+ }
+ .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+  }
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  
+  }
+  .sidenav a:hover{
+    color: #f1f1f1;
+  }
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  
  /*Barra*/
 .Barra{
     height: auto;
@@ -447,6 +544,17 @@ html {
         z-index: 1;
     }
 }
+@media (min-width: 1366px) {
+    .barra-afterr{
+        display: block;
+        background-color: red;
+        position: fixed;
+        height: 20px;
+        width: 100%;
+        margin-top: 110px;
+        z-index: 1;
+    }
+}
 @media (min-width: 1920px) {
     .barra-afterr{
         display: block;
@@ -461,30 +569,81 @@ html {
    
 
 
-/*Slider*/
-.contenedor-slider{
-    
-    height: 200px;
-    background-color: grey;
-    background-image: url(/img/BANNER.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-
-
-}
-@media (min-width: 768px) {
-    .contenedor-slider{
-        display: block;
-        height: 500px;
-        background-color: grey;
-        background-image: url(/img/BANNER.jpg);
-        background-position: center center;
-        background-size: cover;
-    
-    }
+/* slider */
+.slider {
+    position: relative;
 }
 
+.slider ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;    
+}
+
+.slider ul li  {
+    position: relative;
+    display: none;
+    height:350px;
+}
+
+.slider ul li img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+ 
+}
+.slider ul li span {
+    position: absolute;
+    bottom: 0;
+    background: hsl(0, 1%, 72%, .1);
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    color: #fff;
+}
+/* buttons */
+.slider .buttons  {
+    position: absolute;
+    top: 40%;
+    width:  100%;
+}
+.slider .buttons .next {
+    font-size: 2rem;
+    right: 0;
+    position: absolute;
+    cursor: pointer;
+    width: 50px;
+    text-align: center;
+}    
+.slider .buttons .prev {
+    font-size: 2rem;
+    left: 0;
+    position: absolute;
+    cursor: pointer;
+    width: 50px;
+    text-align: center;
+}   
+.slider .buttons .next:hover {
+    background: hsl(0, 66%, 47%);
+    color: hsl(0, 0%, 93%);
+}
+.slider .buttons .prev:hover {
+    background: hsl(0, 66%, 47%);
+    color: hsl(0, 0%, 93%);
+}
+
+/* slider animation */
+.slider ul li {
+    animation-name: fade;
+    animation-duration: 2.5s;
+}
+  
+@keyframes fade {
+    from {opacity: .2} 
+    to {opacity: 1}
+}
 /*Servicios*/
 .seccion-services{
     display: none;
@@ -904,6 +1063,7 @@ html {
     padding-top: 20px;
 }
 .Maps{
+
     display: grid;
     height: 200px;
     width:100%;
