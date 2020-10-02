@@ -37,12 +37,55 @@
                     </div>
                     <div class="icons-shopping-card" id="icons-shooping-card">
                         <img src="/img/carrito-de-compras.png" alt="">
-                        <span id="cantidadCarrito">(0) <span id="precioTotal"></span>$0,00</span>
+                        <span id="cantidadCarrito">(0)<span id="precioTotal"></span>$0,00</span>
                     </div>
                 </div>
                 <div class="sub-menu">
                     <div class="carrito-sub-menu">
-                        <img src="/img/carrito-de-compras.png" alt="" style="width: 28px;"><span>(0)</span>
+                        <div id="SlideCarrito" class="slideNavCarrito"> 
+                            <a href="javascript:void(0)" class="closebtn2" onclick="closeNavCarrito()">&times;</a>
+                            <h2 style="padding-bottom: 20px; color: white;">Mi Carrito</h2>
+                            <div class="productos-carrito">
+                                <div class="site-image">
+                                    <img src="/img/auricular4.jpg" alt="">
+                                </div>
+                                <div class="site-information">
+                                    <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
+                                    <span>4,599x1</span>
+                                    <button class="DescartarArticulo">X</button> 
+                                </div>
+                            </div>
+                            <div class="productos-carrito">
+                                <div class="site-image">
+                                    <img src="/img/auricular4.jpg" alt="">
+                                </div>
+                                <div class="site-information">
+                                    <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
+                                    <span>4,599x1</span>
+                                    <button class="DescartarArticulo">X</button> 
+                                </div>
+                            </div>
+                            <div class="productos-carrito">
+                                <div class="site-image">
+                                    <img src="/img/auricular4.jpg" alt="">
+                                </div>
+                                <div class="site-information">
+                                    <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
+                                    <span>4,599x1</span>
+                                    <button class="DescartarArticulo">X</button> 
+                                </div>
+                            </div>
+                            <div class="Total">
+                                <p>TOTAL: $20.000</p>
+                            </div>
+                            <div class="OpcionCarrito">
+                                <button class="vaciar">VACIAR CARRITO</button>
+                                <button class="comprar">COMPRAR</button>
+                            </div>
+                        
+                        </div>
+                        <img src="/img/carrito-de-compras.png" alt="" style="width: 28px;" id="CarritoSubMenu"><span id="itemCarrito"  onclick="openNavCarrito()" >(0)</span>
+                       
                     </div>
                     <div id="mySidenav" class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>

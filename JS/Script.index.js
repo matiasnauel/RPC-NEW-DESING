@@ -3,7 +3,7 @@ window.onscroll = function () {
     // Obtenemos la posicion del scroll en pantall
     var scroll = document.documentElement.scrollTop || document.body.scrollTop;
     var LineaRoja = document.getElementById('readline');
-    console.log(scroll);
+
     // Realizamos alguna accion cuando el scroll este entre la posicion 300 y 400
     if (scroll > 20) {
         $('#HeaderFloat').addClass('Header-Float');
@@ -97,6 +97,20 @@ function openNav() {
   
   function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("mapita").style.zIndex =  "1";
+    document.getElementById("redline").style.zIndex =" 1";
+  }
+
+//   Carrito
+function openNavCarrito() {
+    document.getElementById("SlideCarrito").style.width = "100%";
+    document.getElementById("mapita").style.zIndex =  "-1";
+    document.getElementById("redline").style.zIndex =" -1";
+
+  }
+  
+  function closeNavCarrito() {
+    document.getElementById("SlideCarrito").style.width = "0";
     document.getElementById("mapita").style.zIndex =  "1";
     document.getElementById("redline").style.zIndex =" 1";
   }
