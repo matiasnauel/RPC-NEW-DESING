@@ -92,6 +92,7 @@ function openNav() {
     document.getElementById("mySidenav").style.width = "100%";
     document.getElementById("mapita").style.zIndex =  "-1";
     document.getElementById("redline").style.zIndex =" -1";
+    
 
   }
   
@@ -114,4 +115,7 @@ function openNavCarrito() {
     document.getElementById("mapita").style.zIndex =  "1";
     document.getElementById("redline").style.zIndex =" 1";
   }
+
+  //Slider productos
+  
 

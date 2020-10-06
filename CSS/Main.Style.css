@@ -46,7 +46,7 @@ html {
       background-color: black;
       height: auto;
       width: 100%;
-      z-index: 1;
+      z-index: 11;
       
   }
   @media (min-width: 768px) {
@@ -54,7 +54,7 @@ html {
         background-color: black;
         height: auto;
         width: 100%;
-        z-index: 1;
+        z-index: 11;
         display: block;
      
     }
@@ -64,7 +64,7 @@ html {
         background-color: black;
         height: 150px;
         width: 100%;
-        z-index: 1;
+        z-index: 11;
   
     }
   }
@@ -374,6 +374,11 @@ html {
  .carrito-sub-menu{
      display: grid;
  }
+ @media (min-width: 768px) {
+     .carrito-sub-menu{
+         display: none;
+     }
+ }
  .carrito-sub-menu span{
   color:white;
   display: grid;
@@ -508,6 +513,7 @@ html {
    .OpcionCarrito{
        display: flex;
        justify-content: center;
+     
    }
    .OpcionCarrito button {
        padding: 20px;
@@ -799,16 +805,139 @@ html {
     justify-content: space-evenly;
     
 }
-.servicio1{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    cursor: pointer;
+.contenedores-servicios{
+    display: none;
+    grid-template-columns: repeat(3,1fr);
+    margin-top: 70px;
+    margin-bottom: 60px;
+    height: 150px;
+  
 }
+@media (min-width: 768px) {
+    .contenedores-servicios{
+        
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        margin-top: 70px;
+        margin-bottom: 60px;
+        height: 150px;
+      
+    }
+}
+.servicio-1{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white!important;
+    font-weight: bold!important;
+    position: relative;
+    background-color: yellow;
+    background-image: url(/img/enviostodopais.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin-right: 10px;
+    transition: 1s;
+
+}
+
+.servicio-1::after{
+    content: '';
+    background-color: rgba(0,0,0, .7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}
+.servicio-1:hover{
+    transform: scale(1.1);
+    z-index: 1;
+}
+.servicio-1 h3{
+    z-index: 1;
+    font-weight: bold;
+}
+.servicio-2{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white!important;
+    font-weight: bold!important;
+    position: relative;
+    background-color: green;
+    background-image: url(/img/rpc\ computacion\ local.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin-right: 10px;
+    transition: 1s;
+}
+.servicio-2::after{
+    content: '';
+    background-color: rgba(0,0,0, .7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.servicio-2:hover{
+    transform: scale(1.1);
+    z-index: 1;
+}
+.servicio-2 h3{
+    z-index: 1;
+    font-weight: bold;
+}
+
+.servicio-3{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white!important;
+    font-weight: bold!important;
+    position: relative;
+    background-color: blue;
+    background-image: url(/img/seguridad\ de\ la\ pagina.jfif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    transition: 1s;
+}
+.servicio-3::after{
+    content: '';
+    background-color: rgba(0,0,0, .7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.servicio-3:hover{
+    transform: scale(1.1);
+    z-index: 1;
+}
+.servicio-3 h3{
+    z-index: 1;
+    font-weight: bold;
+}
+
 .icono-servicio{
+    position: relative;
+    margin-top: 20px;
+   margin-left: 170px;
     height: 70px;
     width: 70px;
+   z-index: 0.2;
+   transition: .2s;
+   z-index: 1;
 }
+
+
+
+
 /*Contenido principal ... main*/
 
 
@@ -887,6 +1016,7 @@ html {
  .titulo{
     margin-top: 160px;
  }
+ 
  .titulo-parrafo{    
     background-color:rgba(255, 0, 0, 0.46);
     border: none 1em red;  
@@ -896,6 +1026,11 @@ html {
      font-size: 40px;
      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     
+ }
+ @media (min-width: 360px) {
+     .titulo-parrafo{
+         margin-bottom: 130px!important;
+     }
  }
 
 @media (min-width: 360px) {
