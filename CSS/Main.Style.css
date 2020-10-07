@@ -350,6 +350,47 @@ html {
     position: absolute;
     margin-top: 20px;
  }
+ /* Modal carrito */
+ .modalContainer {
+    display: none; 
+    position: fixed; 
+    z-index: 11;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+.modalContainer .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid lightgray;
+    width: 30%;
+    overflow: auto;
+    height: 600px;
+}
+.modal-content h2 {
+    text-align: center;
+    font-weight: bold;
+    
+}
+.modalContainer .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.modalContainer .close:hover,
+		.modalContainer .close:focus {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+        }
+
  .sub-menu{
      display: grid;
      grid-template-columns: repeat(2,1fr);
@@ -455,12 +496,25 @@ html {
     font-size: 36px;
     margin-left: 50px;
   }
-  .productos-carrito{
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    border: 1px solid white;
-    margin-bottom: 10px;
+  
+ 
+  @media (min-width: 360px) {
+    .productos-carrito{
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        border: 1px solid white;
+        margin-bottom: 10px;
+      }   
+  }
+  @media (min-width: 768px) {
+    .productos-carrito{
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        border: 1px solid black;
+        margin-bottom: 10px;
+      }
   }
   
   .site-image{
@@ -471,16 +525,26 @@ html {
      margin-top: 0;
      padding-left: 3px;
   }
-  
+  .site-image-carrito{
+      width: 20%;
+  }
+  .site-image-carrito img{
+    margin-top: 0;
+    padding-left: 0px;
+  }
   .site-information {
       display: flex;
       color: white;
       padding:10px;
   }
+  .site-information-carrito{
+    display: flex;
+    color:black;
+    padding:10px;
+  }
     .DescartarArticulo{
         position: relative;
        width: 20%;
-    
        font-family: 'Courier New', Courier, monospace;
        font-weight: bold;
        border: none;
@@ -488,7 +552,26 @@ html {
        color: white;
        border: solid white;
     }
+    .DescartarArticulo-carrito{
+        position: relative;
+        width: 20%;
+        height: 50%;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        font-size: 20px;
+        border: none;
+        background-color: transparent;
+        color:black;
+        border: solid black;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
     .DescartarArticulo:hover{
+        color: white;
+        background-color: red;
+        outline-color: var(--textNone);
+    }
+    .DescartarArticulo-carrito:hover{
         color: white;
         background-color: red;
         outline-color: var(--textNone);
@@ -501,14 +584,33 @@ html {
        padding-left: 7px!important;
     
    }
+   .site-information-carrito p {
+       padding-top: 30px;
+   }
+   .site-information-carrito span{
+    margin: 0!important;
+    position: absolute!important;
+    padding: 0px!important;
+    padding-top: 80px!important;
+
+   }
    .Total{
        max-width: 300px;
        margin: 40px auto;
        
    }
+   .Total-carrito{
+    max-width: 300px;
+    margin: 20px auto;
+    text-align: center;
+   }
    .Total P {
        color:white;
        font-size: 20px;
+   }
+   .Total-carrito p {
+    color:black;
+    font-size: 20px;
    }
    .OpcionCarrito{
        display: flex;
@@ -527,6 +629,19 @@ html {
        border-color: white!important;
        outline-color: white;
    }
+   .vaciar-carrito {
+        background-color:transparent;
+        border: 5px solid;
+        color: black;
+        font-weight: bold;
+        border-color: red!important;
+        outline-color: white;
+        transition: .5s;
+   }
+   .vaciar-carrito:hover{
+       background-color: red;
+       color: white;
+   }
    .vaciar:hover{
        background-color: red;
    }
@@ -535,6 +650,17 @@ html {
        background-color: rgb(6, 114, 6);
        border: none;
        color:white;
+   }
+   .comprar-carrito {
+    font-weight: bold;
+    background-color: rgb(6, 114, 6);
+    border: solid;
+    color:black;
+    background-color: transparent;
+   }
+   .comprar-carrito:hover{
+    background-color: rgb(6, 114, 6);
+    color: white;
    }
   
  
