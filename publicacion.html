@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/Main.Style.css">
+    <link rel="stylesheet" href="CSS/publicacion.css">
     <link rel="stylesheet" href="CSS/normalize.css">
     <link rel="stylesheet" href="CSS/SliderStyle.css">
     <link rel="stylesheet" href="CSS/lightslider.css">
@@ -14,7 +13,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <title>RPC Computación</title>
 </head>
-
 <body>
     <div class="site-header">
     
@@ -257,339 +255,77 @@
             <!--Color rojo barrita-->
         </div>
     </div>
-    <div class="seccion-slider">
-        <div class="contenedor-slider  ">
-            <div class="slider">
-                <ul class="slides">
-                    <li><img src="https://blog.artegrafico.net/lab/js/slider/assets/img/1.jpg" alt="imagen1" /><span></span></li>
-                    <li><img src="https://blog.artegrafico.net/lab/js/slider/assets/img/2.jpg" alt="imagen2" /><span></span></li>
-                </ul>
-                <div class="buttons">
-                    <div class="next">&#10095;</div>
-                    <div class="prev">&#10094;</div>
-                </div>
-    
-            </div>
-        </div>
-    </div> <!--Slider-->
-    <div class="contenedor">
-        <div class="contenedores-servicios">
-            <div class="servicio-1">
-                <div class="icono-servicio" id="icono-service-1">
-                    <img src="/img/camion-de-reparto.png" alt="">
-                 </div>
-                 <h3>ENVÍOS A TODO EL PAÍS</h3>
-            </div>
-            <div class="servicio-2">
-                <div class="icono-servicio" id="icono-service-2">
-                    <a href="#mapita"><img src="/img/mapas-de-google.png" alt="" ></a> 
-                  </div>
-                   <h3>RETIRALO EN EL LOCAL</h3> 
-            </div>
-            <div class="servicio-3">
-                <div class="icono-servicio" id="icono-service-3">
-                    <img src="/img/protegido.png" alt="">
-                </div>
-                  <h3> SITIO SEGURO </h3> 
-            </div>
-        </div>
-    </div>
- 
     <main>
-        <div class="main-container container">
-            <div class="container-main contenedor">
-                <div class="wrapper">
-                    <div id="publicacion1" class="style-Column "   id="publicacion1">
-                        <div class="titulo">
-                            <p class="titulo-parrafo">ARMA TU PC</p>
+        <div class="contenedor">
+            <div class="contenedor-publicación">
+                <div class="publicacion">
+                    <div class="contenedor-imagen">
+                        <div class="producto-principal">
+                            <img src="/img/gabinetegamer.jpg" alt="" style="max-width: 100%; max-height: 100%;">
+                        </div>
+                        
+                        <div class="slider-imagenes-producto">
+                            <div class="slider-producto">
+                                <img src="/img/gabinetegamer.jpg" alt="" style="max-width: 100%;">
+                            </div>
+                            <div class="slider-producto">
+                                <img src="/img/gabinetegamer.jpg" alt="" style="max-width: 100%;">
+                            </div>
+                            <div class="slider-producto">
+                                <img src="/img/gabinetegamer.jpg" alt="" style="max-width: 100%;">
+                            </div>
+                            <div class="slider-producto">
+                                <img src="/img/gabinetegamer.jpg" alt="" style="max-width: 100%;">
+                            </div>
+                            
+                        </div>  
+                    </div>
+                    <div class="contenedor-información">
+                        <p> Cpu gamer / ryzen 5 3600g</p>
+                     
+                        <div class="seccion-boton-publicacion">
+                            <button class="boton-carrito">AÑADIR AL CARRITO</button>
+                            <button class="boton-compra">COMPRAR</button>
                         </div>
                     </div>
-                    <div id="publicacion2" class="publicacion2" >
-                        <img src="/img/comboActulizacion2.jfif" alt="">
-                        <div class="titulo-global-publicacion">
-                            <p>ACTUALIZACIONES</p>
+              
+                </div>
+                <div class="contenedor-comentarios">
+                    <button class="tablink" onclick="openPage('Home', this, '')">Preguntas</button>
+                    <button class="tablink" onclick="openPage('News', this, '')" id="defaultOpen">Especificaciónes</button>
+                
+                    <div id="Home" class="tabcontent">
+                        <h3>Cpu gamer / ryzen 5 3600g</h3>
+                        <p>Preguntas</p>
+                        <form>
+                            <textarea name="" id="" cols="30" rows="10" style="width: 100%; height: 50px;"></textarea>
+                            <button style="float: right; margin-top: 5px;">Comentar</button>
+                        </form>
+                        <hr>
+                        <div class="comentarios" style="margin-top: 20px;">
+                            <div class="comentario-contenedor">
+                                <div class="imagen-comentario">
+                                    <img src="/img/comentario.png" alt="" style="width: 2%;" style="position: relative; margin-top: 10px;">
+                                </div>
+                                <label>Producto  muy deseable  de buena calidad</label>
+                            </div>
+
                         </div>
-                    </div>
-                    <div id="publicacion3" class="publicacion3"   >
-                        <img src="/img/GProXBlueAuricular.jpg" alt="">
-                         <div class="titulo-global-publicacion">
-                        <p>AURICULARES</p>
-                       </div>
-                    </div>
-                    <div id="publicacion4" class="publicacion4" >
-                        <img src="/img/rog-strix-flare teclado.jpg" alt="">
-                        <div class="titulo-global-publicacion">
-                            <p>TECLADOS</p>
-                        </div>
-                    </div>
-                    <div id="publicacion5" class="publicacion5">
-                        <img src="/img/mousegamer.jpg" alt="">
-                        <div class="titulo-global-publicacion">
-                            <p>MOUSE</p>
-                        </div>
-                    </div>
-                    <div id="publicacion6" class="publicacion6"  >
-                        <img src="/img/micrfonogamer.jpg" alt="">
-                        <div class="titulo-global-publicacion">
-                            <p>MICRÓFONO</p>
-                        </div>
-                    </div>  
-                    <div id="publicacion7" class="publicacion7" >
-                        <img src="/img/webcamn.jpg" alt="">
-                        <div class="titulo-global-publicacion">
-                            <p>WEBCAMS</p>
-                        </div>
-                    </div>
+        
+                      </div>
                   
-                </div>
-                <div class="site-destacados">
-                    <div class="titulo-destacados">
-                        <h3>Destacados  /<a href="#">Ver todos</a></h3>
-                    </div>
-                    <section class="slider-destacados">
-                        <ul id="autoWidth" class="cs-hidden">
-                            <!--1------------------------------------>
-                            <li class="item-a">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="1" src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="#" class="buy-btn">Añadir al Carrito</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="#">PC GAMER</a>
-                                            <span>hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$5000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--2------------------------------------>
-                            <li class="item-b">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="2"  src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="#" class="buy-btn">Añadir al Carrito</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="#">PC GAMER</a>
-                                            <span>hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$20</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--3------------------------------------>
-                            <li class="item-a">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="1"  src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="#" class="buy-btn">Añadir al Carrito</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="#">PC GAMER</a>
-                                            <span>hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$5000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--4------------------------------------>
-                            <li class="item-b">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="2"  src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="#" class="buy-btn">Añadir al Carrito</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="#">PC GAMER</a>
-                                            <span>Hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$2000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--5------------------------------------>
-                            <li class="item-a">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="1" src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="#" class="buy-btn">Añadir al Carrito</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="#">PC GAMER</a>
-                                            <span>hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$5000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--6------------------------------------>
-                            <li class="item-b">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="2" src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="#" class="buy-btn">Añadir al Carrito</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="#">PC GAMER</a>
-                                            <span>Hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$2000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--7------------------------------------>
-                            <li class="item-a">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="1" src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="#" class="buy-btn">Añadir al Carrito</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="#">PC GAMER</a>
-                                            <span>hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$5000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--8------------------------------------>
-                            <li class="item-b">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="2" src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="#" class="buy-btn">Añadir al Carrito</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="#">PC GAMER</a>
-                                            <span>Hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$2000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                        </ul>
-                    </section>
-                </div>
-                <div class="contenido-publicidad">
-                    <div class="publicidad">
-                        <img src="/img/Aerocool.jpg" alt="">
-                    </div>  
-                    <div class="publicidad">
-                        <img src="/img/amd.png" alt="">
-                    </div>
-                    <div class="publicidad">
-                        <img src="/img/Asus-Logo.png" alt="">
-                    </div>
-                    <div class="publicidad">
-                        <img src="/img/gygabyte.jpg" alt="">
-                    </div>
-                    <div class="publicidad">
-                        <img src="/img/nividia.png" alt="">
-                    </div>
-    
-                </div>
+                      <div id="News" class="tabcontent">
+                        <h3>Cpu gamer / ryzen 5 3600g</h3>
+                        <p>Especificaciones</p> 
+                      </div>
+                      
+               </div>
+           
             </div>
+            
         </div>
-    
+      
     </main>
-    <!--Main-->
     <footer class="contenedor-footer">
         <div class="before-footer">
             <div class="information contenedor">
@@ -607,9 +343,8 @@
             <p><span ></span> <span style="margin-left: 10px;">Todos los derechos reservados &copy;2020</span> </p>
         </div>
     </footer> <!--Footer-->
- 
-    <!--Jquery script-->
-    <script type="text/javascript" src="JS/Jquery.js"></script>
+       <!--Jquery script-->
+       <script type="text/javascript" src="JS/Jquery.js"></script>
        <!--Script-->
     <script type="text/javascript" src="JS/Script.index.js"></script>
   
@@ -640,8 +375,22 @@ L.marker([-34.601528, -58.375111], 20).addTo(map)
     .bindPopup('Galeria Jardin,Local 429'   )
     .openPopup();
 
+    function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
 
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
     </script>
 </body>
-
 </html>
