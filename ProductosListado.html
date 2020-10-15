@@ -19,8 +19,8 @@
     
         <header class="header" id="HeaderFloat">
             <div class="main-header contenedor-header" id="mainHeader">
-                <div class="logo-main">
-                    <a href="index.html"><img id="logomain" src="/img/logoajjaja-removebg-preview.ico" alt=""></a>
+                <div class="logo-main" id="logomain">
+                    <a href="index.html"><img  src="/img/logoajjaja-removebg-preview.ico" alt=""></a>
                 </div>
                 <div class="Search-main contenedor">
                     <form class="paddLeft-50px" id="form">
@@ -259,9 +259,12 @@
         <div class="barra-categorias">
             <p>GABINETES</p>
         </div>
+        <div class="barra-filtro-mobile" onclick="ActivarDesactivarCategoria();" >
+            <button >FILTRAR</button>
+        </div>
     </section>
     <main class="site-main">
-        <aside class="site-filtros">
+        <aside class="site-filtros" id="siteFiltros">
          
             <ul>
                     <li><p>CATEGORIAS</p></li>
@@ -281,14 +284,14 @@
             </ul>
             <ul>
                 <li><p>MARCA</p></li>
-                <li><input type="checkbox"> Sentey <span>(2)</span></li>
-                <li><input type="checkbox"> Redragon <span>(50)</span></li>
-                <li><input type="checkbox"> Lzxt <span>(60)</span></li>
-                <li><input type="checkbox"> Aerocool <span>(90)</span></li>
-                <li><input type="checkbox"> thermaltake <span>(100)</span></li>
-                <li><input type="checkbox"> Aourus <span>(30)</span></li>
-                <li><input type="checkbox"> Corsair <span>(30)</span> </li>
-                <li><input type="checkbox"> Asus <span>(40)</span> </li>
+                <li class="marca"><input type="checkbox"> Sentey <span>(2)</span></li>
+                <li class="marca"><input type="checkbox"> Redragon <span>(50)</span></li>
+                <li class="marca"><input type="checkbox"> Lzxt <span>(60)</span></li>
+                <li class="marca"><input type="checkbox"> Aerocool <span>(90)</span></li>
+                <li class="marca"><input type="checkbox"> thermaltake <span>(100)</span></li>
+                <li class="marca"><input type="checkbox"> Aourus <span>(30)</span></li>
+                <li class="marca"><input type="checkbox"> Corsair <span>(30)</span> </li>
+                <li class="marca"><input type="checkbox"> Asus <span>(40)</span> </li>
             </ul>
         </aside>
         <div class="listado-productos">
@@ -301,7 +304,7 @@
                     <p class="nombre-productos">CPU GAMER / RYZEN 5 3600G</p>
                     <span class="precio-producto">ARS 70.000</span>
                     <p class="cuotas-producto">18 cuotas de 3,888,88</p>
-                    <button class="boton-producto">Ver Producto</button>
+                    <button class="boton-producto" id="producto-1">Ver Producto</button>
                 </div>
             </div>
             <div class="item-productos">
@@ -312,7 +315,7 @@
                     <p class="nombre-productos">CPU GAMER / RYZEN 5 3600G</p>
                     <span class="precio-producto">ARS 70.000</span>
                     <p class="cuotas-producto">18 cuotas de 3,888,88</p>
-                    <button class="boton-producto">Ver Producto</button>
+                    <button class="boton-producto" id="producto-2">Ver Producto</button>
                 </div>
             </div>
             <div class="item-productos">
@@ -323,7 +326,7 @@
                     <p class="nombre-productos">CPU GAMER / RYZEN 5 3600G</p>
                     <span class="precio-producto">ARS 70.000</span>
                     <p class="cuotas-producto">18 cuotas de 3,888,88</p>
-                    <button class="boton-producto">Ver Producto</button>
+                    <button class="boton-producto" id="producto-3">Ver Producto</button>
                 </div>
             </div>
             <div class="item-productos">
@@ -334,7 +337,7 @@
                     <p class="nombre-productos">CPU GAMER / RYZEN 5 3600G</p>
                     <span class="precio-producto">ARS 70.000</span>
                     <p class="cuotas-producto">18 cuotas de 3,888,88</p>
-                    <button class="boton-producto">Ver Producto</button>
+                    <button class="boton-producto" id="producto-4">Ver Producto</button>
                 </div>
             </div>
             <div class="item-productos">
@@ -345,7 +348,7 @@
                     <p class="nombre-productos">CPU GAMER / RYZEN 5 3600G</p>
                     <span class="precio-producto">ARS 70.000</span>
                     <p class="cuotas-producto">18 cuotas de 3,888,88</p>
-                    <button class="boton-producto">Ver Producto</button>
+                    <button class="boton-producto" id="producto-5">Ver Producto</button>
                 </div>
             </div>
             <div class="item-productos">
@@ -356,7 +359,7 @@
                     <p class="nombre-productos">CPU GAMER / RYZEN 5 3600G</p>
                     <span class="precio-producto">ARS 70.000</span>
                     <p class="cuotas-producto">18 cuotas de 3,888,88</p>
-                    <button class="boton-producto">Ver Producto</button>
+                    <button class="boton-producto" id="producto-6">Ver Producto</button>
                 </div>
             </div>
             <div class="item-productos">
@@ -367,7 +370,7 @@
                     <p class="nombre-productos">CPU GAMER / RYZEN 5 3600G</p>
                     <span class="precio-producto">ARS 70.000</span>
                     <p class="cuotas-producto">18 cuotas de 3,888,88</p>
-                    <button class="boton-producto">Ver Producto</button>
+                    <button class="boton-producto" id="producto-7" >Ver Producto</button>
                 </div>
             </div>
             <div class="item-productos">
@@ -378,7 +381,7 @@
                     <p class="nombre-productos">CPU GAMER / RYZEN 5 3600G</p>
                     <span class="precio-producto">ARS 70.000</span>
                     <p class="cuotas-producto">18 cuotas de 3,888,88</p>
-                    <button class="boton-producto">Ver Producto</button>
+                    <button class="boton-producto" id="productor-8">Ver Producto</button>
                 </div>
             </div>
            
@@ -410,7 +413,7 @@
        <!--Jquery script-->
        <script type="text/javascript" src="JS/Jquery.js"></script>
        <!--Script-->
-    <script type="text/javascript" src="JS/Script.index.js"></script>
+    
   
     <!--Scrips de boopstrap-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -418,6 +421,7 @@
     <!--Maps-->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script type="text/javascript" src="JS/lightslider.js"></script>
+    <script src="js/ProductosListado.js"></script>
     <script>
                       // JavaScript Document
 $(document).ready(function() {
