@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <link rel="stylesheet" href="CSS/panel.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Panel de control</title>
+</head>
+<body>
+    <header class="site-haader">
+        <div class="contenedor">
+            <div class="site-barra">
+                <div class="titulo-barra">
+                    <img src="/img/logoajjaja-removebg-preview.ico" alt="" >
+                </div>
+                <nav class="navegador-barra">
+                     <button> <span class="glyphicon glyphicon-share"></span>  Salir</button>
+                </nav>
+            </div>
+        </div>
+        <div class="barra-after">
+
+        </div>
+       
+    </header>
+    <section class="site-header" style="margin-top: 50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de control <small>Administre su sitio</small> </h1>
+                </div>
+                <div class="col-md-2">
+                    <div class="dropdown crear">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                          Crear Contenido
+                        </button>
+
+                        <ul class="dropdown-menu " aria-labelledby="dropdownMenu1" >
+                            <li><a class="dropdown-item" data-toggle="modal" data-target="#AgregarProducto" >Agregar Productos</a></li>
+                            <li><a class="dropdown-item" data-toggle="modal" data-target="#AgregarBanner" >Agregar banner</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="active">Panel de control / Ventas</li>
+            </ol>
+        </div>
+    </section>
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="list-group ">
+                        <a href="panel.html" class="list-group-item  color-principal"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de control <span class="badge"></span></a>
+                        <a href="panelProductos.html" class="list-group-item "><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Productos<span class="badge" id="cantidad">0</span></a>
+                        <a  href="panelBanner.html" class="list-group-item"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Banners <span class="badge" id="cantidad">0</span></a>
+                        <a  href="panelVentas.html" class="list-group-item active"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ventas <span class="badge" id="cantidad">0</span></a>
+                        <a  href="panelDestacados.html" class="list-group-item"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Destacados <span class="badge" id="cantidad">0</span></a>
+                        <a  href="panelComentarios.html" class="list-group-item"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Comentarios <span class="badge" id="cantidad">0</span></a>
+
+                    </ul>
+
+                </div>
+                <div class="col-md-9">
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"> Ventas</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" placeholder="filtrar ventas por fecha o nombre de producto">
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="global">
+                                <table class="table table-striped table-hover" id="contenedorProductos">
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Producto</th>
+                                        <th>Total</th>
+                                        <th>cantidad</th>
+                                        <th>Fecha</th>
+                                        <th></th>
+            
+                                    </tr>
+                                    <tr>
+                                        <td><img src="/img/gabinetegamer.jpg" alt="" width="100px"></td>
+                                        <td class="titulo">Gabinete sentey X10 RGB Acrilic USB  3.0 Sin fuente<</td>
+                                        <td class="precio">70.00,00</td>
+                                        <td class="stock">20</td>
+                                        <td class="stock">15/10/2020</td>
+                                        <td class="boton-centro"><button class="btn btn-danger">Borrar</button></td>
+                               
+                                    </tr>
+                                    <tr>
+                                        <td><img src="/img/gabinetegamer.jpg" alt="" width="100px"></td>
+                                        <td class="titulo">Gabinete sentey X10 RGB Acrilic USB  3.0 Sin fuente<</td>
+                                        <td class="precio">70.00,00</td>
+                                        <td class="stock">20</td>
+                                        <td class="stock">15/10/2020</td>
+                                        <td class="boton-centro"><button class="btn btn-danger">Borrar</button></td>
+                               
+                                    </tr>
+                                    <tr>
+                                        <td><img src="/img/gabinetegamer.jpg" alt="" width="100px"></td>
+                                        <td class="titulo">Gabinete sentey X10 RGB Acrilic USB  3.0 Sin fuente<</td>
+                                        <td class="precio">70.00,00</td>
+                                        <td class="stock">20</td>
+                                        <td class="stock">15/10/2020</td>
+                                        <td class="boton-centro"><button class="btn btn-danger">Borrar</button></td>
+                               
+                                    </tr>
+                                    <tr>
+                                        <td><img src="/img/gabinetegamer.jpg" alt="" width="100px"></td>
+                                        <td class="titulo">Gabinete sentey X10 RGB Acrilic USB  3.0 Sin fuente<</td>
+                                        <td class="precio">70.00,00</td>
+                                        <td class="stock">20</td>
+                                        <td class="stock">15/10/2020</td>
+                                        <td class="boton-centro"><button class="btn btn-danger">Borrar</button></td>
+                               
+                                    </tr>
+                                   
+
+
+
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="AgregarPagina" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="formulario">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Agregar Página</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Titulo de la página</label>
+                            <input type="text" class="form-control" placeholder="Titulo de la página">
+                        </div>
+                        <div class="form-group">
+                            <label>Información de la página</label>
+                            <textarea name="editor1" class="form-control" placeholder="Información de la página"></textarea>
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Publicado
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>Palabras clave</label>
+                            <textarea name="text" class="form-control" placeholder="Agregar algunas palabras.."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Meta descripcion</label>
+                            <textarea name="text" class="form-control" placeholder="Agregar descripcioón.."></textarea>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="AgregarBanner" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="formulario">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Agregar Banner</h4>
+                    </div>
+                    <div class="modal-body">
+                      
+                        <div class="form-group">
+                            <input type="file" name="archivosubido" id="imagen">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="AgregarProducto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="dataForm">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Agregar Producto</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label>Marca</label>
+                            <input type="text" name="Marca" class="form-control" placeholder="Marca del producto" id="marca">
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" name="Nombre" class="form-control" placeholder="Nombre del producto" id="nombre">
+                        </div>
+                        <div class="form-group">
+                            <label>Precio real</label>
+                            <input type="decimal" name="PrecioReal" min="1" class="form-control" placeholder="Precio del real" id="precioreal">
+                        </div>
+                        <div class="form-group">
+                            <label>Precio venta</label>
+                            <input type="decimal" name="PrecioVenta" min="1" class="form-control" placeholder="Precio de la venta" id="precioventa">
+                        </div>
+                        <div class="form-group">
+                            <label>Categoria</label>
+                            <select class="form-control" name="Categoria">
+                                <option>Notebook</option>
+                                <option>Procesadores</option>
+                                <option>Camaras web</option>
+                                <option>Monitores</option>
+                                <option>Tablets</option>
+                                <option>Gabinetes</option>
+                                <option>teclados</option>
+                                <option>Sillar</option>
+                                <option>Cableados</option>
+                                <option>Mouse</option>
+                                
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Stock</label>
+                            <input type="number" name="Stock" class="form-control" placeholder="Stock" id="stock" min="0" >
+                        </div>
+                        <div class="form-group">
+                            <input type="file" name="archivosubido" id="imagen">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Meta descripcion</label>
+                            <input type="text" name="Descripcion" class="form-control" placeholder="Agregar descripcioón.." id="descripcion"></input>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Publicar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer class="contenedor-footer">
+      
+        <div class="after-footer" >
+            <p><span ></span> <span style="margin-left: 10px;">Todos los derechos reservados &copy;2020</span> </p>
+        </div>
+    </footer> <!--Footer-->
+    <script src="js/panel.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js "></script>
+</body>
+</html>

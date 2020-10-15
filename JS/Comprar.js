@@ -97,13 +97,3 @@ L.marker([-34.601528, -58.375111], 20).addTo(map)
     .bindPopup('Galeria Jardin,Local 429')
     .openPopup();
 
-var btnComprar = document.getElementById("comprar");
-btnComprar.addEventListener('click',function(e){
-    window.location.href ="Comprar.html";
-    
-});
-
-
-
-
-
