@@ -10,6 +10,7 @@
     <!--Link mapa-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/img/logoajjaja-removebg-preview.ico">
     <title>RPC Computación</title>
 </head>
 <body>
@@ -258,10 +259,23 @@
         <div class="site-compra contenedor">
           <div class="armado-pedido">
             <h2>Armado del pedido online</h2>
-            <p>Forma de envio:</p> <select name="select" id="select-envio">
-            <option value="value1">Correo OCA</option>
-            <option value="value2">Moto Express a domicilio</option>
-            <option value="value3">Retiro en el local</option></select>
+          
+            <div class="pedido-lineal">
+                
+                <p>Localidad <input type="text" placeholder="ej: Buenos aires,Quilmes"> </p>
+                <p>Direccion <input type="text" placeholder="ej: Directorio 2244"> </p>
+                <p>Numero <input type="int" placeholder="1544223322"></p>
+                <p>Documento  identidad(dni) <input type="text" name="" id=""></p>
+                <p>Forma de envio:<select name="select" id="select-envio" style="padding: 3px;">
+                    <option value="value1">Correo OCA</option>
+                    <option value="value2">Moto Express a domicilio</option>
+                    <option value="value3">Retiro en el local</option></select></p> 
+                    
+            </div>
+         
+          </div>
+          <div class="btn-seccion">
+            <button class="btn-siguiente" id="siguiente">Siguiente</button>
           </div>
         </div>
     </main>
@@ -274,7 +288,8 @@
                 <a href="https://www.facebook.com/RPC.HardwareConectividad/about/?ref=page_internal">FACEBOOK</a>
                
             </div>
-            
+            <div class="Maps" id="mapita" >
+            </div>
            
         </div>
         <div class="after-footer" >
@@ -284,6 +299,7 @@
        <!--Jquery script-->
        
        <script type="text/javascript" src="JS/Jquery.js"></script>
+    
        <!--Script-->
      
   
@@ -293,8 +309,10 @@
     <!--Maps-->
     
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-   
-    <script src="js/Comprar.js"></script>
+  
+    <script src="js/lightslider.js"></script>
+    <script src="js/ArmadoPedido.js"></script>
+    
   
     <script>
         

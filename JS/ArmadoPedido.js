@@ -98,15 +98,3 @@ L.marker([-34.601528, -58.375111], 20).addTo(map)
     .openPopup();
 
 
-//
-var comprar = document.getElementById("comprar");
-comprar.addEventListener('click', function(e)
-{
-    e.preventDefault();
-    window.location.href ="ArmadoPedido.html";
-});
-// 
-var siguiente = document.getElementById("siguiente");
-atras.addEventListener('click', function(e){
-    console.log("hola");
-})

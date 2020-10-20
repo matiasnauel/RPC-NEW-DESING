@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="CSS/normalize.css">
     <link rel="stylesheet" href="CSS/panel.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="/img/logoajjaja-removebg-preview.ico">
     <title>Panel de control</title>
 </head>
 <body>
@@ -64,6 +65,7 @@
                         <a  href="panelVentas.html" class="list-group-item"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ventas <span class="badge" id="cantidad">0</span></a>
                         <a  href="panelDestacados.html" class="list-group-item"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Destacados <span class="badge" id="cantidad">0</span></a>
                         <a  href="panelComentarios.html" class="list-group-item"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Comentarios <span class="badge" id="cantidad">0</span></a>
+                        <a  href="comprobante.html" class="list-group-item"><span class="	glyphicon glyphicon-qrcode" aria-hidden="true"></span> Comprobante de pagos <span class="badge" id="cantidad">0</span></a>
                     </ul>
 
                 </div>
@@ -203,23 +205,20 @@
                         </div>
                         <div class="form-group">
                             <label>Categoria</label>
-                            <select class="form-control" name="Categoria">
-                                <option>Notebook</option>
-                                <option>Procesadores</option>
-                                <option>Camaras web</option>
-                                <option>Monitores</option>
-                                <option>Tablets</option>
-                                <option>Gabinetes</option>
-                                <option>teclados</option>
-                                <option>Sillar</option>
-                                <option>Cableados</option>
-                                <option>Mouse</option>
-                                
-                            </select>
+                            <input type="text" name="Nombre" class="form-control" placeholder="Ingresar categoria" id="categoria">
                         </div>
                         <div class="form-group">
                             <label>Stock</label>
                             <input type="number" name="Stock" class="form-control" placeholder="Stock" id="stock" min="0" >
+                        </div>
+                        <div class="form-group">
+                            <input type="file" name="archivosubido" id="imagen">
+                        </div>
+                        <div class="form-group">
+                            <input type="file" name="archivosubido" id="imagen">
+                        </div>
+                        <div class="form-group">
+                            <input type="file" name="archivosubido" id="imagen">
                         </div>
                         <div class="form-group">
                             <input type="file" name="archivosubido" id="imagen">

@@ -10,6 +10,7 @@
     <!--Link mapa-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/img/logoajjaja-removebg-preview.ico">
     <title>RPC Computación</title>
 </head>
 <body>
@@ -259,40 +260,52 @@
             <div class="mis-compras">
                 <h2>Mis compras</h2>   
                 <div class="mi-productos-compra">
-                    <div class="listado-productos-comprar"> 
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <th>Imagen</th>
-                                <th>Nombre</th>
-                                <th>Precio</th>
-                                <th>Cantidad</th>
-                                <th></th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td><img src="/img/gabinetegamer.jpg" alt="" style="width: 20%;"></td>
-                                <td>Gabinete sentey X10 RGB Acrilic USB  3.0 Sin fuente</td>
-                                <td>70.000,00</td>
-                                <td>2</td>
-                                <td><button class="btn btn-danger">Eliminar</button> </td>
-                              </tr>
-                              <tr>
-                                <td><img src="/img/gabinetegamer.jpg" alt="" style="width: 20%;"></td>
-                                <td>Gabinete sentey X10 RGB Acrilic USB  3.0 Sin fuente</td>
-                                <td>70.000,00</td>
-                                <td>2</td>
-                                <td><button class="btn btn-danger">Eliminar</button> </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                          <div class="seccion-boton-compra">
-                            <button class="btn btn-primary " id="comprar" >Comprar</button>
-                            <span>Total: <span>$140.000</span></span>
-                          </div>
-                        
+                    <div id="global" class="table-responsive">
+                        <div class="listado-productos-comprar"> 
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th>Imagen</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td><img class="imagen-compra" src="/img/gabinetegamer.jpg" alt="" ></td>
+                                    <td>Gabinete sentey X10 RGB Acrilic USB  3.0 Sin fuente</td>
+                                    <td>70.000,00</td>
+                                    <td>2</td>
+                                    <td><button class="btn btn-danger">Eliminar</button> </td>
+                                  </tr>
+                                  <tr>
+                                    <td><img  class="imagen-compra" src="/img/gabinetegamer.jpg" alt="" ></td>
+                                    <td>Gabinete sentey X10 RGB Acrilic USB  3.0 Sin fuente</td>
+                                    <td>70.000,00</td>
+                                    <td>2</td>
+                                    <td><button class="btn btn-danger">Eliminar</button> </td>
+                                  </tr>
+                                  <tr>
+                                    <td><img class="imagen-compra" src="/img/gabinetegamer.jpg" alt="" ></td>
+                                    <td>Gabinete sentey X10 RGB Acrilic USB  3.0 Sin fuente</td>
+                                    <td>70.000,00</td>
+                                    <td>2</td>
+                                    <td><button class="btn btn-danger">Eliminar</button> </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                          
+                            
+                        </div>
+                    
                     </div>
+                    <div class="opcion-carrito">
+                        <button class="btn-comprar" id="comprar">Comprar</button>
+                        <button class="btn-cancelar" >Cancelar</button>
+                    </div>
+                 
                 </div>             
             </div>
         </div>

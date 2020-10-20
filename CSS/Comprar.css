@@ -613,6 +613,20 @@ html {
   .btn-comprar:hover{
       background-color: rgba(12, 8, 8, 0.966);
   }
+  .btn-siguiente{
+    background-color: rgba(117, 69, 207, 0.712);
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    border-style: solid;
+    transition: .3s;
+    border-radius: 4px;
+  }
+  .btn-siguiente:hover{
+    background-color: rgba(130, 91, 202, 0.712);
+  }
   .btn-agregar{
     font-size: 20px;
     font-weight: bold;
@@ -949,9 +963,92 @@ html {
     box-shadow: 3px 3px 14px -6px rgba(0,0,0,0.75);
     
 }
+@media (min-width: 360px) {
+    .imagen-compra{
+        width: 100%;
+    }
+}
+@media (min-width: 768px) {
+    .imagen-compra{
+        width: 20%;
+    }
+}
+@media (min-width: 360px) {
+    #global{
+        height: 500px;
+        width: auto;
+        border: 1px solid #ddd;
+        overflow-y: scroll;
+    }
+}
+@media (min-width: 768px) {
+    #global {
+        height: 300px;
+        width: auto;
+        border: none;
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
+}
+.table-responsive{
+    overflow-y:scroll ;
+}
 .seccion-boton-compra{
     display: flex;
     justify-content: space-between;
+}
+@media (min-width: 360px) {
+    .pedido-lineal{
+      display: grid;
+      grid-template-columns: repeat(1,1fr);
+    }   
+}
+@media (min-width: 768px) {
+    .pedido-lineal{
+   
+        grid-template-columns: repeat(5,1fr);
+    }
+}
+
+@media (min-width: 360px) {
+    .opcion-carrito{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+@media (min-width: 360px) {
+    .btn-comprar {
+        background-color: rgba(12, 8, 8, 0.712);
+        color: white;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        outline: none;
+        border-style: solid;
+        transition: .3s;
+        border-radius: 4px;
+    }
+}
+@media (min-width: 360px) {
+    .btn-cancelar {
+        background-color: rgba(141, 25, 25, 0.712);
+        color: white;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        outline: none;
+        border-style: solid;
+        transition: .3s;
+        border-radius: 4px;
+    }
+}
+.btn-seccion{
+    display: grid;
+    margin-top: 60px;
+}
+.btn-seccion  button{
+    margin-bottom: 20px;
+    margin-right: 20px;
 }
 /*Contenedor footer*/
 .before-footer{
