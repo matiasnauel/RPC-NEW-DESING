@@ -540,6 +540,7 @@ html {
      
   }
  
+  
   @media (min-width: 360px) {
     .titulo-encabezado p {
         margin-top: 10px;
@@ -559,7 +560,7 @@ html {
         background-color: rgb(119, 141, 69);
         color: white;
         padding: 2px;
-        width: 31%;
+        width: 32%;
         font-weight: 700;
         text-align: start;
       }
