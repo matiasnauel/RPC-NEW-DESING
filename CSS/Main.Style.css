@@ -716,9 +716,9 @@ ul {
   .barra-afterr {
     background-color: red;
     position: fixed;
-    height: 10px;
+    height: 1rem;
     width: 100%;
-    margin-top: 65px;
+    margin-top: 6rem;
     z-index: 1;
   }
 }
