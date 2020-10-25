@@ -32,7 +32,7 @@
                 <div class="col-md-10">
                     <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de control <small>Administre su sitio</small> </h1>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2" style="margin-bottom: 20px;">
                     <div class="dropdown crear">
                         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                           Crear Contenido
@@ -280,33 +280,55 @@
                             <label>Precio venta</label>
                             <input type="decimal" name="PrecioVenta" min="1" class="form-control" placeholder="Precio de la venta" id="precioventa">
                         </div>
-                        <div class="form-group">
-                            <label>Categoria</label>
-                            <input type="text" name="Nombre" class="form-control" placeholder="Ingresar categoria" id="categoria">
+                        <div class="form-group row">
+                            <div class="col-xs-4">
+                                <label>Agregar Categoria</label>
+                                <div class="input-group">
+                                    <input type="text" name="Categoria" class="form-control" placeholder="Nueva categoria" id="categoria">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default" type="submit">
+                                          <i class="glyphicon">+</i>
+                                        </button>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <label> Categorias</label>
+                                <select name="Categorias" id="SelectCategorias" class="form-control">
+                                    <option value="0">Categorias</option>
+                                    <option value="1">Procesadores</option>
+                                    <option value="2">Monitores</option>
+                                </select>
+                            </div>
+
+       
+                            
+
                         </div>
                         <div class="form-group">
                             <label>Stock</label>
                             <input type="number" name="Stock" class="form-control" placeholder="Stock" id="stock" min="0" >
                         </div>
-                        <div class="form-group">
+                        <Label>Cargar Imagenes</Label>
+                        <div class="form-group ">
                             <input type="file" name="archivosubido" id="imagen">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group ">
                             <input type="file" name="archivosubido" id="imagen">
                         </div>
-                        <div class="form-group">
+                     
+                        <div class="form-group ">
                             <input type="file" name="archivosubido" id="imagen">
                         </div>
-                        <div class="form-group">
+                     
+                        <div class="form-group ">
                             <input type="file" name="archivosubido" id="imagen">
                         </div>
-                        <div class="form-group">
-                            <label><input type="checkbox"> Destacados </label>
-                            
-                        </div>
+                     
+                     
 
                         <div class="form-group">
-                            <label>Meta descripcion</label>
+                            <label>Descripcion del producto</label>
                             <input type="text" name="Descripcion" class="form-control" placeholder="Agregar descripcioón.." id="descripcion"></input>
                         </div>
 
