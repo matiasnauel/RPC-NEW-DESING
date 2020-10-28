@@ -93,7 +93,6 @@ function openNav() {
     document.getElementById("mapita").style.zIndex =  "-1";
     document.getElementById("redline").style.zIndex =" -1";
     
-
   }
   
   function closeNav() {
@@ -116,11 +115,11 @@ function openNavCarrito() {
     document.getElementById("redline").style.zIndex =" 1";
   }
 
-//   Modal iniciar sesión
+//   ModalCarrito
 if(document.getElementById("btnModal")){
     var modal = document.getElementById("tvesModal");
     var btn = document.getElementById("btnModal");
-    var span = document.getElementsByClassName("close")[0];
+    var span = document.getElementsByClassName("closed")[0];
     var body = document.getElementsByTagName("body")[0];
 
     btn.onclick = function() {

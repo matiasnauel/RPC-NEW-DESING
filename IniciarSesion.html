@@ -41,7 +41,7 @@
                             <ul class="desplegable-cuenta" id="desplegable-cuenta"> 
 
                                 <li  style="display: block;" class="login-out"><a href="#" data-toggle="modal" data-target="#myModal2" ><i class="glyphicon glyphicon-log-in"></i> Iniciar Sesión</a></li>
-                                <li  style="display: none;" class="login-in " id="exitAPP"><a href="#" > <i class="glyphicon glyphicon-log-out"></i> Salir</a></li>
+                                <li  style="display: none;" class="login-in"><a href="#" id="exitAPP"> <i class="glyphicon glyphicon-log-out"></i> Salir</a></li>
                                 <li class="login-in" style="display: none;"> <a href="#" ><i class="glyphicon glyphicon-shopping-cart" ></i> Mis compras</a> </li>
                             </ul>
                         </li>
@@ -192,7 +192,7 @@
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                         <a href="#" class="login-in" style="display: none;">Mi cuenta</a>
                         <a href="IniciarSesion.html" class="login-out" style="display: block;">Iniciar Sesión</a>
-                        <a href="#" class="login-in" style="display: none;" id="ExitAPPP">Salir</a>
+                        <a href="#" class="login-in" style="display: none;" id="salirApp">Salir</a>
                         <a href="#">Notebook</a>
                         <a href="#">Procesadores</a>
                         <a href="#">Auriculares</a>
@@ -201,9 +201,12 @@
                         <a href="">Gabinetes</a>
                         <a href="">Celulares</a>
                         <a href="">Teclados</a>
+                       
                       </div>
                     <img src="/img/menu180°.png" alt="" style="width: 80%; cursor: pointer; margin-right: 2em;" onclick="openNav()" >
                 </div>
+    
+            
     
             </div>
     
@@ -310,323 +313,33 @@
             </div>
         </div>
     </div> <!--Slider-->
-    <div class="contenedor">
-        <div class="contenedores-servicios">
-            <div class="servicio-1">
-                <div class="icono-servicio" id="icono-service-1">
-                    <img src="/img/camion-de-reparto.png" alt="">
-                 </div>
-                 <h3>ENVÍOS A TODO EL PAÍS</h3>
-            </div>
-            <div class="servicio-2">
-                <div class="icono-servicio" id="icono-service-2">
-                    <a href="#mapita"><img src="/img/mapas-de-google.png" alt="" ></a> 
-                  </div>
-                   <h3>RETIRALO EN EL LOCAL</h3> 
-            </div>
-            <div class="servicio-3">
-                <div class="icono-servicio" id="icono-service-3">
-                    <img src="/img/protegido.png" alt="">
-                </div>
-                  <h3> SITIO SEGURO </h3> 
-            </div>
-        </div>
-    </div>
- 
     <main>
-        <div class="main-container container">
-            <div class="container-main contenedor">
-                <div class="wrapper">
-                    <div id="publicacion1" class="style-Column "   id="publicacion1">
-                        <div class="titulo">
-                            <p class="titulo-parrafo">ARMA TU PC</p>
-                        </div>
-                    </div>
-                    <div id="publicacion2" class="publicacion2" >
-                        <img src="/img/comboActulizacion2.jfif" alt="">
-                        <div class="titulo-global-publicacion">
-                            <p>ACTUALIZACIONES</p>
-                        </div>
-                    </div>
-                    <div id="publicacion3" class="publicacion3"   >
-                        <img src="/img/GProXBlueAuricular.jpg" alt="">
-                         <div class="titulo-global-publicacion">
-                        <p>AURICULARES</p>
-                       </div>
-                    </div>
-                    <div id="publicacion4" class="publicacion4" >
-                        <img src="/img/rog-strix-flare teclado.jpg" alt="">
-                        <div class="titulo-global-publicacion">
-                            <p>TECLADOS</p>
-                        </div>
-                    </div>
-                    <div id="publicacion5" class="publicacion5">
-                        <img src="/img/mousegamer.jpg" alt="">
-                        <div class="titulo-global-publicacion">
-                            <p>MOUSE</p>
-                        </div>
-                    </div>
-                    <div id="publicacion6" class="publicacion6"  >
-                        <img src="/img/micrfonogamer.jpg" alt="">
-                        <div class="titulo-global-publicacion">
-                            <p>MICRÓFONO</p>
-                        </div>
-                    </div>  
-                    <div id="publicacion7" class="publicacion7" >
-                        <img src="/img/webcamn.jpg" alt="">
-                        <div class="titulo-global-publicacion">
-                            <p>WEBCAMS</p>
-                        </div>
-                    </div>
-                  
+   
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title text-center">Inciar Sesión</h4>
                 </div>
-                <div class="site-destacados">
-                    <div class="titulo-destacados">
-                        <h3>Destacados  /<a href="ProductosListado.html">Ver todos</a></h3>
-                    </div>
-                    <section class="slider-destacados">
-                        <ul id="autoWidth" class="cs-hidden">
-                            <!--1------------------------------------>
-                            <li class="item-a">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="1" src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="publicacion.html" class="buy-btn">Ver producto</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="ProductosListado.html">PC GAMER</a>
-                                            <span>hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="publicacion.html" class="price">$5000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--2------------------------------------>
-                            <li class="item-b">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="2"  src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="publicacion.html" class="buy-btn">Ver producto</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="ProductosListado.html">PC GAMER</a>
-                                            <span>hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$20</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--3------------------------------------>
-                            <li class="item-a">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="1"  src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="publicacion.html" class="buy-btn">Ver producto</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="ProductosListado.html">PC GAMER</a>
-                                            <span>hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$5000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--4------------------------------------>
-                            <li class="item-b">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="2"  src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="publicacion.html" class="buy-btn">Ver producto</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="#">PC GAMER</a>
-                                            <span>Hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="ProductosListado.html" class="price">$2000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--5------------------------------------>
-                            <li class="item-a">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="1" src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="publicacion.html" class="buy-btn">Ver producto</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="ProductosListado.html">PC GAMER</a>
-                                            <span>hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$5000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--6------------------------------------>
-                            <li class="item-b">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="2" src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="publicacion.html" class="buy-btn">Ver producto</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="ProductosListado.html">PC GAMER</a>
-                                            <span>Hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$2000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--7------------------------------------>
-                            <li class="item-a">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="1" src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="publicacion.html" class="buy-btn">Ver producto</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="ProductosListado.html">PC GAMER</a>
-                                            <span>hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$5000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--8------------------------------------>
-                            <li class="item-b">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="2" src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="publicacion.html" class="buy-btn">Ver producto</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="ProductosListado.html">PC GAMER</a>
-                                            <span>Hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$2000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                        </ul>
-                    </section>
+                <div class="modal-body" style="display: grid; grid-template-columns: repeat(1,1fr);">
+                  <button class="loginBtn loginBtn--facebook btn-block" id="IniciarFacebookk" >
+                       Facebook
+                    </button>
+                    
+                    <button class="loginBtn loginBtn--google btn-block" id="IniciarGooglee">
+                      Google
+                    </button>
                 </div>
-                <div class="contenido-publicidad">
-                    <div class="publicidad">
-                        <img src="/img/Aerocool.jpg" alt="">
-                    </div>  
-                    <div class="publicidad">
-                        <img src="/img/amd.png" alt="">
-                    </div>
-                    <div class="publicidad">
-                        <img src="/img/Asus-Logo.png" alt="">
-                    </div>
-                    <div class="publicidad">
-                        <img src="/img/gygabyte.jpg" alt="">
-                    </div>
-                    <div class="publicidad">
-                        <img src="/img/nividia.png" alt="">
-                    </div>
-    
+                <div class="modal-footer">
+                 
                 </div>
+              </div>
             </div>
-        </div>
-    
+       
     </main>
+  
+ 
+   
     <!--Main-->
     <footer class="contenedor-footer">
         <div class="before-footer">
@@ -680,8 +393,7 @@ L.marker([-34.601528, -58.375111], 20).addTo(map)
 
 
     </script>
-    <!-- Firebase -->
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
 
 
@@ -708,8 +420,7 @@ L.marker([-34.601528, -58.375111], 20).addTo(map)
   firebase.analytics();
   const auth = firebase.auth();
 </script>
-<script src="js/firebase.js"></script>
-
+<script src="js/FirebaseMobile.js"></script>
 </body>
 
 </html>
