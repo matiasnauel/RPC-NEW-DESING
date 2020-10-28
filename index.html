@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="CSS/lightslider.css">
     <!--estilos de boopstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Icons Awesome -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <!--Link mapa-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="icon" type="image/x-icon" href="/img/logoajjaja-removebg-preview.ico" >
@@ -40,9 +42,10 @@
                             <a ><i class="glyphicon glyphicon-user" ></i> Mi cuenta</a>
                             <ul class="desplegable-cuenta" id="desplegable-cuenta"> 
 
-                                <li  style="display: block;" class="login-out"><a href="#" data-toggle="modal" data-target="#myModal2" ><i class="glyphicon glyphicon-log-in"></i> Iniciar Sesión</a></li>
-                                <li  style="display: none;" class="login-in " id="exitAPP"><a href="#" > <i class="glyphicon glyphicon-log-out"></i> Salir</a></li>
+                                <li  style="display: block;" class="login-out"><a href="#" data-toggle="modal"  data-target="#Login" ><i class="glyphicon glyphicon-log-in"></i> Iniciar Sesión</a></li>
+                             
                                 <li class="login-in" style="display: none;"> <a href="#" ><i class="glyphicon glyphicon-shopping-cart" ></i> Mis compras</a> </li>
+                                <li  style="display: none;" class="login-in " id="exitAPP"><a href="#" > <i class="glyphicon glyphicon-log-out"></i> Salir</a></li>
                             </ul>
                         </li>
                     </div>
@@ -186,23 +189,12 @@
                         
                         </div>
                         <img src="/img/carrito-de-compras.png" alt="" style="width: 70%;" id="CarritoSubMenu"><span id="itemCarrito"  onclick="openNavCarrito()" >(0)</span>
-                       
+                      
                     </div>
-                    <div id="mySidenav" class="sidenav">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="#" class="login-in" style="display: none;">Mi cuenta</a>
-                        <a href="IniciarSesion.html" class="login-out" style="display: block;">Iniciar Sesión</a>
-                        <a href="#" class="login-in" style="display: none;" id="ExitAPPP">Salir</a>
-                        <a href="#">Notebook</a>
-                        <a href="#">Procesadores</a>
-                        <a href="#">Auriculares</a>
-                        <a href="#">Monitores</a>
-                        <a href="">Tablets</a>
-                        <a href="">Gabinetes</a>
-                        <a href="">Celulares</a>
-                        <a href="">Teclados</a>
-                      </div>
-                    <img src="/img/menu180°.png" alt="" style="width: 80%; cursor: pointer; margin-right: 2em;" onclick="openNav()" >
+              
+                    <img src="/img/menu180°.png" alt="" style="width: 80%; cursor: pointer; margin-right: 2em;" id="MenuBurger">
+   
+                  
                 </div>
     
             </div>
@@ -211,7 +203,32 @@
         <div id="redline">
     
         </div>
-        
+        <!-- Menu Burger mobile -->
+        <div class="menu-burger" id="menu-burger">
+            <li>
+                <form>
+                    <div class="input-group" style="border: 2px solid black;">
+                      <input type="text" class="form-control" placeholder="Buscar" style="border-radius: 0px;">
+                      <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit" style="border-radius: 0px; background-color: red;">
+                          <i class="glyphicon glyphicon-search" style="border-radius: 0px; color: white;"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+            </li>
+            <li><a href="#" id="IniciarSesiónMobile" data-toggle="modal" data-target="#Login" class="login-out">Iniciar Sesión</a></li>
+            <li><a href="#" id="misCategoriasMobile" class="misCategoriasMobile">Mis Categorias</a>
+                <ul id="categoriaMobile" style="display: none;">
+                    <li><a href="#">Notebooks</a> </li>
+                    <li><a href="">Procesadores</a> </li>
+                    <li><a href="">Motherboard</a> </li>
+                </ul>
+            </li>
+            <li><a href="#" style="display: none;" class="login-in">Mi Cuenta</a></li>
+            <li><a href="#" style="display: none;" id="salir-mobile" class="login-in">Salir</a></li>
+          
+        </div>
         <!--Linea roja-->
         <!--Header-->
         <div class="Barra">
@@ -306,7 +323,6 @@
                     <div class="next">&#10095;</div>
                     <div class="prev">&#10094;</div>
                 </div>
-    
             </div>
         </div>
     </div> <!--Slider-->
@@ -645,6 +661,30 @@
             <p><span ></span> <span style="margin-left: 10px;">Todos los derechos reservados &copy;2020</span> </p>
         </div>
     </footer> <!--Footer-->
+
+        <!-- Modal -->
+        <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form id="dataForm">
+                        <div class="modal-header">
+                            <h4 class="modal-title text-center" id="myModalLabel"><img src="/img/grupo.png" alt=""></i></h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group ">
+                                <button class="btn btn-success btn-group-justified" id="ButtonGoogle"><i class='fab fa-google'></i> Google</button>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-group-justified " id="ButtonFacebook"><i class="	fab fa-facebook-f"></i> Facebook</button>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
  
     <!--Jquery script-->
     <script type="text/javascript" src="JS/Jquery.js"></script>

@@ -1,13 +1,14 @@
 var IniciarGoogle = document.querySelector("#IniciarGoogle");
 var IniciarFacebook = document.querySelector("#IniciarFacebook");
+var IniciarGoogleMobile = document.querySelector("#ButtonGoogle");
+var IniciarFacebookMobile = document.querySelector("#ButtonFacebook");
 
-
-//Google login
+//Google login desktop
 IniciarGoogle.addEventListener('click', e=>{
     //Al hacer click, se tomar el objeto provider, lo que
     //Hace es decirle que se quiere autenticar con google
    const provider=new firebase.auth.GoogleAuthProvider();
-   console.log("click")
+ 
    //Ejecuto auth con signwhit para mostrar una ventana de ingreso a google
    auth.signInWithPopup(provider)
    .then(result=>{
@@ -19,21 +20,53 @@ IniciarGoogle.addEventListener('click', e=>{
    })
    
 })
-//FacebookLogin
+
+//GoogleLoginDesktop
+IniciarGoogleMobile.addEventListener('click', e=>{
+    e.preventDefault();
+    //Al hacer click, se tomar el objeto provider, lo que
+    //Hace es decirle que se quiere autenticar con google
+   const provider=new firebase.auth.GoogleAuthProvider();
+
+   //Ejecuto auth con signwhit para mostrar una ventana de ingreso a google
+   auth.signInWithPopup(provider)
+   .then(result=>{
+       
+       $('#Login').modal('hide');
+   })
+   .catch(err=>{
+       console.log(err)
+   })
+   
+})
+//FacebookLogin desktop
 IniciarFacebook.addEventListener('click', e=>{
     e.preventDefault();
     const provider =new firebase.auth.FacebookAuthProvider();
     auth.signInWithPopup(provider)
     .then(result=>{
         console.log(result);
-        console.log("facebook login");
+      
         $('#myModal2').modal('hide');
     })
     .catch(err=> {
         console.log(err)
     })
 })
-
+//Iniciar facebook desde el mobile
+IniciarFacebookMobile.addEventListener('click', e=>{
+    e.preventDefault();
+    const provider =new firebase.auth.FacebookAuthProvider();
+    auth.signInWithPopup(provider)
+    .then(result=>{
+        console.log(result);
+      
+        $('#Login').modal('hide');
+    })
+    .catch(err=> {
+        console.log(err)
+    })
+})
 //Eventos
 //Observador el cual se encuentra pendiente si alguien se logea
 firebase.auth().onAuthStateChanged(function(user) {
@@ -60,11 +93,11 @@ firebase.auth().onAuthStateChanged(function(user) {
       DeleteDateUser();
     }
   });
-  //BotonSalir
+  //BotonSalir desktop
   var salir = document.getElementById("exitAPP");
   salir.addEventListener('click', e=>{
       e.preventDefault();
-      console.log("salir")
+    
       firebase.auth().signOut().then(function() {
         window.location.href ="index.html";
       }).catch(function(error) {
@@ -72,6 +105,19 @@ firebase.auth().onAuthStateChanged(function(user) {
       });
     
   })
+   //BotonSalir desktop mobile
+   var salir = document.getElementById("salir-mobile");
+   salir.addEventListener('click', e=>{
+       e.preventDefault();
+      
+       firebase.auth().signOut().then(function() {
+         window.location.href ="index.html";
+       }).catch(function(error) {
+         alert(err);
+       });
+     
+   })
+
 
 //Verificar si existe el usuario
 var btnSesionOut=  document.querySelectorAll(".login-out");

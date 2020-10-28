@@ -85,21 +85,33 @@ window.addEventListener('load', () => {
     }
 
 })
-
-// Mobile menu desplegar
-
-function openNav() {
-    document.getElementById("mySidenav").style.width = "100%";
-    document.getElementById("mapita").style.zIndex =  "-1";
-    document.getElementById("redline").style.zIndex =" -1";
-    
-  }
+//MenuBurger
+const menuBurger = document.getElementById("MenuBurger");
+menuBurger.addEventListener('click',e=>{
+    e.preventDefault();
+    var x = document.getElementById("menu-burger");
+    if (x.style.display === "block") {
+      x.style.display = "none";
   
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("mapita").style.zIndex =  "1";
-    document.getElementById("redline").style.zIndex =" 1";
-  }
+    } else {
+      x.style.display = "block";
+      
+    }
+})
+//CategoriaBurger
+const CategoriaBurger = document.getElementById("misCategoriasMobile");
+CategoriaBurger.addEventListener('click',e=>{
+    e.preventDefault();
+    var x = document.getElementById("categoriaMobile");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+  
+    } else {
+      x.style.display = "block";
+      
+    }
+})
+
 
 //   Carrito
 function openNavCarrito() {
