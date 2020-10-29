@@ -22,74 +22,34 @@ function call_mouseout_retroced(id) {
     imagen.style.webkitTransform = "scale(1)";
 }
 
-// Slider transition
-window.addEventListener('load', () => {
 
-
-    // initial slide
-    let slide = 1;
-
-    // total slides
-    let slides = document.querySelectorAll(".slider ul li");
-    total = slides.length;
-
-    // show first side
-    showSlide(1);
-
-    next = document.querySelector(".next");
-    prev = document.querySelector(".prev")
-
-    /**
-     * event next button
-     */
-    next.addEventListener('click', (evt) => {
-        evt.preventDefault();
-        slide++;
-        if (slide > total) { slide = 1; }
-        showSlide(slide);
-    })
-
-    /** 
-     * event prev button
-     */
-    prev.addEventListener("click", (evt) => {
-        evt.preventDefault();
-        slide--;
-        if (slide < 1) { slide = total; }
-        showSlide(slide);
-    })
-
-    /**
-     * show slides
-     * 
-     * @param {number} n 
-     * @return {null}
-     * 
-     */
-    function showSlide(n) {
-        n--; // decrement 1
-        for (i = 0; i < slides.length; i++) {
-            (i == n) ? slides[n].style.display = "block" : slides[i].style.display = "none";
-        }
+//MenuBurger
+const menuBurger = document.getElementById("MenuBurger");
+menuBurger.addEventListener('click',e=>{
+    e.preventDefault();
+    var x = document.getElementById("menu-burger");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+  
+    } else {
+      x.style.display = "block";
+      
     }
-
+})
+//CategoriaBurger
+const CategoriaBurger = document.getElementById("misCategoriasMobile");
+CategoriaBurger.addEventListener('click',e=>{
+    e.preventDefault();
+    var x = document.getElementById("categoriaMobile");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+  
+    } else {
+      x.style.display = "block";
+      
+    }
 })
 
-// Mobile menu desplegar
-
-function openNav() {
-    document.getElementById("mySidenav").style.width = "100%";
-    document.getElementById("mapita").style.zIndex =  "-1";
-    document.getElementById("redline").style.zIndex =" -1";
-    
-
-  }
-  
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("mapita").style.zIndex =  "1";
-    document.getElementById("redline").style.zIndex =" 1";
-  }
 
 //   Carrito
 function openNavCarrito() {
@@ -105,11 +65,11 @@ function openNavCarrito() {
     document.getElementById("redline").style.zIndex =" 1";
   }
 
-//   Modal iniciar sesión
+//   ModalCarrito
 if(document.getElementById("btnModal")){
     var modal = document.getElementById("tvesModal");
     var btn = document.getElementById("btnModal");
-    var span = document.getElementsByClassName("close")[0];
+    var span = document.getElementsByClassName("closed")[0];
     var body = document.getElementsByTagName("body")[0];
 
     btn.onclick = function() {
@@ -168,8 +128,22 @@ var contenidoPublicación = document.getElementById("producto-7");
 contenidoPublicación.addEventListener('click',function(e){
     window.location.href ="publicacion.html";
 })
-var contenidoPublicación = document.getElementById("producto-8");
-contenidoPublicación.addEventListener('click',function(e){
-    window.location.href ="publicacion.html";
+
+
+// Input file 
+
+
+
+const input = document.getElementById('fichero-comprobante');
+const enviar = document.getElementById("send");
+    const custom = document.getElementById("custom-input-file");
+input.addEventListener('change' , (e)=> {
+    const file  = e.target.files[0];
+    if(input.files && input.files[0]){
+        custom.style.display ="none"
+        enviar.style.display ="block";
+    }
+
 })
+
 

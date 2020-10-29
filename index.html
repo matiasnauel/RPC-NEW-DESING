@@ -44,7 +44,7 @@
 
                                 <li  style="display: block;" class="login-out"><a href="#" data-toggle="modal"  data-target="#Login" ><i class="glyphicon glyphicon-log-in"></i> Iniciar Sesión</a></li>
                              
-                                <li class="login-in" style="display: none;"> <a href="#" ><i class="glyphicon glyphicon-shopping-cart" ></i> Mis compras</a> </li>
+                                <li class="login-in" style="display: none;"> <a href="#"  data-toggle="modal"  data-target="#subirArchivo"  ><i class="glyphicon glyphicon-qrcode" ></i> Subir Comprobante</a> </li>
                                 <li  style="display: none;" class="login-in " id="exitAPP"><a href="#" > <i class="glyphicon glyphicon-log-out"></i> Salir</a></li>
                             </ul>
                         </li>
@@ -80,8 +80,8 @@
                     </div>
                     <div id="tvesModal" class="modalContainer">
                         <div class="modal-content">
-                            <span class="closed"  >×</span>
-                            <h2>Mi Carrito 2</h2>
+                            <span class="closed">×</span>
+                            <h2>Mi Carrito </h2>
                             <div class="contenedor-carrito">
                                 <div class="productos-carrito">
                                     <div class="site-image-carrito">
@@ -217,16 +217,16 @@
                     </div>
                   </form>
             </li>
-            <li><a href="#" id="IniciarSesiónMobile" data-toggle="modal" data-target="#Login" class="login-out">Iniciar Sesión</a></li>
-            <li><a href="#" id="misCategoriasMobile" class="misCategoriasMobile">Mis Categorias</a>
+            <li><a href="#" id="IniciarSesiónMobile" data-toggle="modal" data-target="#Login" class="login-out"><i class="glyphicon glyphicon-log-in"></i> Iniciar Sesión</a></li>
+            <li><a href="#" id="misCategoriasMobile" class="misCategoriasMobile"><i class="glyphicon glyphicon-bookmark"></i> Mis Categorias</a>
                 <ul id="categoriaMobile" style="display: none;">
                     <li><a href="#">Notebooks</a> </li>
                     <li><a href="">Procesadores</a> </li>
                     <li><a href="">Motherboard</a> </li>
                 </ul>
             </li>
-            <li><a href="#" style="display: none;" class="login-in">Mi Cuenta</a></li>
-            <li><a href="#" style="display: none;" id="salir-mobile" class="login-in">Salir</a></li>
+            <li><a href="#" style="display: none;" class="login-in"  data-toggle="modal"  data-target="#subirArchivo" ><i class="fa fa-folder"></i> Subir Comprobante</a></li>
+            <li><a href="#" style="display: none;" id="salir-mobile" class="login-in"><i class="glyphicon glyphicon-log-out"></i> Salir</a></li>
           
         </div>
         <!--Linea roja-->
@@ -685,7 +685,36 @@
                 </div>
             </div>
         </div>
- 
+         <!-- Modal -->
+        <div class="modal fade" id="subirArchivo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form id="dataForm">
+                        <div class="modal-header">
+                            <h4 class="modal-title text-center" id="myModalLabel"><img src="/img/carpeta.png" alt=""></i></h4>
+                        </div>
+                        <div class="modal-body">
+                          
+                            <div class="form-group" id="btn">
+                                <div class="custom-input-file " id="custom-input-file">
+                                    <input type="file" id="fichero-comprobante" class="input-file" value="" >
+                                    Subir comprobante
+                                 
+                                </div>
+                                <input type="button" id="send" class="btn btn-info  btn-block   btn-lg" value="Enviar" style="display: none;" >
+                               
+                            </div>
+                         
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+  
     <!--Jquery script-->
     <script type="text/javascript" src="JS/Jquery.js"></script>
        <!--Script-->

@@ -160,3 +160,21 @@ if(document.getElementById("btnModal")){
         }
     }
 }
+// Input file 
+
+
+
+const input = document.getElementById('fichero-comprobante');
+const enviar = document.getElementById("send");
+    const custom = document.getElementById("custom-input-file");
+input.addEventListener('change' , (e)=> {
+    const file  = e.target.files[0];
+    if(input.files && input.files[0]){
+        custom.style.display ="none"
+        enviar.style.display ="block";
+    }
+
+})
+
+
+
