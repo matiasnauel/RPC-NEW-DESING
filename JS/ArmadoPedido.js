@@ -98,3 +98,11 @@ L.marker([-34.601528, -58.375111], 20).addTo(map)
     .openPopup();
 
 
+// Armado del pedido, verificar si se encuentra el cliente y llenar y los datos del formulario
+var L = localStorage;
+
+
+const Correo =  document.getElementById("correo");
+Correo.value = L.getItem("Correo_User");
+Correo.disabled= true;
+

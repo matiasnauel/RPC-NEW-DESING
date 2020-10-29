@@ -161,9 +161,6 @@ if(document.getElementById("btnModal")){
     }
 }
 // Input file 
-
-
-
 const input = document.getElementById('fichero-comprobante');
 const enviar = document.getElementById("send");
     const custom = document.getElementById("custom-input-file");
