@@ -14,21 +14,32 @@ function call_mouseout_retroced(id) {
 
 
 
-// Mobile menu desplegar
-
-function openNav() {
-    document.getElementById("mySidenav").style.width = "100%";
-    document.getElementById("mapita").style.zIndex =  "-1";
-    document.getElementById("redline").style.zIndex =" -1";
-    
-
-  }
+//MenuBurger
+const menuBurger = document.getElementById("MenuBurger");
+menuBurger.addEventListener('click',e=>{
+    e.preventDefault();
+    var x = document.getElementById("menu-burger");
+    if (x.style.display === "block") {
+      x.style.display = "none";
   
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("mapita").style.zIndex =  "1";
-    document.getElementById("redline").style.zIndex =" 1";
-  }
+    } else {
+      x.style.display = "block";
+      
+    }
+})
+//CategoriaBurger
+const CategoriaBurger = document.getElementById("misCategoriasMobile");
+CategoriaBurger.addEventListener('click',e=>{
+    e.preventDefault();
+    var x = document.getElementById("categoriaMobile");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+  
+    } else {
+      x.style.display = "block";
+      
+    }
+})
 
 //   Carrito
 function openNavCarrito() {
@@ -44,11 +55,11 @@ function openNavCarrito() {
     document.getElementById("redline").style.zIndex =" 1";
   }
 
-//   Modal iniciar sesión
+//   ModalCarrito
 if(document.getElementById("btnModal")){
     var modal = document.getElementById("tvesModal");
     var btn = document.getElementById("btnModal");
-    var span = document.getElementsByClassName("close")[0];
+    var span = document.getElementsByClassName("closed")[0];
     var body = document.getElementsByTagName("body")[0];
 
     btn.onclick = function() {
@@ -77,16 +88,7 @@ if(document.getElementById("btnModal")){
         }
     }
 }
-// JavaScript Document
-$(document).ready(function () {
-    $('#autoWidth').lightSlider({
-        autoWidth: true,
-        loop: true,
-        onSliderLoad: function () {
-            $('#autoWidth').removeClass('cS-hidden');
-        }
-    });
-});
+
 var map = L.map('mapita').setView([-34.601528, -58.375111], 20);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -97,11 +99,22 @@ L.marker([-34.601528, -58.375111], 20).addTo(map)
     .bindPopup('Galeria Jardin,Local 429')
     .openPopup();
 
-var btnComprar = document.getElementById("comprar");
-btnComprar.addEventListener('click',function(e){
-    window.location.href ="Comprar.html";
-    
-});
+
+// Input file 
+
+
+
+const input = document.getElementById('fichero-comprobante');
+const enviar = document.getElementById("send");
+    const custom = document.getElementById("custom-input-file");
+input.addEventListener('change' , (e)=> {
+    const file  = e.target.files[0];
+    if(input.files && input.files[0]){
+        custom.style.display ="none"
+        enviar.style.display ="block";
+    }
+
+})
 
 
 
