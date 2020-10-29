@@ -22,27 +22,60 @@
                 <div class="logo-main">
                     <a href="index.html"><img id="logomain" src="/img/logoajjaja-removebg-preview.ico" alt=""></a>
                 </div>
-                <div class="Search-main contenedor">
-                    <form class="paddLeft-50px" id="form">
+                <div class="Search-main ">
+                    <form class="formulario" id="form">
                         <input class="search" type="text" id="Search-main" placeholder="Buscar..">
-                        <span class="glyphicon glyphicon-search"></span>
+                        <button type="submit">  <i class="glyphicon glyphicon-search"></i></button>
                     </form>
+                  
                 </div>
                 <div class="Icons-main">
                     <div class="icons-user">
-                        <!-- <img src="/img/usuario (1).png" alt=""> -->
-                        <a href="#">Iniciar sesion</a>
-                        <a href="#">Registrarse</a>
-                        <a href="#" class="ocultar-usuario">MI cuenta </a>
+                        
+                        <li class="categorias-MiCuenta" id="categorias-MiCuenta">
+                            <a ><i class="glyphicon glyphicon-user" ></i> Mi cuenta</a>
+                            <ul class="desplegable-cuenta" id="desplegable-cuenta"> 
+
+                                <li  style="display: block;" class="login-out"><a href="#" data-toggle="modal"  data-target="#Login" ><i class="glyphicon glyphicon-log-in"></i> Iniciar Sesión</a></li>
+                             
+                                <li class="login-in" style="display: none;"> <a href="#"  data-toggle="modal"  data-target="#subirArchivo"  ><i class="fa fa-folder"></i> Subir Comprobante</a> </li>
+                                <li  style="display: none;" class="login-in " id="exitAPP"><a href="#" > <i class="glyphicon glyphicon-log-out"></i> Salir</a></li>
+                            </ul>
+                        </li>
                     </div>
                     <div class="icons-shopping-card" id="icons-shooping-card">
-                        <img src="/img/carrito-de-compras.png" alt="" id="btnModal">
-                        <span id="cantidadCarrito">(0)<span id="precioTotal"></span>$0,00</span>
+                        <img src="/img/carrito-de-compras.png" alt="" id="btnModal" >
+                        <span id="cantidadCarrito">(0)<span id="precioTotal"></span>$0,00</span>              
+                         
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal2" role="dialog" >
+                                <div class="modal-dialog modal-sm">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title text-center">Inciar Sesión</h4>
+                                    </div>
+                                    <div class="modal-body" style="display: grid; grid-template-columns: repeat(2,1fr);">
+                                      <button class="loginBtn loginBtn--facebook" id="IniciarFacebook" >
+                                           Facebook
+                                        </button>
+                                        
+                                        <button class="loginBtn loginBtn--google" id="IniciarGoogle">
+                                          Google
+                                        </button>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          
                     </div>
                     <div id="tvesModal" class="modalContainer">
                         <div class="modal-content">
-                            <span class="close">×</span>
-                            <h2>Mi Carrito</h2>
+                            <span class="closed">×</span>
+                            <h2>Mi Carrito </h2>
                             <div class="contenedor-carrito">
                                 <div class="productos-carrito">
                                     <div class="site-image-carrito">
@@ -149,22 +182,13 @@
                             </div>
                         
                         </div>
-                        <img src="/img/carrito-de-compras.png" alt="" style="width: 28px;" id="CarritoSubMenu"><span id="itemCarrito"  onclick="openNavCarrito()" >(0)</span>
-                       
+                        <img src="/img/carrito-de-compras.png" alt="" style="width: 70%;" id="CarritoSubMenu"><span id="itemCarrito"  onclick="openNavCarrito()" >(0)</span>
+                      
                     </div>
-                    <div id="mySidenav" class="sidenav">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="#">Notebook</a>
-                        <a href="#">Procesadores</a>
-                        <a href="#">Auriculares</a>
-                        <a href="#">Monitores</a>
-                        <a href="">Tablets</a>
-                        <a href="">Gabinetes</a>
-                        <a href="">Celulares</a>
-                        <a href="">Teclados</a>
-                        <a href=""></a>
-                      </div>
-                    <img src="/img/menu180°.png" alt="" style="width: 30px; cursor: pointer;" onclick="openNav()" >
+              
+                    <img src="/img/menu180°.png" alt="" style="width: 80%; cursor: pointer; margin-right: 2em;" id="MenuBurger">
+   
+                  
                 </div>
     
             </div>
@@ -172,6 +196,32 @@
         </header>
         <div id="redline">
     
+        </div>
+        <!-- Menu Burger mobile -->
+        <div class="menu-burger" id="menu-burger">
+            <li>
+                <form>
+                    <div class="input-group" style="border: 2px solid black;">
+                      <input type="text" class="form-control" placeholder="Buscar" style="border-radius: 0px;">
+                      <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit" style="border-radius: 0px; background-color: red;">
+                          <i class="glyphicon glyphicon-search" style="border-radius: 0px; color: white;"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+            </li>
+            <li><a href="#" id="IniciarSesiónMobile" data-toggle="modal" data-target="#Login" class="login-out"><i class="glyphicon glyphicon-log-in"></i> Iniciar Sesión</a></li>
+            <li><a href="#" id="misCategoriasMobile" class="misCategoriasMobile"><i class="glyphicon glyphicon-bookmark"></i> Mis Categorias</a>
+                <ul id="categoriaMobile" style="display: none;">
+                    <li><a href="#">Notebooks</a> </li>
+                    <li><a href="">Procesadores</a> </li>
+                    <li><a href="">Motherboard</a> </li>
+                </ul>
+            </li>
+            <li><a href="#" style="display: none;" class="login-in"  data-toggle="modal"  data-target="#subirArchivo" ><i class="fa fa-folder"></i> Subir Comprobante</a></li>
+            <li><a href="#" style="display: none;" id="salir-mobile" class="login-in"><i class="glyphicon glyphicon-log-out"></i> Salir</a></li>
+          
         </div>
         <!--Linea roja-->
         <!--Header-->
@@ -182,6 +232,7 @@
                         <li id="categorias-desplegable" class="categoriasDesplegables">
                             <img src="/img/menu.png" alt="" style="width: 60px; cursor: pointer;">
                             <ul id="desplegable" class="desplegable">
+                                
                                 <li><a href="">Notebook<span style="margin-left: 100px;"
                                             class="glyphicon glyphicon-chevron-right"></span></a></li>
                                 <li><a href="">Procesadores<span style="margin-left: 60px;"
@@ -255,29 +306,87 @@
             <!--Color rojo barrita-->
         </div>
     </div>
-    <main>
-        <div class="site-compra contenedor">
-          <div class="armado-pedido">
-            <h2>Armado del pedido online</h2>
-          
-            <div class="pedido-lineal">
-                
-                <p>Localidad <input type="text" placeholder="ej: Buenos aires,Quilmes"> </p>
-                <p>Direccion <input type="text" placeholder="ej: Directorio 2244"> </p>
-                <p>Numero <input type="int" placeholder="1544223322"></p>
-                <p>Documento  identidad(dni) <input type="text" name="" id=""></p>
-                <p>Forma de envio:<select name="select" id="select-envio" style="padding: 3px;">
-                    <option value="value1">Correo OCA</option>
-                    <option value="value2">Moto Express a domicilio</option>
-                    <option value="value3">Retiro en el local</option></select></p> 
-                    
+    <main style="margin-top: 10px;" >
+        <div class="container ">
+ 
+            <div class="panel panel-default ">
+                <div class="panel-heading text-center"> PEDIDO DE COMPRA</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" >
+                        <div class="form-group">        
+                            <div class="col-sm-offset-2 col-sm-10">
+                        
+                            </div>
+                          </div>
+                      <div class="form-group ">
+                          <div class="col-xs-20">
+                            <label class="control-label col-sm-2" for="nombre">Nombre:</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="nombre" placeholder="Ingrese su Apellido" name="nombre">
+                            </div>
+                          </div>
+                      </div>
+                      <div class="form-group ">
+                        <div class="col-xs-20">
+                          <label class="control-label col-sm-2" for="apellido">Apellido:</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="apellido" placeholder="Ingrese su Apellido" name="apellido">
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-xs-20">
+                          <label class="control-label col-sm-2" for="dni">Dni:</label>
+                          <div class="col-sm-10">
+                            <input type="number" class="form-control" id="dni" placeholder="Ingrese su DNI" name="dni">
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-xs-20">
+                          <label class="control-label col-sm-2" for="text">Dirección:</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="direccion" placeholder="Ingrese su Dirección ej: Calle 123, 2354" name="direccion">
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-xs-20">
+                          <label class="control-label col-sm-2" for="localidad">Localidad:</label>
+                          <div class="col-sm-10">
+                            <input type="localidad" class="form-control" id="email" placeholder="Ingrese su Localidad ej: Buenos Aires, Quilmes" name="localidad">
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-xs-20">
+                          <label class="control-label col-sm-2" for="email">Codigo Postal:</label>
+                          <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email" placeholder="Ingrese su Codigo Postal" name="email">
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-xs-20">
+                          <label class="control-label col-sm-2" for="email">Referencias:</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-xs-20">
+                        
+                          <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-warning btn-block">FINALIZAR PEDIDO DE  COMPRA</button>
+                          </div>
+                        </div>
+                    </div>
+        
+                  </div>
+                </div>
             </div>
-         
-          </div>
-          <div class="btn-seccion">
-            <button class="btn-siguiente" id="siguiente">Finalizar proceso de compra</button>
-          </div>
-        </div>
+            
     </main>
     <footer class="contenedor-footer">
         <div class="before-footer">
@@ -296,6 +405,57 @@
             <p><span ></span> <span style="margin-left: 10px;">Todos los derechos reservados &copy;2020</span> </p>
         </div>
     </footer> <!--Footer-->
+        <!-- Modal -->
+        <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form>
+                        <div class="modal-header">
+                            <h4 class="modal-title text-center" id="myModalLabel"><img src="/img/grupo.png" alt=""></i></h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group ">
+                                <button class="btn btn-success btn-group-justified" id="ButtonGoogle"><i class='fab fa-google'></i> Google</button>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-group-justified " id="ButtonFacebook"><i class="	fab fa-facebook-f"></i> Facebook</button>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+         <!-- Modal -->
+        <div class="modal fade" id="subirArchivo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form >
+                        <div class="modal-header">
+                            <h4 class="modal-title text-center" id="myModalLabel"><img src="/img/carpeta.png" alt=""></i></h4>
+                        </div>
+                        <div class="modal-body">
+                          
+                            <div class="form-group" id="btn">
+                                <div class="custom-input-file " id="custom-input-file">
+                                    <input type="file" id="fichero-comprobante" class="input-file" value="" >
+                                    Subir comprobante
+                                 
+                                </div>
+                                <input type="button" id="send" class="btn btn-info  btn-block   btn-lg" value="Enviar" style="display: none;" >
+                               
+                            </div>
+                         
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
        <!--Jquery script-->
        
        <script type="text/javascript" src="JS/Jquery.js"></script>
@@ -312,13 +472,36 @@
   
     <script src="js/lightslider.js"></script>
     <script src="js/ArmadoPedido.js"></script>
-    
+        <!-- Firebase -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAOUTbO5XkxTv02oVkSkLO1yTw2zxT9V1s",
+    authDomain: "rpc-computacion.firebaseapp.com", 
+    databaseURL: "https://rpc-computacion.firebaseio.com",
+    projectId: "rpc-computacion",
+    storageBucket: "rpc-computacion.appspot.com",
+    messagingSenderId: "562417690908",
+    appId: "1:562417690908:web:b012eaa154be57d25932d9",
+    measurementId: "G-NLCGX7599G"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const auth = firebase.auth();
+</script>
+<script src="js/firebase.js"></script>
   
-    <script>
-        
 
-
-
-    </script>
 </body>
 </html>
