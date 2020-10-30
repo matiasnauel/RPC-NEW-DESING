@@ -30,7 +30,7 @@
                 </div>
                 <div class="Search-main ">
                     <form class="formulario" id="form">
-                        <input class="search" type="text" id="Search-main" placeholder="Buscar..">
+                        <input class="search" type="text" id="Search-main" placeholder="Buscar.." >
                         <button type="submit">  <i class="glyphicon glyphicon-search"></i></button>
                     </form>
                   
@@ -49,8 +49,8 @@
                             </ul>
                         </li>
                     </div>
-                    <div class="icons-shopping-card" id="icons-shooping-card">
-                        <img src="/img/carrito-de-compras.png" alt="" id="btnModal" >
+                    <div class="icons-shopping-card" id="icons-shooping-card" onclick="verproductoscarrito();">
+                        <img src="/img/carrito-de-compras.png" alt="" id="btnModal"  >
                         <span id="cantidadCarrito">(0)<span id="precioTotal"></span>$0,00</span>              
                          
                             <!-- Modal -->
@@ -82,64 +82,8 @@
                         <div class="modal-content">
                             <span class="closed">×</span>
                             <h2>Mi Carrito </h2>
-                            <div class="contenedor-carrito">
-                                <div class="productos-carrito">
-                                    <div class="site-image-carrito">
-                                        <img src="/img/auricular4.jpg" alt="">
-                                    </div>
-                                    <div class="site-information-carrito">
-                                        <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
-                                        <span>4,599x1</span>
-                                        <button class="DescartarArticulo-carrito">X</button> 
-                                    </div>
-                                </div>
-                                <div class="productos-carrito">
-                                    <div class="site-image-carrito">
-                                        <img src="/img/auricular4.jpg" alt="">
-                                    </div>
-                                    <div class="site-information-carrito">
-                                        <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
-                                        <span>4,599x1</span>
-                                        <button class="DescartarArticulo-carrito">X</button> 
-                                    </div>
-                                </div>
-                                <div class="productos-carrito">
-                                    <div class="site-image-carrito">
-                                        <img src="/img/auricular4.jpg" alt="">
-                                    </div>
-                                    <div class="site-information-carrito">
-                                        <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
-                                        <span>4,599x1</span>
-                                        <button class="DescartarArticulo-carrito">X</button> 
-                                    </div>
-                                </div>
-                                <div class="productos-carrito">
-                                    <div class="site-image-carrito">
-                                        <img src="/img/auricular4.jpg" alt="">
-                                    </div>
-                                    <div class="site-information-carrito">
-                                        <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
-                                        <span>4,599x1</span>
-                                        <button class="DescartarArticulo-carrito">X</button> 
-                                    </div>
-                                </div>
-                                  <div class="productos-carrito">
-                                    <div class="site-image-carrito">
-                                        <img src="/img/auricular4.jpg" alt="">
-                                    </div>
-                                    <div class="site-information-carrito">
-                                        <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
-                                        <span>4,599x1</span>
-                                        <button class="DescartarArticulo-carrito">X</button> 
-                                    </div>
-                                </div>
-                                <div class="Total-carrito">
-                                    <p>TOTAL: $20.000</p>
-                                </div>
-                                <div class="OpcionCarrito">
-                                    <button class="vaciar-carrito">VACIAR CARRITO</button>
-                                    <button class="comprar-carrito">COMPRAR</button>
-                                </div>
+                            <div class="contenedor-carrito" id="contenedorcarrito">
+                                 
                             </div>
                         </div>
                     </div><!--Modal-->
@@ -238,23 +182,8 @@
                         <li id="categorias-desplegable" class="categoriasDesplegables">
                             <img src="/img/menu.png" alt="" style="width: 60px; cursor: pointer;">
                             <ul id="desplegable" class="desplegable">
-                                
-                                <li><a href="">Notebook<span style="margin-left: 100px;"
-                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
-                                <li><a href="">Procesadores<span style="margin-left: 60px;"
-                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
-                                <li><a href="">Auriculares<span style="margin-left: 80px;"
-                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
-                                <li><a href="">Monitores<span style="margin-left: 93px;"
-                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
-                                <li><a href="">Tablets<span style="margin-left: 120px;"
-                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
-                                <li><a href="">Gabinetes<span style="margin-left: 100px;"
-                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
-                                <li><a href="">Celulares<span style="margin-left: 95px;"
-                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
-                                <li><a href="">Teclados<span style="margin-left: 103px;"
-                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
+                              <a onclick="ProductosCategoria('daleee');"></a>  
+                               
                             </ul>
                         </li>
                     </div>
@@ -262,43 +191,43 @@
                     <div class="barra-categoria">
                         <div class="item1  " id="item1" onmouseover="call_mouseover_expand(this.id);"
                             onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;">
-                            <img src="/img/upc.png" alt="" style="width: 80px;">
+                            <img src="/img/upc.png"  alt="" style="width: 80px;" onclick="ProductosCategoria('Microprocesadores');">
                             <label>Microprocesadores</label>
                         </div>
                         <div class="item3 " id="item3" onmouseover="call_mouseover_expand(this.id);"
                             onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;">
-                            <img src="/img/placa-madre.png" alt="" style="width: 80px;">
+                            <img src="/img/placa-madre.png" alt="" style="width: 80px;" onclick="ProductosCategoria('Placa Madre');">
                             <label>Motherboard</label>
                         </div>
                         <div class="item4 " id="item4" onmouseover="call_mouseover_expand(this.id);"
                             onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;">
-                            <img src="/img//memoria-ram.png" alt="" style="width: 80px;">
+                            <img src="/img//memoria-ram.png" alt="" style="width: 80px;" onclick="ProductosCategoria('Memoria Ram');">
                             <label>Memorias ram</label>
                         </div>
                         <div class="item5 " id="item5" onmouseover="call_mouseover_expand(this.id);"
                             onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1);  cursor: pointer;">
-                            <img src="/img/tarjeta-de-video.png" alt="" style="width: 80px;">
+                            <img src="/img/tarjeta-de-video.png" alt="" style="width: 80px;" onclick="ProductosCategoria('Placa Video');">
                             <label>Placa de video</label>
                         </div>
                         <div class="item6 " id="item6" onmouseover="call_mouseover_expand(this.id);"
                             onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1);  cursor: pointer;">
-                            <img src="/img/hdd.png" alt="" style="width: 80px;">
+                            <img src="/img/hdd.png" alt="" style="width: 80px;" onclick="ProductosCategoria('Almacenamiento');">
                             <label>Almacenamiento</label>
                         </div>
     
                         <div class="item8 " id="item8" onmouseover="call_mouseover_expand(this.id);"
                             onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1);  cursor: pointer;">
-                            <img src="/img/cpu-tower.png" alt="" style="width: 80px;">
+                            <img src="/img/cpu-tower.png" alt="" style="width: 80px;" onclick="ProductosCategoria('Gabinete');">
                             <label>Gabinete</label>
                         </div>
                         <div class="item9 " id="item9" onmouseover="call_mouseover_expand(this.id);"
                             onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor:pointer;">
-                            <img src="img/pantalla-de-la-computadora.png" alt="" style="width: 80px;">
+                            <img src="img/pantalla-de-la-computadora.png" alt="" style="width: 80px;" onclick="ProductosCategoria('Monitor');">
                             <label>Monitor</label>
                         </div>
                         <div class="item7 " id="item7" onmouseover="call_mouseover_expand(this.id);"
                             onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;">
-                            <img src="/img/fuente-de-alimentacion.png" alt="" style="width: 80px;">
+                            <img src="/img/fuente-de-alimentacion.png" alt="" style="width: 80px;" onclick="ProductosCategoria('Fuente');">
                             <label>Fuente</label>
                         </div>
     
@@ -364,19 +293,19 @@
                             <p>ACTUALIZACIONES</p>
                         </div>
                     </div>
-                    <div id="publicacion3" class="publicacion3"   >
+                    <div id="publicacion3" class="publicacion3"  onclick="ProductosCategoria('Auriculares');" >
                         <img src="/img/GProXBlueAuricular.jpg" alt="">
                          <div class="titulo-global-publicacion">
                         <p>AURICULARES</p>
                        </div>
                     </div>
-                    <div id="publicacion4" class="publicacion4" >
+                    <div id="publicacion4" class="publicacion4"  onclick="ProductosCategoria('Teclado');">
                         <img src="/img/rog-strix-flare teclado.jpg" alt="">
                         <div class="titulo-global-publicacion">
                             <p>TECLADOS</p>
                         </div>
                     </div>
-                    <div id="publicacion5" class="publicacion5">
+                    <div id="publicacion5" class="publicacion5" onclick="ProductosCategoria('Mouse');">
                         <img src="/img/mousegamer.jpg" alt="">
                         <div class="titulo-global-publicacion">
                             <p>MOUSE</p>
@@ -384,11 +313,11 @@
                     </div>
                     <div id="publicacion6" class="publicacion6"  >
                         <img src="/img/micrfonogamer.jpg" alt="">
-                        <div class="titulo-global-publicacion">
+                        <div class="titulo-global-publicacion" onclick="ProductosCategoria('Microfono');">
                             <p>MICRÓFONO</p>
                         </div>
                     </div>  
-                    <div id="publicacion7" class="publicacion7" >
+                    <div id="publicacion7" class="publicacion7" onclick="ProductosCategoria('Webcams');">
                         <img src="/img/webcamn.jpg" alt="">
                         <div class="titulo-global-publicacion">
                             <p>WEBCAMS</p>
@@ -398,7 +327,7 @@
                 </div>
                 <div class="site-destacados">
                     <div class="titulo-destacados">
-                        <h3>Destacados  /<a href="ProductosListado.html">Ver todos</a></h3>
+                        <h3>Destacados  /<a href="ProductosListado.html" onclick="VerTodosDestacados();">Ver todos</a></h3>
                     </div>
                     <section class="slider-destacados">
                         <ul id="autoWidth" class="cs-hidden">
@@ -430,194 +359,7 @@
                                 </div>
                             </li>
                             <!--2------------------------------------>
-                            <li class="item-b">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="2"  src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="publicacion.html" class="buy-btn">Ver producto</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="ProductosListado.html">PC GAMER</a>
-                                            <span>hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$20</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--3------------------------------------>
-                            <li class="item-a">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="1"  src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="publicacion.html" class="buy-btn">Ver producto</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="ProductosListado.html">PC GAMER</a>
-                                            <span>hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$5000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--4------------------------------------>
-                            <li class="item-b">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="2"  src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="publicacion.html" class="buy-btn">Ver producto</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="#">PC GAMER</a>
-                                            <span>Hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="ProductosListado.html" class="price">$2000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--5------------------------------------>
-                            <li class="item-a">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="1" src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="publicacion.html" class="buy-btn">Ver producto</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="ProductosListado.html">PC GAMER</a>
-                                            <span>hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$5000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--6------------------------------------>
-                            <li class="item-b">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="2" src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="publicacion.html" class="buy-btn">Ver producto</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="ProductosListado.html">PC GAMER</a>
-                                            <span>Hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$2000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--7------------------------------------>
-                            <li class="item-a">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="1" src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="publicacion.html" class="buy-btn">Ver producto</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="ProductosListado.html">PC GAMER</a>
-                                            <span>hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$5000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
-                            <!--8------------------------------------>
-                            <li class="item-b">
-                                <!--box-slider--------------->
-                                <div class="box">
-                                    <!--img-box---------->
-                                    <div class="slide-img">
-                                        <img alt="2" src="img/gabinetegamer.jpg">
-                                        <!--overlayer---------->
-                                        <div class="overlay">
-                                            <!--buy-btn------>
-                                            <a href="publicacion.html" class="buy-btn">Ver producto</a>
-                                        </div>
-                                    </div>
-                                    <!--detail-box--------->
-                                    <div class="detail-box">
-                                        <!--type-------->
-                                        <div class="type">
-                                            <a href="ProductosListado.html">PC GAMER</a>
-                                            <span>Hasta 12 cuotas</span>
-                                        </div>
-                                        <!--price-------->
-                                        <a href="#" class="price">$2000</a>
-                
-                                    </div>
-                
-                                </div>
-                            </li>
+                            
                         </ul>
                     </section>
                 </div>
@@ -719,6 +461,7 @@
     <script type="text/javascript" src="JS/Jquery.js"></script>
        <!--Script-->
     <script type="text/javascript" src="JS/Script.index.js"></script>
+     <script src="js/index.js"></script>
   
     <!--Scrips de boopstrap-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -778,6 +521,7 @@ L.marker([-34.601528, -58.375111], 20).addTo(map)
   const auth = firebase.auth();
 </script>
 <script src="js/firebase.js"></script>
+
 
 </body>
 
