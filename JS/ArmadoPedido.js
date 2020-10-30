@@ -12,7 +12,8 @@ function call_mouseout_retroced(id) {
     imagen.style.webkitTransform = "scale(1)";
 }
 
-//esta flama
+//esta flama esto
+
 
 // Mobile menu desplegar
 
