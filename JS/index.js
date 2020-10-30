@@ -133,6 +133,7 @@ function ProductosCategoria(valor2)
     //acordarse de sacar esto
     var productosID = [1,1,1,1,2,2,2,3,4,4,4,4,1,3];
     localStorage.setItem("productos", JSON.stringify(productosID));
+    localStorage.setItem("clienteID", 1);
 }
 
 function verproductoscarrito()
@@ -182,7 +183,7 @@ function verproductoscarrito()
           contenedorcarrito.innerHTML+= `
         <div class="OpcionCarrito">
         <button class="vaciar-carrito">VACIAR CARRITO</button>
-        <button class="comprar-carrito">COMPRAR</button>
+        <button class="comprar-carrito" onclick="realizarreserva();">COMPRAR</button>
         </div>
           ` ; 
 
@@ -194,6 +195,40 @@ function verproductoscarrito()
 
 
     });
+
+}
+
+
+
+function realizarreserva()
+{
+  
+    var objeto = {
+        clienteID: localStorage.getItem("clienteID"),
+        productos: JSON.parse(localStorage.getItem("productos"))    
+    }
+  $.ajax({
+    type: "POST",
+    data: JSON.stringify(objeto),
+    url: "https://localhost:44376/api/Venta/RealizarReserva",
+    dataType: "JSON",
+    contentType: "application/json",
+    success: function(data) {
+      
+      location.href="ArmadoPedido.html";
+      //acordarse de que aca yo debo meter la venta id en el localstorage.
+
+    },
+
+      error: function(error) {
+    console.log(error.message);
+    alert('error');
+}
+
+
+
+   });
+
 
 }
 
