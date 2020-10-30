@@ -106,3 +106,4 @@ const Correo =  document.getElementById("correo");
 Correo.value = L.getItem("Correo_User");
 Correo.disabled= true;
 
+//funciona
