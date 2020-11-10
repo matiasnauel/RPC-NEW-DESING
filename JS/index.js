@@ -217,7 +217,7 @@ function realizarreserva()
       
       location.href="ArmadoPedido.html";
       //acordarse de que aca yo debo meter la venta id en el localstorage.
-
+      //prueba
     },
 
       error: function(error) {
