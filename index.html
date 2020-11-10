@@ -44,7 +44,7 @@
 
                                 <li  style="display: block;" class="login-out"><a href="#" data-toggle="modal"  data-target="#Login" ><i class="glyphicon glyphicon-log-in"></i> Iniciar Sesión</a></li>
                              
-                                <li class="login-in" style="display: none;"> <a href="#"  data-toggle="modal"  data-target="#subirArchivo"  ><i class="glyphicon glyphicon-upload"></i> Subir Comprobante</a> </li>
+                                <li class="login-in" style="display: none;" id="abrirsectorcomprobante"> <a href="#"  data-toggle="modal"  data-target="#subirArchivo"  ><i class="glyphicon glyphicon-upload"></i> Subir Comprobante</a> </li>
                                 <li  style="display: none;" class="login-in " id="exitAPP"><a href="#" > <i class="glyphicon glyphicon-log-out"></i> Salir</a></li>
                             </ul>
                         </li>
@@ -360,7 +360,6 @@
                                 </div>
                             </li>
                             <!--2------------------------------------>
-<<<<<<< HEAD
                             <li class="item-b">
                                 <!--box-slider--------------->
                                 <div class="box">
@@ -393,9 +392,6 @@
             
               
                         
-=======
-                            
->>>>>>> fbc17287ccf38474ed0355d1f6c5cfd86cbd408d
                         </ul>
                     </section>
                 </div>
@@ -473,17 +469,17 @@
                           
                             <div class="form-group" id="btn">
                                 <div class="custom-input-file " id="custom-input-file">
-                                    <input type="file" id="fichero-comprobante" class="input-file" value="" >
+                                    <input type="file" id="files" name="files[]" multiple  accept="image/jpg, image/jpeg"  class="input-file" value="" >
                                     Cargar comprobante
                                  
                                 </div>
-                                <input type="button" id="send" class="btn btn-info  btn-block   btn-lg" value="Enviar" style="display: none;" >
+                              
                                
                             </div>
                             <div class="form-group">
                                 <div class="table-responsive">
                                    
-                                    <table class="table">
+                                    <table class="table" id="contenedorcontenedor">
                                       <thead>
                                         <tr>
                                            <th>Selecciónar</th>
@@ -492,26 +488,9 @@
                                           <th>Codigo</th>
                                         </tr>
                                       </thead>
-                                      <tbody>
-                                        <tr>
-                                          <td><label class="checkbox-inline"><input type="checkbox" value=""></label></td>
-                                          <td>Impago</td>
-                                          <td>6/11/2020</td>
-                                          <td>0101010110</td>
-                                        </tr>      
-                                        <tr>
-                                            <td><label class="checkbox-inline"><input type="checkbox" value=""></label></td>
-                                            <td>Impacto</td>
-                                            <td>6/11/2020</td>
-                                            <td>0101010110</td>
-                                        </tr>  
-                                        <tr>
-                                            <td><label class="checkbox-inline"><input type="checkbox" value=""></label></td>
-                                            <td>Impago</td>
-                                            <td>6/11/2020</td>
-                                            <td>0101010110</td>
-                                        </tr> 
-                                     
+                                      <tbody id="contenedor-ventas">
+                                          
+                                    
                                      
                                       
                                       </tbody>
@@ -521,7 +500,7 @@
                          
                         </div>
                         <div class="modal-footer">
-                            <button type="button"  class="btn btn-success">Subir comprobante</button>
+                            <button type="button"  class="btn btn-success" style="display:block;" id="enviarcomprobante">Subir comprobante</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                         </div>
                     </form>
@@ -535,6 +514,7 @@
        <!--Script-->
     <script type="text/javascript" src="JS/Script.index.js"></script>
      <script src="js/index.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   
     <!--Scrips de boopstrap-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

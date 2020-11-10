@@ -63,7 +63,7 @@ publicar.addEventListener("click", (e)=>{
     })
     
     Imagen= res.data.secure_url;
-    console.log(Imagen);
+    
     
    
   })

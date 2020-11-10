@@ -232,6 +232,134 @@ function realizarreserva()
 
 }
 
+var abrirsectorcomprobante=document.getElementById("abrirsectorcomprobante");
+abrirsectorcomprobante.addEventListener('click',function(e) {
+    e.preventDefault();
+    $.ajax({
+        type: "GET",
+        url: "https://localhost:44376/api/Venta/MostrarVentasNoPagadasDelCliente?clienteID="+localStorage.getItem("clienteID"),
+        dataType: "json",
+
+        success: function(data) {
+            var contenedorventas=document.getElementById("contenedor-ventas");
+            contenedorventas.innerHTML="";
+
+            $.each(data, function(i, item) {
+             contenedorventas.innerHTML+=`
+             <tr>
+             <td><label class="checkbox-inline" name="venta"><input type="checkbox" value="" onchange="cambioselector(${item.id});"></label></td>
+             <td>Impago</td>
+             <td>${item.fecha}</td>
+             <td>${item.id}</td>
+             </tr>    
+             
+             `;
+
+
+            });
+
+
+
+        },
+        error: function(error) {
+            console.log(error.message);
+            alert('error');
+        }
+
+   
+        });
+    });
+
+    
+//esto es para cuando el cliente selecciona la venta a la cual quiere subir el comprobante.
+function cambioselector(ventaID)
+{  
+    /*var comprobante=document.getElementById("enviarcomprobante");
+    
+    if(comprobante.style.display=="block")
+    {
+    comprobante.style.display="none";
+    }
+    else
+    {
+        comprobante.style.display="block";
+        comprobante.value=ventaID;
+    }
+    */
+    localStorage.setItem("ventaID",ventaID);
+}
+
+
+
+const URL_CLOUDINARI_PRESET ="https://api.cloudinary.com/v1_1/rpc-computacion/image/upload";
+const CLOUNDDINARY_UPLOAD_PRESET ="dez1rdb5";
+const publicar = document.getElementById("enviarcomprobante");
+var Imagen;
+// Input file
+const input = document.getElementById('files');
+let ArrayFile =[];
+input.onchange = function(e){
+  var files = e.target.files;
+  for (let index = 0; index < files.length; index++) {
+    const element = files[index];
+    ArrayFile.push(element);
+  }
+  ArrayFile.forEach(async function(elemento){
+    // Ahora ese elemento debo ir enviandolo al servidor
+  
+   const formData =  new FormData();
+    formData.append('file',elemento);
+    formData.append('upload_preset',CLOUNDDINARY_UPLOAD_PRESET);
+   const res = await axios.post(URL_CLOUDINARI_PRESET,formData,{
+      headers:{
+        'Content-Type': 'multipart/form-data'
+      }
+    })
+    
+    Imagen= res.data.secure_url;
+   
+  })
+}
+
+
+var enviarcomprobante=document.getElementById("enviarcomprobante");
+enviarcomprobante.addEventListener('click',function(e) {
+    e.preventDefault();
+    var objeto ={
+        imagen:Imagen,
+        ventaID:localStorage.getItem("ventaID")
+    }
+    if(Imagen!=null && localStorage.getItem("ventaID")!=null)
+    {
+    $.ajax({
+        type: "POST",
+        data: JSON.stringify(objeto),
+        url: "https://localhost:44376/api/ComprobantePago/SubirComprobantePago",
+        dataType: "JSON",
+        contentType: "application/json",
+        success: function(data) {
+          
+          alert("tu comprobante ha sido recibido con exito");
+          Imagen=null;
+          localStorage.removeItem("ventaID");
+        },
+    
+          error: function(error) {
+        console.log(error.message);
+        alert('error');
+    }
+    
+    
+    
+       });
+    }
+       else{
+            alert("debe primero subir una imagen y seleccionar una compra");
+       }
+
+
+});
+
 
 
 
