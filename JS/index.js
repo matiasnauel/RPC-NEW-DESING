@@ -152,6 +152,7 @@ function verproductoscarrito()
 
         success: function(data) {
             var contenedorcarrito=document.getElementById("contenedorcarrito");
+            contenedorcarrito.innerHTML="";
             var valor=data.valorcarrito;
             $.each(data.productos, function(i, item) 
             {
