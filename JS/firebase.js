@@ -90,7 +90,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       // ...
       
       loginCheck(user)
-      DeleteDateUser();
+      
     }
   });
   //BotonSalir desktop
@@ -147,10 +147,14 @@ function SaveDateUser (user)
         localStorage.setItem('Name_User',user.displayName);
         localStorage.setItem('Correo_User', user.email);
         localStorage.setItem('Image_user',user.photoURL);
+        //acordarse de que aca debo hacer la peticion a la api cliente, 
+        //pasándole por parametro el email, para que me devuelva el id de ese cliente
+        //y lo guarde en el local storage.
     } else {
        //Este navegador no soporta localstorage
     }
 }
 function DeleteDateUser(){
-    localStorage.clear();
+    //acordarse de que este método debe borrar unicamente los
+    //datos sensibles colocados por firebise.
 }
