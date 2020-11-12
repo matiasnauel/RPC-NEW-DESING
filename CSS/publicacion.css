@@ -1566,7 +1566,7 @@ width: 100%;
         border-style: solid;
         border-color: transparent #FCFCFC;
         top: 8px;
-        left: -11px;
+        left: -12px;
     }
     
     .comments-list .comment-box:before {
@@ -1653,7 +1653,7 @@ width: 100%;
      ========================*/
      @media (min-width: 360px) {
         .comments-container {
-            width: 350px;
+            width: 330px;
             margin-top: 50px;
         }
     

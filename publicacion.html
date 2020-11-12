@@ -16,7 +16,76 @@
     <link rel="icon" type="image/x-icon" href="/img/logoajjaja-removebg-preview.ico">
     <title>RPC Computación</title>
 </head>
-
+<style>
+    * {box-sizing: border-box}
+    
+    /* Set height of body and the document to 100% */
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial;
+    }
+    
+    @media (min-width: 360px) {
+        .botones-productos{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
+    @media (min-width: 768px) {
+        .botones-productos{
+            display: flex;
+        }
+    }
+    @media (min-width: 360px) {
+        /* Style tab links */
+    .tablink {
+    
+      background-color: red;
+      color: white;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      font-size: 17px;
+      width: 100%;
+    
+    }
+    }
+    @media (min-width: 768px) {
+        /* Style tab links */
+    .tablink {
+      background-color: red;
+      color: white;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      font-size: 17px;
+      width: 25%;
+    
+    }
+    }
+    
+    .tablink:hover {
+      background-color: rgb(71, 13, 13);
+    }
+    
+    /* Style the tab content (and add height:100% for full page content) */
+    .tabcontent {
+      color: white;
+      display: none;
+      padding: 100px 20px;
+      height: 100%;
+    }
+    
+    #Home {background-color: #A39F9E;}
+    #News {background-color: #A39F9E;}
+    #Contact {background-color: blue;}
+    #About {background-color: orange;}
+    </style>
 <body>
     <div class="site-header">
     
@@ -374,106 +443,115 @@
                 </div>
             
             </div>
-            <div class="site-comentarios">
-                <div class="barra-especifaciones">
-                    <p>CARACTERISTICAS</p>
-                    <div class="linea-especificaciones"></div>
+            <div style="margin-top:3rem" >
+                <div class="botones-productos">
+                    <button class="tablink" onclick="openPage('Home', this, 'red')">CARACTERISTICS</button>
+                    <button class="tablink" onclick="openPage('News', this, 'red')" id="defaultOpen">COMENTARIOS</button>
                 </div>
-                <div class="especificaciones-main">
-                    <div class="contenedor-especificaciones">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt debitis obcaecati id eveniet minus, voluptatem, asperiores quisquam maxime vitae possimus molestiae facilis autem officiis atque explicabo assumenda? Doloribus, tempore eligendi!
-
-                        </p>
+            
+    
+    
+                <div id="Home" class="tabcontent">
+                    <div class="site-comentarios">
+                       
+                        <div class="especificaciones-main">
+                            <div class="contenedor-especificaciones">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt debitis obcaecati id eveniet minus, voluptatem, asperiores quisquam maxime vitae possimus molestiae facilis autem officiis atque explicabo assumenda? Doloribus, tempore eligendi!
+        
+                                </p>
+                            </div>
+                         </div>
                     </div>
-                 </div>
+                </div>
+    
+                <div id="News" class="tabcontent">
+                   
+                   
+                    <div class="caja-comentar">
+                        <textarea name="" id=""  placeholder="Escribe tu comentario.." style=" width: 100%; padding-left: 20px; padding-top: 20px; color: black; font-size: 20px;" ></textarea> <button class="btn-comentar">Comentar</button>
+                    </div>
+                    <!-- Contenedor Comentarios -->
+                    <div class="comments-container">
+                        <ul id="comments-list" class="comments-list">
+                            <li>
+                                <div class="comment-main-level">
+                                    <!-- Avatar -->
+                                    <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
+                                    <!-- Contenedor del Comentario -->
+                                    <div class="comment-box">
+                                        <div class="comment-head">
+                                            <h6 class="comment-name by-author"><a >Agustin maldonado</a></h6>
+                                        </div>
+                                        <div class="comment-content">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Respuestas de los comentarios -->
+                                <ul class="comments-list reply-list">
+                                    <li>
+                                        <!-- Avatar -->
+                                        <div class="comment-avatar admin "><img src="/img/logoajjaja-removebg-preview.ico" alt=""></div>
+                                        <!-- Contenedor del Comentario -->
+                                        <div class="comment-box">
+                                            <div class="comment-head">
+                                                <h6 class="comment-name "><a >Rpc Computación</a></h6>
+                                                
+                                            </div>
+                                            <div class="comment-content">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                                            </div>
+                                        </div>
+                                    </li>
+            
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="comment-main-level">
+                                    <!-- Avatar -->
+                                    <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
+                                    <!-- Contenedor del Comentario -->
+                                    <div class="comment-box">
+                                        <div class="comment-head">
+                                            <h6 class="comment-name by-author"><a >Matias ezequiel</a></h6>
+                                        </div>
+                                        <div class="comment-content">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Respuestas de los comentarios -->
+                                <ul class="comments-list reply-list">
+                                    <li>
+                                        <!-- Avatar -->
+                                        <div class="comment-avatar admin "><img src="/img/logoajjaja-removebg-preview.ico" alt=""></div>
+                                        <!-- Contenedor del Comentario -->
+                                        <div class="comment-box">
+                                            <div class="comment-head">
+                                                <h6 class="comment-name "><a >Rpc Computación</a></h6>
+                                                
+                                            </div>
+                                            <div class="comment-content">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                                            </div>
+                                        </div>
+                                    </li>
+            
+                                </ul>
+                            </li>
+            
+                          
+                        </ul>
+                    </div>
+                 
+                </div>
             </div>
+         
+          
 
          
             
-            <div class="barra-productos-relacionados">
-                <p>COMENTARIOS</p>
-                <div class="linea-productos-relacionado"> 
-                </div>
-            </div>
-            <div class="caja-comentar">
-                <textarea name="" id=""  placeholder="Escribe tu comentario.." style=" width: 100%; padding-left: 20px; padding-top: 20px;" ></textarea> <button class="btn-comentar">Comentar</button>
-            </div>
-            <!-- Contenedor Comentarios -->
-            <div class="comments-container">
-                <ul id="comments-list" class="comments-list">
-                    <li>
-                        <div class="comment-main-level">
-                            <!-- Avatar -->
-                            <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
-                            <!-- Contenedor del Comentario -->
-                            <div class="comment-box">
-                                <div class="comment-head">
-                                    <h6 class="comment-name by-author"><a >Agustin maldonado</a></h6>
-                                </div>
-                                <div class="comment-content">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Respuestas de los comentarios -->
-                        <ul class="comments-list reply-list">
-                            <li>
-                                <!-- Avatar -->
-                                <div class="comment-avatar admin "><img src="/img/logoajjaja-removebg-preview.ico" alt=""></div>
-                                <!-- Contenedor del Comentario -->
-                                <div class="comment-box">
-                                    <div class="comment-head">
-                                        <h6 class="comment-name "><a >Rpc Computación</a></h6>
-                                        
-                                    </div>
-                                    <div class="comment-content">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                                    </div>
-                                </div>
-                            </li>
-    
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="comment-main-level">
-                            <!-- Avatar -->
-                            <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
-                            <!-- Contenedor del Comentario -->
-                            <div class="comment-box">
-                                <div class="comment-head">
-                                    <h6 class="comment-name by-author"><a >Matias ezequiel</a></h6>
-                                </div>
-                                <div class="comment-content">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Respuestas de los comentarios -->
-                        <ul class="comments-list reply-list">
-                            <li>
-                                <!-- Avatar -->
-                                <div class="comment-avatar admin "><img src="/img/logoajjaja-removebg-preview.ico" alt=""></div>
-                                <!-- Contenedor del Comentario -->
-                                <div class="comment-box">
-                                    <div class="comment-head">
-                                        <h6 class="comment-name "><a >Rpc Computación</a></h6>
-                                        
-                                    </div>
-                                    <div class="comment-content">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                                    </div>
-                                </div>
-                            </li>
-    
-                        </ul>
-                    </li>
-    
-                  
-                </ul>
-            </div>
-            <div class="bnt-comentarios">
-                <button>Ver mas comentarios</button>
-            </div>
+         
           
         </div>
         
