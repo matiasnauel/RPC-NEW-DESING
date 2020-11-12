@@ -1,52 +1,6 @@
 window.onload = function() 
 {
-    $.ajax({
-        type: "GET",
-        url: "https://localhost:44325/api/Publicacion/TraerPublicacionesDestacadas",
-        dataType: "json",
-        success: function(data) {
-          var autowidth= document.getElementById("autoWidth");  
-         $.each(data, function(i, item) {
-         autowidth.innerHTML+=`       
-         <li class="item-a">
-         <!--box-slider--------------->
-         <div class="box">
-             <!--img-box---------->
-             <div class="slide-img">
-                 <img alt="1" src="img/${item.imagenes[0]}">
-                 <!--overlayer---------->
-                 <div class="overlay">
-                     <!--buy-btn------>
-                     <a href="publicacion.html" class="buy-btn" id="${item.publicacionID}" onclick="VerProductos(this.id);">Ver producto</a>
-                 </div>
-             </div>
-             <!--detail-box--------->
-             <div class="detail-box">
-                 <!--type-------->
-                 <div class="type">
-                     <a href="ProductosListado.html">${item.nombre}</a>
-                 </div>
-                 <!--price-------->
-                 <a href="publicacion.html" class="price">$${item.precio}</a>
-
-             </div>
-
-         </div>
-     </li>
-         `;
-         
-        
-       
-        });
-
-
-        },
-        error: function(error) {
-            console.log(error.message);
-            alert('error');
-        }
-
-    });
+  
 
     $.ajax({
         type: "GET",
@@ -361,6 +315,53 @@ enviarcomprobante.addEventListener('click',function(e) {
 
 });
 
+$.ajax({
+    type: "GET",
+    url: "https://localhost:44325/api/Publicacion/TraerPublicacionesDestacadas",
+    dataType: "json",
+    success: function(data) {
+      var autowidth= document.getElementById("autoWidth");  
+     $.each(data, function(i, item) {
+     autowidth.innerHTML+=`       
+     <li class="item-a">
+     <!--box-slider--------------->
+     <div class="box">
+         <!--img-box---------->
+         <div class="slide-img">
+             <img alt="1" src="img/${item.imagenes[0]}">
+             <!--overlayer---------->
+             <div class="overlay">
+                 <!--buy-btn------>
+                 <a href="publicacion.html" class="buy-btn" id="${item.publicacionID}" onclick="VerProductos(this.id);">Ver producto</a>
+             </div>
+         </div>
+         <!--detail-box--------->
+         <div class="detail-box">
+             <!--type-------->
+             <div class="type">
+                 <a href="ProductosListado.html">${item.nombre}</a>
+             </div>
+             <!--price-------->
+             <a href="publicacion.html" class="price">$${item.precio}</a>
+
+         </div>
+
+     </div>
+ </li>
+     `;
+     
+    
+   
+    });
+
+
+    },
+    error: function(error) {
+        console.log(error.message);
+        alert('error');
+    }
+
+});
 
 
 
