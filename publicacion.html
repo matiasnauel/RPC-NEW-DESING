@@ -384,69 +384,25 @@
             <div class="barra-publicacion">
                 <p>GABINETE / GABINETE SENTEY</p>
             </div>
-            <div class="site-publicación">
+            <div class="site-publicación" id="contenedordepublicacion">
                 <div class="site-image">
-                    <div class="site-image-after">
-                        <div class="producto-imagen">
-                            <img src="/img/compugamer2.jpg" alt="" onclick="setSrc('main-image', this.src)">
-                        </div>
-                        <div class="producto-imagen">
-                            <img src="/img/compugamer3.jpg" alt="" onclick="setSrc('main-image', this.src)">
-                        </div>  
-                        <div class="producto-imagen">
-                            <img src="/img/compugamer4.jpg" alt=""onclick="setSrc('main-image', this.src)" >
-                        </div>
-                        <div class="producto-imagen">
-                            <img src="/img/gabinetegamer.jpg" alt=""onclick="setSrc('main-image', this.src)" >
-                        </div>
+                    <div class="site-image-after" id="site-image-after">
+                      
                     </div>
-                    <div class="site-image-main">
-                        <img src="/img/gabinetegamer.jpg" alt="" id="main-image">
+                    <div class="site-image-main" id="site-image-main">
+                       
                     </div>
                 </div>
-                <div class="site-information"> 
-                    <div class="titulo-encabezado">
-                        <p>Nuevo-Stock disponible</p>
-                    </div>
-                    <div class="titulo-publi">
-                        <h4>Gabinete sentey X10 RGB Acrilic USB  3.0 Sin fuente</h4>
-                    </div>
-                    <div class="codigo">
-                        <p><b>CODIGO: </b>002233SENTEY2020</p>
-                    </div>
-                    <div class="price">
-                        <h4>$70.000,00</h4>
-                    </div>
-                    <div class="descripción-publi">
-                        <p class="envios"><img src="/img/camion-de-reparto.png" alt="" style="width: 4%;"> Envíos con normalidad</p>
-                        <p class="cuotas"> <img src="/img/tarjetas.svg" alt="" style="width:3%;"> Paga hasta 12 cuotas</p>
-                        <div class="tarjetas-horizontal">
-                            <img src="/img/tarjeta-mastercard.svg" alt="" style="width: 6%;">
-                            <img src="/img/logotipo-de-visa.svg" alt="" style="width: 6%;">
-                            <img src="/img/simbolo.svg" alt="" style="width: 6%;">
-                            <img src="/img/dinero.svg" alt=""style="width: 6%;">
-                        </div>
-                    </div>
-                    <div class="garantia">
-                        <p><img src="/img/garantia.svg" alt="" style="width: 19px;"> Garantia de 2 meses</p> 
-                    </div>
-                    <div class="cantidad">
-                        <p>Cantidad:  <input  type="number" min="0" max="10" placeholder="1"> </p>
-                       
-                    </div> 
-                    <div class="btn-sección">
-                
-                        <button class="btn-agregar">Agrega al carrito</button>
-                    </div>
-                  
+                <div class="site-information" id="site-information"> 
+                   
                   
                 </div>
             
             </div>
             <div style="margin-top:3rem" >
                 <div class="botones-productos">
-                    <button class="tablink" onclick="openPage('Home', this, 'red')">CARACTERISTICS</button>
-                    <button class="tablink" onclick="openPage('News', this, 'red')" id="defaultOpen">COMENTARIOS</button>
+                    <button class="tablink" onclick="openPage('Home', this, 'red')" id="defaultOpen">CARACTERISTICS</button>
+                    <button class="tablink" onclick="openPage('News', this, 'red')" id="comentarios">COMENTARIOS</button>
                 </div>
             
     
@@ -455,10 +411,8 @@
                     <div class="site-comentarios">
                        
                         <div class="especificaciones-main">
-                            <div class="contenedor-especificaciones">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt debitis obcaecati id eveniet minus, voluptatem, asperiores quisquam maxime vitae possimus molestiae facilis autem officiis atque explicabo assumenda? Doloribus, tempore eligendi!
-        
-                                </p>
+                            <div class="contenedor-especificaciones" id="DescripcionProducto">
+                               
                             </div>
                          </div>
                     </div>
@@ -473,72 +427,12 @@
                     <!-- Contenedor Comentarios -->
                     <div class="comments-container">
                         <ul id="comments-list" class="comments-list">
-                            <li>
-                                <div class="comment-main-level">
-                                    <!-- Avatar -->
-                                    <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
-                                    <!-- Contenedor del Comentario -->
-                                    <div class="comment-box">
-                                        <div class="comment-head">
-                                            <h6 class="comment-name by-author"><a >Agustin maldonado</a></h6>
-                                        </div>
-                                        <div class="comment-content">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                                        </div>
-                                    </div>
-                                </div>
+                            <li id="comentariosyrespuestas">
+                              
                                 <!-- Respuestas de los comentarios -->
-                                <ul class="comments-list reply-list">
-                                    <li>
-                                        <!-- Avatar -->
-                                        <div class="comment-avatar admin "><img src="/img/logoajjaja-removebg-preview.ico" alt=""></div>
-                                        <!-- Contenedor del Comentario -->
-                                        <div class="comment-box">
-                                            <div class="comment-head">
-                                                <h6 class="comment-name "><a >Rpc Computación</a></h6>
-                                                
-                                            </div>
-                                            <div class="comment-content">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                                            </div>
-                                        </div>
-                                    </li>
-            
-                                </ul>
+                           
                             </li>
-                            <li>
-                                <div class="comment-main-level">
-                                    <!-- Avatar -->
-                                    <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
-                                    <!-- Contenedor del Comentario -->
-                                    <div class="comment-box">
-                                        <div class="comment-head">
-                                            <h6 class="comment-name by-author"><a >Matias ezequiel</a></h6>
-                                        </div>
-                                        <div class="comment-content">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Respuestas de los comentarios -->
-                                <ul class="comments-list reply-list">
-                                    <li>
-                                        <!-- Avatar -->
-                                        <div class="comment-avatar admin "><img src="/img/logoajjaja-removebg-preview.ico" alt=""></div>
-                                        <!-- Contenedor del Comentario -->
-                                        <div class="comment-box">
-                                            <div class="comment-head">
-                                                <h6 class="comment-name "><a >Rpc Computación</a></h6>
-                                                
-                                            </div>
-                                            <div class="comment-content">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                                            </div>
-                                        </div>
-                                    </li>
-            
-                                </ul>
-                            </li>
+                           
             
                           
                         </ul>
@@ -665,8 +559,9 @@
        <!--Jquery script-->
        
        <script type="text/javascript" src="JS/Jquery.js"></script>
-       <!--Script-->
      
+       <!--Script-->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   
     <!--Scrips de boopstrap-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -675,8 +570,24 @@
     
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script type="text/javascript" src="JS/lightslider.js"></script>
-    <script src="js/publicacion.js"></script>
-  
+    <script src="JS/publicacion.js"></script>
+     <script>
+      
+
+     </script>
+         <script type="text/javascript" src="JS/Jquery.js"></script>
+     
+         <!--Script-->
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+      <!--Scrips de boopstrap-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <!--Maps-->
+      
+      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+      <script type="text/javascript" src="JS/lightslider.js"></script>
+      
     <script>
         
 
