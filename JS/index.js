@@ -57,7 +57,7 @@ window.onload = function()
             var desplegable=document.getElementById("desplegable");
             $.each(data, function(i, item) {
              desplegable.innerHTML+=`
-             <li><a onclick="ProductosCategoria('${item}');" >${item}<span style="margin-left: 100px;"
+             <li><a onclick="ProductosCategoria('${item}');" >${item}<span
              class="glyphicon glyphicon-chevron-right" ></span></a></li>
              `;
 

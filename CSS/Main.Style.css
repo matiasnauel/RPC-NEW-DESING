@@ -704,13 +704,23 @@ ul {
   min-width: 215.69px;
   line-height: 30px;
 }
-.desplegable {
+.desplegable  {
+ 
   list-style: none;
   margin: 0;
   padding: 0;
   border: 0;
-  text-align: center;
+  text-align: left;
+ 
 }
+.desplegable li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .desplegable a {
   display: block;
   text-decoration: none !important;
