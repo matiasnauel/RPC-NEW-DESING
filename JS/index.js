@@ -88,6 +88,7 @@ function ProductosCategoria(valor2)
     var productosID = [1,1,1,1,2,2,2,3,4,4,4,4,1,3];
     localStorage.setItem("productos", JSON.stringify(productosID));
     localStorage.setItem("clienteID", 1);
+    localStorage.setItem("publicacionID",1);
 }
 
 function verproductoscarrito()
