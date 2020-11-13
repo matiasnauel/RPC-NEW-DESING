@@ -107,10 +107,7 @@ siteinformation.innerHTML+=`
       ${item.comentario} 
       </div>
   </div>
-</div>`+sihayrespuesta(item.respuesta)+
-
-
-`</li>
+</div>`+sihayrespuesta(item.respuesta)+`</li>
  `;
  });
 } //Finaliza el contenido
@@ -118,8 +115,9 @@ siteinformation.innerHTML+=`
 
 function sihayrespuesta(respuesta)
 {
-if(respuesta==null){
+if(respuesta=="null"){
  return ``;
+ 
 }
 else{
   return `
@@ -389,7 +387,7 @@ function Comentar()
 {
   var comentartext = document.getElementById("comentarTextid").value;
   var objeto = {
-      comentario: "jaja",
+      comentario: comentartext,
       clienteID : localStorage.getItem("clienteID"),
       publicacionID : localStorage.getItem("publicacionID")
     
@@ -407,7 +405,7 @@ function Comentar()
       return response.json();
      })
     .then(function(data) {
-
+      console.log(data)
     })
     .catch(err => console.log('ERROR: ' + err));
 }
