@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/publicacion.css">
     <link rel="stylesheet" href="CSS/normalize.css">
-    <link rel="stylesheet" href="CSS/SliderStyle.css">
-    <link rel="stylesheet" href="CSS/lightslider.css">
+  
     <!--estilos de boopstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
@@ -93,11 +92,11 @@
         <header class="header" id="HeaderFloat">
             <div class="main-header contenedor-header" id="mainHeader">
                 <div class="logo-main">
-                    <a href="index.html"><img id="logomain" src="/img/logoajjaja-removebg-preview.ico" alt=""></a>
+                    <a href="index.html"><img id="logomain" src="img/logoajjaja-removebg-preview.ico" alt=""></a>
                 </div>
                 <div class="Search-main ">
                     <form class="formulario" id="form">
-                        <input class="search" type="text" id="Search-main" placeholder="Buscar..">
+                        <input class="search" type="text" id="Search-main" placeholder="Buscar.." >
                         <button type="submit">  <i class="glyphicon glyphicon-search"></i></button>
                     </form>
                   
@@ -111,13 +110,13 @@
 
                                 <li  style="display: block;" class="login-out"><a href="#" data-toggle="modal"  data-target="#Login" ><i class="glyphicon glyphicon-log-in"></i> Iniciar Sesión</a></li>
                              
-                                <li class="login-in" style="display: none;"> <a href="#"  data-toggle="modal"  data-target="#subirArchivo"  ><i class="glyphicon glyphicon-upload"></i> Subir Comprobante</a> </li>
+                                <li class="login-in" style="display: none;" id="abrirsectorcomprobante"> <a href="#"  data-toggle="modal"  data-target="#subirArchivo"  ><i class="glyphicon glyphicon-upload"></i> Subir Comprobante</a> </li>
                                 <li  style="display: none;" class="login-in " id="exitAPP"><a href="#" > <i class="glyphicon glyphicon-log-out"></i> Salir</a></li>
                             </ul>
                         </li>
                     </div>
-                    <div class="icons-shopping-card" id="icons-shooping-card">
-                        <img src="/img/carrito-de-compras.png" alt="" id="btnModal" >
+                    <div class="icons-shopping-card" id="icons-shooping-card" onclick="verproductoscarrito();">
+                        <img src="img/carrito-de-compras.png" alt="" id="btnModal"  >
                         <span id="cantidadCarrito">(0)<span id="precioTotal"></span>$0,00</span>              
                          
                             <!-- Modal -->
@@ -148,65 +147,9 @@
                     <div id="tvesModal" class="modalContainer">
                         <div class="modal-content">
                             <span class="closed">×</span>
-                            <h2>Mi Carrito 2 </h2>
-                            <div class="contenedor-carrito">
-                                <div class="productos-carrito">
-                                    <div class="site-image-carrito">
-                                        <img src="/img/auricular4.jpg" alt="">
-                                    </div>
-                                    <div class="site-information-carrito">
-                                        <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
-                                        <span>4,599x1</span>
-                                        <button class="DescartarArticulo-carrito">X</button> 
-                                    </div>
-                                </div>
-                                <div class="productos-carrito">
-                                    <div class="site-image-carrito">
-                                        <img src="/img/auricular4.jpg" alt="">
-                                    </div>
-                                    <div class="site-information-carrito">
-                                        <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
-                                        <span>4,599x1</span>
-                                        <button class="DescartarArticulo-carrito">X</button> 
-                                    </div>
-                                </div>
-                                <div class="productos-carrito">
-                                    <div class="site-image-carrito">
-                                        <img src="/img/auricular4.jpg" alt="">
-                                    </div>
-                                    <div class="site-information-carrito">
-                                        <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
-                                        <span>4,599x1</span>
-                                        <button class="DescartarArticulo-carrito">X</button> 
-                                    </div>
-                                </div>
-                                <div class="productos-carrito">
-                                    <div class="site-image-carrito">
-                                        <img src="/img/auricular4.jpg" alt="">
-                                    </div>
-                                    <div class="site-information-carrito">
-                                        <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
-                                        <span>4,599x1</span>
-                                        <button class="DescartarArticulo-carrito">X</button> 
-                                    </div>
-                                </div>
-                                  <div class="productos-carrito">
-                                    <div class="site-image-carrito">
-                                        <img src="/img/auricular4.jpg" alt="">
-                                    </div>
-                                    <div class="site-information-carrito">
-                                        <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
-                                        <span>4,599x1</span>
-                                        <button class="DescartarArticulo-carrito">X</button> 
-                                    </div>
-                                </div>
-                                <div class="Total-carrito">
-                                    <p>TOTAL: $20.000</p>
-                                </div>
-                                <div class="OpcionCarrito">
-                                    <button class="vaciar-carrito">VACIAR CARRITO</button>
-                                    <button class="comprar-carrito">COMPRAR</button>
-                                </div>
+                            <h2>Mi Carrito </h2>
+                            <div class="contenedor-carrito" id="contenedorcarrito">
+                                 
                             </div>
                         </div>
                     </div><!--Modal-->
@@ -218,7 +161,7 @@
                             <h2 style="padding-bottom: 20px; color: white;">Mi Carrito</h2>
                             <div class="productos-carrito">
                                 <div class="site-image">
-                                    <img src="/img/auricular4.jpg" alt="">
+                                    <img src="img/auricular4.jpg" alt="">
                                 </div>
                                 <div class="site-information">
                                     <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
@@ -228,7 +171,7 @@
                             </div>
                             <div class="productos-carrito">
                                 <div class="site-image">
-                                    <img src="/img/auricular4.jpg" alt="">
+                                    <img src="img/auricular4.jpg" alt="">
                                 </div>
                                 <div class="site-information">
                                     <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
@@ -238,7 +181,7 @@
                             </div>
                             <div class="productos-carrito">
                                 <div class="site-image">
-                                    <img src="/img/auricular4.jpg" alt="">
+                                    <img src="img/auricular4.jpg" alt="">
                                 </div>
                                 <div class="site-information">
                                     <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
@@ -255,11 +198,11 @@
                             </div>
                         
                         </div>
-                        <img src="/img/carrito-de-compras.png" alt="" style="width: 70%;" id="CarritoSubMenu"><span id="itemCarrito"  onclick="openNavCarrito()" >(0)</span>
+                        <img src="img/carrito-de-compras.png" alt="" style="width: 70%;" id="CarritoSubMenu"><span id="itemCarrito"  onclick="openNavCarrito()" >(0)</span>
                       
                     </div>
               
-                    <img src="/img/menu180°.png" alt="" style="width: 80%; cursor: pointer; margin-right: 2em;" id="MenuBurger">
+                    <img src="img/menu180°.png" alt="" style="width: 80%; cursor: pointer; margin-right: 2em;" id="MenuBurger">
    
                   
                 </div>
@@ -303,25 +246,10 @@
                 <div class="contenedor-barra">
                     <div class="Menu-desplegable">
                         <li id="categorias-desplegable" class="categoriasDesplegables">
-                            <img src="/img/menu.png" alt="" style="width: 60px; cursor: pointer;">
+                            <img src="img/menu.png" alt="" style="width: 60px; cursor: pointer;">
                             <ul id="desplegable" class="desplegable">
-                                
-                                <li><a href="">Notebook<span style="margin-left: 100px;"
-                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
-                                <li><a href="">Procesadores<span style="margin-left: 60px;"
-                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
-                                <li><a href="">Auriculares<span style="margin-left: 80px;"
-                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
-                                <li><a href="">Monitores<span style="margin-left: 93px;"
-                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
-                                <li><a href="">Tablets<span style="margin-left: 120px;"
-                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
-                                <li><a href="">Gabinetes<span style="margin-left: 100px;"
-                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
-                                <li><a href="">Celulares<span style="margin-left: 95px;"
-                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
-                                <li><a href="">Teclados<span style="margin-left: 103px;"
-                                            class="glyphicon glyphicon-chevron-right"></span></a></li>
+                              <a onclick="ProductosCategoria('daleee');"></a>  
+                               
                             </ul>
                         </li>
                     </div>
@@ -329,43 +257,44 @@
                     <div class="barra-categoria">
                         <div class="item1  " id="item1" onmouseover="call_mouseover_expand(this.id);"
                             onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;">
-                            <img src="/img/upc.png" alt="" style="width: 80px;">
+                            <img src="img/upc.png"  alt="" style="width: 80px;" onclick="ProductosCategoria('Microprocesadores');">
                             <label>Microprocesadores</label>
                         </div>
-                        <div class="item3 " id="item3" onmouseover="call_mouseover_expand(this.id);"
+                        
+                        <div class="item3 "  id="item3" onmouseover="call_mouseover_expand(this.id);"
                             onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;">
-                            <img src="/img/placa-madre.png" alt="" style="width: 80px;">
+                            <img src="img/placa-madre.png" alt="" style="width: 80px;" onclick="ProductosCategoria('Placa Madre');">
                             <label>Motherboard</label>
                         </div>
                         <div class="item4 " id="item4" onmouseover="call_mouseover_expand(this.id);"
                             onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;">
-                            <img src="/img//memoria-ram.png" alt="" style="width: 80px;">
+                            <img src="img//memoria-ram.png" alt="" style="width: 80px;" onclick="ProductosCategoria('Memoria Ram');">
                             <label>Memorias ram</label>
                         </div>
                         <div class="item5 " id="item5" onmouseover="call_mouseover_expand(this.id);"
                             onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1);  cursor: pointer;">
-                            <img src="/img/tarjeta-de-video.png" alt="" style="width: 80px;">
+                            <img src="img/tarjeta-de-video.png" alt="" style="width: 80px;" onclick="ProductosCategoria('Placa Video');">
                             <label>Placa de video</label>
                         </div>
                         <div class="item6 " id="item6" onmouseover="call_mouseover_expand(this.id);"
                             onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1);  cursor: pointer;">
-                            <img src="/img/hdd.png" alt="" style="width: 80px;">
+                            <img src="img/hdd.png" alt="" style="width: 80px;" onclick="ProductosCategoria('Almacenamiento');">
                             <label>Almacenamiento</label>
                         </div>
     
                         <div class="item8 " id="item8" onmouseover="call_mouseover_expand(this.id);"
                             onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1);  cursor: pointer;">
-                            <img src="/img/cpu-tower.png" alt="" style="width: 80px;">
+                            <img src="img/cpu-tower.png" alt="" style="width: 80px;" onclick="ProductosCategoria('Gabinete');">
                             <label>Gabinete</label>
                         </div>
                         <div class="item9 " id="item9" onmouseover="call_mouseover_expand(this.id);"
                             onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor:pointer;">
-                            <img src="img/pantalla-de-la-computadora.png" alt="" style="width: 80px;">
+                            <img src="img/pantalla-de-la-computadora.png" alt="" style="width: 80px;" onclick="ProductosCategoria('Monitor');">
                             <label>Monitor</label>
                         </div>
                         <div class="item7 " id="item7" onmouseover="call_mouseover_expand(this.id);"
                             onmouseout="call_mouseout_retroced(this.id)" style="transform: scale(1); cursor: pointer;">
-                            <img src="/img/fuente-de-alimentacion.png" alt="" style="width: 80px;">
+                            <img src="img/fuente-de-alimentacion.png" alt="" style="width: 80px;" onclick="ProductosCategoria('Fuente');">
                             <label>Fuente</label>
                         </div>
     
@@ -422,7 +351,7 @@
                    
                    
                     <div class="caja-comentar">
-                        <textarea name="" id=""  placeholder="Escribe tu comentario.." style=" width: 100%; padding-left: 20px; padding-top: 20px; color: black; font-size: 20px;" ></textarea> <button class="btn-comentar">Comentar</button>
+                        <textarea name="" id="comentarTextid"  placeholder="Escribe tu comentario.." style=" width: 100%; padding-left: 20px; padding-top: 20px; color: black; font-size: 20px;" ></textarea> <button class="btn-comentar" onclick="Comentar();">Comentar</button>
                     </div>
                     <!-- Contenedor Comentarios -->
                     <div class="comments-container">
@@ -489,104 +418,73 @@
                 </div>
             </div>
         </div>
-         <!-- Modal -->
-        <div class="modal fade" id="subirArchivo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <form >
-                        <div class="modal-header">
-                            <h4 class="modal-title text-center" id="myModalLabel"><img src="/img/carpeta.png" alt=""></i></h4>
-                        </div>
-                        <div class="modal-body">
-                          
-                            <div class="form-group" id="btn">
-                                <div class="custom-input-file " id="custom-input-file">
-                                    <input type="file" id="fichero-comprobante" class="input-file" value="" >
-                                    Subir comprobante
-                                 
-                                </div>
-                                <input type="button" id="send" class="btn btn-info  btn-block   btn-lg" value="Enviar" style="display: none;" >
-                               
+            <!-- Modal -->
+            <div class="modal fade" id="subirArchivo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <form id="dataForm">
+                            <div class="modal-header">
+                                <h4 class="modal-title text-center" id="myModalLabel"><img src="img/carpeta.png" alt=""></i></h4>
                             </div>
-                            <div class="form-group">
-                                <div class="table-responsive">
+                            <div class="modal-body">
+                              
+                                <div class="form-group" id="btn">
+                                    <div class="custom-input-file " id="custom-input-file">
+                                        <input type="file" id="files" name="files[]" multiple  accept="image/jpg, image/jpeg"  class="input-file" value="" >
+                                        Cargar comprobante
+                                     
+                                    </div>
+                                  
                                    
-                                    <table class="table">
-                                      <thead>
-                                        <tr>
-                                           <th>Selecciónar</th>
-                                          <th>Pedido</th>
-                                          <th>Fecha</th>
-                                          <th>Codigo</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                          <td><label class="checkbox-inline"><input type="checkbox" value=""></label></td>
-                                          <td>Auricular sentey r8</td>
-                                          <td>6/11/2020</td>
-                                          <td>0101010110</td>
-                                        </tr>      
-                                        <tr>
-                                            <td><label class="checkbox-inline"><input type="checkbox" value=""></label></td>
-                                            <td>Auricular sentey r8</td>
-                                            <td>6/11/2020</td>
-                                            <td>0101010110</td>
-                                        </tr>  
-                                        <tr>
-                                            <td><label class="checkbox-inline"><input type="checkbox" value=""></label></td>
-                                            <td>Auricular sentey r8</td>
-                                            <td>6/11/2020</td>
-                                            <td>0101010110</td>
-                                        </tr> 
-                                     
-                                     
-                                      
-                                      </tbody>
-                                    </table>
-                                  </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="table-responsive">
+                                       
+                                        <table class="table" id="contenedorcontenedor">
+                                          <thead>
+                                            <tr>
+                                               <th>Selecciónar</th>
+                                              <th>Estado</th>
+                                              <th>Fecha</th>
+                                              <th>Codigo</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody id="contenedor-ventas">
+                                              
+                                        
+                                         
+                                          
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                </div>
+                             
                             </div>
-                         
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                        </div>
-                    </form>
+                            <div class="modal-footer">
+                                <button type="button"  class="btn btn-success" style="display:block;" id="enviarcomprobante">Subir comprobante</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
     
        <!--Jquery script-->
        
-       <script type="text/javascript" src="JS/Jquery.js"></script>
+    <script type="text/javascript" src="JS/Jquery.js"></script>
      
        <!--Script-->
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   
     <!--Scrips de boopstrap-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!--Maps-->
-    
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script type="text/javascript" src="JS/lightslider.js"></script>
+    <!--Maps--> 
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> 
     <script src="JS/publicacion.js"></script>
-     <script>
-      
+    <script src="JS/publicacion2.js"></script>
 
-     </script>
-         <script type="text/javascript" src="JS/Jquery.js"></script>
-     
-         <!--Script-->
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
-      <!--Scrips de boopstrap-->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <!--Maps-->
-      
-      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-      <script type="text/javascript" src="JS/lightslider.js"></script>
+   
       
     <script>
         
@@ -608,6 +506,7 @@ function setSrc(element_id, src)
     <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
