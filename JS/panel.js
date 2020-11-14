@@ -68,17 +68,3 @@ publicar.addEventListener("click", (e)=>{
    
   })
 })
-
-
-// var upload = document.getElementById("file1");
-
-// upload.onchange = function(e) {
-//   var files = e.target.files;
-//   // https://developer.mozilla.org/en-US/docs/Web/API/FileList#item
-//   var firstFile = files.item(1); 
-//   var idstokeep = [0, 2]; // keep first `2` files from `multiple` selection
-//   var _files = Array.prototype.slice.call(files).splice(idstokeep[0], idstokeep[1]);
-//   console.log(files, files.length         
-//               , _files, _files.length
-//               , firstFile);
-// }; 

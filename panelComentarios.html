@@ -60,7 +60,7 @@
                 <div class="col-md-3">
                     <ul class="list-group ">
                         <a href="panel.html" class="list-group-item  color-principal"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de control <span class="badge"></span></a>
-                        <a href="panelProductos.html" class="list-group-item"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Productos<span class="badge" id="cantidad">0</span></a>
+                        <a href="panelProductos.html"  onclick="traerProductos();" class="list-group-item"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Productos<span class="badge" id="cantidad">0</span></a>
                         <a  href="panelBanner.html" class="list-group-item "><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Banners <span class="badge" id="cantidad">0</span></a>
                         <a  href="panelVentas.html" class="list-group-item"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ventas <span class="badge" id="cantidad">0</span></a>
                         <a  href="panelDestacados.html" class="list-group-item"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Destacados <span class="badge" id="cantidad">0</span></a>
@@ -88,70 +88,9 @@
                             </div>
                             <div id="global" class="table-responsive">
                                 <table class="table table-striped table-hover" id="contenedorProductos">
-                                    <tr>
-                                        <th><label>Autor</label></th>
-                                        <th>Comentario</th>
-                                        <th>Fecha</th>
-                                        <th>Publicacion</th>
-                                        <th></th>
-                                        <th></th>
                                 
-                                    </tr>
-                                    <tr>
-                                        <td</td>
-                                        <td> Matias Nahuel</td>
-                                        <td >El articulo viene con garantia?</td>
-                                        <td>15/10/2020 a las 14:58hs</td>
-                                        <td><a href="publicacion.html">Ver</a></td>
-                                        <td class="boton-centro"><button class="btn btn-danger">Borrar</button></td>
-                                        <td class="boton-centro" ><button class="btn btn-success" data-toggle="modal" data-target="#Comentar"> Responder </button> </td>
-                                    </tr>
-                                    <tr>
-                                        <td</td>
-                                        <td> Matias Nahuel</td>
-                                        <td >El articulo viene con garantia?</td>
-                                        <td>15/10/2020 a las 14:58hs</td>
-                                        <td><a href="publicacion.html">Ver</a></td>
-                                        <td class="boton-centro"><button class="btn btn-danger">Borrar</button></td>
-                                        <td class="boton-centro" ><button class="btn btn-success" data-toggle="modal" data-target="#Comentar"> Responder </button> </td>
-                                    </tr>
-                                    <tr>
-                                        <td</td>
-                                        <td> Matias Nahuel</td>
-                                        <td >El articulo viene con garantia?</td>
-                                        <td>15/10/2020 a las 14:58hs</td>
-                                        <td><a href="publicacion.html">Ver</a></td>
-                                        <td class="boton-centro"><button class="btn btn-danger">Borrar</button></td>
-                                        <td class="boton-centro" ><button class="btn btn-success" data-toggle="modal" data-target="#Comentar"> Responder </button> </td>
-                                    </tr>
-                                    <tr>
-                                        <td</td>
-                                        <td> Matias Nahuel</td>
-                                        <td >El articulo viene con garantia?</td>
-                                        <td>15/10/2020 a las 14:58hs</td>
-                                        <td><a href="publicacion.html">Ver</a></td>
-                                        <td class="boton-centro"><button class="btn btn-danger">Borrar</button></td>
-                                        <td class="boton-centro" ><button class="btn btn-success" data-toggle="modal" data-target="#Comentar"> Responder </button> </td>
-                                    </tr>
-                                    <tr>
-                                        <td</td>
-                                        <td> Matias Nahuel</td>
-                                        <td >El articulo viene con garantia?</td>
-                                        <td>15/10/2020 a las 14:58hs</td>
-                                        <td><a href="publicacion.html">Ver</a></td>
-                                        <td class="boton-centro"><button class="btn btn-danger">Borrar</button></td>
-                                        <td class="boton-centro" ><button class="btn btn-success" data-toggle="modal" data-target="#Comentar"> Responder </button> </td>
-                                    </tr>
-                                    <tr>
-                                        <td</td>
-                                        <td> Matias Nahuel</td>
-                                        <td >El articulo viene con garantia?</td>
-                                        <td>15/10/2020 a las 14:58hs</td>
-                                        <td><a href="publicacion.html">Ver</a></td>
-                                        <td class="boton-centro"><button class="btn btn-danger">Borrar</button></td>
-                                        <td class="boton-centro" ><button class="btn btn-success" data-toggle="modal" data-target="#Comentar"> Responder </button> </td>
-                                    </tr>
-                                    
+                                
+                            
                                 </table>
                             </div>
 
@@ -178,13 +117,13 @@
                       
                         <div class="form-group">
                             <label>Comentario la publicación</label>
-                            <textarea name="text" class="form-control" placeholder="Agregar comentario.."></textarea>
+                            <textarea name="text" class="form-control"  id="contenido-comentario" placeholder="Agregar comentario.."></textarea>
                         </div>
 
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                        <button type="button" class="btn btn-primary" id="guardarCambios" onclick="Responder(this.value)">Guardar Cambios</button>
                     </div>
                 </form>
             </div>
@@ -311,7 +250,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Publicar</button>
+                        <button type="submit" class="btn btn-primary" id="Publicar">Publicar</button>
                     </div>
                 </form>
             </div>
@@ -324,7 +263,9 @@
         </div>
     </footer> <!--Footer-->
     <script src="js/panel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js "></script>
+    <script src="js/comentarios.js"></script>
 </body>
 </html>

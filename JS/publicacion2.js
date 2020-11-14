@@ -1,5 +1,5 @@
 window.onload = function traerProductos() {
-  fetch("https://localhost:44325/api/Publicacion/PublicacionCompleta?publicacionID="+1)
+  fetch("https://localhost:44325/api/Publicacion/PublicacionCompleta?publicacionID="+localStorage.getItem("publicacionID"))
       .then(function(response) {
           return response.json();
       })
