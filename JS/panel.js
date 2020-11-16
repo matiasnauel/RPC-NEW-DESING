@@ -3,7 +3,7 @@ function handleFileSelect(evt) {
 
     // Loop through the FileList and render image files as thumbnails.
     for (var i = 0, f; f = files[i]; i++) {
-
+     
       // Only process image files.
       if (!f.type.match('image.*')) {
         
@@ -37,15 +37,19 @@ const CLOUNDDINARY_UPLOAD_PRESET ="dez1rdb5";
 // Input file
 const input = document.getElementById('files');
 let ArrayFile =[];
+
 input.onchange = function(e){
   var files = e.target.files;
   for (let index = 0; index < files.length; index++) {
     const element = files[index];
     ArrayFile.push(element);
+
   }
+  localStorage.setItem("cantidadImagenes" ,ArrayFile.length);
+ 
 }
 
-let Imagen=[];
+var Imagen=[];
 // Al Publicar, se debe enviar las imagenes al servidor !
 function enviarImagenesAlserver(){
 
@@ -62,11 +66,13 @@ function enviarImagenesAlserver(){
       })
       console.log(res.data.secure_url)
       Imagen.push(res.data.secure_url);
+      localStorage.setItem("imagenes",JSON.stringify(Imagen));
       
       
      
     })
-    localStorage.setItem("imagenes",JSON.stringify(Imagen));
+ 
+  
   
 
 
@@ -112,7 +118,8 @@ $.ajax({
     contentType: "application/json",
 
     success: function(data) {
-      
+       console.log(document.getElementById("categoria").value)
+        alert("Se agrego correctamente");
     },
     error: function(error) {
         console.log(error.message);
@@ -123,6 +130,7 @@ $.ajax({
 });
 
 }
+
 function postForm(){
   var marca = document.getElementById("marca").value;
   var nombre = document.getElementById("nombre").value;
@@ -164,11 +172,13 @@ function postForm(){
     
     });
 }
+
 function cambiar(){
   var destacado = document.getElementById("destacados");
  if(destacado.value == "false") {
    destacado.value = true;
    console.log(destacado.value);
+
  }
  else{
   destacado.value = false;
@@ -178,14 +188,35 @@ function cambiar(){
 
  
 
+
+var guardar  = document.getElementById("Gurdar");
+guardar.addEventListener("click", (e)=>{
+  e.preventDefault();
+  enviarImagenesAlserver();
+  // console.log(localStorage.getItem("imagenes"));
+})
+
 var public = document.getElementById("Publicar");
 public.addEventListener("click" , (e)=>{
+
   e.preventDefault();
+  var imagen = JSON.parse (localStorage.getItem("imagenes"));
+  console.log(imagen.length);
+
+  
     //En este caso, sería de este modo:
-$.when(enviarImagenesAlserver()).then(function(){
-  postForm();
-});
+  if(localStorage.getItem("cantidadImagenes") == imagen.length){  
+       postForm();
+  }
+  // while(localStorage.getItem("cantidadImagenes") == Imagen.length-1){
+  //   postForm();
+  //   break;
+  // }
+
+
 })
+
+
 
 
 

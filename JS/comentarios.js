@@ -84,3 +84,24 @@ function VerPublicacion(publicacionID){
   location.href ="publicacion.html";
 
 }
+function InsertarCategoria(){
+
+    $.ajax({
+        type: "POST",
+        url: "https://localhost:44381/api/Categoria/InsertarCategoria?descripcion="+document.getElementById("categoria1").value,
+        dataType: "JSON",
+        contentType: "application/json",
+    
+        success: function(data) {
+           console.log(document.getElementById("categoria").value)
+            alert("Se agrego correctamente");
+        },
+        error: function(error) {
+            console.log(error.message);
+            alert('error');
+        }
+    
+    
+    });
+    
+    }

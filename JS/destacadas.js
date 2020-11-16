@@ -17,7 +17,7 @@ $.ajax({
      autowidth.innerHTML+=`       
 
     <tr>
-     <td><img src="/img/${item.imagenes[0]}" alt="" width="100px"></td>
+     <td><img src="${item.imagenes[0]}" alt="" width="100px"></td>
      <td class="titulo">${item.nombre}</td>
      <td class="precio">${item.precio}</td>
      <td class="boton-centro"> <button class="btn btn-success"  data-toggle="modal" data-target="#AgregarProducto" onclick="EditarDestacados();">Editar</button> </td>

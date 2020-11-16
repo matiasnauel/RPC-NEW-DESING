@@ -39,8 +39,10 @@
                         </button>
 
                         <ul class="dropdown-menu " aria-labelledby="dropdownMenu1" >
-                            <li><a class="dropdown-item" data-toggle="modal" data-target="#AgregarProducto" >Agregar Productos</a></li>
+                            <li><a class="dropdown-item" data-toggle="modal" data-target="#AgregarProducto" onclick="TraerCategorias();" >Agregar Productos</a></li>
                             <li><a class="dropdown-item" data-toggle="modal" data-target="#AgregarBanner" >Agregar banner</a></li>
+                            <li><a class="dropdown-item" data-toggle="modal" data-target="#AgregarCategoria" >Agregar Categoria</a></li>
+
                         </ul>
                     </div>
                 </div>
@@ -104,53 +106,12 @@
     </section>
 
     <!-- Modal -->
-    <!-- Modal -->
-    <div class="modal fade" id="AgregarPagina" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <form id="formulario">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Agregar Página</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Titulo de la página</label>
-                            <input type="text" class="form-control" placeholder="Titulo de la página">
-                        </div>
-                        <div class="form-group">
-                            <label>Información de la página</label>
-                            <textarea name="editor1" class="form-control" placeholder="Información de la página"></textarea>
-                        </div>
 
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Publicado
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label>Palabras clave</label>
-                            <textarea name="text" class="form-control" placeholder="Agregar algunas palabras.."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Meta descripcion</label>
-                            <textarea name="text" class="form-control" placeholder="Agregar descripcioón.."></textarea>
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Guardar Cambios</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
     <!-- Modal -->
     <div class="modal fade" id="AgregarBanner" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form id="formulario">
+                <form >
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">Agregar Banner</h4>
@@ -197,62 +158,86 @@
                             <label>Precio venta</label>
                             <input type="decimal" name="PrecioVenta" min="1" class="form-control" placeholder="Precio de la venta" id="precioventa">
                         </div>
-                        <div class="form-group row">
-                            <div class="form-group ">
-                                <label>Agregar Categoria</label>
-                                   <div class="input-group">
-                                       <input type="text" name="Categoria" class="form-control" placeholder="Nueva categoria" id="categoria">
-                                       <div class="input-group-btn">
-                                           <button class="btn btn-default" type="submit">
-                                             <i class="glyphicon">+</i>
-                                           </button>
-                                         </div>
-                                   </div>
-                           </div>
-                           <div class="form-group">
-                                      
-                               <label> Categorias</label>
-                               <select name="Categorias" id="SelectCategorias" class="form-control">
-                                   <option value="0">Categorias</option>
-                                   <option value="1">Procesadores</option>
-                                   <option value="2">Monitores</option>
-                               </select>
-                     
+                  
+                        <div class="form-group">
+                                   
+                            <label> Categorias</label>
+                            <select name="Categorias" id="SelectCategorias" class="form-control">
+                            
+                              
+                            </select>
+                  
+
    
-      
-                           </div>
-                           <div class="form-group">
-                               <label>Stock</label>
-                               <input type="number" name="Stock" class="form-control" placeholder="Stock" id="stock" min="0" >
-                           </div>
-                           <Label>Cargar Imagenes | Hasta 4 imagenes disponibles</Label>
-                           <div class="form-group ">
-                               <input type="file" id="files" name="files[]" multiple  accept="image/jpg, image/jpeg"  />
-                               <output id="list"></output>
-                           </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Stock</label>
+                            <input type="number" name="Stock" class="form-control" placeholder="Stock" id="stock" min="0" >
+                        </div>
+                        <Label>Cargar Imagenes | Hasta 4 imagenes disponibles</Label>
+                        <div class="form-group ">
+                            <input type="file" id="files" name="files[]" multiple  accept="image/jpg, image/jpeg"  />
+                            <output id="list"></output>
+                        </div>
+                  
                      
-                           <div class="form-group">
-                            <input type="checkbox" name="destacados" class="form-inline" id="destacados" value="False" >
+                     
+                        <div class="form-group">
+                            <input type="checkbox" name="destacados" class="form-inline" id="destacados" value="false"  onchange="cambiar();" >
                             <label>Destacados</label>
      
     
-                           </div>
-                        
-   
+                        </div>
                            <div class="form-group">
-                               <label>Descripcion del producto</label>
-                               <textarea class="form-control" rows="5" id="comment"></textarea>
+                            <label>Peso del producto</label>
+                            <input type="number" name="peso" class="form-control" id="peso"  >
                            </div>
+                        <div class="form-group">
+                            <label>Descripcion del producto</label>
+                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                        </div>
 
                     </div>
                     <div class="modal-footer">
+                        <button type="button" class="btn btn-info"  id="Gurdar">Guardar</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary" id="Publicar">Publicar</button>
+                        <button type="submit" class="btn btn-success" id="Publicar">Publicar</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+            <!-- Modal -->
+            <div class="modal fade" id="AgregarCategoria" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <form id="formulario-categoria">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title text-center"  id="myModalLabel">Agregar Categoria</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group ">
+                                  
+                                       <div class="input-group">
+                                           <input type="text" name="Categoria" class="form-control" placeholder="Nueva categoria" id="categoria2222">
+                                           <div class="input-group-btn">
+                                               <button class="btn btn-default" type="submit" onclick="InsertarCategoria()">
+                                                 <i class="glyphicon">+</i>
+                                               </button>
+                                             </div>
+                                       </div>
+                               </div>
+        
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                               
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
     <footer class="contenedor-footer">
       
         <div class="after-footer" >
@@ -264,5 +249,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js "></script>
     <script src="js/venta.js"></script>
+    <script>
+        function InsertarCategoria(){
+
+$.ajax({
+    type: "POST",
+    url: "https://localhost:44381/api/Categoria/InsertarCategoria?descripcion="+document.getElementById("categoria2222").value,
+    dataType: "JSON",
+    contentType: "application/json",
+
+    success: function(data) {
+    
+        alert("Se agrego correctamente");
+    },
+    error: function(error) {
+        console.log(error.message);
+        alert('error');
+    }
+
+
+});
+
+}
+    </script>
 </body>
 </html>
