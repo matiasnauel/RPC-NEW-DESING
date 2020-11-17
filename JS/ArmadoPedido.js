@@ -108,3 +108,110 @@ Correo.value = L.getItem("Correo_User");
 Correo.disabled= true;
 
 //funciona
+function realizarreserva()
+{
+  
+    var objeto = {
+        clienteID: localStorage.getItem("clienteID"),
+        productos: JSON.parse(localStorage.getItem("productos"))    
+    }
+  $.ajax({
+    type: "POST",
+    data: JSON.stringify(objeto),
+    url: "https://localhost:44376/api/Venta/RealizarReserva",
+    dataType: "JSON",
+    contentType: "application/json",
+    success: function(data) {
+      localStorage.setItem("ventaID",data.id);
+      location.href="ArmadoPedido.html";
+   
+    },
+
+      error: function(error) {
+    console.log(error.message);
+    alert('error');
+}
+
+
+
+   });
+
+
+}
+
+function completarReserva()
+{
+    var nombre = document.getElementById("nombre");
+    var apellido = document.getElementById("apellido");
+    var dni = document.getElementById("dni");
+
+    var direccion = document.getElementById("direccion");
+    var localidad = document.getElementById("localidad");
+    var codigoPostal = document.getElementById("codigoPostal");
+    var comment = document.getElementById("comment");
+    var objeto = {
+        nombre: nombre.value,
+        apellido:apellido.value,
+        dni:dni.value,
+        direccion:direccion.value,
+        localidad:localidad.value,
+        codigopostal:codigoPostal.value,
+        referencias: comment.value,
+        ventaID : 3
+        
+        
+    }
+    $.ajax({
+        type: "POST",
+        data: JSON.stringify(objeto),
+        url: "https://localhost:44376/api/FacturaCompra/SubirFacturaCompra",
+        dataType: "JSON",
+        contentType: "application/json",
+
+        success: function(data) {
+            EnviarEmail();
+            
+        },
+        error: function(error) {
+            console.log(error.message);
+            alert('error');
+        }
+
+
+    });
+    
+
+}    
+function EnviarEmail(){
+    var obj = {
+        productos: JSON.parse(localStorage.getItem("productos")),
+        email: localStorage.getItem("Correo_User")
+    }
+    $.ajax({
+        type: "POST",
+        data: JSON.stringify(obj),
+        url: "https://localhost:44376/api/FacturaCompra/GenerarComprobanteEmailPDF",
+        dataType: "JSON",
+        contentType: "application/json",
+
+        success: function(data) {
+            alert("se ha enviado un email a su casilla con las instrucciónes para finalizar con el proceso de compra! ");
+            localStorage.removeItem("productos");
+            localStorage.removeItem("ventaID");
+            location.href="index.html";
+
+        },
+        error: function(error) {
+            console.log(error.message);
+            alert('error');
+        }
+
+
+    });
+}
+
+var botonArmadoPedido = document.getElementById("armadoPedidoBoton");
+botonArmadoPedido.addEventListener("click",(e) =>{
+    e.preventDefault();
+    completarReserva();
+})

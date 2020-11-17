@@ -465,6 +465,36 @@ if(document.getElementById("btnModal")){
 }
 
 
+function realizarreserva()
+{
+  
+    var objeto = {
+        clienteID: localStorage.getItem("clienteID"),
+        productos: JSON.parse(localStorage.getItem("productos"))    
+    }
+  $.ajax({
+    type: "POST",
+    data: JSON.stringify(objeto),
+    url: "https://localhost:44376/api/Venta/RealizarReserva",
+    dataType: "JSON",
+    contentType: "application/json",
+    success: function(data) {
+      localStorage.setItem("ventaID",data.id);
+      location.href="ArmadoPedido.html";
+   
+    },
+
+      error: function(error) {
+    console.log(error.message);
+    alert('error');
+}
+
+
+
+   });
+
+
+}
 
 
 // Input file 

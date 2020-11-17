@@ -170,10 +170,9 @@ function realizarreserva()
     dataType: "JSON",
     contentType: "application/json",
     success: function(data) {
-      
+      localStorage.setItem("ventaID",data.id);
       location.href="ArmadoPedido.html";
-      //acordarse de que aca yo debo meter la venta id en el localstorage.
-      //prueba
+   
     },
 
       error: function(error) {
