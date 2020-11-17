@@ -85,14 +85,16 @@ function ProductosCategoria(valor2)
     location.href="ProductosListado.html";  
     
     //acordarse de sacar esto
-    var productosID = [1,1,1,1,2,2,2,3,4,4,4,4,1,3];
-    localStorage.setItem("productos", JSON.stringify(productosID));
-    localStorage.setItem("clienteID", 1);
-    localStorage.setItem("publicacionID",1);
+ 
 }
 
 function verproductoscarrito()
 {
+    if(localStorage.getItem("productos")==null)
+    {
+        alert("no posee productos en su carrito");
+    }
+    else{
     
     var objeto = {
         productos: JSON.parse(localStorage.getItem("productos"))
@@ -151,6 +153,7 @@ function verproductoscarrito()
 
 
     });
+}
 
 }
 

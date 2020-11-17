@@ -24,7 +24,7 @@ window.onload = function()
                  <p class="nombre-productos">${item.nombre}</p>
                  <span class="precio-producto">${item.precio}</span>
                  <p class="cuotas-producto">18 cuotas de 3,888,88</p>
-                 <button class="boton-producto" id="${item.publicacionID}">Ver Producto</button>
+                 <button class="boton-producto" id="${item.publicacionID}" onclick="VerProductos(${item.publicacionID});">Ver Producto</button>
              </div>
          </div>      
              `;   
@@ -57,7 +57,7 @@ window.onload = function()
                          <p class="nombre-productos">${item.nombre}</p>
                          <span class="precio-producto">${item.precio}</span>
                          <p class="cuotas-producto">18 cuotas de 3,888,88</p>
-                         <button class="boton-producto" id="${item.publicacionID}">Ver Producto</button>
+                         <button class="boton-producto" id="${item.publicacionID}" onclick="VerProductos(${item.publicacionID});">Ver Producto</button>
                      </div>
                  </div>      
                      `;   
@@ -90,7 +90,7 @@ window.onload = function()
                          <p class="nombre-productos">${item.nombre}</p>
                          <span class="precio-producto">${item.precio}</span>
                          <p class="cuotas-producto">18 cuotas de 3,888,88</p>
-                         <button class="boton-producto" id="${item.publicacionID}">Ver Producto</button>
+                         <button class="boton-producto" id="${item.publicacionID}" onclick="VerProductos(${item.publicacionID});">Ver Producto</button>
                      </div>
                  </div>      
                      `;   
@@ -153,10 +153,10 @@ function ProductosCategoria(valor2)
     localStorage.setItem(`${contenido}`, `${valorcontenido}`);
     location.href="ProductosListado.html";  
     
-    //acordarse de sacar esto
-    var productosID = [1,1,1,1,2,2,2,3,4,4,4,4,1,3];
-    localStorage.setItem("productos", JSON.stringify(productosID));
-    localStorage.setItem("clienteID", 1);
+  
+   
+   
+   
 }
 
 var buscador= document.getElementById("form");
@@ -301,7 +301,11 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
     
     function verproductoscarrito()
     {
-        
+        if(localStorage.getItem("productos")==null)
+        {
+            alert("no posee productos en su carrito");
+        }
+        else{
         var objeto = {
             productos: JSON.parse(localStorage.getItem("productos"))
             
@@ -359,6 +363,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
     
     
         });
+    }
     
     }    
 
@@ -496,6 +501,15 @@ function realizarreserva()
 
 }
 
+function VerProductos(id) 
+{
+     
+    var parametro = "publicacionID";
+    var valor = id;
+    
+    localStorage.setItem(`${parametro}`, `${valor}`);
+    location.href="publicacion.html";
+}
 
 // Input file 
 

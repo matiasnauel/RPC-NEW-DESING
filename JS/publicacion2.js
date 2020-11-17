@@ -144,6 +144,8 @@ function AgregarAlCarrito(productoID,stockmaximo)
 {
 var cantidad=parseInt(document.getElementById('cantidadstock').value);
 if(cantidad<stockmaximo){
+
+if(localStorage.getItem("productos")!="undefined"){
 var array = localStorage.getItem("productos");
 array= JSON.parse(array);
 for(x=0; x<cantidad;x++)
@@ -152,6 +154,17 @@ array.push(productoID);
 }
 
 localStorage.setItem("productos",JSON.stringify(array));
+}
+else
+{
+  var arrayobjeto= [];
+  for(x=0; x<cantidad;x++)
+  {
+  arrayobjeto.push(productoID);
+  }
+  localStorage.setItem("productos", JSON.stringify(arrayobjeto));
+
+}
 }
 else{
   alert("no puede agregar esa cantidad a su carrito");
@@ -163,6 +176,11 @@ else{
 
 function verproductoscarrito()
 {
+  if(localStorage.getItem("productos")==null)
+  {
+      alert("no posee productos en su carrito");
+  }
+  else{
   var objeto = {
     productos: JSON.parse(localStorage.getItem("productos"))
     
@@ -188,7 +206,7 @@ function verproductoscarrito()
         contenedorcarrito.innerHTML+=`
         <div class="productos-carrito">
         <div class="site-image-carrito">
-            <img src="/img/${item.imagenes[0]}" alt="">
+            <img src="${item.imagenes[0]}" alt="">
         </div>
         <div class="site-information-carrito">
             <p>${item.nombre}</p> 
@@ -211,6 +229,7 @@ function verproductoscarrito()
         ` ; 
     })
     .catch(err => console.log('ERROR: ' + err));
+  }
 }
 function realizarreserva(){
   var objeto = {
@@ -405,7 +424,8 @@ function Comentar()
       return response.json();
      })
     .then(function(data) {
-      console.log(data)
+   
+      location.reload()
     })
     .catch(err => console.log('ERROR: ' + err));
 }

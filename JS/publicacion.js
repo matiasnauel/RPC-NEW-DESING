@@ -126,7 +126,7 @@ function openPage(pageName,elmnt,color) {
 var comentarios = document.getElementById("comentarios");
 comentarios.addEventListener('click',function(e) {
 e.preventDefault();
-$("#comentariosyrespuestas").load("#comentariosyrespuestas");
+
 });
 var buscador= document.getElementById("form");
 buscador.addEventListener('submit',function(e) {
