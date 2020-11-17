@@ -145,7 +145,7 @@ function AgregarAlCarrito(productoID,stockmaximo)
 var cantidad=parseInt(document.getElementById('cantidadstock').value);
 if(cantidad<stockmaximo){
 
-if(localStorage.getItem("productos")!="undefined"){
+if(localStorage.getItem("productos")!=undefined){
 var array = localStorage.getItem("productos");
 array= JSON.parse(array);
 for(x=0; x<cantidad;x++)
@@ -374,11 +374,7 @@ function ProductosCategoria(valor2)
     localStorage.setItem(`${contenido}`, `${valorcontenido}`);
     location.href="ProductosListado.html";  
     
-    //acordarse de sacar esto
-    var productosID = [1,1,1,1,2,2,2,3,4,4,4,4,1,3];
-    localStorage.setItem("productos", JSON.stringify(productosID));
-    localStorage.setItem("clienteID", 1);
-    localStorage.setItem("publicacionID",1);
+
 }
 
 fetch("https://localhost:44381/api/Categoria/TraerCategorias")
