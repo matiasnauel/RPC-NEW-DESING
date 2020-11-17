@@ -115,7 +115,7 @@ function verproductoscarrito()
             contenedorcarrito.innerHTML+=`
             <div class="productos-carrito">
             <div class="site-image-carrito">
-                <img src="/img/${item.imagenes[0]}" alt="">
+                <img src="${item.imagenes[0]}" alt="">
             </div>
             <div class="site-information-carrito">
                 <p>${item.nombre}</p> 
@@ -329,7 +329,7 @@ $.ajax({
      <div class="box">
          <!--img-box---------->
          <div class="slide-img">
-             <img alt="1" src="img/${item.imagenes[0]}">
+             <img alt="1" src="${item.imagenes[0]}" >
              <!--overlayer---------->
              <div class="overlay">
                  <!--buy-btn------>

@@ -49,6 +49,6 @@ $.ajax({
 function verImagen(imagen){
 
     var imagenContenedor = document.getElementById("imagen-comprobante2");
-    imagenContenedor.src =  "https://res.cloudinary.com/rpc-computacion/image/upload/v1605288168/hlssezifnqtzjjffjofp.jpg";
+    imagenContenedor.src =  imagen;//"https://res.cloudinary.com/rpc-computacion/image/upload/v1605288168/hlssezifnqtzjjffjofp.jpg";
 }
 

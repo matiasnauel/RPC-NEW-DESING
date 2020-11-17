@@ -12,6 +12,7 @@ $.ajax({
             <th>Id </th> 
             <th>Estado</th>
             <th>Fecha</th>
+            <th></th>
         </tr>
         `;
 
@@ -21,6 +22,7 @@ $.ajax({
          <td>${item.id}</td>
          `+ verificar(item.pagado,item.id) + `
          <td class="stock">${item.fecha}</td>
+         <td><button class="btn btn-primary" data-toggle="modal" data-target="#VerDetalle"  onclick="verDetalle(${item.id});" >Ver detalles</button></td>
         </tr>
          
          `;
@@ -59,6 +61,67 @@ function CambiarEstadoReserva(ventaID){
         success: function(data) {
                 alert("se ha cambiado correctamente");
                 location.reload();
+
+        },
+        error: function(error) {
+           
+            alert('error');
+        }
+
+
+    });
+
+}
+
+function verDetalle(idventa){
+    var  imgDetalle = document.getElementById("verDetallesFactura");
+    $.ajax({
+        type: "GET",
+        url: "https://localhost:44376/api/Venta/MostrarDetalleVenta?ventaID="+idventa,
+        dataType: "JSON",
+        contentType: "application/json",
+
+        success: function(data) {
+               var bodymodal = document.getElementById("moda-body");
+               bodymodal.innerHTML = ` 
+               <div class="form-group ">
+               <label>nombre:  </label>
+               <label>${data.factura.nombre}</label>
+            </div>
+            <div class="form-group">
+             <label>Apellido:  </label>
+             <label>${data.factura.apellido}</label>
+            </div>
+            <div class="form-group">
+             <label>Email:  </label>
+             <label>${data.detalles.email}</label>
+            </div>
+            <div class="form-group">
+             <label>Dirección:  </label>
+             <label>${data.factura.direccion}</label>
+            </div>
+            <div class="form-group">
+             <label>Referencias:  </label>
+             <label>${data.factura.referencias}</label>
+            </div>
+            <div class="form-group"> 
+             <label>Localidad:  </label>
+             <label>${data.factura.localidad}</label>
+            </div>
+            <div class="form-group">
+             <label>Codigo Postal:  </label>
+             <label>${data.factura.codigopostal}</label>
+            </div>
+            <div class="form-group">
+             <label>Valor de la venta:  </label>
+             <label>$${data.detalles.valorcarrito}</label>
+            </div>
+            <div class="form-group">
+             <label>Valor Envio:  </label>
+             <label>$${data.detalles.valorenvio}</label>
+            </div>
+               ` 
+                
 
         },
         error: function(error) {

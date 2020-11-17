@@ -18,7 +18,7 @@ window.onload = function()
              listadoproductos.innerHTML+=`
              <div class="item-productos">
              <div class="imagen-producto">
-                 <img src="img/${item.imagenes[0]}" alt="">
+                 <img src="${item.imagenes[0]}" alt="">
              </div>
              <div class="informacion-producto">
                  <p class="nombre-productos">${item.nombre}</p>
@@ -51,7 +51,7 @@ window.onload = function()
                      listadoproductos.innerHTML+=`
                      <div class="item-productos">
                      <div class="imagen-producto">
-                         <img src="img/${item.imagenes[0]}" alt="">
+                         <img src="${item.imagenes[0]}" alt="">
                      </div>
                      <div class="informacion-producto">
                          <p class="nombre-productos">${item.nombre}</p>
@@ -84,7 +84,7 @@ window.onload = function()
                      listadoproductos.innerHTML+=`
                      <div class="item-productos">
                      <div class="imagen-producto">
-                         <img src="img/${item.imagenes[0]}" alt="">
+                         <img src="${item.imagenes[0]}" alt="">
                      </div>
                      <div class="informacion-producto">
                          <p class="nombre-productos">${item.nombre}</p>
@@ -323,7 +323,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
                 contenedorcarrito.innerHTML+=`
                 <div class="productos-carrito">
                 <div class="site-image-carrito">
-                    <img src="/img/${item.imagenes[0]}" alt="">
+                    <img src="${item.imagenes[0]}" alt="">
                 </div>
                 <div class="site-information-carrito">
                     <p>${item.nombre}</p> 

@@ -26,14 +26,14 @@ var comentariosyrespuesta=document.getElementById("comments-list");
 function Contenido(data){
  
     contenedorimagenprincipal.innerHTML+=`
-  <img src="img/${data.producto.imagenes[0]}" alt="" id="main-image">
+  <img src="${data.producto.imagenes[0]}" alt="" id="main-image">
   `; 
   if(data.producto.imagenes[1]!=null){
   for( x=0; x<data.producto.imagenes.length; x++)
   {
     contenedorsecundario.innerHTML+=`
     <div class="producto-imagen">
-    <img src="img/${data.producto.imagenes[x]}" alt="" onclick="setSrc('main-image', this.src)">
+    <img src="${data.producto.imagenes[x]}" alt="" onclick="setSrc('main-image', this.src)">
     </div>
     
     

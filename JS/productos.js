@@ -103,11 +103,10 @@ function EditarProducto(info){
 var nombre = document.getElementById("nombre1");
 var Precio = document.getElementById("precioventa1");
 var Stock =  document.getElementById("stock1");
-var destacado = document.getElementById("destacados1");
-
 var descripcion = document.getElementById("comment1");
 var categoria = document.getElementById("SelectCategorias1");
 var peso = document.getElementById("peso1");
+
     $.ajax({
         type: "GET",
         url: "https://localhost:44381/api/Producto/TraerProductoPorID?productoID="+info,
@@ -123,6 +122,18 @@ var peso = document.getElementById("peso1");
             categoria.value= data.categoria;
             peso.value= data.peso;
             descripcion.value = data.descripcion;
+            if(data.destacado==true){
+               
+              document.getElementById("destacados1").checked = true; 
+              document.getElementById("destacados1").value = "true"; 
+             
+            }
+            else{
+               
+                document.getElementById("destacados1").checked = false; 
+                document.getElementById("destacados1").value = "false"; 
+            }
+            
             localStorage.setItem("Objeto",JSON.stringify(data));
         },
         error: function(error) {
@@ -135,7 +146,7 @@ var peso = document.getElementById("peso1");
 
 function ModificarProducto(){
     var arrayDara = JSON.parse(localStorage.getItem("Objeto"));
-    var objeto = {
+    var objetoNuevo = {
         marca: document.getElementById("marca1").value,
         nombre:document.getElementById("nombre1").value,
         precio: document.getElementById("precioventa1").value,
@@ -146,7 +157,28 @@ function ModificarProducto(){
         destacado : document.getElementById("destacados1").value,
         imagenes :  arrayDara.imagenes
     }
-    console.log(objeto)
+    var objeto = {
+        viejo: arrayDara,
+        nuevo : objetoNuevo
+    }
+    $.ajax({
+        type: "POST",
+        data: JSON.stringify(objeto),
+        url: "https://localhost:44381/api/Producto/ModificarProducto",
+        dataType: "JSON",
+        contentType: "application/json",
+      
+        success: function(data) {
+         alert("Se edito correctamente!");
+        },
+        error: function(error) {
+            console.log(error.message);
+            alert('error');
+        }
+      
+      
+      });
+    
 }
 
 function cambiar1(){
@@ -161,3 +193,4 @@ function cambiar1(){
     console.log(destacado.value);
    }
   }
+
