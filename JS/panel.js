@@ -216,6 +216,14 @@ public.addEventListener("click" , (e)=>{
 
 })
 
+function animar(){
+  document.getElementById("barra").classList.toggle("final");
+
+}
+document.getElementById("Gurdar").onclick = function(){
+  animar();
+}
+
 
 
 

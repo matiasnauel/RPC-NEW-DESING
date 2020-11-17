@@ -1169,7 +1169,9 @@ width: 100%;
 }
 .producto-imagen img {
     width: 100%;
+    height: 100%;
     border-radius: 10px;
+    object-fit: scale-down;
 }
 .site-information{
     display: flex;

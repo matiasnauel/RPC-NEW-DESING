@@ -9,7 +9,17 @@
     <link rel="icon" type="image/x-icon" href="/img/logoajjaja-removebg-preview.ico">
     <title>Panel de control</title>
 </head>
-
+<style>
+    .inicio {
+        width: 0%;
+    }
+    .final{
+        width: 100%
+    }
+    .animacion{
+        transition: all 2s ease .5s;
+    }
+</style>
 <body>
     <header class="site-haader">
         <div class="contenedor">
@@ -250,7 +260,9 @@
                         <div class="form-group">
                             
                         </div>
-                       
+                        <div class="progress">
+                            <div id="barra" class="progress-bar  progress-bar-striped inicio animacion" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" ></div>
+                        </div>
                         <button type="button" class="btn btn-info"  id="Gurdar">Guardar</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-success" id="Publicar">Publicar</button>
