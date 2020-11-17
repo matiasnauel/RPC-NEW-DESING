@@ -157,7 +157,7 @@ function completarReserva()
         localidad:localidad.value,
         codigopostal:codigoPostal.value,
         referencias: comment.value,
-        ventaID : 3
+        ventaID : localStorage.getItem("ventaID")
         
         
     }
