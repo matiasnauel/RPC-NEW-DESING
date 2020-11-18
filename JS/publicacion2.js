@@ -5,9 +5,7 @@ window.onload = function traerProductos() {
       })
       .then(function(data) {
           Contenido(data)
-          console.log(data.producto.stock)
-          console.log(data.producto.id)
-          console.log(data.producto.precio)
+        
       })
      .catch (error =>{
       console.log(error);
@@ -178,7 +176,11 @@ function verproductoscarrito()
 {
   if(localStorage.getItem("productos")==null)
   {
-      alert("no posee productos en su carrito");
+
+    var error = document.getElementById("icons-shooping-card");
+    var a = document.createAttribute("data-target");
+    a.value="#Error"
+    error.setAttributeNode(a);
   }
   else{
   var objeto = {
@@ -199,6 +201,9 @@ function verproductoscarrito()
      })
     .then(function(data) {
       var contenedorcarrito=document.getElementById("contenedorcarrito");
+      var ativarCarrito = document.getElementsByClassName("carritoActivar");
+      document.getElementById("icons-shooping-card").removeAttribute("data-toggle")
+      ativarCarrito.id = "btnModal";
       contenedorcarrito.innerHTML="";
       var valor=data.valorcarrito;
       console.log(data.formData)

@@ -341,7 +341,7 @@ ul {
 
 /* Modal carrito */
 .modalContainer {
-  display: none;
+   display: none; 
   position: fixed;
   z-index: 11;
   padding-top: 100px;
@@ -1122,19 +1122,37 @@ ul {
   cursor: pointer;
   border: red 1px solid;
 }
-.style-Column {
-  background: blue;
-  text-align: center;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 3;
-  height: auto !important;
-  background-image: url(/img/armatuPC2.jpg);
-  background-size: cover;
-  background-position: center;
+@media (min-width: 360px) {
+  .style-Column {
+    display: none;
+    background: blue;
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    height: auto !important;
+    background-image: url(/img/armatuPC2.jpg);
+    background-size: cover;
+    background-position: center;
+  }
 }
 
+@media (min-width: 768px) {
+  .style-Column {
+    display: block;
+    background: blue;
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    height: auto !important;
+    background-image: url(/img/armatuPC2.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+}
 .titulo {
   margin-top: 160px;
 }

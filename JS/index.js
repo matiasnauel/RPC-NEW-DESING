@@ -92,7 +92,9 @@ function verproductoscarrito()
 {
     if(localStorage.getItem("productos")==null)
     {
-        alert("no posee productos en su carrito");
+       
+        $('#Error').modal('show');
+        
     }
     else{
     

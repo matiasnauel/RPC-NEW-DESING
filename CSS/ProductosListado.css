@@ -941,7 +941,7 @@
     }
     .site-filtros ul li p {
         background-color: red;
-        width: 70%;
+        width: 210px;
         padding: 10px;
         font-weight: 800;
         color: white;
@@ -959,6 +959,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     grid-row-gap: 20px;
+  
 
 }
 @media (min-width: 360px) {
@@ -979,7 +980,7 @@
     border: .2px solid gray;
     border-radius: 20px;
     margin-left: 10px;
- 
+    height: 50%;
   
 }
 .item-productos:hover{

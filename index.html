@@ -50,33 +50,10 @@
                         </li>
                     </div>
                     <div class="icons-shopping-card" id="icons-shooping-card" onclick="verproductoscarrito();">
-                        <img src="img/carrito-de-compras.png" alt="" id="btnModal"  >
+                        <img src="img/carrito-de-compras.png" alt=""  id="idCambiar" >
                         <span id="cantidadCarrito">(0)<span id="precioTotal"></span>$0,00</span>              
                          
-                            <!-- Modal -->
-                            <div class="modal fade" id="myModal2" role="dialog" >
-                                <div class="modal-dialog modal-sm">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                      <h4 class="modal-title text-center">Inciar Sesión</h4>
-                                    </div>
-                                    <div class="modal-body" style="display: grid; grid-template-columns: repeat(2,1fr);">
-                                      <button class="loginBtn loginBtn--facebook" id="IniciarFacebook" >
-                                           Facebook
-                                        </button>
-                                        
-                                        <button class="loginBtn loginBtn--google" id="IniciarGoogle">
-                                          Google
-                                        </button>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                          
+                       
                     </div>
                     <div id="tvesModal" class="modalContainer">
                         <div class="modal-content">
@@ -283,10 +260,8 @@
         <div class="main-container container">
             <div class="container-main contenedor">
                 <div class="wrapper">
-                    <div id="publicacion1" class="style-Column "   id="publicacion1">
-                        <div class="titulo">
-                            <p class="titulo-parrafo">ARMA TU PC</p>
-                        </div>
+                    <div id="publicacion1" class="style-Column "   >
+                        
                     </div>
                     <div id="publicacion2" class="publicacion2" >
                         <img src="img/comboActulizacion2.jfif" alt="">
@@ -363,7 +338,7 @@
         <div class="before-footer">
             <div class="information contenedor">
          
-                <a href="https://www.facebook.com/RPC.HardwareConectividad/about/?ref=page_internal">FACEBOOK</a>
+                <a href="https://www.facebook.com/RPC.HardwareConectividad/about/?ref=page_internal"><span class="	fab fa-facebook"></span> FACEBOOK</a>
                
             </div>
             
@@ -441,14 +416,59 @@
                          
                         </div>
                         <div class="modal-footer">
-                            <button type="button"  class="btn btn-success" style="display:block;" id="enviarcomprobante">Subir comprobante</button>
+                            <button type="button"  class="btn btn-success"  id="enviarcomprobante">Subir comprobante</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+
     
+        <!-- modal error -->
+        
+        <div class="modal fade" id="Error" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form id="dataError">
+                        <div class="modal-header"  style="background-color: red;" >
+                            <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">ATENCIÓN! </i></h4>
+                        </div>
+                        <div class="moda-body text-center">
+                            <p style="margin: 20px;">NO POSEE NINGUN ARTICULO EN SU CARRITO</p>
+                        </div>
+                        <div class="modal-footer " style="background-color: red;" >
+                            <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+           </div>
+         
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal2" role="dialog" >
+                                <div class="modal-dialog modal-sm">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title text-center">Inciar Sesión</h4>
+                                    </div>
+                                    <div class="modal-body" style="display: grid; grid-template-columns: repeat(2,1fr);">
+                                      <button class="loginBtn loginBtn--facebook" id="IniciarFacebook" >
+                                           Facebook
+                                        </button>
+                                        
+                                        <button class="loginBtn loginBtn--google" id="IniciarGoogle">
+                                          Google
+                                        </button>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+       
   
     <!--Jquery script-->
     <script type="text/javascript" src="JS/Jquery.js"></script>

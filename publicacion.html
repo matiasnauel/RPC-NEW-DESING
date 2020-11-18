@@ -115,34 +115,11 @@
                             </ul>
                         </li>
                     </div>
-                    <div class="icons-shopping-card" id="icons-shooping-card" onclick="verproductoscarrito();">
-                        <img src="img/carrito-de-compras.png" alt="" id="btnModal"  >
+                    <div class="icons-shopping-card" id="icons-shooping-card" onclick="verproductoscarrito();"  data-toggle="modal"  >
+                        <img src="img/carrito-de-compras.png" alt=""  >
                         <span id="cantidadCarrito">(0)<span id="precioTotal"></span>$0,00</span>              
                          
-                            <!-- Modal -->
-                            <div class="modal fade" id="myModal2" role="dialog" >
-                                <div class="modal-dialog modal-sm">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                      <h4 class="modal-title text-center">Inciar Sesión</h4>
-                                    </div>
-                                    <div class="modal-body" style="display: grid; grid-template-columns: repeat(2,1fr);">
-                                      <button class="loginBtn loginBtn--facebook" id="IniciarFacebook" >
-                                           Facebook
-                                        </button>
-                                        
-                                        <button class="loginBtn loginBtn--google" id="IniciarGoogle">
-                                          Google
-                                        </button>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                          
+                       
                     </div>
                     <div id="tvesModal" class="modalContainer">
                         <div class="modal-content">
@@ -318,8 +295,10 @@
                     <div class="site-image-after" id="site-image-after">
                       
                     </div>
-                    <div class="site-image-main" id="site-image-main">
-                       
+                    <div class="site-image-main" >
+                       <div class="box" id="site-image-main" >
+
+                       </div>
                     </div>
                 </div>
                 <div class="site-information" id="site-information"> 
@@ -461,18 +440,62 @@
                              
                             </div>
                             <div class="modal-footer">
-                                <button type="button"  class="btn btn-success" style="display:block;" id="enviarcomprobante">Subir comprobante</button>
+                                <button type="button"  class="btn btn-success" id="enviarcomprobante">Subir comprobante</button>
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+                 <!-- Modal -->
+                 <div class="modal fade" id="myModal2" role="dialog" >
+                    <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title text-center">Inciar Sesión</h4>
+                        </div>
+                        <div class="modal-body" style="display: grid; grid-template-columns: repeat(2,1fr);">
+                          <button class="loginBtn loginBtn--facebook" id="IniciarFacebook" >
+                               Facebook
+                            </button>
+                            
+                            <button class="loginBtn loginBtn--google" id="IniciarGoogle">
+                              Google
+                            </button>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="modal fade" id="Error" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <form id="dataError">
+                                <div class="modal-header"  style="background-color: red;" >
+                                    <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">ATENCIÓN! </i></h4>
+                                </div>
+                                <div class="moda-body text-center">
+                                    <p style="margin: 20px;">NO POSEE NINGUN ARTICULO EN SU CARRITO</p>
+                                </div>
+                                <div class="modal-footer " style="background-color: red;" >
+                                    <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                   </div>
+
     
        <!--Jquery script-->
        
     <script type="text/javascript" src="JS/Jquery.js"></script>
-     
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
        <!--Script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   

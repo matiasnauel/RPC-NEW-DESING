@@ -302,6 +302,7 @@ html {
   .desplegable-cuenta a:hover {
     color: red;
   }
+  
   .icons-user .categorias-MiCuenta:hover .desplegable-cuenta{
     display: block;
   }
@@ -925,13 +926,23 @@ html {
     min-width: 215.69px;
     line-height: 30px;
   }
-  .desplegable {
+  .desplegable  {
+   
     list-style: none;
     margin: 0;
     padding: 0;
     border: 0;
-    text-align: center;
+    text-align: left;
+   
   }
+  .desplegable li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
   .desplegable a {
     display: block;
     text-decoration: none !important;
@@ -1094,13 +1105,13 @@ html {
     }
 }
 
-@media (min-width: 360px) {
+/* @media (min-width: 360px) {
     .site-image-main{
         background-color: white;
         width: 360px;
         height: 360px;
         border-radius: 10px;
-        
+        overflow: hidden;
     
     }
 }
@@ -1110,19 +1121,68 @@ html {
         width: 500px;
         height: 500px;
         border-radius: 10px;
+        overflow: hidden;
     
     }
 }
 .site-image-main img {
-border-radius: 10px;
-width: 100%;
+
+   border-radius: 10px;
+   width: 100%;
    height: 100%;
+   
+}
+@supports(object-fit: cover){
+  .site-image-main img {
+    border-radius: 10px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+ }
 }
 .site-imagen-main{
     display: flex;
     flex-direction: column;
+} */
+.site-image-main{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+}
+@media (min-width: 360px) {
+  .box{
+    width: 360px;
+    height: 360px;
+    background: white;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+}
+@media (min-width: 758px) {
+  .box{
+    width: 500px;
+    height: 500px;
+    background: white;
+    overflow: hidden;
+    border-radius: 10px;
+  }
 }
 
+.box img{
+  width: 100%;
+  height: auto;
+
+}
+@supports(object-fit: cover){
+    .box img{
+      height: 100%;
+      object-fit: scale-down;
+      object-position: center center;
+    }
+}
 
 @media (min-width: 360px) {
     .site-image-after{

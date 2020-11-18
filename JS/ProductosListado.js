@@ -303,7 +303,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
     {
         if(localStorage.getItem("productos")==null)
         {
-            alert("no posee productos en su carrito");
+            $('#Error').modal('show');
         }
         else{
         var objeto = {
@@ -318,6 +318,8 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
             contentType: "application/json",
     
             success: function(data) {
+                var ativarCarrito = document.getElementsByClassName("carritoActivar");
+                ativarCarrito.id = "btnModal";
                 var contenedorcarrito=document.getElementById("contenedorcarrito");
                 contenedorcarrito.innerHTML="";
                 var valor=data.valorcarrito;
