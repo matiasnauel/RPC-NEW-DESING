@@ -50,12 +50,12 @@
                         </li>
                     </div>
                     <div class="icons-shopping-card" id="icons-shooping-card" onclick="verproductoscarrito();">
-                        <img src="img/carrito-de-compras.png" alt=""  id="idCambiar" >
+                        <img src="img/carrito-de-compras.png" alt="" id="carritoComprasBTN"  data-toggle="modal" data-target="#CARRITODEKSTOP" >
                         <span id="cantidadCarrito">(0)<span id="precioTotal"></span>$0,00</span>              
                          
                        
                     </div>
-                    <div id="tvesModal" class="modalContainer">
+                    <!-- <div id="tvesModal" class="modalContainer">
                         <div class="modal-content">
                             <span class="closed">×</span>
                             <h2>Mi Carrito </h2>
@@ -63,7 +63,7 @@
                                  
                             </div>
                         </div>
-                    </div><!--Modal-->
+                    </div>Modal -->
                 </div>
                 <div class="sub-menu">
                     <div class="carrito-sub-menu">
@@ -468,6 +468,26 @@
                                   </div>
                                 </div>
                               </div>
+                                   <!-- CarritoDesktop -->
+                                   <div class="modal fade" id="CARRITODEKSTOP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <form id="dataError">
+                                                <div class="modal-header"  style="background-color:  rgb(179, 130, 130);" >
+                                                    <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">MI CARRITO</i></h4>
+                                                </div>
+                                                <div class="moda-body">
+                                                    <div class="contenedor-carrito" id="contenedorcarrito" style="padding: 1rem">
+                                     
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer " style="background-color: rgb(179, 130, 130);" >
+                                                    <button type="button" class="btn btn-sucess" data-dismiss="modal">Cerrar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                   </div>
        
   
     <!--Jquery script-->

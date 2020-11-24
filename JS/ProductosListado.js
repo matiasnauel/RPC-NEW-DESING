@@ -276,15 +276,16 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
             dataType: "JSON",
             contentType: "application/json",
             success: function(data) {
-              
-              alert("tu comprobante ha sido recibido con exito");
-              Imagen=null;
-              localStorage.removeItem("ventaID");
+                document.getElementById("enviarcomprobante").setAttribute("data-target","#ComprobanteSubidoBien");
+                Imagen=null;
+                localStorage.removeItem("ventaID");
+                $('#subirArchivo').modal('toggle'); 
+                $('#ComprobanteSubidoBien').modal('show'); 
+
             },
         
               error: function(error) {
-            console.log(error.message);
-            alert('error');
+                console.log(error.message);
         }
         
         
@@ -292,7 +293,8 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
            });
         }
            else{
-                alert("debe primero subir una imagen y seleccionar una compra");
+            
+            document.getElementById("enviarcomprobante").setAttribute("data-target","#ErrorComprobante");
            }
     
     
@@ -303,6 +305,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
     {
         if(localStorage.getItem("productos")==null)
         {
+            document.getElementById("carritoComprasBTN").setAttribute("data-target","null");
             $('#Error').modal('show');
         }
         else{
@@ -318,9 +321,9 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
             contentType: "application/json",
     
             success: function(data) {
-                var ativarCarrito = document.getElementsByClassName("carritoActivar");
-                ativarCarrito.id = "btnModal";
+               
                 var contenedorcarrito=document.getElementById("contenedorcarrito");
+                $('#CARRITODEKSTOP').modal('show');
                 contenedorcarrito.innerHTML="";
                 var valor=data.valorcarrito;
                 $.each(data.productos, function(i, item) 
@@ -331,9 +334,12 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
                 <div class="site-image-carrito">
                     <img src="${item.imagenes[0]}" alt="">
                 </div>
-                <div class="site-information-carrito">
-                    <p>${item.nombre}</p> 
-                    <span>${item.precio}x${item.cantidad}</span>
+                <div class="site-informacion-carrito1">
+                <p>${item.nombre}</p> 
+                <span>$${item.precio}x${item.cantidad}</span>
+                </div>
+                <div>
+                    
                     <button class="DescartarArticulo-carrito">X</button> 
                 </div>
             </div>

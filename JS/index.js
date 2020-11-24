@@ -121,12 +121,16 @@ function verproductoscarrito()
             <div class="site-image-carrito">
                 <img src="${item.imagenes[0]}" alt="">
             </div>
-            <div class="site-information-carrito">
-                <p>${item.nombre}</p> 
-                <span>${item.precio}x${item.cantidad}</span>
+            <div class="site-informacion-carrito1">
+            <p>${item.nombre}</p> 
+            <span>$${item.precio}x${item.cantidad}</span>
+            </div>
+            <div>
+                
                 <button class="DescartarArticulo-carrito">X</button> 
             </div>
         </div>
+            
             
             
             
@@ -175,6 +179,7 @@ function realizarreserva()
     dataType: "JSON",
     contentType: "application/json",
     success: function(data) {
+        console.log(data)
       localStorage.setItem("ventaID",data.id);
       location.href="ArmadoPedido.html";
    
@@ -228,7 +233,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
 
    
         });
-    });
+});
 
     
 //esto es para cuando el cliente selecciona la venta a la cual quiere subir el comprobante.

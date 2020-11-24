@@ -176,17 +176,16 @@ function verproductoscarrito()
 {
   if(localStorage.getItem("productos")==null)
   {
-
-    var error = document.getElementById("icons-shooping-card");
-    var a = document.createAttribute("data-target");
-    a.value="#Error"
-    error.setAttributeNode(a);
+    document.getElementById("carritoComprasBTN").setAttribute("data-target","#Error");
+   
+     
   }
   else{
+  
   var objeto = {
-    productos: JSON.parse(localStorage.getItem("productos"))
-    
-   }
+      productos: JSON.parse(localStorage.getItem("productos"))
+      
+  }
    fetch("https://localhost:44368/api/Carro/TraerProductosValorCantidadCarrito", {
     'method': 'POST',
     'mode': 'cors',
@@ -200,23 +199,26 @@ function verproductoscarrito()
       return response.json();
      })
     .then(function(data) {
+        $('#CARRITODEKSTOP').modal('show');
       var contenedorcarrito=document.getElementById("contenedorcarrito");
-      var ativarCarrito = document.getElementsByClassName("carritoActivar");
-      document.getElementById("icons-shooping-card").removeAttribute("data-toggle")
-      ativarCarrito.id = "btnModal";
+    
       contenedorcarrito.innerHTML="";
       var valor=data.valorcarrito;
-      console.log(data.formData)
       data.productos.forEach(item=>{  
+        console.log(item);
         contenedorcarrito.innerHTML+=`
-        <div class="productos-carrito">
+        <div class="productos-carrito" id=${item.id}>
         <div class="site-image-carrito">
             <img src="${item.imagenes[0]}" alt="">
         </div>
-        <div class="site-information-carrito">
-            <p>${item.nombre}</p> 
-            <span>${item.precio}x${item.cantidad}</span>
-            <button class="DescartarArticulo-carrito">X</button> 
+        <div class="site-informacion-carrito1">
+        <p>${item.nombre}</p> 
+        <span>$${item.precio}x${item.cantidad}</span>
+        </div>
+        <div>
+            
+        <button class="DescartarArticulo-carrito" id="quitarElemento" onclick="return QuitarProducto(${item.id})">X</button> 
+
         </div>
         </div>
         `;
@@ -228,7 +230,7 @@ function verproductoscarrito()
       `;
       contenedorcarrito.innerHTML+= `
       <div class="OpcionCarrito">
-      <button class="vaciar-carrito">VACIAR CARRITO</button>
+      <button class="vaciar-carrito"  onclick="return VaciarCarrito();" >VACIAR CARRITO</button>
       <button class="comprar-carrito" onclick="realizarreserva();">COMPRAR</button>
       </div>
         ` ; 
@@ -289,7 +291,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
     
 });
 var enviarcomprobante=document.getElementById("enviarcomprobante");
-enviarcomprobante.addEventListener('click',function(e){
+enviarcomprobante.addEventListener('click', function(e){
   e.preventDefault();
   var objeto ={
     imagen:Imagen,
@@ -307,19 +309,23 @@ if(Imagen!=null && localStorage.getItem("ventaID")!=null)
     },   })
     .then(function(response) {
       return response.json();
+     
     })
     .then(function(data){
-      alert("tu comprobante ha sido recibido con exito");
+      document.getElementById("enviarcomprobante").setAttribute("data-target","#ComprobanteSubidoBien");
       Imagen=null;
       localStorage.removeItem("ventaID");
-      
+      // $('#subirArchivo').modal('toggle'); 
+      $('#ComprobanteSubidoBien').modal('show');
+     
     })
     .catch(error =>{
-      alert('error');
+      
     })
 }
 else{
-  alert("debe primero subir una imagen y seleccionar una compra");
+  document.getElementById("enviarcomprobante").setAttribute("data-target","#ErrorComprobante");
+
 }
 
 });
@@ -429,4 +435,31 @@ function Comentar()
       location.reload()
     })
     .catch(err => console.log('ERROR: ' + err));
+}
+// quitar elemento de un carrito 
+
+function QuitarProducto(productoid){
+  var encontrado = false;
+  var productosLocal = JSON.parse(localStorage.getItem("productos"));
+  productosLocal.forEach(item=>{
+      if(productoid == item && encontrado==false){
+          alert("esta aca");
+          productosLocal.splice(productosLocal,1);
+          localStorage.setItem("productos",JSON.stringify(productosLocal));
+          console.log(item);
+          encontrado = true;
+          
+      }
+     
+     
+     
+  })
+  return false;
+}
+
+function VaciarCarrito(){
+  localStorage.removeItem("productos");
+  $('#CARRITODEKSTOP').modal('toggle');
+  document.getElementById("contenedorcarrito").innerHTML="";
+  return false;
 }

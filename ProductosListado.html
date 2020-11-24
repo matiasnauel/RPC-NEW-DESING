@@ -48,12 +48,12 @@
                         </li>
                     </div>
                     <div class="icons-shopping-card" id="icons-shooping-card" onclick="verproductoscarrito();">
-                        <img src="img/carrito-de-compras.png" alt=""  class="carritoActivar" >
+                        <img src="img/carrito-de-compras.png" alt=""  id="carritoComprasBTN"  data-toggle="modal" data-target="#CARRITODEKSTOP" >
                         <span id="cantidadCarrito">(0)<span id="precioTotal"></span>$0,00</span>              
                       
                           
                     </div>
-                    <div id="tvesModal" class="modalContainer">
+                    <!-- <div id="tvesModal" class="modalContainer">
                         <div class="modal-content">
                             <span class="closed">×</span>
                             <h2>Mi Carrito </h2>
@@ -61,7 +61,7 @@
                                
                             </div>
                         </div>
-                    </div><!--Modal-->
+                    </div>Modal -->
                 </div>
                 <div class="sub-menu">
                     <div class="carrito-sub-menu">
@@ -331,7 +331,8 @@
                      
                     </div>
                     <div class="modal-footer">
-                        <button type="button"  class="btn btn-success" id="enviarcomprobante">Subir comprobante</button>
+                        <button type="button"  class="btn btn-success"  id="enviarcomprobante" data-toggle="modal" style="display: inline;">Subir comprobante</button>
+
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                     </div>
                 </form>
@@ -381,6 +382,63 @@
                                   </div>
                                 </div>
                               </div>    
+                                <!-- CarritoDesktop -->
+                                <div class="modal fade" id="CARRITODEKSTOP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <form id="dataError">
+                                                <div class="modal-header"  style="background-color:  rgb(179, 130, 130);" >
+                                                    <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">MI CARRITO</i></h4>
+                                                </div>
+                                                <div class="moda-body">
+                                                    <div class="contenedor-carrito" id="contenedorcarrito" style="padding: 1rem">
+                                     
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer " style="background-color: rgb(179, 130, 130);" >
+                                                    <button type="button" class="btn btn-sucess" data-dismiss="modal">Cerrar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                   </div>
+                    
+                      
+                               <div class="modal fade" id="ErrorComprobante" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <form id="dataError">
+                                            <div class="modal-header"  style="background-color: red;" >
+                                                <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">ATENCIÓN! </i></h4>
+                                            </div>
+                                            <div class="moda-body text-center">
+                                                <p style="margin: 20px;">Debe subir una imagen y luego seleccionar su compra!</p>
+                                            </div>
+                                            <div class="modal-footer " style="background-color: red;" >
+                                                <button type="button" class="btn" data-dismiss="modal" >Cerrar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                               </div>
+                               <div class="modal fade" id="ComprobanteSubidoBien" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <form id="dataError">
+                                            <div class="modal-header"  style="background-color: green;" >
+                                                <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">ATENCIÓN! </i></h4>
+                                            </div>
+                                            <div class="moda-body text-center">
+                                                <p style="margin: 20px;"> Tu comprobante ha sido recibido con exito</p>
+                                            </div>
+                                            <div class="modal-footer " style="background-color: green;" >
+                                                <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                               </div>
+                             
 
        <!--Jquery script-->
        <script type="text/javascript" src="JS/Jquery.js"></script>

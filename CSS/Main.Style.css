@@ -501,7 +501,7 @@ ul {
 @media (min-width: 360px) {
   .productos-carrito {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     justify-items: center;
     border: 1px solid white;
     margin-bottom: 10px;
@@ -510,7 +510,7 @@ ul {
 @media (min-width: 768px) {
   .productos-carrito {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     justify-items: center;
     border: none;
     margin-bottom: 10px;
@@ -536,11 +536,19 @@ ul {
   color: white;
   padding: 10px;
 }
-.site-information-carrito {
-  display: flex;
-  color: black;
-  padding: 10px;
+.site-informacion-carrito1{
+  margin-top: 10px;
+
+  width: 60%;
+  display: grid;
+  grid-template-rows: repeat(2,1fr);
+  overflow: hidden;
+ 
+  text-overflow: ellipsis;
+ 
 }
+
+
 .DescartarArticulo {
   position: relative;
   width: 20%;
@@ -553,16 +561,16 @@ ul {
 }
 .DescartarArticulo-carrito {
   position: relative;
-  width: 20%;
+
   height: 50%;
-  font-weight: bold;
-  font-size: px;
+
+
   border: none;
   background-color: transparent;
   color: black;
-  border: none;
+
   margin-top: 20px;
-  margin-left: 20px;
+ 
 }
 .DescartarArticulo:hover {
   color: white;
