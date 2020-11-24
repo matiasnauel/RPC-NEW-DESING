@@ -509,11 +509,8 @@
   }
   @media (min-width: 768px) {
     .productos-carrito {
-      display: flex;
-      justify-content: center;
-      justify-items: center;
-      border: none;
-      margin-bottom: 10px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
     }
   }
   
@@ -525,7 +522,7 @@
     padding-left: 3px;
   }
   .site-image-carrito {
-    width: 20%;
+    width: 50%;
   }
   .site-image-carrito img {
     margin-top: 0;
@@ -538,6 +535,7 @@
   }
   .site-information-carrito {
     display: flex;
+    justify-content: space-around;
     color: black;
     padding: 10px;
   }
@@ -553,9 +551,9 @@
   }
   .DescartarArticulo-carrito {
     position: relative;
-    width: 20%;
+  
     height: 50%;
-    font-weight: bold;
+  
     font-size: px;
     border: none;
     background-color: transparent;
@@ -704,13 +702,23 @@
     min-width: 215.69px;
     line-height: 30px;
   }
-  .desplegable {
+  .desplegable  {
+   
     list-style: none;
     margin: 0;
     padding: 0;
     border: 0;
-    text-align: center;
+    text-align: left;
+   
   }
+  .desplegable li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
   .desplegable a {
     display: block;
     text-decoration: none !important;
