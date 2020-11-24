@@ -92,9 +92,10 @@ function verproductoscarrito()
 {
     if(localStorage.getItem("productos")==null)
     {
-       
-        $('#Error').modal('show');
         
+
+        $('#Error').modal('show');
+    
     }
     else{
     
@@ -110,6 +111,7 @@ function verproductoscarrito()
         contentType: "application/json",
 
         success: function(data) {
+            
             var contenedorcarrito=document.getElementById("contenedorcarrito");
             contenedorcarrito.innerHTML="";
             var valor=data.valorcarrito;
@@ -121,16 +123,15 @@ function verproductoscarrito()
             <div class="site-image-carrito">
                 <img src="${item.imagenes[0]}" alt="">
             </div>
-            <div class="site-informacion-carrito1">
-            <p>${item.nombre}</p> 
-            <span>$${item.precio}x${item.cantidad}</span>
+            <div class="site-information-carrito">
+                <p>${item.nombre}</p> 
+                <span>${item.precio}x${item.cantidad}</span>
+               
             </div>
-            <div>
-                
-                <button class="DescartarArticulo-carrito">X</button> 
+            <div class="boton-carrito-modal">
+            <button class="DescartarArticulo-carrito" onclick="QuitarProducto(${item.id});">X</button> 
             </div>
         </div>
-            
             
             
             
@@ -146,7 +147,7 @@ function verproductoscarrito()
 
           contenedorcarrito.innerHTML+= `
         <div class="OpcionCarrito">
-        <button class="vaciar-carrito">VACIAR CARRITO</button>
+        <button class="vaciar-carrito" onclick="VaciarCarrito();">VACIAR CARRITO</button>
         <button class="comprar-carrito" onclick="realizarreserva();">COMPRAR</button>
         </div>
           ` ; 
@@ -179,7 +180,6 @@ function realizarreserva()
     dataType: "JSON",
     contentType: "application/json",
     success: function(data) {
-        console.log(data)
       localStorage.setItem("ventaID",data.id);
       location.href="ArmadoPedido.html";
    
@@ -233,7 +233,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
 
    
         });
-});
+    });
 
     
 //esto es para cuando el cliente selecciona la venta a la cual quiere subir el comprobante.
@@ -304,14 +304,17 @@ enviarcomprobante.addEventListener('click',function(e) {
         contentType: "application/json",
         success: function(data) {
           
-          alert("tu comprobante ha sido recibido con exito");
+        
+          document.getElementById("enviarcomprobante").setAttribute("data-target","#ComprobanteSubidoBien");
           Imagen=null;
           localStorage.removeItem("ventaID");
+          $('#subirArchivo').modal('toggle'); 
+          $('#ComprobanteSubidoBien').modal('show'); 
         },
     
           error: function(error) {
         console.log(error.message);
-        alert('error');
+       ;
     }
     
     
@@ -319,7 +322,8 @@ enviarcomprobante.addEventListener('click',function(e) {
        });
     }
        else{
-            alert("debe primero subir una imagen y seleccionar una compra");
+            
+            document.getElementById("enviarcomprobante").setAttribute("data-target","#ErrorComprobante");
        }
 
 
@@ -373,5 +377,32 @@ $.ajax({
 
 });
 
+// quitar elemento de un carrito 
 
+function QuitarProducto(productoid){
+    var encontrado = false;
+    var productosLocal = JSON.parse(localStorage.getItem("productos"));
+    productosLocal.forEach(item=>{
+        if(productoid == item && encontrado==false){
+            alert("esta aca");
+            productosLocal.splice(productosLocal,1);
+            localStorage.setItem("productos",JSON.stringify(productosLocal));
+            console.log(item);
+            encontrado = true;
+  
+        }
+  
+  
+  
+    })
+    return false;
+  }
+  
+  function VaciarCarrito(){
+    localStorage.removeItem("productos");
+    document.getElementById("contenedorcarrito").innerHTML="";
+    var modal = document.getElementById("tvesModal").style.display="none";
+    location.reload();
+    return false;
+  }
 

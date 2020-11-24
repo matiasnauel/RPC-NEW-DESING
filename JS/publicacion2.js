@@ -176,7 +176,8 @@ function verproductoscarrito()
 {
   if(localStorage.getItem("productos")==null)
   {
-    document.getElementById("carritoComprasBTN").setAttribute("data-target","#Error");
+   
+    document.getElementById("btnModal").dataset.target ="#Error";
    
      
   }
@@ -199,7 +200,7 @@ function verproductoscarrito()
       return response.json();
      })
     .then(function(data) {
-        $('#CARRITODEKSTOP').modal('show');
+      document.getElementById("btnModal").dataset.target ="#null";
       var contenedorcarrito=document.getElementById("contenedorcarrito");
     
       contenedorcarrito.innerHTML="";
@@ -299,6 +300,7 @@ enviarcomprobante.addEventListener('click', function(e){
 }
 if(Imagen!=null && localStorage.getItem("ventaID")!=null)
 {
+  document.getElementById("enviarcomprobante").dataset.target ="#ComprobanteSubidoBien";
   fetch("https://localhost:44376/api/ComprobantePago/SubirComprobantePago", {
     'method': 'POST',
     'mode': 'cors',
@@ -312,24 +314,33 @@ if(Imagen!=null && localStorage.getItem("ventaID")!=null)
      
     })
     .then(function(data){
-      document.getElementById("enviarcomprobante").setAttribute("data-target","#ComprobanteSubidoBien");
+     
+     
+ 
+
       Imagen=null;
       localStorage.removeItem("ventaID");
-      // $('#subirArchivo').modal('toggle'); 
-      $('#ComprobanteSubidoBien').modal('show');
+     
      
     })
     .catch(error =>{
       
     })
+
 }
 else{
-  document.getElementById("enviarcomprobante").setAttribute("data-target","#ErrorComprobante");
+ 
+  document.getElementById("enviarcomprobante").dataset.target ="#ErrorComprobante";
 
 }
 
 });
 
+var cerrarModalBien = document.getElementById("cerrarModalBien");
+cerrarModalBien.addEventListener("click",function(e){
+  e.preventDefault();
+  location.reload();
+})
 function cambioselector(ventaID)
 {  
     /*var comprobante=document.getElementById("enviarcomprobante");
@@ -459,7 +470,9 @@ function QuitarProducto(productoid){
 
 function VaciarCarrito(){
   localStorage.removeItem("productos");
-  $('#CARRITODEKSTOP').modal('toggle');
   document.getElementById("contenedorcarrito").innerHTML="";
+  var modal = document.getElementById("tvesModal").style.display="none";
+  location.reload();
   return false;
 }
+

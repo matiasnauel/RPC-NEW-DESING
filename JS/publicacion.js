@@ -55,7 +55,7 @@ function openNavCarrito() {
   }
 
 //   ModalCarrito
-if(document.getElementById("btnModal")){
+if(document.getElementById("btnModal")  && localStorage.getItem("productos")!=null ){
     var modal = document.getElementById("tvesModal");
     var btn = document.getElementById("btnModal");
     var span = document.getElementsByClassName("closed")[0];

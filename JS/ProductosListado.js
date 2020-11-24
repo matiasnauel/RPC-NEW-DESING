@@ -281,6 +281,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
                 localStorage.removeItem("ventaID");
                 $('#subirArchivo').modal('toggle'); 
                 $('#ComprobanteSubidoBien').modal('show'); 
+            
 
             },
         
@@ -305,7 +306,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
     {
         if(localStorage.getItem("productos")==null)
         {
-            document.getElementById("carritoComprasBTN").setAttribute("data-target","null");
+           
             $('#Error').modal('show');
         }
         else{
@@ -323,7 +324,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
             success: function(data) {
                
                 var contenedorcarrito=document.getElementById("contenedorcarrito");
-                $('#CARRITODEKSTOP').modal('show');
+              
                 contenedorcarrito.innerHTML="";
                 var valor=data.valorcarrito;
                 $.each(data.productos, function(i, item) 
@@ -444,7 +445,7 @@ function openNavCarrito() {
   }
 
 //   ModalCarrito
-if(document.getElementById("btnModal")){
+if(document.getElementById("btnModal") && localStorage.getItem("productos")!=null){
     var modal = document.getElementById("tvesModal");
     var btn = document.getElementById("btnModal");
     var span = document.getElementsByClassName("closed")[0];
