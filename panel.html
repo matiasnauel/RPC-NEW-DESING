@@ -25,10 +25,10 @@
         <div class="contenedor">
             <div class="site-barra">
                 <div class="titulo-barra">
-                    <img src="/img/logoajjaja-removebg-preview.ico" alt="" >
+                    <a href="index.html"><img src="/img/logoajjaja-removebg-preview.ico" alt=""  ></a> 
                 </div>
                 <nav class="navegador-barra">
-                     <button> <span class="glyphicon glyphicon-share"></span>  Salir</button>
+                     <button id="salir" onclick="hola();"> <span class="glyphicon glyphicon-share"></span>  Salir</button>
                 </nav>
             </div>
         </div>
@@ -74,11 +74,11 @@
                     <ul class="list-group ">
                         <a href="panel.html" class="list-group-item  color-principal active"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de control <span class="badge"></span></a>
                         <a href="panelProductos.html" onclick="traerProductos();" class="list-group-item"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Productos<span class="badge" id="cantidad">0</span></a>
-                        <a  href="panelBanner.html" class="list-group-item "><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Banners <span class="badge" id="cantidad">0</span></a>
-                        <a  href="panelVentas.html" class="list-group-item"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ventas <span class="badge" id="cantidad">0</span></a>
-                        <a  href="panelDestacados.html" class="list-group-item"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Destacados <span class="badge" id="cantidad">0</span></a>
-                        <a  href="panelComentarios.html" class="list-group-item"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Comentarios <span class="badge" id="cantidad">0</span></a>
-                        <a  href="comprobante.html" class="list-group-item"><span class="	glyphicon glyphicon-qrcode" aria-hidden="true"></span> Comprobante de pagos <span class="badge" id="cantidad">0</span></a>
+                        <a  href="panelBanner.html" class="list-group-item "><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Banners <span class="badge" id="cantidad2">0</span></a>
+                        <a  href="panelVentas.html" class="list-group-item"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ventas <span class="badge" id="cantidad3">0</span></a>
+                        <a  href="panelDestacados.html" class="list-group-item"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Destacados <span class="badge" id="cantidad4">0</span></a>
+                        <a  href="panelComentarios.html" class="list-group-item"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Comentarios <span class="badge" id="cantidad5">0</span></a>
+                        <a  href="comprobante.html" class="list-group-item"><span class="	glyphicon glyphicon-qrcode" aria-hidden="true"></span> Comprobante de pagos <span class="badge" id="cantidad6">0</span></a>
                     </ul>
 
                 </div>
@@ -190,7 +190,7 @@
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="AgregarProducto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="AgregarProducto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  style="overflow: scroll">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <form id="dataForm">
@@ -235,7 +235,7 @@
                         <Label>Cargar Imagenes | Hasta 4 imagenes disponibles</Label>
                         <div class="form-group ">
                             <input type="file" id="files" name="files[]" multiple  accept="image/jpg, image/jpeg"  />
-                            <output id="list"></output>
+                            <output id="list" style="display: grid; grid-template-columns: repeat(4,1fr);"></output>
                         </div>
                   
                      
@@ -276,7 +276,7 @@
         <div class="modal fade" id="AgregarCategoria" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <form id="formulario-categoria">
+                    <form >
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 class="modal-title text-center"  id="myModalLabel">Agregar Categoria</h4>
@@ -287,7 +287,7 @@
                                    <div class="input-group">
                                        <input type="text" name="Categoria" class="form-control" placeholder="Nueva categoria" id="categoria">
                                        <div class="input-group-btn">
-                                           <button class="btn btn-default" type="submit" onclick="InsertarCategoria()">
+                                           <button class="btn btn-default" type="submit" onclick="return InsertarCategoria()">
                                              <i class="glyphicon">+</i>
                                            </button>
                                          </div>
@@ -303,6 +303,41 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="ProductoExito" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form>
+                        <div class="modal-header"  style="background-color: green;" >
+                            <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">LISTO <span class="glyphicon glyphicon-ok"></span> </i></h4>
+                        </div>
+                        <div class="moda-body text-center">
+                            <p style="margin: 20px;"> Se publico exitosamente el producto en la pagina !</p>
+                        </div>
+                        <div class="modal-footer " style="background-color: green;" >
+                            <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+       </div>
+       <div class="modal fade" id="CategiriaExito" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header"  style="background-color: green;" >
+                        <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">LISTO <span class="glyphicon glyphicon-ok"></span> </i></h4>
+                    </div>
+                    <div class="moda-body text-center">
+                        <p style="margin: 20px;"> Se cargo correctamente la nueva categoria!</p>
+                    </div>
+                    <div class="modal-footer " style="background-color: green;" >
+                        <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+   </div>
+
     <footer class="contenedor-footer">
        
         <div class="after-footer" >
@@ -314,6 +349,50 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js "></script>
   
-    
+</script>
+<!-- Firebase -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+ https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+
+<script>
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+var firebaseConfig = {
+apiKey: "AIzaSyAOUTbO5XkxTv02oVkSkLO1yTw2zxT9V1s",
+authDomain: "rpc-computacion.firebaseapp.com", 
+databaseURL: "https://rpc-computacion.firebaseio.com",
+projectId: "rpc-computacion",
+storageBucket: "rpc-computacion.appspot.com",
+messagingSenderId: "562417690908",
+appId: "1:562417690908:web:b012eaa154be57d25932d9",
+measurementId: "G-NLCGX7599G"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+const auth = firebase.auth();
+</script>
+<script>
+  
+// FIREBASE
+// SALIR
+var salirnuevo = document.getElementById("salir");
+salirnuevo.addEventListener("click",(e)=>{
+  e.preventDefault();
+
+  firebase.auth().signOut().then(function() {
+    window.location.href ="loginRPC.html";
+  }).catch(function(error) {
+    alert(err);
+  });
+})
+
+</script>
 </body>
 </html>

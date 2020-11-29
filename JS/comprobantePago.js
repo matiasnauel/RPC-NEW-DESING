@@ -1,4 +1,5 @@
-
+var comprobantepago = document.getElementById("cantidad6");
+var cantidadpAGO = 1;
 $.ajax({
     type: "GET",
     url: "https://localhost:44376/api/ComprobantePago/ComprobanteImagenVentaFecha",
@@ -32,9 +33,10 @@ $.ajax({
          </tr>
          `;
 
-
+         comprobantepago.innerHTML = cantidadpAGO++;
+         localStorage.setItem("cantidadComprobante",comprobantepago.innerHTML);
         });
-
+    
 
 
     },

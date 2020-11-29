@@ -9,15 +9,26 @@
     <link rel="icon" type="image/x-icon" href="/img/logoajjaja-removebg-preview.ico">
     <title>Panel de control</title>
 </head>
+<style>
+    .inicio {
+        width: 0%;
+    }
+    .final{
+        width: 100%
+    }
+    .animacion{
+        transition: all 2s ease .5s;
+    }
+</style>
 <body>
     <header class="site-haader">
         <div class="contenedor">
             <div class="site-barra">
                 <div class="titulo-barra">
-                    <img src="/img/logoajjaja-removebg-preview.ico" alt="" >
+                    <a href="index.html"><img src="/img/logoajjaja-removebg-preview.ico" alt=""  ></a> 
                 </div>
                 <nav class="navegador-barra">
-                     <button> <span class="glyphicon glyphicon-share"></span>  Salir</button>
+                     <button id="salir" > <span class="glyphicon glyphicon-share"></span>  Salir</button>
                 </nav>
             </div>
         </div>
@@ -63,11 +74,11 @@
                     <ul class="list-group ">
                         <a href="panel.html" class="list-group-item  color-principal"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de control <span class="badge"></span></a>
                         <a href="panelProductos.html"  onclick="traerProductos();" class="list-group-item "><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Productos<span class="badge" id="cantidad">0</span></a>
-                        <a  href="panelBanner.html" class="list-group-item"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Banners <span class="badge" id="cantidad">0</span></a>
-                        <a  href="panelVentas.html" class="list-group-item "><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ventas <span class="badge" id="cantidad">0</span></a>
-                        <a  href="panelDestacados.html" class="list-group-item"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Destacados <span class="badge" id="cantidad">0</span></a>
-                        <a  href="panelComentarios.html" class="list-group-item"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Comentarios <span class="badge" id="cantidad">0</span></a>
-                        <a  href="comprobante.html" class="list-group-item active"><span class="	glyphicon glyphicon-qrcode" aria-hidden="true"></span> Comprobante de pagos <span class="badge" id="cantidad">0</span></a>
+                        <a  href="panelBanner.html" class="list-group-item"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Banners <span class="badge" id="cantidad2">0</span></a>
+                        <a  href="panelVentas.html" class="list-group-item "><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ventas <span class="badge" id="cantidad3">0</span></a>
+                        <a  href="panelDestacados.html" class="list-group-item"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Destacados <span class="badge" id="cantidad4">0</span></a>
+                        <a  href="panelComentarios.html" class="list-group-item"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Comentarios <span class="badge" id="cantidad5">0</span></a>
+                        <a  href="comprobante.html" class="list-group-item active"><span class="	glyphicon glyphicon-qrcode" aria-hidden="true"></span> Comprobante de pagos <span class="badge" id="cantidad6">0</span></a>
 
                     </ul>
 
@@ -133,7 +144,7 @@
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="AgregarProducto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="AgregarProducto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  style="overflow: scroll">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <form id="dataForm">
@@ -178,7 +189,7 @@
                         <Label>Cargar Imagenes | Hasta 4 imagenes disponibles</Label>
                         <div class="form-group ">
                             <input type="file" id="files" name="files[]" multiple  accept="image/jpg, image/jpeg"  />
-                            <output id="list"></output>
+                            <output id="list" style="display: grid; grid-template-columns: repeat(4,1fr);"></output>
                         </div>
                   
                      
@@ -200,6 +211,12 @@
 
                     </div>
                     <div class="modal-footer">
+                        <div class="form-group">
+                            
+                        </div>
+                        <div class="progress">
+                            <div id="barra" class="progress-bar  progress-bar-striped inicio animacion" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" ></div>
+                        </div>
                         <button type="button" class="btn btn-info"  id="Gurdar">Guardar</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-success" id="Publicar">Publicar</button>
@@ -224,7 +241,7 @@
                                    <div class="input-group">
                                        <input type="text" name="Categoria" class="form-control" placeholder="Nueva categoria" id="categoria22222">
                                        <div class="input-group-btn">
-                                           <button class="btn btn-default" type="submit" onclick="InsertarCategoria()">
+                                        <button class="btn btn-default" type="submit" onclick="return InsertarCategoria()">
                                              <i class="glyphicon">+</i>
                                            </button>
                                          </div>
@@ -252,7 +269,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <img src="" alt="" id="imagen-comprobante2" class="img-thumbnail ounded mx-auto d-block">
+                                    <img src="" alt="" id="imagen-comprobante2" class="img-thumbnail ounded mx-auto d-block center-block">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -263,6 +280,40 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="ProductoExito" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <form id="dataError">
+                            <div class="modal-header"  style="background-color: green;" >
+                                <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">LISTO <span class="glyphicon glyphicon-ok"></span> </i></h4>
+                            </div>
+                            <div class="moda-body text-center">
+                                <p style="margin: 20px;"> Se publico exitosamente el producto en la pagina !</p>
+                            </div>
+                            <div class="modal-footer " style="background-color: green;" >
+                                <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+           </div>
+           <div class="modal fade" id="CategiriaExito" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form>
+                        <div class="modal-header"  style="background-color: green;" >
+                            <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">LISTO <span class="glyphicon glyphicon-ok"></span> </i></h4>
+                        </div>
+                        <div class="moda-body text-center">
+                            <p style="margin: 20px;"> Se cargo correctamente la nueva categoria!</p>
+                        </div>
+                        <div class="modal-footer " style="background-color: green;" >
+                            <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+       </div>
     <footer class="contenedor-footer">
       
         <div class="after-footer" >
@@ -285,17 +336,34 @@ $.ajax({
 
     success: function(data) {
     
-        alert("Se agrego correctamente");
+        
+        $('#AgregarCategoria').modal('toggle');
+      $('#CategiriaExito').modal('show');
     },
     error: function(error) {
-        console.log(error.message);
-        alert('error');
+    
     }
 
 
 });
-
+return false;
 }
     </script>
+    <script>
+  
+        // FIREBASE
+        // SALIR
+        var salirnuevo = document.getElementById("salir");
+        salirnuevo.addEventListener("click",(e)=>{
+          e.preventDefault();
+        
+          firebase.auth().signOut().then(function() {
+            window.location.href ="loginRPC.html";
+          }).catch(function(error) {
+            alert(err);
+          });
+        })
+        
+        </script>
 </body>
 </html>

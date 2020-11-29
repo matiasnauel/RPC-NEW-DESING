@@ -1,10 +1,12 @@
 
-
+var cantProductos = document.getElementById("cantidad");
+var contadorProducto = 0 ;
 window.onload = function(){ $.ajax({
     type: "GET",
     url: "https://localhost:44325/api/Publicacion/TraerTodasLasPublicaciones",
     dataType: "json",
     success: function(data) {
+        
         var contenidoproductos = document.getElementById("contenedorProductos");
         contenidoproductos.innerHTML =`
         <tr>
@@ -27,12 +29,13 @@ window.onload = function(){ $.ajax({
             <td class="boton-centro"> <button class="btn btn-success"  id="${info.id}" data-toggle="modal" data-target="#EditarProducto"  onclick="EditarProducto(${info.id});">Editar</button> </td>
             </tr>
         `;
-   
-   
+        cantProductos.innerHTML = contadorProducto++;
+        localStorage.setItem("cantidadProductos",cantProductos.innerHTML);
+    
            });
    
    
-   
+          
     },
     error: function(error) {
         console.log(error.message);
@@ -74,7 +77,7 @@ function TraerCategorias1(categoria){
   
   }
 
-function BorrarProducto(publicacionID)
+ function BorrarProducto(publicacionID)
 {
 
   
@@ -90,11 +93,11 @@ function BorrarProducto(publicacionID)
       return response.json();
      })
     .then(function(data) {
-            alert("Se borro correctamente!");
-            location.reload();
+            $('#SeborroBien').modal('show');
+            
     })
     .catch(err => console.log('ERROR: ' + err));
-
+   
 }
 
 
@@ -106,6 +109,7 @@ var Stock =  document.getElementById("stock1");
 var descripcion = document.getElementById("comment1");
 var categoria = document.getElementById("SelectCategorias1");
 var peso = document.getElementById("peso1");
+
 
     $.ajax({
         type: "GET",
@@ -133,7 +137,9 @@ var peso = document.getElementById("peso1");
                 document.getElementById("destacados1").checked = false; 
                 document.getElementById("destacados1").value = "false"; 
             }
-            
+           
+            devolverImagenes(data);
+           
             localStorage.setItem("Objeto",JSON.stringify(data));
         },
         error: function(error) {
@@ -169,11 +175,13 @@ function ModificarProducto(){
         contentType: "application/json",
       
         success: function(data) {
-         alert("Se edito correctamente!");
+       
+         $('#EditoCorrectamente').modal('show');
+
         },
         error: function(error) {
             console.log(error.message);
-            alert('error');
+            
         }
       
       
@@ -194,3 +202,99 @@ function cambiar1(){
    }
   }
 
+
+  document.getElementById("cantidad3").innerHTML =   localStorage.getItem("contadorVenta");
+  var borrarclikfunca =document.getElementById('cerrarBorrado');
+  borrarclikfunca.addEventListener('click',(e)=>{
+      location.reload();
+  })
+
+  var botonEditar = document.getElementById('editoCorrectoBTN');
+  botonEditar.addEventListener('click', (e)=>{
+      location.reload();
+  })
+
+  function EliminarImagenProducto(id){
+ 
+    var image = document.getElementById(id); 
+    if (image != null) 
+    { 
+      image.parentNode.removeChild(image); 
+  
+    } 
+     return false;
+  }
+
+  function devolverImagenes(datos){
+    var contador = 0 ;
+    var contadorimagen = 0 ;
+   
+    for (let index = 0; index < datos.imagenes.length; index++) {
+        const element = datos.imagenes[index];
+            // Render thumbnail.
+            var span = document.createElement('span');
+            console.log(element);
+            span.style.justifyContent="center";
+            span.style.justifySelf ="center";
+            span.id = contador;
+        
+            span.innerHTML += ['<div style="display:grid; width=20px">','<img class="thumb" id=',contadorimagen++,' src="',element,
+                                '" title="', escape(datos.nombre), '"/>','<button class="eliminar" id="eliminar"  onclick="return EliminarImagenProducto(',contador,')">Eliminar</button>','</div>'].join('');
+            document.getElementById('list2').insertBefore(span, null);
+            contador++
+    }  
+   
+      
+  }
+
+  var contador = 0 ;
+var contadorimagen = 0 ;
+function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+
+    // Loop through the FileList and render image files as thumbnails.
+    for (var i = 0, f; f = files[i]; i++) {
+     
+      // Only process image files.
+      if (!f.type.match('image.*')) {
+        
+        continue;
+      }
+
+      var reader = new FileReader();
+
+      // Closure to capture the file information.
+      reader.onload = (function(theFile) {
+        return function(e) {
+          // Render thumbnail.
+          var span = document.createElement('span');
+    
+          span.style.justifyContent="center";
+          span.style.justifySelf ="center";
+          span.id = contador;
+          
+          span.innerHTML = ['<div style="display:grid; width=20px">','<img class="thumb" id=',contadorimagen++,' src="', e.target.result,
+                            '" title="', escape(theFile.name), '"/>','<button class="eliminar" id="eliminar"  onclick="return EliminarImagen(',contador,')">Eliminar</button>','</div>'].join('');
+          document.getElementById('list2').insertBefore(span, null);
+          contador++
+        };
+      })(f);
+
+      // Read in the image file as a data URL.
+      reader.readAsDataURL(f);
+    }
+  }
+
+  document.getElementById('files2').addEventListener('change', handleFileSelect, false);
+
+  
+function EliminarImagen(id){
+ 
+    var image = document.getElementById(id); 
+    if (image != null) 
+    { 
+      image.parentNode.removeChild(image); 
+  
+    } 
+     return false;
+  }

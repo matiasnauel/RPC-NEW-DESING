@@ -23,7 +23,7 @@ window.onload = function()
         },
         error: function(error) {
             console.log(error.message);
-            alert('error');
+           
         }
 
    
@@ -155,7 +155,7 @@ function verproductoscarrito()
         },
         error: function(error) {
             console.log(error.message);
-            alert('error');
+           
         }
 
 
@@ -187,7 +187,7 @@ function realizarreserva()
 
       error: function(error) {
     console.log(error.message);
-    alert('error');
+   
 }
 
 
@@ -228,7 +228,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
         },
         error: function(error) {
             console.log(error.message);
-            alert('error');
+          
         }
 
    
@@ -372,7 +372,7 @@ $.ajax({
     },
     error: function(error) {
         console.log(error.message);
-        alert('error');
+        
     }
 
 });
@@ -406,3 +406,5 @@ function QuitarProducto(productoid){
     return false;
   }
 
+
+  

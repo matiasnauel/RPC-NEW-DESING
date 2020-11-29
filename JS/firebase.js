@@ -84,6 +84,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       
       loginCheck(user)
       SaveDateUser(user);
+      userAdd();
       
     } else {
       // User is signed out.
@@ -100,6 +101,11 @@ firebase.auth().onAuthStateChanged(function(user) {
     
       firebase.auth().signOut().then(function() {
         window.location.href ="index.html";
+        if(localStorage.getItem("admin") != undefined){
+            localStorage.removeItem("admin");
+            $('#config').removeClass("config");
+            document.getElementById("config").classList.remove('config');
+        }
       }).catch(function(error) {
         alert(err);
       });
@@ -157,4 +163,24 @@ function SaveDateUser (user)
 function DeleteDateUser(){
     //acordarse de que este método debe borrar unicamente los
     //datos sensibles colocados por firebise.
+}
+function userAdd(){
+    if(localStorage.getItem("admin")!= undefined){
+        var carrt = document.getElementById("icons-shooping-card");
+        carrt.style.display="none";
+        $('#config').addClass("config");
+        $("#config").css("display","block");
+    
+        $("#abrirsectorcomprobante").css("display","none");
+        document.getElementById("config").classList.add('config');
+        document.getElementById("config").style.display="block";
+        document.getElementById("abrirsectorcomprobante").style.display ="none";
+        config.innerHTML = `
+        <span onclick="configuracion();" class="glyphicon glyphicon-cog"></span>
+
+        `;
+    }
+}
+function configuracion(){
+    location.href ="panel.html";
 }

@@ -1,3 +1,6 @@
+
+var destacados = document.getElementById("cantidad4");
+var cantidadDescatados = 0 ;
 $.ajax({
     type: "GET",
     url: "https://localhost:44325/api/Publicacion/TraerPublicacionesDestacadas",
@@ -24,7 +27,9 @@ $.ajax({
     </tr>
      `;
      
-    
+     
+     destacados.innerHTML = cantidadDescatados++;
+     localStorage.setItem("cantidadDestacados",destacados.innerHTML);
    
     });
 

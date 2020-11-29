@@ -606,7 +606,7 @@ html {
   }
   @media (min-width: 768px) {
     .codigo p  {
-        font-size: 10px;
+        font-size: 15px;
       }
   }
   .price h4 {

@@ -1,4 +1,5 @@
-
+var venta = document.getElementById("cantidad3");
+var contadorVenta = 1;
 
 $.ajax({
     type: "GET",
@@ -26,7 +27,8 @@ $.ajax({
         </tr>
          
          `;
-
+            venta.innerHTML = contadorVenta++;
+            localStorage.setItem("contadorVenta",venta.innerHTML);
 
         });
 

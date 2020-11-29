@@ -1,3 +1,5 @@
+var comentarioss = document.getElementById("cantidad5");
+var cantidadComentarios = 1;
 $.ajax({
     type: "GET",
     url: " https://localhost:44325/api/Comentario/TraerComentariosNoRespondidos",
@@ -30,7 +32,8 @@ $.ajax({
     </tr>
     
      `;
-     
+     comentarioss.innerHTML = cantidadComentarios++;
+     localStorage.setItem("cantidadComentarios",comentarioss.innerHTML);
     
    
     });
@@ -93,15 +96,14 @@ function InsertarCategoria(){
         contentType: "application/json",
     
         success: function(data) {
-           console.log(document.getElementById("categoria").value)
-            alert("Se agrego correctamente");
+            $('#AgregarCategoria').modal('toggle');
+      $('#CategiriaExito').modal('show');
         },
         error: function(error) {
-            console.log(error.message);
-            alert('error');
+            
         }
     
     
     });
-    
+    return  false;
     }

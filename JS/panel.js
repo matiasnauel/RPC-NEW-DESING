@@ -1,3 +1,5 @@
+var contador = 0 ;
+var contadorimagen = 0 ;
 function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
 
@@ -17,9 +19,15 @@ function handleFileSelect(evt) {
         return function(e) {
           // Render thumbnail.
           var span = document.createElement('span');
-          span.innerHTML = ['<img class="thumb" src="', e.target.result,
-                            '" title="', escape(theFile.name), '"/>'].join('');
+    
+          span.style.justifyContent="center";
+          span.style.justifySelf ="center";
+          span.id = contador;
+          
+          span.innerHTML = ['<div style="display:grid; width=20px">','<img class="thumb" id=',contadorimagen++,' src="', e.target.result,
+                            '" title="', escape(theFile.name), '"/>','<button class="eliminar" id="eliminar"  onclick="return EliminarImagen(',contador,')">Eliminar</button>','</div>'].join('');
           document.getElementById('list').insertBefore(span, null);
+          contador++
         };
       })(f);
 
@@ -86,7 +94,7 @@ function TraerCategorias(){
     success: function(data) {
         var desplegable=document.getElementById("SelectCategorias");
         desplegable.innerHTML =  `
-        <option value="categoria">Categoria</option>
+        <option  label="Categoria"  selected="true" disabled="disabled"></option>
         `
         $.each(data, function(i, item) {
          desplegable.innerHTML+=`
@@ -118,8 +126,9 @@ $.ajax({
     contentType: "application/json",
 
     success: function(data) {
-       console.log(document.getElementById("categoria").value)
-        alert("Se agrego correctamente");
+    
+      $('#AgregarCategoria').modal('toggle');
+      $('#CategiriaExito').modal('show');
     },
     error: function(error) {
         console.log(error.message);
@@ -128,7 +137,7 @@ $.ajax({
 
 
 });
-
+return false;
 }
 
 function postForm(){
@@ -141,18 +150,51 @@ function postForm(){
   var categoria = document.getElementById("SelectCategorias").value;
   var peso = document.getElementById("peso").value;
   
-  
-  var objeto = {
-     nombre : nombre,
-     descripcion :descripcion,
-     marca : marca ,
-     destacado : destacado,
-     stock : Stock,
-     precio : Precio,
-     imagenes :  JSON.parse(localStorage.getItem("imagenes")),
-     categoria : categoria,
-     peso : peso
+  if(marca!="" && nombre!="" && Precio!="" && Stock!= "" && destacado !="" && descripcion!="" && categoria != "" && descripcion !="" &&  categoria !="" && peso!=""){
+    var objeto = {
+      nombre : nombre,
+      descripcion :descripcion,
+      marca : marca ,
+      destacado : destacado,
+      stock : Stock,
+      precio : Precio,
+      imagenes :  JSON.parse(localStorage.getItem("imagenes")),
+      categoria : categoria,
+      peso : peso
+   }
   }
+  else{
+    var div  = document.createElement("div");
+    div.id ="errorImagen";
+    if($("#errorImagen").length > 0 ){
+      $("#ErrorSeleccionarImagen").modal("show");
+    }
+    else{
+      div.innerHTML = `
+           
+      <div class="modal fade " id="ErrorSeleccionarImagen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <form id="dataError">
+                  <div class="modal-header"  style="background-color: red;" >
+                      <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">ATENCIÓN! <span class="glyphicon glyphicon-ban-circle"></span>  </i></h4>
+                  </div>
+                  <div class="moda-body text-center">
+                      <p style="margin: 20px;">LLENE TODO LOS CAMPOS</p>
+                  </div>
+                  <div class="modal-footer " style="background-color: red;" >
+                      <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+     </div>
+     `
+     document.body.insertBefore(div,null);
+     $("#ErrorSeleccionarImagen").modal("show");
+    }
+  }
+
 
     $.ajax({
       type: "POST",
@@ -162,11 +204,13 @@ function postForm(){
       contentType: "application/json",
     
       success: function(data) {
-      
+        $('#AgregarProducto').modal('toggle');
+        $('#ProductoExito').modal('show');
+  
       },
       error: function(error) {
           console.log(error.message);
-          alert('error');
+          
       }
     
     
@@ -192,7 +236,52 @@ function cambiar(){
 var guardar  = document.getElementById("Gurdar");
 guardar.addEventListener("click", (e)=>{
   e.preventDefault();
-  enviarImagenesAlserver();
+  var files = document.getElementById("files").files;
+  if (!files.length) {
+   
+    var div  = document.createElement("div");
+    div.id ="errorImagen";
+    if($("#errorImagen").length > 0 ){
+      $("#ErrorSeleccionarImagen").modal("show");
+    }
+    else{
+      div.innerHTML = `
+           
+      <div class="modal fade " id="ErrorSeleccionarImagen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <form id="dataError">
+                  <div class="modal-header"  style="background-color: red;" >
+                      <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">ATENCIÓN! <span class="glyphicon glyphicon-ban-circle"></span>  </i></h4>
+                  </div>
+                  <div class="moda-body text-center">
+                      <p style="margin: 20px;">SELECCIONE UNA IMAGEN</p>
+                  </div>
+                  <div class="modal-footer " style="background-color: red;" >
+                      <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+     </div>
+     `
+     document.body.insertBefore(div,null);
+     $("#ErrorSeleccionarImagen").modal("show");
+    }
+ 
+
+    return;
+  }
+  else{
+    
+     animar();
+     enviarImagenesAlserver();
+  }
+
+  
+
+ 
+ 
   // console.log(localStorage.getItem("imagenes"));
 })
 
@@ -201,7 +290,7 @@ public.addEventListener("click" , (e)=>{
 
   e.preventDefault();
   var imagen = JSON.parse (localStorage.getItem("imagenes"));
-  console.log(imagen.length);
+
 
   
     //En este caso, sería de este modo:
@@ -220,10 +309,30 @@ function animar(){
   document.getElementById("barra").classList.toggle("final");
 
 }
-document.getElementById("Gurdar").onclick = function(){
-  animar();
+// document.getElementById("Gurdar").onclick = function(){
+//   animar();
+// }
+
+document.getElementById("cantidad").innerHTML = localStorage.getItem("cantidadProductos");
+document.getElementById("cantidad3").innerHTML =   localStorage.getItem("contadorVenta");
+document.getElementById("cantidad4").innerHTML = localStorage.getItem("cantidadDestacados");
+document.getElementById("cantidad5").innerHTML = localStorage.getItem("cantidadComentarios");
+document.getElementById("cantidad6").innerHTML = localStorage.getItem("cantidadComprobante");
+
+function EliminarImagen(id){
+ 
+  var image = document.getElementById(id); 
+  if (image != null) 
+  { 
+    image.parentNode.removeChild(image); 
+
+  } 
+   return false;
 }
 
-
+var productoExitoRecargar = document.getElementById("cerrarProductoExito");
+productoExitoRecargar.addEventListener("click" , function(e){
+  location.reload();
+})
 
 
