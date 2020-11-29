@@ -101,6 +101,12 @@ firebase.auth().onAuthStateChanged(function(user) {
     
       firebase.auth().signOut().then(function() {
         window.location.href ="index.html";
+        localStorage.removeItem("Correo_User");
+        localStorage.removeItem("IdVenta");
+        localStorage.removeItem("Name_User");
+        localStorage.removeItem("ventdaID");
+        localStorage.removeItem("clienteID");
+
         if(localStorage.getItem("admin") != undefined){
             localStorage.removeItem("admin");
             $('#config').removeClass("config");

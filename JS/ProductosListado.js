@@ -499,8 +499,36 @@ function realizarreserva()
     },
 
       error: function(error) {
-    console.log(error.message);
-    alert('error');
+        var div  = document.createElement("div");
+    div.id ="errorImagen";
+    if($("#errorImagen").length > 0 ){
+      $("#ErrorSeleccionarImagen").modal("show");
+    }
+    else{
+      div.innerHTML = `
+           
+      <div class="modal fade " id="ErrorSeleccionarImagen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <form id="dataError">
+                  <div class="modal-header"  style="background-color: red;" >
+                      <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">ATENCIÓN! <span class="glyphicon glyphicon-ban-circle"></span>  </i></h4>
+                  </div>
+                  <div class="moda-body text-center">
+                      <p style="margin: 20px;">Debe registrarse primero</p>
+                  </div>
+                  <div class="modal-footer " style="background-color: red;" >
+                      <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+     </div>
+     `
+     document.body.insertBefore(div,null);
+     $("#ErrorSeleccionarImagen").modal("show");
+    }
+ 
 }
 
 
