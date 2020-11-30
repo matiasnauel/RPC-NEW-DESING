@@ -111,6 +111,7 @@ firebase.auth().onAuthStateChanged(function(user) {
             localStorage.removeItem("admin");
             $('#config').removeClass("config");
             document.getElementById("config").classList.remove('config');
+            location.href ="loginRPC.html";
         }
       }).catch(function(error) {
         alert(err);

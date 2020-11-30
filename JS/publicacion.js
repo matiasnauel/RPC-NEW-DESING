@@ -75,6 +75,7 @@ if(document.getElementById("btnModal")  && localStorage.getItem("productos")!=nu
         body.style.position = "inherit";
         body.style.height = "auto";
         body.style.overflow = "visible";
+     
     }
 
     window.onclick = function(event) {
@@ -158,3 +159,13 @@ function ProductosCategoria(valor2)
     localStorage.setItem("clienteID", 1);
     localStorage.setItem("publicacionID",1);
 }
+function carritoValores(){
+  if(localStorage.getItem("productostotalCantidad") != null &&  localStorage.getItem("productosTotalCarrito")!= null){
+    document.getElementById("cantidadCarrito").innerHTML =  `(${localStorage.getItem("productostotalCantidad")}) $${localStorage.getItem("productosTotalCarrito")} `;
+  }
+  else{
+    document.getElementById("cantidadCarrito").innerHTML ="(0) $0,00";
+  }
+}
+
+carritoValores();

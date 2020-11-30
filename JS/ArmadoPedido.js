@@ -612,3 +612,13 @@ if(document.getElementById("btnModal") && localStorage.getItem("productos") == n
     }
 }
 
+function carritoValores(){
+    if(localStorage.getItem("productostotalCantidad") != null &&  localStorage.getItem("productosTotalCarrito")!= null){
+      document.getElementById("cantidadCarrito").innerHTML =  `(${localStorage.getItem("productostotalCantidad")}) $${localStorage.getItem("productosTotalCarrito")} `;
+    }
+    else{
+      document.getElementById("cantidadCarrito").innerHTML ="(0) $0,00";
+    }
+}
+
+carritoValores();

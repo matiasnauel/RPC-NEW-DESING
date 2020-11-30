@@ -341,7 +341,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
                 </div>
                 <div>
                     
-                    <button class="DescartarArticulo-carrito">X</button> 
+                    <button class="DescartarArticulo-carrito" onclick="QuitarProducto(${item.id});">X</button> 
                 </div>
             </div>
                 
@@ -359,7 +359,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
     
               contenedorcarrito.innerHTML+= `
             <div class="OpcionCarrito">
-            <button class="vaciar-carrito">VACIAR CARRITO</button>
+            <button class="vaciar-carrito" onclick="VaciarCarrito();">VACIAR CARRITO</button>
             <button class="comprar-carrito" onclick="realizarreserva();">COMPRAR</button>
             </div>
               ` ; 
@@ -551,7 +551,66 @@ function VerProductos(id)
 // Input file 
 
 
+// quitar elemento de un carrito 
 
+function QuitarProducto(productoid){
+    var encontrado = false;
+    var productosLocal = JSON.parse(localStorage.getItem("productos"));
+  
+    productosLocal.forEach(item=>{
+        if(productoid == item && encontrado==false){
+            if(productosLocal.length == 1){
+         
+              // eliminar un 1 elemento desde el indice 3
+              // productosloca es el indice y 1 es es la cantidad de elementos a eliminar
+              productosLocal.splice(0,1);
+             
+              localStorage.setItem("productos",JSON.stringify(productosLocal));
+          
+              encontrado = true;
+          
+              verproductoscarrito();
+              
+            }
+            else{
+       
+              // eliminar un 1 elemento desde el indice 3
+              // productosloca es el indice y 1 es es la cantidad de elementos a eliminar
+              productosLocal.splice(productosLocal,1);
+         
+              localStorage.setItem("productos",JSON.stringify(productosLocal));
+          
+              encontrado = true;
+              verproductoscarrito();
+            }
+        
+            
+        }
+       
+       
+       
+    })
+    return false;
+  }
+  
+  function VaciarCarrito(){
+    localStorage.removeItem("productos");
+    localStorage.removeItem("productosTotalCarrito");
+    localStorage.removeItem("productostotalCantidad");
+    document.getElementById("contenedorcarrito").innerHTML="";
+    var modal = document.getElementById("tvesModal").style.display="none";
+    location.reload();
+    return false;
+  }
+  
+ 
 
-
-
+  function carritoValores(){
+    if(localStorage.getItem("productostotalCantidad") != null &&  localStorage.getItem("productosTotalCarrito")!= null){
+      document.getElementById("cantidadCarrito").innerHTML =  `(${localStorage.getItem("productostotalCantidad")}) $${localStorage.getItem("productosTotalCarrito")} `;
+    }
+    else{
+      document.getElementById("cantidadCarrito").innerHTML ="(0) $0,00";
+    }
+}
+carritoValores();
