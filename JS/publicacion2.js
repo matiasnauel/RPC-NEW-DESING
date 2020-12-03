@@ -578,7 +578,7 @@ function QuitarProducto(productoid,cantidad,valor){
         
             document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${valor} `;
             localStorage.setItem("productosTotalCarrito",valor);
-            alert(valor)
+          
             encontrado = true;
             verproductoscarrito();
           }

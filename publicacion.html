@@ -434,7 +434,7 @@
      <div class="modal fade" id="subirArchivo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form id="dataForm">
+                <form >
                     <div class="modal-header">
                         <h4 class="modal-title text-center" id="myModalLabel"><img src="img/carpeta.png" alt=""></i></h4>
                     </div>
@@ -487,7 +487,7 @@
          <div class="modal fade" id="Error" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <form id="dataError">
+                    <form >
                         <div class="modal-header"  style="background-color: red;" >
                             <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">ATENCIÓN! <span class="glyphicon glyphicon-ban-circle"></span>  </i></h4>
                         </div>
@@ -531,7 +531,7 @@
                               <div class="modal fade" id="ErrorComprobante" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
-                                        <form id="dataError">
+                                        <form >
                                             <div class="modal-header"  style="background-color: red;" >
                                                 <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">ATENCIÓN! <span class="glyphicon glyphicon-ban-circle"></span>  </i></h4>
                                             </div>
@@ -548,7 +548,7 @@
                            <div class="modal fade" id="ComprobanteSubidoBien" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
-                                    <form id="dataError">
+                                    <form >
                                         <div class="modal-header"  style="background-color: green;" >
                                             <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">LISTO <span class="glyphicon glyphicon-ok"></span> </i></h4>
                                         </div>
@@ -575,31 +575,10 @@
     <!--Maps-->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script type="text/javascript" src="JS/lightslider.js"></script>
-    <script src="js/publicacion.js"></script>
     <script src="js/publicacion2.js"></script>
-    <script>
-                      // JavaScript Document
-$(document).ready(function() {
-    $('#autoWidth').lightSlider({
-        autoWidth:true,
-        loop:true,
-        onSliderLoad: function() {
-            $('#autoWidth').removeClass('cS-hidden');
-        } 
-    });  
-  });
-    var map = L.map('mapita').setView([-34.601528, -58.375111], 20);
+    <script src="js/publicacion.js"></script>
+    
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-
-L.marker([-34.601528, -58.375111], 20).addTo(map)
-    .bindPopup('Galeria Jardin,Local 429'   )
-    .openPopup();
-
-  
-    </script>
        <!-- Firebase -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
@@ -627,6 +606,11 @@ L.marker([-34.601528, -58.375111], 20).addTo(map)
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
   const auth = firebase.auth();
+</script>
+<script>
+    document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${JSON.parse(localStorage.getItem("productosTotalCarrito"))} `;
+
+
 </script>
 <script src="js/firebase.js"></script>
 </body>
