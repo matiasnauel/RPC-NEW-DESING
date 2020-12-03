@@ -922,6 +922,9 @@ html {
     background-color: red;
     min-width: 215.69px;
     line-height: 30px;
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
   .desplegable  {
    
@@ -1920,6 +1923,24 @@ top: -1000px;
     width: 50%;
 } 
 }
+.desplegable::-webkit-scrollbar {
+  width: 13px;
+}
+
+.desplegable::-webkit-scrollbar-track {
+  
+  border-radius: 10px;
+  background-color: rgb(248, 240, 255);
+  
+}
+
+.desplegable::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  
+  background-color: rgb(202, 167, 167);
+  
+}
+
 
   
   

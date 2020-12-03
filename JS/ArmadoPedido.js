@@ -170,6 +170,8 @@ function completarReserva()
 
         success: function(data) {
             EnviarEmail();
+            localStorage.removeItem("ventaID");
+            localStorage.removeItem("Productos");
             
         },
         error: function(error) {

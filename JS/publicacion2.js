@@ -22,6 +22,7 @@ var descripcionproducto=document.getElementById("DescripcionProducto");
 var siteinformation = document.getElementById("site-information");
 var comentariosyrespuesta=document.getElementById("comments-list");
 
+
 function Contenido(data){
  
     contenedorimagenprincipal.innerHTML+=`
@@ -142,6 +143,7 @@ else{
 function AgregarAlCarrito(productoID,stockmaximo)
 {
 var cantidad=parseInt(document.getElementById('cantidadstock').value);
+var productosLocalContador = JSON.parse(localStorage.getItem("productos"));
 if(cantidad<stockmaximo){
 
 if(localStorage.getItem("productos")!=undefined){
@@ -173,12 +175,10 @@ if(JSON.parse(localStorage.getItem("productos") != null)){
  })
 .then(function(data) {
   data.productos.forEach(item=>{
-   
-    localStorage.setItem("productosTotalCarrito",item.precio);
-    localStorage.setItem("productostotalCantidad",item.cantidad);
-    carritoValores();
+    document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${data.valorcarrito} `;
+    localStorage.setItem("productosTotalCarrito",data.valorcarrito);
   })
-
+  
 })
 .catch(err => console.log('ERROR: ' + err));
 }
@@ -211,13 +211,13 @@ else
     return response.json();
    })
   .then(function(data) {
-    data.productos.forEach(item=>{
-     
-      localStorage.setItem("productosTotalCarrito",item.precio);
-      localStorage.setItem("productostotalCantidad",item.cantidad);
-      carritoValores();
-    })
+  
 
+    data.productos.forEach(item=>{
+      document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${data.valorcarrito} `;
+      localStorage.setItem("productosTotalCarrito",data.valorcarrito);
+    })
+    
   })
   .catch(err => console.log('ERROR: ' + err));
   }
@@ -312,7 +312,7 @@ function verproductoscarrito()
         </div>
         <div>
             
-        <button class="DescartarArticulo-carrito" id="quitarElemento" onclick="return QuitarProducto(${item.id})">X</button> 
+        <button class="DescartarArticulo-carrito" id="quitarElemento" onclick="return QuitarProducto(${item.id},${item.cantidad},${data.valorcarrito})">X</button> 
 
         </div>
         </div>
@@ -324,10 +324,12 @@ function verproductoscarrito()
         <p>TOTAL: $${valor}</p>
         </div>         
       `;
+      document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${valor} `;
+     
       contenedorcarrito.innerHTML+= `
       <div class="OpcionCarrito">
       <button class="vaciar-carrito"  onclick="return VaciarCarrito();" >VACIAR CARRITO</button>
-      <button class="comprar-carrito" onclick="realizarreserva();">COMPRAR</button>
+      <button class="comprar-carrito" onclick="realizarreserva();">RESERVAR CARRITO</button>
       </div>
         ` ; 
     })
@@ -544,9 +546,11 @@ function Comentar()
 }
 // quitar elemento de un carrito 
 
-function QuitarProducto(productoid){
+function QuitarProducto(productoid,cantidad,valor){
+
   var encontrado = false;
   var productosLocal = JSON.parse(localStorage.getItem("productos"));
+
 
   productosLocal.forEach(item=>{
       if(productoid == item && encontrado==false){
@@ -555,22 +559,26 @@ function QuitarProducto(productoid){
             // eliminar un 1 elemento desde el indice 3
             // productosloca es el indice y 1 es es la cantidad de elementos a eliminar
             productosLocal.splice(0,1);
-           
+            
             localStorage.setItem("productos",JSON.stringify(productosLocal));
-        
             encontrado = true;
         
             verproductoscarrito();
-            
+
+            localStorage.removeItem("productostotalCantidad");
+            localStorage.removeItem("productosTotalCarrito");
+            carritoValores();
+        
           }
           else{
-     
-            // eliminar un 1 elemento desde el indice 3
-            // productosloca es el indice y 1 es es la cantidad de elementos a eliminar
-            productosLocal.splice(productosLocal,1);
-       
+      
+          
+            removeItemFromArr(productosLocal,productoid);
             localStorage.setItem("productos",JSON.stringify(productosLocal));
         
+            document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${valor} `;
+            localStorage.setItem("productosTotalCarrito",valor);
+            alert(valor)
             encontrado = true;
             verproductoscarrito();
           }
@@ -595,10 +603,24 @@ function VaciarCarrito(){
 }
 function carritoValores(){
   if(localStorage.getItem("productostotalCantidad") != null &&  localStorage.getItem("productosTotalCarrito")!= null){
-    document.getElementById("cantidadCarrito").innerHTML =  `(${localStorage.getItem("productostotalCantidad")}) $${localStorage.getItem("productosTotalCarrito")} `;
+    document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${localStorage.getItem("productosTotalCarrito")} `;
+   
   }
   else{
     document.getElementById("cantidadCarrito").innerHTML ="(0) $0,00";
+    localStorage.removeItem("productos");
+  }
+}
+document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${JSON.parse(localStorage.getItem("productosTotalCarrito"))} `;
+
+
+
+// remover un archivo de un array
+function removeItemFromArr ( arr, item ) {
+  var i = arr.indexOf( item );
+
+  if ( i !== -1 ) {
+      arr.splice( i, 1 );
   }
 }
 

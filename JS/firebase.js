@@ -85,7 +85,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       loginCheck(user)
       SaveDateUser(user);
       userAdd();
-      
+      ValidarUsuarioBack(email,photoURL);
     } else {
       // User is signed out.
       // ...
@@ -190,4 +190,18 @@ function userAdd(){
 }
 function configuracion(){
     location.href ="panel.html";
+}
+function  ValidarUsuarioBack(email,photoURL){
+    fetch("https://localhost:44307/api/Cliente/RegistrarVerificarCliente?email="+email+"&clienteIMAGEN="+photoURL)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        localStorage.setItem("clienteID",data);
+      
+    })
+   .catch (error =>{
+    console.log(error);
+   }) 
+
 }

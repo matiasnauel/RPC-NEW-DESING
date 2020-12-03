@@ -13,6 +13,7 @@ window.onload = function()
         dataType: "json",
         success: function(data) {
             var listadoproductos=document.getElementById("ListadoProductos");
+            document.getElementById("cambiar-categorias").innerHTML ="PRODUCTOS / PUBLICACIONES DESTACADAS";
             listadoproductos.innerHTML="";
             $.each(data, function(i, item) {
              listadoproductos.innerHTML+=`
@@ -47,6 +48,7 @@ window.onload = function()
                 success: function(data) {
                     var listadoproductos=document.getElementById("ListadoProductos");
                     listadoproductos.innerHTML="";
+                    document.getElementById("cambiar-categorias").innerHTML =`PRODUCTOS / ${contenido}`;
                     $.each(data, function(i, item) {
                      listadoproductos.innerHTML+=`
                      <div class="item-productos">
@@ -151,9 +153,10 @@ function ProductosCategoria(valor2)
     var contenido = "contenido";
     var valorcontenido = valor2;
     localStorage.setItem(`${contenido}`, `${valorcontenido}`);
+
     location.href="ProductosListado.html";  
     
-  
+   
    
    
    
@@ -335,15 +338,14 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
                 <div class="site-image-carrito">
                     <img src="${item.imagenes[0]}" alt="">
                 </div>
-                <div class="site-informacion-carrito1">
-                <p>${item.nombre}</p> 
-                <span>$${item.precio}x${item.cantidad}</span>
+                <div class="site-information-carrito">
+                    <p style="padding-top: 30px";>${item.nombre}</p> 
+                    <span>$${item.precio}x${item.cantidad}</span>
                 </div>
-                <div>
-                    
-                    <button class="DescartarArticulo-carrito" onclick="QuitarProducto(${item.id});">X</button> 
+                <div class="boton-carrito-modal">
+                <button class="DescartarArticulo-carrito" onclick="QuitarProducto(${item.id},${item.precio},${data.valorcarrito});">X</button> 
                 </div>
-            </div>
+                </div>
                 
                 
                 
@@ -356,11 +358,12 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
                 <p>TOTAL: $${valor}</p>
                 </div>         
               `;
-    
+              document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${valor} `;
+              localStorage.setItem("productosTotalCarrito",data.valorcarrito);
               contenedorcarrito.innerHTML+= `
             <div class="OpcionCarrito">
             <button class="vaciar-carrito" onclick="VaciarCarrito();">VACIAR CARRITO</button>
-            <button class="comprar-carrito" onclick="realizarreserva();">COMPRAR</button>
+            <button class="comprar-carrito" onclick="realizarreserva();">RESERVAR CARRITO</button>
             </div>
               ` ; 
     
@@ -486,6 +489,7 @@ function realizarreserva()
         clienteID: localStorage.getItem("clienteID"),
         productos: JSON.parse(localStorage.getItem("productos"))    
     }
+    
   $.ajax({
     type: "POST",
     data: JSON.stringify(objeto),
@@ -495,7 +499,7 @@ function realizarreserva()
     success: function(data) {
       localStorage.setItem("ventaID",data.id);
       location.href="ArmadoPedido.html";
-   
+     
     },
 
       error: function(error) {
@@ -553,9 +557,11 @@ function VerProductos(id)
 
 // quitar elemento de un carrito 
 
-function QuitarProducto(productoid){
+function QuitarProducto(productoid,cantidad,valor){
+
     var encontrado = false;
     var productosLocal = JSON.parse(localStorage.getItem("productos"));
+  
   
     productosLocal.forEach(item=>{
         if(productoid == item && encontrado==false){
@@ -564,22 +570,26 @@ function QuitarProducto(productoid){
               // eliminar un 1 elemento desde el indice 3
               // productosloca es el indice y 1 es es la cantidad de elementos a eliminar
               productosLocal.splice(0,1);
-             
+              
               localStorage.setItem("productos",JSON.stringify(productosLocal));
-          
               encontrado = true;
           
               verproductoscarrito();
-              
+  
+              localStorage.removeItem("productostotalCantidad");
+              localStorage.removeItem("productosTotalCarrito");
+              carritoValores();
+          
             }
             else{
-       
-              // eliminar un 1 elemento desde el indice 3
-              // productosloca es el indice y 1 es es la cantidad de elementos a eliminar
-              productosLocal.splice(productosLocal,1);
-         
+        
+            
+              removeItemFromArr(productosLocal,productoid);
               localStorage.setItem("productos",JSON.stringify(productosLocal));
           
+              document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${valor} `;
+              localStorage.setItem("productosTotalCarrito",valor);
+         
               encontrado = true;
               verproductoscarrito();
             }
@@ -602,15 +612,26 @@ function QuitarProducto(productoid){
     location.reload();
     return false;
   }
-  
- 
-
   function carritoValores(){
     if(localStorage.getItem("productostotalCantidad") != null &&  localStorage.getItem("productosTotalCarrito")!= null){
-      document.getElementById("cantidadCarrito").innerHTML =  `(${localStorage.getItem("productostotalCantidad")}) $${localStorage.getItem("productosTotalCarrito")} `;
+      document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${localStorage.getItem("productosTotalCarrito")} `;
+     
     }
     else{
       document.getElementById("cantidadCarrito").innerHTML ="(0) $0,00";
+      localStorage.removeItem("productos");
     }
-}
-carritoValores();
+  }
+  document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${JSON.parse(localStorage.getItem("productosTotalCarrito"))} `;
+  
+  
+  
+  // remover un archivo de un array
+  function removeItemFromArr ( arr, item ) {
+    var i = arr.indexOf( item );
+  
+    if ( i !== -1 ) {
+        arr.splice( i, 1 );
+    }
+  }
+ 
