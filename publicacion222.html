@@ -5,114 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/publicacion.css">
     <link rel="stylesheet" href="CSS/normalize.css">
-
+  
     <!--estilos de boopstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!--Link mapa-->
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-
+    <!--Link mapa-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <link rel="icon" type="image/x-icon" href="/img/logoajjaja-removebg-preview.ico" >
-
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/img/logoajjaja-removebg-preview.ico">
     <title>RPC Computación</title>
 </head>
 <style>
-    .config{
-      margin-top:4rem; 
-      margin-left: 20px; 
-      font-size: 30px;
-  }
-  * {box-sizing: border-box}
-  
-  /* Set height of body and the document to 100% */
-  body, html {
-    height: 100%;
-    margin: 0;
-    font-family: Arial;
-  }
-  
-  @media (min-width: 360px) {
-      .botones-productos{
-          display: grid;
-          grid-template-columns: repeat(2,1fr);
-      }
-  }
-  @media (min-width: 768px) {
-      .botones-productos{
-          display: flex;
-      }
-  }
-  @media (min-width: 360px) {
-      /* Style tab links */
-  .tablink {
-  
-    background-color: red;
-    color: white;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    font-size: 17px;
-    width: 100%;
-  
-  }
-  }
-  @media (min-width: 768px) {
-      /* Style tab links */
-  .tablink {
-    background-color: red;
-    color: white;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    font-size: 17px;
-    width: 25%;
-  
-  }
-  }
-  
-  .tablink:hover {
-    background-color: rgb(71, 13, 13);
-  }
-  
-  /* Style the tab content (and add height:100% for full page content) */
-  .tabcontent {
-    color: white;
-    display: none;
-    padding: 100px 20px;
-    height: 100%;
-  }
-  
-  #Home {background-color: #A39F9E;}
-  #News {background-color: #A39F9E;}
-  #Contact {background-color: blue;}
-  #About {background-color: orange;}
-  
-  @media (min-width: 360px) {
-  #table-responsive{
-      height: 300px;
-      width: auto;
-      border: 1px solid #ddd;
-      background: #f1f1f1;
-      overflow-y: scroll;
+      .config{
+        margin-top:4rem; 
+        margin-left: 20px; 
+        font-size: 30px;
+    }
+    * {box-sizing: border-box}
     
-  }
+    /* Set height of body and the document to 100% */
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial;
+    }
+    
+    @media (min-width: 360px) {
+        .botones-productos{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
+    @media (min-width: 768px) {
+        .botones-productos{
+            display: flex;
+        }
+    }
+    @media (min-width: 360px) {
+        /* Style tab links */
+    .tablink {
+    
+      background-color: red;
+      color: white;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      font-size: 17px;
+      width: 100%;
+    
+    }
+    }
+    @media (min-width: 768px) {
+        /* Style tab links */
+    .tablink {
+      background-color: red;
+      color: white;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      font-size: 17px;
+      width: 25%;
+    
+    }
+    }
+    
+    .tablink:hover {
+      background-color: rgb(71, 13, 13);
+    }
+    
+    /* Style the tab content (and add height:100% for full page content) */
+    .tabcontent {
+      color: white;
+      display: none;
+      padding: 100px 20px;
+      height: 100%;
+    }
+    
+    #Home {background-color: #A39F9E;}
+    #News {background-color: #A39F9E;}
+    #Contact {background-color: blue;}
+    #About {background-color: orange;}
+    
+    @media (min-width: 360px) {
+    #table-responsive{
+        height: 300px;
+        width: auto;
+        border: 1px solid #ddd;
+        background: #f1f1f1;
+        overflow-y: scroll;
+      
+    }
 }
 @media (min-width: 768px) {
-  #table-responsive {
-      height: 300px;
-      width: auto;
-      border: 1px solid #ddd;
-      background: #f1f1f1;
-      overflow-y: scroll;
-      overflow-x: scroll;
-  }
+    #table-responsive {
+        height: 300px;
+        width: auto;
+        border: 1px solid #ddd;
+        background: #f1f1f1;
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
 }
-  </style>
-
+    </style>
 <body>
     <div class="site-header">
     
@@ -124,7 +122,7 @@
                 </div>
                 <div class="Search-main ">
                     <form class="formulario" id="form">
-                        <input class="search" type="text" id="Search-main" placeholder="Buscar..">
+                        <input class="search" type="text" id="Search-main" placeholder="Buscar.." >
                         <button type="submit">  <i class="glyphicon glyphicon-search"></i></button>
                     </form>
                   
@@ -147,17 +145,18 @@
 
                     </div>
                     <div class="icons-shopping-card" id="icons-shooping-card" onclick="verproductoscarrito();">
-                        <img src="img/carrito-de-compras.png" alt="" id="btnModal" id="carritoComprasBTN">
+                        <img src="img/carrito-de-compras.png" alt="" id="btnModal" id="carritoComprasBTN" data-toggle="modal" data-target="null" >
+
                         <span id="cantidadCarrito">(0) $0,00</span>              
-                      
-                          
+                         
+                       
                     </div>
                     <div id="tvesModal" class="modalContainer">
                         <div class="modal-content">
                             <span class="closed">×</span>
                             <h2>Mi Carrito </h2>
                             <div class="contenedor-carrito" id="contenedorcarrito">
-                               
+                                 
                             </div>
                         </div>
                     </div>
@@ -169,7 +168,7 @@
                             <h2 style="padding-bottom: 20px; color: white;">Mi Carrito</h2>
                             <div class="productos-carrito">
                                 <div class="site-image">
-                                    <img src="/img/auricular4.jpg" alt="">
+                                    <img src="img/auricular4.jpg" alt="">
                                 </div>
                                 <div class="site-information">
                                     <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
@@ -179,7 +178,7 @@
                             </div>
                             <div class="productos-carrito">
                                 <div class="site-image">
-                                    <img src="/img/auricular4.jpg" alt="">
+                                    <img src="img/auricular4.jpg" alt="">
                                 </div>
                                 <div class="site-information">
                                     <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
@@ -189,7 +188,7 @@
                             </div>
                             <div class="productos-carrito">
                                 <div class="site-image">
-                                    <img src="/img/auricular4.jpg" alt="">
+                                    <img src="img/auricular4.jpg" alt="">
                                 </div>
                                 <div class="site-information">
                                     <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
@@ -206,11 +205,11 @@
                             </div>
                         
                         </div>
-                        <img src="/img/carrito-de-compras.png" alt="" style="width: 70%;" id="CarritoSubMenu"><span id="itemCarrito"  onclick="openNavCarrito()" >(0)</span>
+                        <img src="img/carrito-de-compras.png" alt="" style="width: 70%;" id="CarritoSubMenu"><span id="itemCarrito"  onclick="openNavCarrito()" >(0)</span>
                       
                     </div>
               
-                    <img src="/img/menu180°.png" alt="" style="width: 80%; cursor: pointer; margin-right: 2em;" id="MenuBurger">
+                    <img src="img/menu180°.png" alt="" style="width: 80%; cursor: pointer; margin-right: 2em;" id="MenuBurger">
    
                   
                 </div>
@@ -316,7 +315,6 @@
             <!--Color rojo barrita-->
         </div>
     </div>
-
     <main >
         <div class="contenedor site-main">
             <div class="barra-publicacion">
@@ -390,11 +388,10 @@
         </div>
         
     </main>
-
     <footer class="contenedor-footer">
         <div class="before-footer">
             <div class="information contenedor">
-               
+          
                 <a href="https://www.facebook.com/RPC.HardwareConectividad/about/?ref=page_internal">FACEBOOK</a>
                
             </div>
@@ -406,104 +403,87 @@
             <p><span ></span> <span style="margin-left: 10px;">Todos los derechos reservados &copy;2020</span> </p>
         </div>
     </footer> <!--Footer-->
-
-      <!-- Modal -->
-      <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <form id="dataForm">
-                    <div class="modal-header">
-                        <h4 class="modal-title text-center" id="myModalLabel"><img src="/img/grupo.png" alt=""></i></h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group ">
-                            <button class="btn btn-success btn-group-justified" id="ButtonGoogle"><i class='fab fa-google'></i> Google</button>
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-primary btn-group-justified " id="ButtonFacebook"><i class="	fab fa-facebook-f"></i> Facebook</button>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-     <!-- Modal -->
-     <div class="modal fade" id="subirArchivo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <form id="dataForm">
-                    <div class="modal-header">
-                        <h4 class="modal-title text-center" id="myModalLabel"><img src="img/carpeta.png" alt=""></i></h4>
-                    </div>
-                    <div class="modal-body">
-                      
-                        <div class="form-group" id="btn">
-                            <div class="custom-input-file " id="custom-input-file">
-                                <input type="file" id="files" name="files[]" multiple  accept="image/jpg, image/jpeg"  class="input-file" value="" >
-                                Cargar comprobante
-                             
-                            </div>
-                          
-                           
-                        </div>
-                        <div class="form-group">
-                            <div class="table-responsive" id="table-responsive">
-                                   
-                                <table class="table" id="contenedorcontenedor">
-                                  <thead>
-                                    <tr>
-                                       <th>Selecciónar</th>
-                                      <th>Estado</th>
-                                      <th>Fecha</th>
-                                      <th>Codigo</th>
-                                    </tr>
-                                  </thead>
-                                  
-                                  <tbody id="contenedor-ventas" >
-                                      
-                                
-                                 
-                                  
-                                  </tbody>
-                                </table>
-                              </div>
-                        </div>
-                     
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button"  class="btn btn-success"   id="enviarcomprobante" data-toggle="modal" style="display: inline;">Subir comprobante</button>
-
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-         <!-- modal error -->
-        
-         <div class="modal fade" id="Error" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    
+        <!-- Modal -->
+        <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <form id="dataError">
-                        <div class="modal-header"  style="background-color: red;" >
-                            <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">ATENCIÓN! <span class="glyphicon glyphicon-ban-circle"></span>  </i></h4>
+                    <form >
+                        <div class="modal-header">
+                            <h4 class="modal-title text-center" id="myModalLabel"><img src="/img/grupo.png" alt=""></i></h4>
                         </div>
-                        <div class="moda-body text-center">
-                            <p style="margin: 20px;">NO POSEE NINGUN ARTICULO EN SU CARRITO</p>
+                        <div class="modal-body">
+                            <div class="form-group ">
+                                <button class="btn btn-success btn-group-justified" id="ButtonGoogle"><i class='fab fa-google'></i> Google</button>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-group-justified " id="ButtonFacebook"><i class="	fab fa-facebook-f"></i> Facebook</button>
+                            </div>
                         </div>
-                        <div class="modal-footer " style="background-color: red;" >
-                            <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                         </div>
                     </form>
                 </div>
             </div>
-           </div>
-       
-                            <!-- Modal -->
-                            <div class="modal fade" id="myModal2" role="dialog" >
+        </div>
+            <!-- Modal -->
+            <div class="modal fade" id="subirArchivo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <form id="dataForm">
+                            <div class="modal-header">
+                                <h4 class="modal-title text-center" id="myModalLabel"><img src="img/carpeta.png" alt=""></i></h4>
+                            </div>
+                            <div class="modal-body">
+                              
+                                <div class="form-group" id="btn">
+                                    <div class="custom-input-file " id="custom-input-file">
+                                        <input type="file" id="files" name="files[]" multiple  accept="image/jpg, image/jpeg"  class="input-file" value="" >
+                                        Cargar comprobante
+                                     
+                                    </div>
+                                  
+                                   
+                                </div>
+                                <div class="form-group">
+                                    <div class="table-responsive" id="table-responsive">
+                                   
+                                        <table class="table" id="contenedorcontenedor">
+                                          <thead>
+                                            <tr>
+                                               <th>Selecciónar</th>
+                                              <th>Estado</th>
+                                              <th>Fecha</th>
+                                              <th>Codigo</th>
+                                            </tr>
+                                          </thead>
+                                          
+                                          <tbody id="contenedor-ventas" >
+                                              
+                                        
+                                         
+                                          
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                </div>
+                             
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button"  class="btn btn-success"  id="enviarcomprobante" data-toggle="modal" data-target="#null" style="display: inline;">Subir comprobante</button>
+
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+           
+
+
+                               <!-- Modal -->
+                               <div class="modal fade" id="myModal2" role="dialog" >
                                 <div class="modal-dialog modal-sm">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -524,10 +504,8 @@
                                     </div>
                                   </div>
                                 </div>
-                              </div>    
-                          
-                    
-                      
+                              </div>
+
                               <div class="modal fade" id="ErrorComprobante" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -548,7 +526,7 @@
                            <div class="modal fade" id="ComprobanteSubidoBien" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
-                                    <form id="dataError">
+                                    <form >
                                         <div class="modal-header"  style="background-color: green;" >
                                             <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">LISTO <span class="glyphicon glyphicon-ok"></span> </i></h4>
                                         </div>
@@ -556,54 +534,73 @@
                                             <p style="margin: 20px;"> Tu comprobante ha sido recibido con exito</p>
                                         </div>
                                         <div class="modal-footer " style="background-color: green;" >
-                                            <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                                            <button type="button" id="cerrarModalBien" class="btn" data-dismiss="modal">Cerrar</button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                        </div>
-                             
+                            <!-- modal error -->
+                            
+                            <div class="modal fade" id="Error" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <form >
+                                            <div class="modal-header"  style="background-color: red;" >
+                                                <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">ATENCIÓN! <span class="glyphicon glyphicon-ban-circle"></span>  </i></h4>
+                                            </div>
+                                            <div class="moda-body text-center">
+                                                <p style="margin: 20px;">NO POSEE NINGUN ARTICULO EN SU CARRITO</p>
+                                            </div>
+                                            <div class="modal-footer " style="background-color: red;" >
+                                                <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                               </div>
 
+                             
+    
        <!--Jquery script-->
-       <script type="text/javascript" src="JS/Jquery.js"></script>
+       
+    <script type="text/javascript" src="JS/Jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
        <!--Script-->
-       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   
     <!--Scrips de boopstrap-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!--Maps-->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script type="text/javascript" src="JS/lightslider.js"></script>
-    <script src="js/publicacion.js"></script>
-    <script src="js/publicacion2.js"></script>
+    <!--Maps--> 
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> 
+    <script src="JS/publicacion.js"></script>
+    <script src="JS/publicacion2.js"></script>
+
+   
+      
     <script>
-                      // JavaScript Document
-$(document).ready(function() {
-    $('#autoWidth').lightSlider({
-        autoWidth:true,
-        loop:true,
-        onSliderLoad: function() {
-            $('#autoWidth').removeClass('cS-hidden');
-        } 
-    });  
-  });
-    var map = L.map('mapita').setView([-34.601528, -58.375111], 20);
+        
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+function $(element_id)
+{
+    return document.getElementById(element_id);
+ 
+}
+function setSrc(element_id, src)
+{
+    console.log("funciona");
+    var element = $(element_id);
+    element.src = src;
+}
 
-L.marker([-34.601528, -58.375111], 20).addTo(map)
-    .bindPopup('Galeria Jardin,Local 429'   )
-    .openPopup();
-
-  
     </script>
-       <!-- Firebase -->
+        <!-- Firebase -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
