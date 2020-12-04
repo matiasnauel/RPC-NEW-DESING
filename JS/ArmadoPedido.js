@@ -171,12 +171,12 @@ function completarReserva()
         success: function(data) {
             EnviarEmail();
             localStorage.removeItem("ventaID");
-            localStorage.removeItem("Productos");
+            localStorage.removeItem("productos");
             
         },
         error: function(error) {
             console.log(error.message);
-            alert('error');
+            alert(error.message);
         }
 
 
@@ -198,6 +198,35 @@ function EnviarEmail(){
 
         success: function(data) {
             alert("se ha enviado un email a su casilla con las instrucciónes para finalizar con el proceso de compra! ");
+            var div  = document.createElement("div");
+            div.id ="errorImagen";
+            if($("#errorImagen").length > 0 ){
+              $("#ErrorSeleccionarImagen").modal("show");
+            }
+            else{
+              div.innerHTML = `
+                   
+              <div class="modal fade " id="ErrorSeleccionarImagen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <form id="dataError">
+                          <div class="modal-header"  style="background-color: rgb(149, 189, 226);" >
+                              <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">ATENCIÓN! <span class="glyphicon glyphicon-ban-circle"></span>  </i></h4>
+                          </div>
+                          <div class="moda-body text-center">
+                              <p style="margin: 20px;">se ha enviado un email a su casilla con las instrucciónes para finalizar con el proceso de compra!</p>
+                          </div>
+                          <div class="modal-footer " style="background-color:rgb(149, 189, 226);" >
+                              <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+             </div>
+             `
+             document.body.insertBefore(div,null);
+             $("#ErrorSeleccionarImagen").modal("show");
+            }
             localStorage.removeItem("productos");
             localStorage.removeItem("ventaID");
             location.href="index.html";

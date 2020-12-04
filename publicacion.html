@@ -612,6 +612,22 @@
 
 
 </script>
+<script>
+        
+
+    function $(element_id)
+    {
+        return document.getElementById(element_id);
+     
+    }
+    function setSrc(element_id, src)
+    {
+        console.log("funciona");
+        var element = $(element_id);
+        element.src = src;
+    }
+    
+        </script>
 <script src="js/firebase.js"></script>
 </body>
 </html>
