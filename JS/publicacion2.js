@@ -12,6 +12,44 @@ window.onload = function traerProductos() {
      }) 
         
       
+fetch("https://localhost:44381/api/Categoria/TraerCategorias")
+.then(function(response) {
+    return response.json();
+})
+.then(function(data) {
+  var desplegable=document.getElementById("desplegable");
+  data.forEach(item=>{
+    desplegable.innerHTML+=`
+    <li><a onclick="ProductosCategoria('${item}');" >${item}<span
+    class="glyphicon glyphicon-chevron-right" ></span></a></li>
+    `;
+
+
+  })
+    
+})
+.catch (error =>{
+console.log(error);
+}) 
+fetch("https://localhost:44381/api/Categoria/TraerCategorias")
+.then(function(response) {
+    return response.json();
+})
+.then(function(data) {
+  var desplegable=document.getElementById("categoriaMobile");
+  data.forEach(item=>{
+    desplegable.innerHTML+=`
+           <li><a onclick="ProductosCategoria('${item}');" >${item}<span
+           class="glyphicon glyphicon-chevron-right" ></span></a></li>
+           `;
+
+
+  })
+    
+})
+.catch (error =>{
+console.log(error);
+}) 
 
 }
 
@@ -496,26 +534,6 @@ function ProductosCategoria(valor2)
 
 }
 
-fetch("https://localhost:44381/api/Categoria/TraerCategorias")
-.then(function(response) {
-    return response.json();
-})
-.then(function(data) {
-  var desplegable=document.getElementById("desplegable");
-  data.forEach(item=>{
-    desplegable.innerHTML+=`
-    <li><a onclick="ProductosCategoria('${item}');" >${item}<span
-    class="glyphicon glyphicon-chevron-right" ></span></a></li>
-    `;
-
-
-  })
-    
-})
-.catch (error =>{
-console.log(error);
-}) 
-
 
 function Comentar()
 {
@@ -625,3 +643,116 @@ function removeItemFromArr ( arr, item ) {
 }
 
 
+
+function verProductoscarritomobile(){
+  var objeto = {
+    productos: JSON.parse(localStorage.getItem("productos"))
+    
+}
+ fetch("https://localhost:44368/api/Carro/TraerProductosValorCantidadCarrito", {
+  'method': 'POST',
+  'mode': 'cors',
+ 'body': JSON.stringify(objeto),
+  'headers': {
+      'Content-Type': 'application/json',
+      
+  },
+  })
+  .then(function(response) {
+    return response.json();
+   })
+  .then(function(data) {
+    document.getElementById("btnModal").dataset.target ="#null";
+    var modal = document.getElementById("tvesModal").style.display="block";
+    var contenedorcarrito=document.getElementById("SlideCarrito");
+ 
+    contenedorcarrito.innerHTML="";
+    var valor=data.valorcarrito;
+    data.productos.forEach(item=>{  
+   
+      contenedorcarrito.innerHTML+=`
+      <div class="productos-carrito">
+      <div class="site-image">
+          <img src="${item.imagenes[0]}" alt="">
+      </div>
+      <div class="site-information">
+          <p>${item.nombre}</p> 
+          <span>$${item.precio}x${item.cantidad}</span>
+      </div>
+      <div style="align-self: center;">
+     <button class="DescartarArticulo" onclick="QuitarProductoMobil(${item.id},${item.precio},${data.valorcarrito});">X</button> 
+      </div>
+      </div>
+      
+      
+      `;
+
+
+      });
+    contenedorcarrito.innerHTML+= ` 
+    <div class="Total">
+    <p>TOTAL:$${valor}</p>
+    </div>        
+    `;
+    document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${data.valorcarrito} `;
+    localStorage.setItem("productosTotalCarrito",data.valorcarrito);
+    contenedorcarrito.innerHTML+= `
+    <div class="OpcionCarrito">
+      <button class="vaciar" onclick="VaciarCarrito();">VACIAR CARRITO</button>
+      <button class="comprar" onclick="realizarreserva();">RESERVAR</button>
+    </div>
+    ` ; 
+  })
+  .catch(err => console.log('ERROR: ' + err));
+}
+
+document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
+ 
+
+function QuitarProductoMobil(productoid,precio,valor){
+
+  var encontrado = false;
+  var productosLocal = JSON.parse(localStorage.getItem("productos"));
+ 
+
+  productosLocal.forEach(item=>{
+      if(productoid == item && encontrado==false){
+          if(productosLocal.length == 1){
+       
+            // eliminar un 1 elemento desde el indice 3
+            // productosloca es el indice y 1 es es la cantidad de elementos a eliminar
+            productosLocal.splice(0,1);
+            
+            localStorage.setItem("productos",JSON.stringify(productosLocal));
+            encontrado = true;
+        
+            verproductoscarrito();
+            document.getElementById("SlideCarrito").style.display ="none";
+            
+            document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
+            localStorage.removeItem("productostotalCantidad");
+            localStorage.removeItem("productosTotalCarrito");
+            carritoValores();
+        
+          }
+          else{
+         
+            
+            removeItemFromArr(productosLocal,productoid);
+            localStorage.setItem("productos",JSON.stringify(productosLocal));
+            document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${valor} `;
+            localStorage.setItem("productosTotalCarrito",valor);
+            encontrado = true;
+          
+            verproductoscarritomobil();
+            
+          }
+      
+          
+      }
+     
+     
+     
+  })
+  return false;
+}

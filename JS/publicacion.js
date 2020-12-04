@@ -42,6 +42,7 @@ CategoriaBurger.addEventListener('click',e=>{
 
 //   Carrito
 function openNavCarrito() {
+ 
     document.getElementById("SlideCarrito").style.width = "100%";
     document.getElementById("mapita").style.zIndex =  "-1";
     document.getElementById("redline").style.zIndex =" -1";

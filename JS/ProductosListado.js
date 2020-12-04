@@ -141,6 +141,33 @@ window.onload = function()
    
         });
 
+        $.ajax({
+            type: "GET",
+            url: "https://localhost:44381/api/Categoria/TraerCategorias",
+            dataType: "json",
+      
+            success: function(data) {
+                var desplegable=document.getElementById("categoriaMobile");
+                $.each(data, function(i, item) {
+                 desplegable.innerHTML+=`
+                 <li><a onclick="ProductosCategoria('${item}');" >${item}<span
+                 class="glyphicon glyphicon-chevron-right" ></span></a></li>
+                 `;
+      
+      
+                });
+      
+      
+      
+            },
+            error: function(error) {
+                console.log(error.message);
+               
+            }
+      
+       
+            });
+
 
     
 
@@ -176,6 +203,20 @@ localStorage.setItem(`${contenido}`, `${valorcontenido}`);
 location.href="ProductosListado.html";
 });
 
+// buscador mobile
+var buscador= document.getElementById("form2");
+buscador.addEventListener('submit',function(e) {
+  e.preventDefault();
+  var filtro=document.getElementById("SearchMain2");
+  console.log(filtro.value);
+  var parametro = "tipo";
+  var valor = "Buscador"
+  localStorage.setItem(`${parametro}`, `${valor}`);   
+  var contenido = "contenido";
+  var valorcontenido = filtro.value;
+  localStorage.setItem(`${contenido}`, `${valorcontenido}`);
+  location.href="ProductosListado.html";
+});
 
 var abrirsectorcomprobante=document.getElementById("abrirsectorcomprobante");
 abrirsectorcomprobante.addEventListener('click',function(e) {
@@ -635,3 +676,137 @@ function QuitarProducto(productoid,cantidad,valor){
     }
   }
  
+
+  function verproductoscarritomobil()
+  {
+  
+  
+      
+      if(localStorage.getItem("productos")==null || JSON.parse(localStorage.getItem("productos")) == "")
+      {
+          
+         
+          $('#Error').modal('show');
+          
+      }
+      
+      else{
+      
+      var objeto = {
+          productos: JSON.parse(localStorage.getItem("productos"))
+          
+      }
+      $.ajax({
+          type: "POST",
+          data: JSON.stringify(objeto),
+          url: "https://localhost:44368/api/Carro/TraerProductosValorCantidadCarrito",
+          dataType: "JSON",
+          contentType: "application/json",
+  
+          success: function(data) {
+              
+              var contenedorcarrito=document.getElementById("SlideCarrito");
+              contenedorcarrito.style.display="block";
+              contenedorcarrito.innerHTML="";
+              var valor=data.valorcarrito;
+              contenedorcarrito.innerHTML = `
+              <a href="javascript:void(0)" class="closebtn2" onclick="closeNavCarrito()">&times;</a>
+              <h2 style="padding-bottom: 20px; color: white;">Mi Carrito</h2>
+              `;
+              $.each(data.productos, function(i, item) 
+              {
+             
+              contenedorcarrito.innerHTML+=`
+              <div class="productos-carrito">
+              <div class="site-image">
+                  <img src="${item.imagenes[0]}" alt="">
+              </div>
+              <div class="site-information">
+                  <p>${item.nombre}</p> 
+                  <span>$${item.precio}x${item.cantidad}</span>
+              </div>
+              <div style="align-self: center;">
+             <button class="DescartarArticulo" onclick="QuitarProductoMobil(${item.id},${item.precio},${data.valorcarrito});">X</button> 
+              </div>
+              </div>
+              
+              
+              `;
+  
+  
+              });
+            contenedorcarrito.innerHTML+= ` 
+            <div class="Total">
+            <p>TOTAL:$${valor}</p>
+            </div>        
+            `;
+            document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${data.valorcarrito} `;
+            localStorage.setItem("productosTotalCarrito",data.valorcarrito);
+            contenedorcarrito.innerHTML+= `
+            <div class="OpcionCarrito" style="margin-top:1rem;">
+              <button class="vaciar" onclick="VaciarCarrito();">VACIAR CARRITO</button>
+              <button class="comprar" onclick="realizarreserva();">RESERVAR</button>
+            </div>
+            ` ; 
+  
+          },
+          error: function(error) {
+              console.log(error.message);
+             
+          }
+  
+  
+      });
+  }
+  
+  }
+  document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
+   
+  
+  function QuitarProductoMobil(productoid,precio,valor){
+  
+    var encontrado = false;
+    var productosLocal = JSON.parse(localStorage.getItem("productos"));
+   
+  
+    productosLocal.forEach(item=>{
+        if(productoid == item && encontrado==false){
+            if(productosLocal.length == 1){
+         
+              // eliminar un 1 elemento desde el indice 3
+              // productosloca es el indice y 1 es es la cantidad de elementos a eliminar
+              productosLocal.splice(0,1);
+              
+              localStorage.setItem("productos",JSON.stringify(productosLocal));
+              encontrado = true;
+          
+              verproductoscarrito();
+              document.getElementById("SlideCarrito").style.display ="none";
+              
+              document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
+              localStorage.removeItem("productostotalCantidad");
+              localStorage.removeItem("productosTotalCarrito");
+              carritoValores();
+          
+            }
+            else{
+           
+              
+              removeItemFromArr(productosLocal,productoid);
+              localStorage.setItem("productos",JSON.stringify(productosLocal));
+              document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${valor} `;
+              localStorage.setItem("productosTotalCarrito",valor);
+              encontrado = true;
+            
+              verproductoscarritomobil();
+              
+            }
+        
+            
+        }
+       
+       
+       
+    })
+    return false;
+  }
