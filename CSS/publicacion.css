@@ -496,9 +496,8 @@ html {
   
   @media (min-width: 360px) {
     .productos-carrito {
-      display: flex;
-      justify-content: space-around;
-      justify-items: center;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
       border: 1px solid white;
       margin-bottom: 10px;
     }
@@ -517,6 +516,15 @@ html {
       width: 50%;
       
   }
+  .site-image1{
+    justify-self: center;
+    width: 50%;
+    
+  }
+  .site-image1 img{
+     margin-top: 0;
+    
+  }
   .site-image img {
      margin-top: 0;
      padding-left: 3px;
@@ -528,7 +536,12 @@ html {
     margin-top: 0;
     padding-left: 0px;
   }
- 
+  .site-information1 {
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+  }
   .site-information{
       display: grid;
       grid-template-columns: repeat(1,1fr);
@@ -762,7 +775,13 @@ html {
     text-overflow: ellipsis;
    
   }
-
+  .site-information1 span {
+    margin: 0 !important;
+    position: absolute !important;
+    padding: 0px !important;
+    padding-top: 32px !important;
+    padding-left: 0px !important;
+}
   .DescartarArticulo {
     position: relative;
     width: 20%;
@@ -792,14 +811,7 @@ html {
         outline-color: var(--textNone);
     }
   
-   .site-information span{
-       margin: 0!important;
-       position: absolute!important;
-       padding: 0px!important;
-       padding-top: 32px!important;
-       padding-left: 7px!important;
-    
-   }
+
    .site-information-carrito p {
        padding-top: 30px;
    }
