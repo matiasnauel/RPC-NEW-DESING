@@ -106,6 +106,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         localStorage.removeItem("Name_User");
         localStorage.removeItem("ventdaID");
         localStorage.removeItem("clienteID");
+        localStorage.setItem("ventaID",data.id);
 
         if(localStorage.getItem("admin") != undefined){
             localStorage.removeItem("admin");

@@ -214,7 +214,9 @@ if(JSON.parse(localStorage.getItem("productos") != null)){
 .then(function(data) {
   data.productos.forEach(item=>{
     document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${data.valorcarrito} `;
+    document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
     localStorage.setItem("productosTotalCarrito",data.valorcarrito);
+ 
   })
   
 })
@@ -253,7 +255,9 @@ else
 
     data.productos.forEach(item=>{
       document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${data.valorcarrito} `;
+      document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
       localStorage.setItem("productosTotalCarrito",data.valorcarrito);
+   
     })
     
   })
@@ -332,7 +336,7 @@ function verproductoscarrito()
      })
     .then(function(data) {
       document.getElementById("btnModal").dataset.target ="#null";
-      var modal = document.getElementById("tvesModal").style.display="block";
+  
       var contenedorcarrito=document.getElementById("contenedorcarrito");
    
       contenedorcarrito.innerHTML="";
@@ -611,10 +615,12 @@ function QuitarProducto(productoid,cantidad,valor){
 }
 
 function VaciarCarrito(){
-  localStorage.removeItem("productos");
+
+  localStorage.setItem("productos","[]");
   localStorage.removeItem("productosTotalCarrito");
   localStorage.removeItem("productostotalCantidad");
   document.getElementById("contenedorcarrito").innerHTML="";
+  document.getElementById("cantidadCarrito").innerHTML ="(0) $0,00";
   var modal = document.getElementById("tvesModal").style.display="none";
   location.reload();
   return false;
@@ -631,7 +637,7 @@ function carritoValores(){
 }
 document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${JSON.parse(localStorage.getItem("productosTotalCarrito"))} `;
 
-
+carritoValores();
 
 // remover un archivo de un array
 function removeItemFromArr ( arr, item ) {
@@ -645,6 +651,16 @@ function removeItemFromArr ( arr, item ) {
 
 
 function verProductoscarritomobile(){
+  // document.getElementById("SlideCarrito").dataset.target ="#null";
+  if(localStorage.getItem("productos")==null || JSON.parse(localStorage.getItem("productos")) == "")
+  {
+  
+   
+      document.getElementById("carrito-sub-menu").dataset.target ="#Error";
+  }
+ 
+
+  else{
   var objeto = {
     productos: JSON.parse(localStorage.getItem("productos"))
     
@@ -662,20 +678,24 @@ function verProductoscarritomobile(){
     return response.json();
    })
   .then(function(data) {
-    document.getElementById("btnModal").dataset.target ="#null";
+    document.getElementById("SlideCarrito").dataset.target ="#null";
     var modal = document.getElementById("tvesModal").style.display="block";
     var contenedorcarrito=document.getElementById("SlideCarrito");
  
     contenedorcarrito.innerHTML="";
     var valor=data.valorcarrito;
+    contenedorcarrito.innerHTML = `
+    <a href="javascript:void(0)" class="closebtn2" onclick="closeNavCarrito()">&times;</a>
+    <h2 style="padding-bottom: 20px; color: white;">Mi Carrito</h2>
+    `;
     data.productos.forEach(item=>{  
    
       contenedorcarrito.innerHTML+=`
       <div class="productos-carrito">
-      <div class="site-image">
+      <div class="site-image1">
           <img src="${item.imagenes[0]}" alt="">
       </div>
-      <div class="site-information">
+      <div class="site-information1">
           <p>${item.nombre}</p> 
           <span>$${item.precio}x${item.cantidad}</span>
       </div>
@@ -686,7 +706,7 @@ function verProductoscarritomobile(){
       
       
       `;
-
+     
 
       });
     contenedorcarrito.innerHTML+= ` 
@@ -694,7 +714,7 @@ function verProductoscarritomobile(){
     <p>TOTAL:$${valor}</p>
     </div>        
     `;
-    document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${data.valorcarrito} `;
+    
     localStorage.setItem("productosTotalCarrito",data.valorcarrito);
     contenedorcarrito.innerHTML+= `
     <div class="OpcionCarrito">
@@ -702,11 +722,12 @@ function verProductoscarritomobile(){
       <button class="comprar" onclick="realizarreserva();">RESERVAR</button>
     </div>
     ` ; 
+
   })
   .catch(err => console.log('ERROR: ' + err));
+  }
 }
 
-document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
  
 
 function QuitarProductoMobil(productoid,precio,valor){
@@ -726,14 +747,13 @@ function QuitarProductoMobil(productoid,precio,valor){
             localStorage.setItem("productos",JSON.stringify(productosLocal));
             encontrado = true;
         
-            verproductoscarrito();
-            document.getElementById("SlideCarrito").style.display ="none";
             
-            document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
+         
             localStorage.removeItem("productostotalCantidad");
             localStorage.removeItem("productosTotalCarrito");
             carritoValores();
-        
+            closeNavCarrito();
+            document.getElementById("itemCarrito").innerHTML =  `(0) `;
           }
           else{
          
@@ -742,9 +762,10 @@ function QuitarProductoMobil(productoid,precio,valor){
             localStorage.setItem("productos",JSON.stringify(productosLocal));
             document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${valor} `;
             localStorage.setItem("productosTotalCarrito",valor);
+            document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
             encontrado = true;
           
-            verproductoscarritomobil();
+            verProductoscarritomobile();
             
           }
       
@@ -756,3 +777,4 @@ function QuitarProductoMobil(productoid,precio,valor){
   })
   return false;
 }
+document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;

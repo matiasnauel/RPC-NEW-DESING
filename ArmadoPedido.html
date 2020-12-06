@@ -42,11 +42,11 @@
 }
 </style>
 <body>
-    <div class="site-header">
+    <div class="site-header" >
     
     
         <header class="header" id="HeaderFloat">
-            <div class="main-header contenedor-header" id="mainHeader">
+            <div class="main-header contenedor-header" id="mainHeader" >
                 <div class="logo-main">
                     <a href="index.html"><img id="logomain" src="img/logoajjaja-removebg-preview.ico" alt=""></a>
                 </div>
@@ -71,12 +71,14 @@
                             </ul>
                         </li>
                     </div>
-                    <div id="config" style="color:white; cursor: pointer; display: none;">
+                
+                        <div id="config" style="color:white; cursor: pointer; display: none;">
 
-                    </div>
-                    <div class="icons-shopping-card" id="icons-shooping-card" onclick="verproductoscarrito();">
+                        </div>
+                  
+                    <div class="icons-shopping-card" id="icons-shooping-card" onclick="verproductoscarrito();" style="display: none;">
                         <img src="img/carrito-de-compras.png" alt="" id="btnModal" id="carritoComprasBTN">
-                        <span id="cantidadCarrito">(0)<span id="precioTotal"></span>$0,00</span>              
+                        <span id="cantidadCarrito">(0) $0,00</span>            
                          
                             <!-- Modal -->
                             <div class="modal fade" id="myModal2" role="dialog" >
@@ -115,49 +117,12 @@
                 </div>
                 <div class="sub-menu">
                     <div class="carrito-sub-menu">
-                        <div id="SlideCarrito" class="slideNavCarrito"> 
-                            <a href="javascript:void(0)" class="closebtn2" onclick="closeNavCarrito()">&times;</a>
-                            <h2 style="padding-bottom: 20px; color: white;">Mi Carrito</h2>
-                            <div class="productos-carrito">
-                                <div class="site-image">
-                                    <img src="img/auricular4.jpg" alt="">
-                                </div>
-                                <div class="site-information">
-                                    <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
-                                    <span>4,599x1</span>
-                                    <button class="DescartarArticulo">X</button> 
-                                </div>
-                            </div>
-                            <div class="productos-carrito">
-                                <div class="site-image">
-                                    <img src="img/auricular4.jpg" alt="">
-                                </div>
-                                <div class="site-information">
-                                    <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
-                                    <span>4,599x1</span>
-                                    <button class="DescartarArticulo">X</button> 
-                                </div>
-                            </div>
-                            <div class="productos-carrito">
-                                <div class="site-image">
-                                    <img src="img/auricular4.jpg" alt="">
-                                </div>
-                                <div class="site-information">
-                                    <p>Auricular Trust Gaming/auri C/mic. Gxt 310d</p> 
-                                    <span>4,599x1</span>
-                                    <button class="DescartarArticulo">X</button> 
-                                </div>
-                            </div>
-                            <div class="Total">
-                                <p>TOTAL: $20.000</p>
-                            </div>
-                            <div class="OpcionCarrito">
-                                <button class="vaciar">VACIAR CARRITO</button>
-                                <button class="comprar">COMPRAR</button>
-                            </div>
+                        <div id="SlideCarrito" class="slideNavCarrito" style="display: none;"> 
+                            
+                       
                         
                         </div>
-                        <img src="img/carrito-de-compras.png" alt="" style="width: 70%;" id="CarritoSubMenu"><span id="itemCarrito"  onclick="openNavCarrito()" >(0)</span>
+                        <img src="img/carrito-de-compras.png" alt="" style="width: 70%;" id="CarritoSubMenu"><span id="itemCarrito" onclick="openNavCarrito();verproductoscarritomobil();" >(0)</span>
                       
                     </div>
               
@@ -169,15 +134,15 @@
             </div>
     
         </header>
-        <div id="redline">
-    
+        <div id="redline" >
+           
         </div>
         <!-- Menu Burger mobile -->
         <div class="menu-burger" id="menu-burger">
             <li>
-                <form>
+                <form id="form2">
                     <div class="input-group" style="border: 2px solid black;">
-                      <input type="text" class="form-control" placeholder="Buscar" style="border-radius: 0px;">
+                      <input type="text" class="form-control" placeholder="Buscar" id="SearchMain2" style="border-radius: 0px;">
                       <div class="input-group-btn">
                         <button class="btn btn-default" type="submit" style="border-radius: 0px; background-color: red;">
                           <i class="glyphicon glyphicon-search" style="border-radius: 0px; color: white;"></i>
@@ -188,10 +153,11 @@
             </li>
             <li><a href="#" id="IniciarSesiónMobile" data-toggle="modal" data-target="#Login" class="login-out"><i class="glyphicon glyphicon-log-in"></i> Iniciar Sesión</a></li>
             <li><a href="#" id="misCategoriasMobile" class="misCategoriasMobile"><i class="glyphicon glyphicon-bookmark"></i> Mis Categorias</a>
-                <ul id="categoriaMobile" style="display: none;">
-                    <li><a href="#">Notebooks</a> </li>
-                    <li><a href="">Procesadores</a> </li>
-                    <li><a href="">Motherboard</a> </li>
+                <ul id="categoriaMobile" style="display: none; margin: 0;
+                padding: 0;
+                border: 0;
+                text-align: left;">
+                    
                 </ul>
             </li>
             <li><a href="#" style="display: none;" class="login-in"  data-toggle="modal"  data-target="#subirArchivo" ><i class="fa fa-folder"></i> Subir Comprobante</a></li>

@@ -110,3 +110,5 @@ var siguiente = document.getElementById("siguiente");
 atras.addEventListener('click', function(e){
     console.log("hola");
 })
+
+

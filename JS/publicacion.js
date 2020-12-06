@@ -43,9 +43,51 @@ CategoriaBurger.addEventListener('click',e=>{
 //   Carrito
 function openNavCarrito() {
  
-    document.getElementById("SlideCarrito").style.width = "100%";
-    document.getElementById("mapita").style.zIndex =  "-1";
-    document.getElementById("redline").style.zIndex =" -1";
+    if(localStorage.getItem("productos")!=null){
+  
+      // document.getElementById("carrito-sub-menu").style.display ="inline";
+      document.getElementById("carrito-sub-menu").dataset.target ="#null";
+      document.getElementById("SlideCarrito").style.width = "100%";
+      document.getElementById("mapita").style.zIndex =  "-1";
+      document.getElementById("redline").style.zIndex =" -1";
+  
+    }
+    else{
+
+      var div  = document.createElement("div");
+      div.id ="errorImagen";
+      var length = (div.textContent || div.innerText ||
+        div.innerHTML).length;
+      if(length > 0 ){
+        document.getElementById("carrito-sub-menu").dataset.target ="#Error";
+     
+      }
+      else{
+        div.innerHTML = `
+             
+        <div class="modal fade " id="ErrorSeleccionarImagen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="dataError">
+                    <div class="modal-header"  style="background-color: red;" >
+                        <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">ATENCIÓN! <span class="glyphicon glyphicon-ban-circle"></span>  </i></h4>
+                    </div>
+                    <div class="moda-body text-center">
+                        <p style="margin: 20px;">No se puede agregar esa cantidad al carrito!</p>
+                    </div>
+                    <div class="modal-footer " style="background-color: red;" >
+                        <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+       </div>
+       `
+       document.body.insertBefore(div,null);
+       document.getElementById("carrito-sub-menu").dataset.target ="#Error";
+      
+      }
+    }
 
   }
   
@@ -56,7 +98,7 @@ function openNavCarrito() {
   }
 
 //   ModalCarrito
-if(document.getElementById("btnModal")  && localStorage.getItem("productos")!=null ){
+if(document.getElementById("btnModal")  && localStorage.getItem("productos")!=null && localStorage.getItem("productos")!= undefined){
     var modal = document.getElementById("tvesModal");
     var btn = document.getElementById("btnModal");
     var span = document.getElementsByClassName("closed")[0];
@@ -144,6 +186,22 @@ localStorage.setItem(`${contenido}`, `${valorcontenido}`);
 location.href="ProductosListado.html";
 });
 
+
+// buscadorMobile
+var buscador= document.getElementById("form2");
+buscador.addEventListener('submit',function(e) {
+  e.preventDefault();
+  var filtro=document.getElementById("SearchMain2");
+  console.log(filtro.value);
+  var parametro = "tipo";
+  var valor = "Buscador"
+  localStorage.setItem(`${parametro}`, `${valor}`);   
+  var contenido = "contenido";
+  var valorcontenido = filtro.value;
+  localStorage.setItem(`${contenido}`, `${valorcontenido}`);
+  location.href="ProductosListado.html";
+});
+
 function ProductosCategoria(valor2) 
 {
     var parametro = "tipo";
@@ -154,11 +212,7 @@ function ProductosCategoria(valor2)
     localStorage.setItem(`${contenido}`, `${valorcontenido}`);
     location.href="ProductosListado.html";  
     
-    //acordarse de sacar esto
-    var productosID = [1,1,1,1,2,2,2,3,4,4,4,4,1,3];
-    localStorage.setItem("productos", JSON.stringify(productosID));
-    localStorage.setItem("clienteID", 1);
-    localStorage.setItem("publicacionID",1);
+
 }
 function carritoValores(){
   if(localStorage.getItem("productostotalCantidad") != null &&  localStorage.getItem("productosTotalCarrito")!= null){
