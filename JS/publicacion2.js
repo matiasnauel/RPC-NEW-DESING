@@ -561,8 +561,23 @@ function Comentar()
       return response.json();
      })
     .then(function(data) {
-   
-      location.reload()
+      data.comentariosyrespuesta.forEach(item => {
+        comentariosyrespuesta.innerHTML+=`
+        <li id="comentariosyrespuestas">
+        <div class="comment-main-level">
+        <!-- Avatar -->
+        <div class="comment-avatar"><img src="${item.clienteIMAGEN}" alt=""></div>
+        <!-- Contenedor del Comentario -->
+        <div class="comment-box">
+            <div class="comment-head">
+                <h6 class="comment-name by-author"><a >x</a></h6>
+            </div>
+            <div class="comment-content">
+            ${item.comentario} 
+            </div>
+        </div>
+      </div>`+sihayrespuesta(item.respuesta)+`</li>
+       `;
     })
     .catch(err => console.log('ERROR: ' + err));
 }
