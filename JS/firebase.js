@@ -12,8 +12,9 @@ IniciarGoogle.addEventListener('click', e=>{
    //Ejecuto auth con signwhit para mostrar una ventana de ingreso a google
    auth.signInWithPopup(provider)
    .then(result=>{
-       
-       $('#myModal2').modal('hide');
+    
+    console.log("entraste akaaaa1");
+       ValidarUsuarioBack(result.email,result.photoURL);
    })
    .catch(err=>{
        console.log(err)
@@ -32,7 +33,8 @@ IniciarGoogleMobile.addEventListener('click', e=>{
    auth.signInWithPopup(provider)
    .then(result=>{
        
-       $('#Login').modal('hide');
+        console.log("entraste akaaaa");
+       ValidarUsuarioBack(result.email,result.photoURL);
    })
    .catch(err=>{
        console.log(err)
@@ -85,7 +87,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       loginCheck(user)
       SaveDateUser(user);
       userAdd();
-      ValidarUsuarioBack(email,photoURL);
+     
     } else {
       // User is signed out.
       // ...
@@ -115,7 +117,7 @@ firebase.auth().onAuthStateChanged(function(user) {
             location.href ="loginRPC.html";
         }
       }).catch(function(error) {
-        alert(err);
+        console.log(error)
       });
     
   })
@@ -127,7 +129,7 @@ firebase.auth().onAuthStateChanged(function(user) {
        firebase.auth().signOut().then(function() {
          window.location.href ="index.html";
        }).catch(function(error) {
-         alert(err);
+         console.log(error);
        });
      
    })

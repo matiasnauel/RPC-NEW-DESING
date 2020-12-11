@@ -132,17 +132,6 @@ if(document.getElementById("btnModal")  && localStorage.getItem("productos")!=nu
     }
 }
 
-var map = L.map('mapita').setView([-34.601528, -58.375111], 20);
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-
-L.marker([-34.601528, -58.375111], 20).addTo(map)
-    .bindPopup('Galeria Jardin,Local 429')
-    .openPopup();
-
-
 
 
 function openPage(pageName,elmnt,color) {

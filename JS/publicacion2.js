@@ -218,7 +218,7 @@ if(JSON.parse(localStorage.getItem("productos") != null)){
     document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${data.valorcarrito} `;
     document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
     localStorage.setItem("productosTotalCarrito",data.valorcarrito);
- 
+   
   })
   
 })
@@ -307,11 +307,13 @@ else{
 
 function verproductoscarrito()
 { 
+ 
   document.getElementById("btnModal").dataset.target ="#null";
   if(localStorage.getItem("productos")==null || JSON.parse(localStorage.getItem("productos")) == "")
   {
     var modal = document.getElementById("tvesModal").style.display="none";
-
+  
+    
     document.getElementById("btnModal").dataset.target ="#Error";
 
    
@@ -338,6 +340,7 @@ function verproductoscarrito()
      })
     .then(function(data) {
       document.getElementById("btnModal").dataset.target ="#null";
+      document.getElementById("tvesModal").style.display = "block";
   
       var contenedorcarrito=document.getElementById("contenedorcarrito");
    
@@ -541,56 +544,7 @@ function ProductosCategoria(valor2)
 }
 
 
- function Comentar()
-{
-  document.getElementById("comentarid").dataset.target = "#null";
-  if( localStorage.getItem("clienteID") == undefined ){
-        document.getElementById("comentarid").dataset.target = "#IngreseCliente";
-  }
-  else{
-    var comentartext = document.getElementById("comentarTextid").value;
-    var objeto = {
-        comentario: comentartext,
-        clienteID : localStorage.getItem("clienteID"),
-        publicacionID : localStorage.getItem("publicacionID")
-      
-     }
-     fetch("https://localhost:44325/api/ComentarioPublicacion/InsertarComentarioPublicacion", {
-      'method': 'POST',
-      'mode': 'cors',
-     'body': JSON.stringify(objeto),
-      'headers': {
-          'Content-Type': 'application/json',
-          
-      },
-      })
-      .then(function(response) {
-        return response.json();
-       })
-      .then(function(data) {
-      
-          comentariosyrespuesta.innerHTML+=`
-          <li id="comentariosyrespuestas">
-          <div class="comment-main-level">
-          <!-- Avatar -->
-          <div class="comment-avatar"><img src="${item.clienteIMAGEN}" alt=""></div>
-          <!-- Contenedor del Comentario -->
-          <div class="comment-box">
-              <div class="comment-head">
-                  <h6 class="comment-name by-author"><a >x</a></h6>
-              </div>
-              <div class="comment-content">
-              ${item.comentario} 
-              </div>
-          </div>
-        </div>`+sihayrespuesta(item.respuesta)+`</li>
-         `;
-    
-    
-    })
-  }
-  
-}
+
 // quitar elemento de un carrito 
 
 function QuitarProducto(productoid,valor){
@@ -612,7 +566,7 @@ function QuitarProducto(productoid,valor){
         
             verproductoscarrito();
 
-            localStorage.removeItem("productostotalCantidad");
+           
             localStorage.removeItem("productosTotalCarrito");
             carritoValores();
         
@@ -657,12 +611,12 @@ function carritoValores(){
   }
   else{
     document.getElementById("cantidadCarrito").innerHTML ="(0) $0,00";
-    localStorage.removeItem("productos");
+   
   }
 }
-document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${JSON.parse(localStorage.getItem("productosTotalCarrito"))} `;
 
-carritoValores();
+
+
 
 // remover un archivo de un array
 function removeItemFromArr ( arr, item ) {
@@ -802,4 +756,4 @@ function QuitarProductoMobil(productoid,precio,valor){
   })
   return false;
 }
-document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
+
