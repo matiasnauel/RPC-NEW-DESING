@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-md-2 " style="margin-bottom: 20px;">
                     <div class="dropdown crear ">
-                        <button class="btn btn-default dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <button class="btn btn-default dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled>
                           Crear Contenido
                         </button>
 
@@ -72,21 +72,45 @@
             <div class="row">
                 <div class="col-md-3">
                     <ul class="list-group ">
-                        <a href="panel.html" class="list-group-item  color-principal active"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de control <span class="badge"></span></a>
-                        <a href="panelProductos.html"  class="list-group-item"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Productos<span class="badge" id="cantidad">0</span></a>
+                        <a href="panel.html" class="list-group-item  color-principal "><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de control <span class="badge"></span></a>
+                        <a href="panelProductos.html" class="list-group-item"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Productos<span class="badge" id="cantidad">0</span></a>
                         <a   disabled class="list-group-item "><span class="glyphicon glyphicon-film"></span> Banners <span class="badge" id="cantidad2">0</span></a >
                         <a  href="panelVentas.html" class="list-group-item"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ventas <span class="badge" id="cantidad3">0</span></a>
                         <a  href="panelDestacados.html" class="list-group-item"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Destacados <span class="badge" id="cantidad4">0</span></a>
                         <a  href="panelComentarios.html" class="list-group-item"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Comentarios <span class="badge" id="cantidad5">0</span></a>
                         <a  href="comprobante.html" class="list-group-item"><span class="	glyphicon glyphicon-qrcode" aria-hidden="true"></span> Comprobante de pagos <span class="badge" id="cantidad6">0</span></a>
-                        <a  href="panelDolar.html" class="list-group-item"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Dolar</a>
+                        <a  href="panelDolar.html" class="list-group-item active"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Dolar</a>
+
                     </ul>
 
                 </div>
                 <div class="col-md-9">
 
 
-                
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center"> DOLAR </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="$0,00">
+                                         
+                                        </div>
+                                        <div class="text-right">
+                                            <button  class="btn btn-info ">Guardar</button>
+                                        </div>
+                                        
+                               
+                                    </div>
+                                </div>
+                            </div>
+                        
+
+                        </div>
+                    </div>
                 </div>
    
             
@@ -95,9 +119,51 @@
             </div>
         </div>
     </section>
+ 
 
     <!-- Modal -->
- 
+    <!-- Modal -->
+    <div class="modal fade" id="AgregarPagina" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="formulario">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Agregar Página</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Titulo de la página</label>
+                            <input type="text" class="form-control" placeholder="Titulo de la página">
+                        </div>
+                        <div class="form-group">
+                            <label>Información de la página</label>
+                            <textarea name="editor1" class="form-control" placeholder="Información de la página"></textarea>
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Publicado
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>Palabras clave</label>
+                            <textarea name="text" class="form-control" placeholder="Agregar algunas palabras.."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Meta descripcion</label>
+                            <textarea name="text" class="form-control" placeholder="Agregar descripcioón.."></textarea>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <!-- Modal -->
     <div class="modal fade" id="AgregarBanner" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -168,6 +234,7 @@
                         <div class="form-group">
                             <label>Cotizaciòn del Dolar</label>
                             <input type="number" name="Dolar" class="form-control" placeholder="0,00$" id="dolar" min="0" >
+
                         </div>
                         <Label>Cargar Imagenes | Hasta 4 imagenes disponibles</Label>
                         <div class="form-group ">

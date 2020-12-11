@@ -149,6 +149,7 @@ function postForm(){
   var descripcion = document.getElementById("comment").value;
   var categoria = document.getElementById("SelectCategorias").value;
   var peso = document.getElementById("peso").value;
+  var dolar =  document.getElementById("dolar").value;
   
   if(marca!="" && nombre!="" && Precio!="" && Stock!= "" && destacado !="" && descripcion!="" && categoria != "" && descripcion !="" &&  categoria !="" && peso!=""){
     var objeto = {
@@ -160,7 +161,8 @@ function postForm(){
       precio : Precio,
       imagenes :  JSON.parse(localStorage.getItem("imagenes")),
       categoria : categoria,
-      peso : peso
+      peso : peso,
+      dolar : dolar
    }
   }
   else{

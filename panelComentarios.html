@@ -51,7 +51,7 @@
 
                         <ul class="dropdown-menu " aria-labelledby="dropdownMenu1" >
                             <li><a class="dropdown-item" data-toggle="modal" data-target="#AgregarProducto" onclick="TraerCategorias();" >Agregar Productos</a></li>
-                            <li><a class="dropdown-item" data-toggle="modal" data-target="#AgregarBanner" >Agregar banner</a></li>
+                            <!-- <li><a class="dropdown-item" data-toggle="modal" data-target="#AgregarBanner" >Agregar banner</a></li> -->
                             <li><a class="dropdown-item" data-toggle="modal" data-target="#AgregarCategoria" >Agregar Categoria</a></li>
 
                         </ul>
@@ -73,12 +73,13 @@
                 <div class="col-md-3">
                     <ul class="list-group ">
                         <a href="panel.html" class="list-group-item  color-principal"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de control <span class="badge"></span></a>
-                        <a href="panelProductos.html"  onclick="traerProductos();" class="list-group-item"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Productos<span class="badge" id="cantidad">0</span></a>
-                        <a  href="panelBanner.html" class="list-group-item "><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Banners <span class="badge" id="cantidad2">0</span></a>
+                        <a href="panelProductos.html"  class="list-group-item"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Productos<span class="badge" id="cantidad">0</span></a>
+                        <a   disabled class="list-group-item "><span class="glyphicon glyphicon-film"></span> Banners <span class="badge" id="cantidad2">0</span></a >
                         <a  href="panelVentas.html" class="list-group-item"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ventas <span class="badge" id="cantidad3">0</span></a>
                         <a  href="panelDestacados.html" class="list-group-item"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Destacados <span class="badge" id="cantidad4">0</span></a>
                         <a  href="panelComentarios.html" class="list-group-item active"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Comentarios <span class="badge" id="cantidad5">0</span></a>
                         <a  href="comprobante.html" class="list-group-item"><span class="	glyphicon glyphicon-qrcode" aria-hidden="true"></span> Comprobante de pagos <span class="badge" id="cantidad6">0</span></a>
+                        <a  href="panelDolar.html" class="list-group-item"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Dolar</a>
 
                     </ul>
 
@@ -233,6 +234,11 @@
                         <div class="form-group">
                             <label>Stock</label>
                             <input type="number" name="Stock" class="form-control" placeholder="Stock" id="stock" min="0" >
+                        </div>
+                        <div class="form-group">
+                            <label>Cotizaciòn del Dolar</label>
+                            <input type="number" name="Dolar" class="form-control" placeholder="0,00$" id="dolar" min="0" >
+
                         </div>
                         <Label>Cargar Imagenes | Hasta 4 imagenes disponibles</Label>
                         <div class="form-group ">
