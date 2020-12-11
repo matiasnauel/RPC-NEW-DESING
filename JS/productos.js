@@ -140,7 +140,7 @@ var valordolar = document.getElementById("dolar1");
                 document.getElementById("destacados1").checked = false; 
                 document.getElementById("destacados1").value = "false"; 
             }
-           
+            document.getElementById("list2").innerHTML = "";
             devolverImagenes(data);
            
             localStorage.setItem("Objeto",JSON.stringify(data));
@@ -231,6 +231,7 @@ function cambiar1(){
   }
 
   function devolverImagenes(datos){
+   
     var contador = 0 ;
     var contadorimagen = 0 ;
    

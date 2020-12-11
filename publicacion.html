@@ -319,7 +319,7 @@
                    
                    
                     <div class="caja-comentar">
-                        <textarea name="" id="comentarTextid"  placeholder="Escribe tu comentario.." style=" width: 100%; padding-left: 20px; padding-top: 20px; color: black; font-size: 20px;" ></textarea> <button class="btn-comentar" onclick="Comentar();">Comentar</button>
+                        <textarea name="" id="comentarTextid"  placeholder="Escribe tu comentario.." style=" width: 100%; padding-left: 20px; padding-top: 20px; color: black; font-size: 20px;"  required></textarea> <button class="btn-comentar" onclick="Comentar();" id="comentarid"  data-toggle="modal" data-target="#NULL">Comentar</button>
                     </div>
                     <!-- Contenedor Comentarios -->
                     <div class="comments-container">
@@ -510,6 +510,24 @@
                                             </div>
                                             <div class="moda-body text-center">
                                                 <p style="margin: 20px;">NO POSEE NINGUN ARTICULO EN SU CARRITO</p>
+                                            </div>
+                                            <div class="modal-footer " style="background-color: red;" >
+                                                <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                               </div>
+
+                               <div class="modal fade" id="IngreseCliente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <form >
+                                            <div class="modal-header"  style="background-color: red;" >
+                                                <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">ATENCIÓN! <span class="glyphicon glyphicon-ban-circle"></span>  </i></h4>
+                                            </div>
+                                            <div class="moda-body text-center">
+                                                <p style="margin: 20px;">PRIMERO DEBE REGISTRARSE</p>
                                             </div>
                                             <div class="modal-footer " style="background-color: red;" >
                                                 <button type="button" class="btn" data-dismiss="modal">Cerrar</button>

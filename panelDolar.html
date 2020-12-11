@@ -96,11 +96,17 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="$0,00">
-                                         
+                                            <label>Precio Dolar</label>
+                                            <input type="text" class="form-control" placeholder="$0,00" disabled id="dolarHoy" value="0">
+                                           
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Actualizar Dolar</label>
+                                            <input type="text" class="form-control" placeholder="$0,00" id="dolarActualizacion" value="0">
+                                           
                                         </div>
                                         <div class="text-right">
-                                            <button  class="btn btn-info ">Guardar</button>
+                                            <button  class="btn btn-info " onclick="cambiarDolar();">Actualizar</button>
                                         </div>
                                         
                                
@@ -210,7 +216,7 @@
                  
                         <div class="form-group">
                             <label>Precio venta</label>
-                            <input type="decimal" name="PrecioVenta" min="1" class="form-control" placeholder="Precio de la venta" id="precioventa">
+                            <input type="decimal" name="PrecioVenta" min="1" class="form-control" placeholder="Precio de la venta" id="precioventa" value="0">
                         </div>
                   
                         <div class="form-group">
@@ -230,8 +236,7 @@
                         </div>
                         <div class="form-group">
                             <label>Cotizaciòn del Dolar</label>
-                            <input type="number" name="Dolar" class="form-control" placeholder="0,00$" id="dolar" min="0" >
-
+                            <input type="number" name="Dolar" class="form-control" placeholder="0,00$" id="dolar" min="0" value="0" >
                         </div>
                         <Label>Cargar Imagenes | Hasta 4 imagenes disponibles</Label>
                         <div class="form-group ">
@@ -347,6 +352,7 @@
     </footer> <!--Footer-->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/panel.js"></script>
+    <script src="js/cotizaciondolar.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js "></script>
   
@@ -393,6 +399,7 @@ salirnuevo.addEventListener("click",(e)=>{
     alert(err);
   });
 })
+
 
 </script>
 </body>

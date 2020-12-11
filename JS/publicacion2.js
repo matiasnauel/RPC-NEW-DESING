@@ -541,48 +541,55 @@ function ProductosCategoria(valor2)
 }
 
 
-function Comentar()
+ function Comentar()
 {
-  var comentartext = document.getElementById("comentarTextid").value;
-  var objeto = {
-      comentario: comentartext,
-      clienteID : localStorage.getItem("clienteID"),
-      publicacionID : localStorage.getItem("publicacionID")
+  document.getElementById("comentarid").dataset.target = "#null";
+  if( localStorage.getItem("clienteID") == undefined ){
+        document.getElementById("comentarid").dataset.target = "#IngreseCliente";
+  }
+  else{
+    var comentartext = document.getElementById("comentarTextid").value;
+    var objeto = {
+        comentario: comentartext,
+        clienteID : localStorage.getItem("clienteID"),
+        publicacionID : localStorage.getItem("publicacionID")
+      
+     }
+     fetch("https://localhost:44325/api/ComentarioPublicacion/InsertarComentarioPublicacion", {
+      'method': 'POST',
+      'mode': 'cors',
+     'body': JSON.stringify(objeto),
+      'headers': {
+          'Content-Type': 'application/json',
+          
+      },
+      })
+      .then(function(response) {
+        return response.json();
+       })
+      .then(function(data) {
+      
+          comentariosyrespuesta.innerHTML+=`
+          <li id="comentariosyrespuestas">
+          <div class="comment-main-level">
+          <!-- Avatar -->
+          <div class="comment-avatar"><img src="${item.clienteIMAGEN}" alt=""></div>
+          <!-- Contenedor del Comentario -->
+          <div class="comment-box">
+              <div class="comment-head">
+                  <h6 class="comment-name by-author"><a >x</a></h6>
+              </div>
+              <div class="comment-content">
+              ${item.comentario} 
+              </div>
+          </div>
+        </div>`+sihayrespuesta(item.respuesta)+`</li>
+         `;
     
-   }
-   fetch("https://localhost:44325/api/ComentarioPublicacion/InsertarComentarioPublicacion", {
-    'method': 'POST',
-    'mode': 'cors',
-   'body': JSON.stringify(objeto),
-    'headers': {
-        'Content-Type': 'application/json',
-        
-    },
+    
     })
-    .then(function(response) {
-      return response.json();
-     })
-    .then(function(data) {
-      data.comentariosyrespuesta.forEach(item => {
-        comentariosyrespuesta.innerHTML+=`
-        <li id="comentariosyrespuestas">
-        <div class="comment-main-level">
-        <!-- Avatar -->
-        <div class="comment-avatar"><img src="${item.clienteIMAGEN}" alt=""></div>
-        <!-- Contenedor del Comentario -->
-        <div class="comment-box">
-            <div class="comment-head">
-                <h6 class="comment-name by-author"><a >x</a></h6>
-            </div>
-            <div class="comment-content">
-            ${item.comentario} 
-            </div>
-        </div>
-      </div>`+sihayrespuesta(item.respuesta)+`</li>
-       `;
-    })
-    .catch(err => console.log('ERROR: ' + err));
-  })
+  }
+  
 }
 // quitar elemento de un carrito 
 

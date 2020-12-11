@@ -250,7 +250,7 @@ function realizarreserva()
                       <p style="margin: 20px;">Debe registrarse primero</p>
                   </div>
                   <div class="modal-footer " style="background-color: red;" >
-                      <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                      <button type="button" class="btn" data-dismiss="modal" id="cerrar">Cerrar</button>
                   </div>
               </form>
           </div>
