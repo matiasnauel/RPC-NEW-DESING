@@ -150,8 +150,9 @@ function postForm(){
   var categoria = document.getElementById("SelectCategorias").value;
   var peso = document.getElementById("peso").value;
   var dolar =  document.getElementById("dolar").value;
-  
-  if(marca!="" && nombre!="" && Precio!="" && Stock!= "" && destacado !="" && descripcion!="" && categoria != "" && descripcion !="" &&  categoria !="" && peso!=""){
+ 
+
+  if(marca!="" && nombre!=""  && Stock!= "" && destacado !="" && descripcion!="" && categoria != "" && descripcion !="" &&  categoria !="" && peso!=""){
     var objeto = {
       nombre : nombre,
       descripcion :descripcion,

@@ -109,7 +109,7 @@ var Stock =  document.getElementById("stock1");
 var descripcion = document.getElementById("comment1");
 var categoria = document.getElementById("SelectCategorias1");
 var peso = document.getElementById("peso1");
-var dolar = document.getElementById("dolar1");
+var valordolar = document.getElementById("dolar1");
 
 
     $.ajax({
@@ -119,7 +119,7 @@ var dolar = document.getElementById("dolar1");
         success: function(data) {
         TraerCategorias1(data.categoria);
        
-        
+
             marca.value= data.marca;
             nombre.value=data.nombre;
             Precio.value= data.precio;
@@ -127,7 +127,8 @@ var dolar = document.getElementById("dolar1");
             categoria.value= data.categoria;
             peso.value= data.peso;
             descripcion.value = data.descripcion;
-            dolar.value = data.cotizaciondolar;
+            valordolar.value = data.cotizaciondolar;
+        
             if(data.destacado==true){
                
               document.getElementById("destacados1").checked = true; 
