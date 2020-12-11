@@ -1,4 +1,5 @@
 window.onload = function traerProductos() {
+
   fetch("https://localhost:44325/api/Publicacion/PublicacionCompleta?publicacionID="+localStorage.getItem("publicacionID"))
       .then(function(response) {
           return response.json();
@@ -125,7 +126,8 @@ siteinformation.innerHTML+=`
 
 `;
  descripcionproducto.innerHTML = `
- <p>
+ <p style =" word-break: break-all;
+ word-wrap: break-word;">
  ${data.producto.descripcion}     
  </p>
  `;
@@ -580,16 +582,17 @@ function Comentar()
        `;
     })
     .catch(err => console.log('ERROR: ' + err));
+  })
 }
 // quitar elemento de un carrito 
 
-function QuitarProducto(productoid,cantidad,valor){
+function QuitarProducto(productoid,valor){
 
   var encontrado = false;
   var productosLocal = JSON.parse(localStorage.getItem("productos"));
 
 
-  productosLocal.forEach(item=>{
+    productosLocal.forEach(item=>{
       if(productoid == item && encontrado==false){
           if(productosLocal.length == 1){
        

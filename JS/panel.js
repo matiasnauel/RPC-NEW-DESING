@@ -162,7 +162,7 @@ function postForm(){
       imagenes :  JSON.parse(localStorage.getItem("imagenes")),
       categoria : categoria,
       peso : peso,
-      dolar : dolar
+      cotizaciondolar : dolar
    }
   }
   else{

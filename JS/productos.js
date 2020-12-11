@@ -109,6 +109,7 @@ var Stock =  document.getElementById("stock1");
 var descripcion = document.getElementById("comment1");
 var categoria = document.getElementById("SelectCategorias1");
 var peso = document.getElementById("peso1");
+var dolar = document.getElementById("dolar1");
 
 
     $.ajax({
@@ -126,6 +127,7 @@ var peso = document.getElementById("peso1");
             categoria.value= data.categoria;
             peso.value= data.peso;
             descripcion.value = data.descripcion;
+            dolar.value = data.cotizaciondolar;
             if(data.destacado==true){
                
               document.getElementById("destacados1").checked = true; 
@@ -151,6 +153,7 @@ var peso = document.getElementById("peso1");
 }
 
 function ModificarProducto(){
+ 
     var arrayDara = JSON.parse(localStorage.getItem("Objeto"));
     var objetoNuevo = {
         marca: document.getElementById("marca1").value,
@@ -161,7 +164,8 @@ function ModificarProducto(){
         peso: document.getElementById("peso1").value,
         descripcion :  document.getElementById("comment1").value,
         destacado : document.getElementById("destacados1").value,
-        imagenes :  arrayDara.imagenes
+        imagenes :  arrayDara.imagenes,
+        cotizaciondolar : document.getElementById("dolar1").value,
     }
     var objeto = {
         viejo: arrayDara,
