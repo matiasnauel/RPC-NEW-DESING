@@ -11,10 +11,12 @@ IniciarGoogle.addEventListener('click', e=>{
  
    //Ejecuto auth con signwhit para mostrar una ventana de ingreso a google
    auth.signInWithPopup(provider)
+   
    .then(result=>{
     
-    console.log("entraste akaaaa1");
-       ValidarUsuarioBack(result.email,result.photoURL);
+    // console.log("entraste akaaaa1");
+    // console.log(provider.gmail);
+    //    ValidarUsuarioBack(result.email,result.photoURL);
    })
    .catch(err=>{
        console.log(err)
@@ -33,8 +35,9 @@ IniciarGoogleMobile.addEventListener('click', e=>{
    auth.signInWithPopup(provider)
    .then(result=>{
        
-        console.log("entraste akaaaa");
-       ValidarUsuarioBack(result.email,result.photoURL);
+    //     console.log("entraste akaaaa");
+    //     console.log(provider.gmail);
+    //    ValidarUsuarioBack(result.email,result.photoURL);
    })
    .catch(err=>{
        console.log(err)
@@ -49,6 +52,7 @@ IniciarFacebook.addEventListener('click', e=>{
     .then(result=>{
         console.log(result);
       
+     
         $('#myModal2').modal('hide');
     })
     .catch(err=> {
@@ -87,7 +91,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       loginCheck(user)
       SaveDateUser(user);
       userAdd();
-     
+  
     } else {
       // User is signed out.
       // ...
@@ -163,6 +167,10 @@ function SaveDateUser (user)
         localStorage.setItem('Name_User',user.displayName);
         localStorage.setItem('Correo_User', user.email);
         localStorage.setItem('Image_user',user.photoURL);
+        if(localStorage.getItem("clienteID") == undefined){
+            ValidarUsuarioBack(localStorage.getItem("Correo_User"),localStorage.getItem("Image_user"));
+        }
+
         //acordarse de que aca debo hacer la peticion a la api cliente, 
         //pasándole por parametro el email, para que me devuelva el id de ese cliente
         //y lo guarde en el local storage.
@@ -195,16 +203,21 @@ function configuracion(){
     location.href ="panel.html";
 }
 function  ValidarUsuarioBack(email,photoURL){
-    fetch("https://localhost:44307/api/Cliente/RegistrarVerificarCliente?email="+email+"&clienteIMAGEN="+photoURL)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-        localStorage.setItem("clienteID",data);
-      
-    })
-   .catch (error =>{
-    console.log(error);
-   }) 
+   
+        
+        alert("entro bien");
+        fetch("https://localhost:44307/api/Cliente/RegistrarVerificarCliente?email="+email+"&clienteIMAGEN="+photoURL)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            localStorage.setItem("clienteID",data);
+          
+        })
+       .catch (error =>{
+        console.log(error);
+       }) 
 
-}
+
+
+}   

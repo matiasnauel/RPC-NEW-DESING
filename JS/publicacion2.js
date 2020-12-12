@@ -605,16 +605,17 @@ function VaciarCarrito(){
   return false;
 }
 function carritoValores(){
-  if(localStorage.getItem("productostotalCantidad") != null &&  localStorage.getItem("productosTotalCarrito")!= null){
-    document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${localStorage.getItem("productosTotalCarrito")} `;
-   
+  if(localStorage.getItem("productos").length != 2){
+  
+  document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${localStorage.getItem("productosTotalCarrito")} `;
+  
   }
   else{
-    document.getElementById("cantidadCarrito").innerHTML ="(0) $0,00";
-   
+
+  document.getElementById("cantidadCarrito").innerHTML ="(0) $0,00";
+  
   }
 }
-
 
 
 
@@ -757,3 +758,16 @@ function QuitarProductoMobil(productoid,precio,valor){
   return false;
 }
 
+carritoValores();
+function cambiar(element_id)
+{
+    return document.getElementById(element_id);
+ 
+}
+
+function setSrc(element_id, src)
+{
+    console.log("funciona");
+    var element = cambiar(element_id);
+    element.src = src;
+}

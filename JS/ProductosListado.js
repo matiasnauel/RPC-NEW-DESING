@@ -590,7 +590,7 @@ function VerProductos(id)
     var valor = id;
     
     localStorage.setItem(`${parametro}`, `${valor}`);
-    location.href="publicacion.html";
+    location.href="publicacionNueva.html";
 }
 
 // Input file 
