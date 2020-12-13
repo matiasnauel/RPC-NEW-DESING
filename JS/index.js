@@ -473,7 +473,8 @@ function QuitarProducto(productoid,precio,valor){
         
             verproductoscarrito();
             var modalMobile  = document.getElementById("SlideCarrito").style.display ="none";
-            
+            //cambioa para cerrar el modal en el index
+            document.getElementById("tvesModal").style.display = "none";
             document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
             localStorage.removeItem("productostotalCantidad");
             localStorage.removeItem("productosTotalCarrito");
