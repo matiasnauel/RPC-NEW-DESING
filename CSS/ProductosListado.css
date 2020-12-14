@@ -94,8 +94,8 @@
   }
   @media (min-width: 768px) {
       .logo-main{
-          height: 18rem;
-        
+          height: 17rem;
+          background-color: red;
       }
   }
   @media (min-width: 360px) {
@@ -107,6 +107,7 @@
   }
   @media (min-width: 768px) {
     .logo-main img {
+      margin-top: 50px;
       width: 100%;
       background-color: red;
       margin-left: auto;
@@ -678,12 +679,15 @@
   
   /*Barra*/
   .Barra {
-    height: auto;
-    width: 10px;
-    background-color: black;
-    width: 100%;
+    display: grid;
+  grid-template-columns: 20% 60%;
+  height: auto;
+  width: 10px;
+  background-color: black;
+  width: 100%;
+   
   }
-  @media (min-width: 1707px) {
+  /* @media (min-width: 1707px) {
     .Barra {
       height: auto;
       width: 10px;
@@ -691,6 +695,16 @@
       width: 100%;
       
       padding-bottom: 30px;
+    }
+  } */
+  @media (min-width: 1366) {
+    .Barra {
+      height: auto;
+      width: 10px;
+      background-color: black;
+      width: 100%;
+     
+      padding-bottom: 0px;
     }
   }
   .contenedor-barra {
