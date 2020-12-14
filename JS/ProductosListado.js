@@ -490,6 +490,7 @@ function openNavCarrito() {
 
 //   ModalCarrito
 if(document.getElementById("btnModal") && localStorage.getItem("productos")!=null){
+    
     var modal = document.getElementById("tvesModal");
     var btn = document.getElementById("btnModal");
     var span = document.getElementsByClassName("closed")[0];
@@ -590,7 +591,7 @@ function VerProductos(id)
     var valor = id;
     
     localStorage.setItem(`${parametro}`, `${valor}`);
-    location.href="publicacion.html";
+    location.href="publicacionNueva.html";
 }
 
 // Input file 
@@ -614,7 +615,8 @@ function QuitarProducto(productoid,cantidad,valor){
               
               localStorage.setItem("productos",JSON.stringify(productosLocal));
               encontrado = true;
-          
+              //Se cierra el modal vacio
+              document.getElementById("tvesModal").style.display= "none";
               verproductoscarrito();
   
               localStorage.removeItem("productostotalCantidad");

@@ -420,7 +420,7 @@ $.ajax({
              <!--overlayer---------->
              <div class="overlay">
                  <!--buy-btn------>
-                 <a href="publicacion.html" class="buy-btn" id="${item.publicacionID}" onclick="VerProductos(this.id);">Ver producto</a>
+                 <a href="publicacionNueva.html" class="buy-btn" id="${item.publicacionID}" onclick="VerProductos(this.id);">Ver producto</a>
              </div>
          </div>
          <!--detail-box--------->
@@ -430,7 +430,7 @@ $.ajax({
                  <a href="ProductosListado.html">${item.nombre}</a>
              </div>
              <!--price-------->
-             <a href="publicacion.html" class="price">$${item.precio}</a>
+             <a href="publicacionNueva.html" class="price">$${item.precio}</a>
 
          </div>
 
@@ -473,7 +473,8 @@ function QuitarProducto(productoid,precio,valor){
         
             verproductoscarrito();
             var modalMobile  = document.getElementById("SlideCarrito").style.display ="none";
-            
+            //cambioa para cerrar el modal en el index
+            document.getElementById("tvesModal").style.display = "none";
             document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
             localStorage.removeItem("productostotalCantidad");
             localStorage.removeItem("productosTotalCarrito");
