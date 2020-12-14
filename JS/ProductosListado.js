@@ -33,7 +33,7 @@ window.onload = function()
         },
         error: function(error) {
             console.log(error.message);
-            alert('error');
+            
         }
 
    
@@ -67,7 +67,7 @@ window.onload = function()
                 },
                 error: function(error) {
                     console.log(error.message);
-                    alert('error');
+                   
                 }
         
            
@@ -100,7 +100,7 @@ window.onload = function()
                 },
                 error: function(error) {
                     console.log(error.message);
-                    alert('error');
+                    
                 }
         
            
@@ -135,7 +135,7 @@ window.onload = function()
         },
         error: function(error) {
             console.log(error.message);
-            alert('error');
+            
         }
 
    
@@ -249,7 +249,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
         },
         error: function(error) {
             console.log(error.message);
-            alert('error');
+        
         }
 
    
@@ -411,7 +411,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
             },
             error: function(error) {
                 console.log(error.message);
-                alert('error');
+           
             }
     
     
