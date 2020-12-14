@@ -93,7 +93,8 @@
   }
   @media (min-width: 768px) {
       .logo-main{
-          height: 18rem;
+        height: 17rem;
+        background-color: red;
    
       }
   }
@@ -101,14 +102,16 @@
       .logo-main img {
           width: 100%;
           background-color: red;
+          margin-top: 50px;
           margin-left: auto;
         }
   }
   @media (min-width: 768px) {
     .logo-main img {
-      width: 100%;
-      background-color: red;
-      margin-left: auto;
+      margin-top: 50px;
+    width: 100%;
+    background-color: red;
+    margin-left: auto;
     }
   }
   @media (min-width: 1709px) {
@@ -668,13 +671,16 @@
   }
   
   /*Barra*/
+  
   .Barra {
+    display: grid;
+    grid-template-columns: 20% 60%;
     height: auto;
     width: 10px;
     background-color: black;
     width: 100%;
   }
-  @media (min-width: 1707px) {
+  /* @media (min-width: 1707px) {
     .Barra {
       height: auto;
       width: 10px;
@@ -683,7 +689,7 @@
      
       padding-bottom: 30px;
     }
-  }
+  } */
   .contenedor-barra {
     display: none;
   }
@@ -754,10 +760,17 @@
     height: 70px;
     margin-left: 10px;
   }
-  
+  @media (min-width: 1366px) {
+    .vr {
+      width: 4px;
+      background-color: #fff;
+      height: 34px;
+      margin-left: 10px;
+    }
+  }
   .barra-categoria {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     grid-column-gap: 5px;
   }
   .barra-categoria div {
