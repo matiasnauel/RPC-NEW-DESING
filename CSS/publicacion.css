@@ -896,14 +896,25 @@ html {
  /*Barra*/
 
 /*Barra*/
-.Barra {
-  display: grid;
-  grid-template-columns: 20% 60%;
-  height: auto;
-  width: 10px;
-  background-color: black;
-  width: 100%;
+/*Barra*/
+@media (min-width: 360px){
+  .Barra {
+    display: flex;
+    height: 0px;
   }
+}
+@media (min-width: 768px){
+  .Barra {
+    display: grid;
+    grid-template-columns: 20% 60%;
+    height: auto;
+    width: 10px;
+    background-color: black;
+    width: 100%;
+  
+  }
+}
+
  /* @media (min-width: 1707px) {
   .Barra {
     height: auto;

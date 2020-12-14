@@ -102,7 +102,7 @@
       .logo-main img {
           width: 100%;
           background-color: red;
-          margin-top: 50px;
+         
           margin-left: auto;
         }
   }
@@ -671,7 +671,14 @@
   }
   
   /*Barra*/
-  
+  /*Barra*/
+@media (min-width: 360px){
+  .Barra {
+    display: flex;
+    height: 0px;
+  }
+}
+@media (min-width: 768px){
   .Barra {
     display: grid;
     grid-template-columns: 20% 60%;
@@ -679,7 +686,9 @@
     width: 10px;
     background-color: black;
     width: 100%;
+  
   }
+}
   /* @media (min-width: 1707px) {
     .Barra {
       height: auto;
