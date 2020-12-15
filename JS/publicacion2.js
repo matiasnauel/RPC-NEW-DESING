@@ -645,7 +645,7 @@ function verProductoscarritomobile(){
     productos: JSON.parse(localStorage.getItem("productos"))
     
 }
- fetch("https://localhost:44368/api/Carro/TraerProductosValorCantidadCarrito", {
+ fetch("https://rpc-computacion.com.ar/Api5/api/Carro/TraerProductosValorCantidadCarrito", {
   'method': 'POST',
   'mode': 'cors',
  'body': JSON.stringify(objeto),

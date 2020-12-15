@@ -504,7 +504,7 @@ function QuitarProducto(productoid,precio,valor){
 }
 
   function VaciarCarrito(){
-    localStorage.removeItem("productos");
+    localStorage.setItem("productos","[]");
     localStorage.removeItem("productosTotalCarrito");
     localStorage.removeItem("productostotalCantidad");
     document.getElementById("contenedorcarrito").innerHTML="";
