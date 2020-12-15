@@ -4,7 +4,7 @@ window.onload = function()
 
     $.ajax({
         type: "GET",
-        url: "https://localhost:44381/api/Categoria/TraerCategorias",
+        url: "https://rpc-computacion.com.ar/Api/api/Categoria/",
         dataType: "json",
 
         success: function(data) {
@@ -405,7 +405,7 @@ enviarcomprobante.addEventListener('click',function(e) {
 
 $.ajax({
     type: "GET",
-    url: "https://localhost:44325/api/Publicacion/TraerPublicacionesDestacadas",
+    url: "https://rpc-computacion.com.ar/Api2/api/Publicacion/TraerPublicacionesDestacadas",
     dataType: "json",
     success: function(data) {
       var autowidth= document.getElementById("autoWidth");  

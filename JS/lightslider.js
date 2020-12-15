@@ -1,4 +1,7 @@
+
 (function ($, undefined) {
+          //esta linea permite podes ver los productos sin hacer zoom en el html !!
+  
     'use strict';
     var defaults = {
         item: 3,
@@ -42,7 +45,8 @@
         onBeforeSlide: function ($el, scene) {},
         onAfterSlide: function ($el, scene) {},
         onBeforeNextSlide: function ($el, scene) {},
-        onBeforePrevSlide: function ($el, scene) {}
+        onBeforePrevSlide: function ($el, scene) {},
+        
         /* jshint ignore:end */
     };
     $.fn.lightSlider = function (options) {
@@ -1134,7 +1138,13 @@
                 }
                 refresh.init();
             }, 200);
+              
         });
+        window.dispatchEvent(new Event('resize'));
         return this;
+        
     };
+
 }(jQuery));
+
+  
