@@ -4,7 +4,7 @@ window.onload = function()
 
     $.ajax({
         type: "GET",
-        url: "https://rpc-computacion.com.ar/Api/api/Categoria/",
+        url: "https://rpc-computacion.com.ar/Api/api/Categoria/TraerCategorias",
         dataType: "json",
 
         success: function(data) {
@@ -32,7 +32,7 @@ window.onload = function()
         
     $.ajax({
       type: "GET",
-      url: "https://localhost:44381/api/Categoria/TraerCategorias",
+      url: "https://rpc-computacion.com.ar/Api/api/Categoria/TraerCategorias",
       dataType: "json",
 
       success: function(data) {
@@ -151,7 +151,7 @@ function verproductoscarrito()
     $.ajax({
         type: "POST",
         data: JSON.stringify(objeto),
-        url: "https://localhost:44368/api/Carro/TraerProductosValorCantidadCarrito",
+        url: "https://rpc-computacion.com.ar/Api5/api/Carro/TraerProductosValorCantidadCarrito",
         dataType: "JSON",
         contentType: "application/json",
 
@@ -221,13 +221,14 @@ function realizarreserva()
   $.ajax({
     type: "POST",
     data: JSON.stringify(objeto),
-    url: "https://localhost:44376/api/Venta/RealizarReserva",
+    url: "https://rpc-computacion.com.ar/Api3/api/Venta/RealizarReserva",
     dataType: "JSON",
     contentType: "application/json",
     success: function(data) {
       localStorage.setItem("ventaID",data.id);
+     
       location.href="ArmadoPedido.html";
-   
+      
     },
 
       error: function(error) {
@@ -276,7 +277,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
     e.preventDefault();
     $.ajax({
         type: "GET",
-        url: "https://localhost:44376/api/Venta/MostrarVentasNoPagadasDelCliente?clienteID="+localStorage.getItem("clienteID"),
+        url: "https://rpc-computacion.com.ar/Api3/api/Venta/MostrarVentasNoPagadasDelCliente?clienteID="+localStorage.getItem("clienteID"),
         dataType: "json",
 
         success: function(data) {
@@ -370,10 +371,11 @@ enviarcomprobante.addEventListener('click',function(e) {
     }
     if(Imagen!=null && localStorage.getItem("ventaID")!=null)
     {
+      
     $.ajax({
         type: "POST",
         data: JSON.stringify(objeto),
-        url: "https://localhost:44376/api/ComprobantePago/SubirComprobantePago",
+        url: "https://rpc-computacion.com.ar/Api3/api/ComprobantePago/SubirComprobantePago",
         dataType: "JSON",
         contentType: "application/json",
         success: function(data) {
@@ -473,12 +475,13 @@ function QuitarProducto(productoid,precio,valor){
         
             verproductoscarrito();
             var modalMobile  = document.getElementById("SlideCarrito").style.display ="none";
-            //cambioa para cerrar el modal en el index
-            document.getElementById("tvesModal").style.display = "none";
+            
             document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
             localStorage.removeItem("productostotalCantidad");
             localStorage.removeItem("productosTotalCarrito");
+			 document.getElementById("cantidadCarrito").innerHTML =  `(0) $0,00 `;
             carritoValores();
+            location.reload();
         
           }
           else{
@@ -513,18 +516,18 @@ function QuitarProducto(productoid,precio,valor){
     location.reload();
     return false;
   }
-  function carritoValores(){
-    if(localStorage.getItem("productostotalCantidad") != null &&  localStorage.getItem("productosTotalCarrito")!= null){
-      document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${localStorage.getItem("productosTotalCarrito")} `;
-     
-    }
-    else{
-      document.getElementById("cantidadCarrito").innerHTML ="(0) $0,00";
-      localStorage.removeItem("productos");
-    }
-  }
-  document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${JSON.parse(localStorage.getItem("productosTotalCarrito"))} `;
+function carritoValores(){
+  if(localStorage.getItem("productos").length != 2){
   
+  document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${localStorage.getItem("productosTotalCarrito")} `;
+  
+  }
+  else{
+
+  document.getElementById("cantidadCarrito").innerHTML ="(0) $0,00";
+  
+  }
+}
   
   
   // remover un archivo de un array
@@ -559,7 +562,7 @@ function QuitarProducto(productoid,precio,valor){
     $.ajax({
         type: "POST",
         data: JSON.stringify(objeto),
-        url: "https://localhost:44368/api/Carro/TraerProductosValorCantidadCarrito",
+        url: "https://rpc-computacion.com.ar/Api5/api/Carro/TraerProductosValorCantidadCarrito",
         dataType: "JSON",
         contentType: "application/json",
 
@@ -647,6 +650,9 @@ function QuitarProductoMobil(productoid,precio,valor){
             localStorage.removeItem("productostotalCantidad");
             localStorage.removeItem("productosTotalCarrito");
             carritoValores();
+
+          
+          
         
           }
           else{
@@ -669,4 +675,10 @@ function QuitarProductoMobil(productoid,precio,valor){
      
   })
   return false;
+}
+carritoValores();
+
+function animar(){
+  document.getElementById("barra").classList.toggle("final");
+
 }

@@ -24,7 +24,7 @@ window.onload = function(){ $.ajax({
             <td><img src="${info.imagenes[0]}" alt="" width="100px"></td>
             <td class="titulo">${info.nombre}</td>
             <td class="precio">${info.precio}</td>
-            <td class="stock">2${info.stock}</td>
+            <td class="stock">${info.stock}</td>
             <td class="boton-centro"><button class="btn btn-danger" onclick="BorrarProducto(${info.publicacionID});">Borrar</button></td>
             <td class="boton-centro"> <button class="btn btn-success"  id="${info.id}" data-toggle="modal" data-target="#EditarProducto"  onclick="EditarProducto(${info.id});">Editar</button> </td>
             </tr>

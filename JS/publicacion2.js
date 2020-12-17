@@ -1,6 +1,6 @@
 window.onload = function traerProductos() {
 
-  fetch("https://localhost:44325/api/Publicacion/PublicacionCompleta?publicacionID="+localStorage.getItem("publicacionID"))
+  fetch("https://rpc-computacion.com.ar/Api2/api/Publicacion/PublicacionCompleta?publicacionID="+localStorage.getItem("publicacionID"))
       .then(function(response) {
           return response.json();
       })
@@ -13,7 +13,7 @@ window.onload = function traerProductos() {
      }) 
         
       
-fetch("https://localhost:44381/api/Categoria/TraerCategorias")
+fetch("https://rpc-computacion.com.ar/Api/api/Categoria/TraerCategorias")
 .then(function(response) {
     return response.json();
 })
@@ -32,7 +32,7 @@ fetch("https://localhost:44381/api/Categoria/TraerCategorias")
 .catch (error =>{
 console.log(error);
 }) 
-fetch("https://localhost:44381/api/Categoria/TraerCategorias")
+fetch("https://rpc-computacion.com.ar/Api/api/Categoria/TraerCategorias")
 .then(function(response) {
     return response.json();
 })
@@ -201,7 +201,7 @@ var objeto = {
 }
 
 if(JSON.parse(localStorage.getItem("productos") != null)){
-  fetch("https://localhost:44368/api/Carro/TraerProductosValorCantidadCarrito", {
+  fetch("https://rpc-computacion.com.ar/Api5/api/Carro/TraerProductosValorCantidadCarrito", {
 'method': 'POST',
 'mode': 'cors',
 'body': JSON.stringify(objeto),
@@ -218,6 +218,7 @@ if(JSON.parse(localStorage.getItem("productos") != null)){
     document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${data.valorcarrito} `;
     document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
     localStorage.setItem("productosTotalCarrito",data.valorcarrito);
+
    
   })
   
@@ -240,7 +241,7 @@ else
       productos: JSON.parse(localStorage.getItem("productos"))
       
     }
-    fetch("https://localhost:44368/api/Carro/TraerProductosValorCantidadCarrito", {
+    fetch("https://rpc-computacion.com.ar/Api5/api/Carro/TraerProductosValorCantidadCarrito", {
   'method': 'POST',
   'mode': 'cors',
  'body': JSON.stringify(objeto),
@@ -259,6 +260,7 @@ else
       document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${data.valorcarrito} `;
       document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
       localStorage.setItem("productosTotalCarrito",data.valorcarrito);
+
    
     })
     
@@ -309,9 +311,10 @@ function verproductoscarrito()
 { 
  
   document.getElementById("btnModal").dataset.target ="#null";
+  
   if(localStorage.getItem("productos")==null || JSON.parse(localStorage.getItem("productos")) == "")
   {
-    var modal = document.getElementById("tvesModal").style.display="none";
+   
   
     
     document.getElementById("btnModal").dataset.target ="#Error";
@@ -326,7 +329,7 @@ function verproductoscarrito()
       productos: JSON.parse(localStorage.getItem("productos"))
       
   }
-   fetch("https://localhost:44368/api/Carro/TraerProductosValorCantidadCarrito", {
+   fetch("https://rpc-computacion.com.ar/Api5/api/Carro/TraerProductosValorCantidadCarrito", {
     'method': 'POST',
     'mode': 'cors',
    'body': JSON.stringify(objeto),
@@ -340,8 +343,8 @@ function verproductoscarrito()
      })
     .then(function(data) {
       document.getElementById("btnModal").dataset.target ="#null";
-      document.getElementById("tvesModal").style.display = "block";
-  
+      
+     
       var contenedorcarrito=document.getElementById("contenedorcarrito");
    
       contenedorcarrito.innerHTML="";
@@ -383,12 +386,14 @@ function verproductoscarrito()
     .catch(err => console.log('ERROR: ' + err));
   }
 }
+
+
 function realizarreserva(){
   var objeto = {
     clienteID: localStorage.getItem("clienteID"),
     productos: JSON.parse(localStorage.getItem("productos"))    
   }
-  fetch("https://localhost:44376/api/Venta/RealizarReserva", {
+  fetch("https://rpc-computacion.com.ar/Api3/api/Venta/RealizarReserva", {
     'method': 'POST',
     'mode': 'cors',
    'body': JSON.stringify(objeto),
@@ -401,7 +406,7 @@ function realizarreserva(){
     })
     .then(function(data){
         location.href="ArmadoPedido.html";
-        localStorage.setItem("IdVenta",data.id)
+        localStorage.setItem("ventaID",data.id)
     })
     .catch(err=>{
       alert('error');
@@ -410,7 +415,7 @@ function realizarreserva(){
 var abrirsectorcomprobante=document.getElementById("abrirsectorcomprobante");
 abrirsectorcomprobante.addEventListener('click',function(e) {
   e.preventDefault();
-  fetch("https://localhost:44376/api/Venta/MostrarVentasNoPagadasDelCliente?clienteID="+localStorage.getItem("clienteID"))
+  fetch("https://rpc-computacion.com.ar/Api3/api/Venta/MostrarVentasNoPagadasDelCliente?clienteID="+localStorage.getItem("clienteID"))
   .then(function(response) {
       return response.json();
   })
@@ -445,7 +450,7 @@ enviarcomprobante.addEventListener('click', function(e){
 if(Imagen!=null && localStorage.getItem("ventaID")!=null)
 {
   document.getElementById("enviarcomprobante").dataset.target ="#ComprobanteSubidoBien";
-  fetch("https://localhost:44376/api/ComprobantePago/SubirComprobantePago", {
+  fetch("https://rpc-computacion.com.ar/Api3/api/ComprobantePago/SubirComprobantePago", {
     'method': 'POST',
     'mode': 'cors',
    'body': JSON.stringify(objeto),
@@ -569,6 +574,7 @@ function QuitarProducto(productoid,valor){
            
             localStorage.removeItem("productosTotalCarrito");
             carritoValores();
+            location.reload();
         
           }
           else{
@@ -608,11 +614,14 @@ function carritoValores(){
   if(localStorage.getItem("productos").length != 2){
   
   document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${localStorage.getItem("productosTotalCarrito")} `;
-  
+    document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
+	
   }
   else{
 
   document.getElementById("cantidadCarrito").innerHTML ="(0) $0,00";
+    document.getElementById("itemCarrito").innerHTML =  `(0) `;
+  
   
   }
 }
@@ -635,7 +644,7 @@ function verProductoscarritomobile(){
   if(localStorage.getItem("productos")==null || JSON.parse(localStorage.getItem("productos")) == "")
   {
   
-   
+		closeNavCarrito();
       document.getElementById("carrito-sub-menu").dataset.target ="#Error";
   }
  

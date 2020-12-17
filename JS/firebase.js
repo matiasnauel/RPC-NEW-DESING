@@ -120,9 +120,6 @@ firebase.auth().onAuthStateChanged(function(user) {
             document.getElementById("config").classList.remove('config');
             location.href ="loginRPC.html";
         }
-        else{
-            localStorage.removeItem("admin");
-        }
       }).catch(function(error) {
         console.log(error)
       });
@@ -208,8 +205,8 @@ function configuracion(){
 function  ValidarUsuarioBack(email,photoURL){
    
         
-        alert("entro bien");
-        fetch("https://localhost:44307/api/Cliente/RegistrarVerificarCliente?email="+email+"&clienteIMAGEN="+photoURL)
+     
+        fetch("https://rpc-computacion.com.ar/Api4/api/Cliente/RegistrarVerificarCliente?email="+email+"&clienteIMAGEN="+photoURL)
         .then(function(response) {
             return response.json();
         })

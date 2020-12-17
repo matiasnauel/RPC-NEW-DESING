@@ -9,7 +9,7 @@ window.onload = function()
             
     $.ajax({
         type: "GET",
-        url: "https://localhost:44325/api/Publicacion/TraerPublicacionesDestacadas",
+        url: "https://rpc-computacion.com.ar/Api2/api/Publicacion/TraerPublicacionesDestacadas",
         dataType: "json",
         success: function(data) {
             var listadoproductos=document.getElementById("ListadoProductos");
@@ -24,7 +24,7 @@ window.onload = function()
              <div class="informacion-producto">
                  <p class="nombre-productos">${item.nombre}</p>
                  <span class="precio-producto">${item.precio}</span>
-                 <p class="cuotas-producto">18 cuotas de 3,888,88</p>
+                
                  <button class="boton-producto" id="${item.publicacionID}" onclick="VerProductos(${item.publicacionID});">Ver Producto</button>
              </div>
          </div>      
@@ -43,7 +43,7 @@ window.onload = function()
         case "categoria":
             $.ajax({
                 type: "GET",
-                url: "https://localhost:44325/api/Publicacion/TraerPublicacionesFiltroCategoria?categoria="+contenido,
+                url: "https://rpc-computacion.com.ar/Api2/api/Publicacion/TraerPublicacionesFiltroCategoria?categoria="+contenido,
                 dataType: "json",
                 success: function(data) {
                     var listadoproductos=document.getElementById("ListadoProductos");
@@ -58,7 +58,7 @@ window.onload = function()
                      <div class="informacion-producto">
                          <p class="nombre-productos">${item.nombre}</p>
                          <span class="precio-producto">${item.precio}</span>
-                         <p class="cuotas-producto">18 cuotas de 3,888,88</p>
+                        
                          <button class="boton-producto" id="${item.publicacionID}" onclick="VerProductos(${item.publicacionID});">Ver Producto</button>
                      </div>
                  </div>      
@@ -77,7 +77,7 @@ window.onload = function()
         case "Buscador":
             $.ajax({
                 type: "GET",
-                url: "https://localhost:44325/api/Publicacion/FiltroBuscador?filtro="+contenido,
+                url: "https://rpc-computacion.com.ar/Api2/api/Publicacion/FiltroBuscador?filtro="+contenido,
                 dataType: "json",
                 success: function(data) {
                     var listadoproductos=document.getElementById("ListadoProductos");
@@ -91,7 +91,7 @@ window.onload = function()
                      <div class="informacion-producto">
                          <p class="nombre-productos">${item.nombre}</p>
                          <span class="precio-producto">${item.precio}</span>
-                         <p class="cuotas-producto">18 cuotas de 3,888,88</p>
+                       
                          <button class="boton-producto" id="${item.publicacionID}" onclick="VerProductos(${item.publicacionID});">Ver Producto</button>
                      </div>
                  </div>      
@@ -113,7 +113,7 @@ window.onload = function()
     
     $.ajax({
         type: "GET",
-        url: "https://localhost:44381/api/Categoria/TraerCategorias",
+        url: "https://rpc-computacion.com.ar/Api/api/Categoria/TraerCategorias",
         dataType: "json",
 
         success: function(data) {
@@ -143,7 +143,7 @@ window.onload = function()
 
         $.ajax({
             type: "GET",
-            url: "https://localhost:44381/api/Categoria/TraerCategorias",
+            url: "https://rpc-computacion.com.ar/Api/api/Categoria/TraerCategorias",
             dataType: "json",
       
             success: function(data) {
@@ -223,7 +223,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
     e.preventDefault();
     $.ajax({
         type: "GET",
-        url: "https://localhost:44376/api/Venta/MostrarVentasNoPagadasDelCliente?clienteID="+localStorage.getItem("clienteID"),
+        url: "https://rpc-computacion.com.ar/Api3/api/Venta/MostrarVentasNoPagadasDelCliente?clienteID="+localStorage.getItem("clienteID"),
         dataType: "json",
 
         success: function(data) {
@@ -316,7 +316,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
         $.ajax({
             type: "POST",
             data: JSON.stringify(objeto),
-            url: "https://localhost:44376/api/ComprobantePago/SubirComprobantePago",
+            url: "https://rpc-computacion.com.ar/Api3/api/Venta/ComprobantePago/SubirComprobantePago",
             dataType: "JSON",
             contentType: "application/json",
             success: function(data) {
@@ -361,7 +361,7 @@ abrirsectorcomprobante.addEventListener('click',function(e) {
         $.ajax({
             type: "POST",
             data: JSON.stringify(objeto),
-            url: "https://localhost:44368/api/Carro/TraerProductosValorCantidadCarrito",
+            url: "https://rpc-computacion.com.ar/Api5/api/Carro/TraerProductosValorCantidadCarrito",
             dataType: "JSON",
             contentType: "application/json",
     
@@ -489,40 +489,79 @@ function openNavCarrito() {
   }
 
 //   ModalCarrito
-if(document.getElementById("btnModal") && localStorage.getItem("productos")!=null){
+function abrirCarrito (){
     
-    var modal = document.getElementById("tvesModal");
-    var btn = document.getElementById("btnModal");
-    var span = document.getElementsByClassName("closed")[0];
-    var body = document.getElementsByTagName("body")[0];
+    if(localStorage.getItem("productos").length>2){
 
-    btn.onclick = function() {
-        modal.style.display = "block";
-
-        body.style.position = "static";
-        body.style.height = "100%";
-        body.style.overflow = "hidden";
+     var modal = document.getElementById("tvesModal");
+     var btn = document.getElementById("btnModal");
+     var span = document.getElementsByClassName("closed")[0];
+     var body = document.getElementsByTagName("body")[0];
+  
+    
+         modal.style.display = "block";
+ 
+         body.style.position = "static";
+         body.style.height = "100%";
+         body.style.overflow = "hidden";
+     
+     
+ 
+     span.onclick = function() {
+         modal.style.display = "none";
+ 
+         body.style.position = "inherit";
+         body.style.height = "auto";
+         body.style.overflow = "visible";
+    
+      
+     }
+ 
+     window.onclick = function(event) {
+         if (event.target == modal) {
+             modal.style.display = "none";
+ 
+             body.style.position = "inherit";
+             body.style.height = "auto";
+             body.style.overflow = "visible";
+         }
+     }
     }
-
-    span.onclick = function() {
-        modal.style.display = "none";
-
-        body.style.position = "inherit";
-        body.style.height = "auto";
-        body.style.overflow = "visible";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-
-            body.style.position = "inherit";
-            body.style.height = "auto";
-            body.style.overflow = "visible";
+    else{
+        var div  = document.createElement("div");
+        div.id ="errorImagen";
+        if($("#errorImagen").length > 0 ){
+          $("#ErrorSeleccionarImagen").modal("show");
+        }
+        else{
+          div.innerHTML = `
+               
+          <div class="modal fade " id="ErrorSeleccionarImagen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <form id="dataError">
+                      <div class="modal-header"  style="background-color: red;" >
+                          <h4 class="modal-title text-center" style="color: white;" id="myModalLabel">ATENCIÓN! <span class="glyphicon glyphicon-ban-circle"></span>  </i></h4>
+                      </div>
+                      <div class="moda-body text-center">
+                          <p style="margin: 20px;">NO POSEE NINGUN ARTICULO EN SU CARRITO!</p>
+                      </div>
+                      <div class="modal-footer " style="background-color: red;" >
+                          <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+         </div>
+         `
+         document.body.insertBefore(div,null);
+         $("#ErrorSeleccionarImagen").modal("show");
         }
     }
-}
-
+     
+ 
+ 
+ }
 
 function realizarreserva()
 {
@@ -535,7 +574,7 @@ function realizarreserva()
   $.ajax({
     type: "POST",
     data: JSON.stringify(objeto),
-    url: "https://localhost:44376/api/Venta/RealizarReserva",
+    url: "https://rpc-computacion.com.ar/Api3/api/Venta/RealizarReserva",
     dataType: "JSON",
     contentType: "application/json",
     success: function(data) {
@@ -622,6 +661,7 @@ function QuitarProducto(productoid,cantidad,valor){
               localStorage.removeItem("productostotalCantidad");
               localStorage.removeItem("productosTotalCarrito");
               carritoValores();
+              location.reload();
           
             }
             else{
@@ -656,17 +696,20 @@ function QuitarProducto(productoid,cantidad,valor){
     return false;
   }
   function carritoValores(){
-    if(localStorage.getItem("productostotalCantidad") != null &&  localStorage.getItem("productosTotalCarrito")!= null){
-      document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${localStorage.getItem("productosTotalCarrito")} `;
-     
+    if(localStorage.getItem("productos").length != 2){
+    
+    document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${localStorage.getItem("productosTotalCarrito")} `;
+      document.getElementById("itemCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) `;
+      
     }
     else{
-      document.getElementById("cantidadCarrito").innerHTML ="(0) $0,00";
-      localStorage.removeItem("productos");
+  
+    document.getElementById("cantidadCarrito").innerHTML ="(0) $0,00";
+      document.getElementById("itemCarrito").innerHTML =  `(0) `;
+    
+    
     }
   }
-  document.getElementById("cantidadCarrito").innerHTML =  `(${JSON.parse(localStorage.getItem("productos")).length}) $${JSON.parse(localStorage.getItem("productosTotalCarrito"))} `;
-  
   
   
   // remover un archivo de un array
@@ -701,7 +744,7 @@ function QuitarProducto(productoid,cantidad,valor){
       $.ajax({
           type: "POST",
           data: JSON.stringify(objeto),
-          url: "https://localhost:44368/api/Carro/TraerProductosValorCantidadCarrito",
+          url: "https://rpc-computacion.com.ar/Api5/api/Carro/TraerProductosValorCantidadCarrito",
           dataType: "JSON",
           contentType: "application/json",
   
@@ -812,3 +855,4 @@ function QuitarProducto(productoid,cantidad,valor){
     })
     return false;
   }
+  carritoValores();

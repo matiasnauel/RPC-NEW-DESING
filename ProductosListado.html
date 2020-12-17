@@ -44,6 +44,23 @@
         overflow-x: scroll;
     }
 }
+@media(min-width: 1360px) {
+    .barrita-iconito{
+        background-color: red; width: 57.9%; margin-bottom: 0px; margin-top: 40px; padding-bottom: 0px; margin-left: 97px;
+}
+}
+@media(min-width: 1366px) {
+    .barrita-iconito{
+        background-color: red; width: 64%; margin-bottom: 0px; margin-top: 0px; padding-bottom: 0px; margin-left: 0px;
+}
+}
+@media(min-width: 1920px) {
+    .barrita-iconito{
+        background-color: red; width: 57.9%; margin-bottom: 0px; margin-top: 20px; padding-bottom: 0px; margin-left: 97px;
+}
+}
+
+
 </style>
 <body>
     <div class="site-header">
@@ -80,7 +97,7 @@
 
                     </div>
                     <div class="icons-shopping-card" id="icons-shooping-card" onclick="verproductoscarrito();">
-                        <img src="img/carrito-de-compras.png" alt="" id="btnModal" id="carritoComprasBTN">
+                        <img src="img/carrito-de-compras.png" alt="" id="btnModal" onclick="abrirCarrito();">
                         <span id="cantidadCarrito">(0) $0,00</span>              
                       
                           
@@ -147,7 +164,7 @@
         <!--Linea roja-->
         <!--Header-->
         <div class="Barra">
-            <div style="background-color: red; width: 57.1%; margin-bottom: 0px; margin-top: 40px; padding-bottom: 0px; margin-left: 106px;">
+            <div class="barrita-iconito" >
 
             </div>
             <div class="contenedor">
@@ -258,8 +275,9 @@
         <div class="before-footer">
             <div class="information contenedor">
                
-                <a href="https://www.facebook.com/RPC.HardwareConectividad/about/?ref=page_internal">FACEBOOK</a>
-               
+                <a href="https://www.facebook.com/RPC.HardwareConectividad/about/?ref=page_internal"> <span class="fab fa-facebook-square" style="color: white;"></span> FACEBOOK</a>
+                <a href="https://www.instagram.com/rpc.hardyconectividad/?igshid=dnk0sk35ahsn"><span class="fab fa-instagram" style="color: white;"></span> INSTAGRAM</a>
+                <a><span class="fab fa-whatsapp	" style="color: white;"></span> 114888-5866</a>
             </div>
             
             <div class="Maps" id="mapita" >
